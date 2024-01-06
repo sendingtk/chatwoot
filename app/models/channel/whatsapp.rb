@@ -47,7 +47,7 @@ class Channel::Whatsapp < ApplicationRecord
   end
 
   def messaging_window_enabled?
-    true
+    ActiveModel::Type::Boolean.new.cast(ENV.fetch('WHATSAPP_MESSAGE_WINDOW_ENABLED', 'true'))
   end
 
   def mark_message_templates_updated
@@ -61,6 +61,9 @@ class Channel::Whatsapp < ApplicationRecord
   delegate :sync_templates, to: :provider_service
   delegate :media_url, to: :provider_service
   delegate :api_headers, to: :provider_service
+  delegate :message_path, to: :provider_service
+  delegate :message_update_payload, to: :provider_service
+  delegate :message_update_http_method, to: :provider_service
 
   private
 

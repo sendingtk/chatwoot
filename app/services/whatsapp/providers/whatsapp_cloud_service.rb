@@ -59,13 +59,40 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
     "#{api_base_path}/v13.0/#{media_id}"
   end
 
+  def message_update_payload(message)
+    payload = {
+      messaging_product: 'whatsapp',
+      status: message[:status],
+      message_id: message[:source_id],
+      recipient_id: message[:sender][:phone_number]
+    }
+    if message[:conversation][:contact_inbox][:source_id].include?('@g.us')
+      payload.merge({ group_id: message[:conversation][:contact_inbox][:source_id] })
+    end
+    payload
+  end
+
+  def message_update_http_method
+    :post
+  end
+
+  def message_path(_message)
+    messages_path
+  end
+
+  private
+
   def api_base_path
-    ENV.fetch('WHATSAPP_CLOUD_BASE_URL', 'https://graph.facebook.com')
+    whatsapp_channel.provider_config['url'] || ENV.fetch('WHATSAPP_CLOUD_BASE_URL', 'https://graph.facebook.com')
   end
 
   # TODO: See if we can unify the API versions and for both paths and make it consistent with out facebook app API versions
   def phone_id_path
     "#{api_base_path}/v13.0/#{whatsapp_channel.provider_config['phone_number_id']}"
+  end
+
+  def messages_path
+    "#{phone_id_path}/messages"
   end
 
   def business_account_path
@@ -74,18 +101,23 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
 
   def send_text_message(phone_number, message)
     response = HTTParty.post(
-      "#{phone_id_path}/messages",
+      messages_path,
       headers: api_headers,
       body: {
         messaging_product: 'whatsapp',
         context: whatsapp_reply_context(message),
         to: phone_number,
-        text: { body: message.content },
+        text: { body: format_content(message) },
         type: 'text'
       }.to_json
     )
 
     process_response(response)
+  end
+
+  def format_content(message)
+    sender = message&.sender&.try(:available_name) || message&.sender&.name
+    sender ? "*#{sender}*: #{message.content}" : message.content
   end
 
   def send_attachment_message(phone_number, message)

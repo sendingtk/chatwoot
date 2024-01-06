@@ -92,7 +92,7 @@ class Message < ApplicationRecord
     integrations: 10,
     sticker: 11
   }
-  enum status: { sent: 0, delivered: 1, read: 2, failed: 3 }
+  enum status: { progress: -1, sent: 0, delivered: 1, read: 2, failed: 3 }
   # [:submitted_email, :items, :submitted_values] : Used for bot message types
   # [:email] : Used by conversation_continuity incoming email messages
   # [:in_reply_to] : Used to reply to a particular tweet in threads
@@ -101,11 +101,16 @@ class Message < ApplicationRecord
   # [:external_error : Can specify if the message creation failed due to an error at external API
   store :content_attributes, accessors: [:submitted_email, :items, :submitted_values, :email, :in_reply_to, :deleted,
                                          :external_created_at, :story_sender, :story_id, :external_error,
-                                         :translations, :in_reply_to_external_id, :is_unsupported], coder: JSON
+                                         :translations, :in_reply_to_external_id], coder: JSON
 
   store :external_source_ids, accessors: [:slack], coder: JSON, prefix: :external_source_id
 
   scope :created_since, ->(datetime) { where('created_at > ?', datetime) }
+  # .succ is a hack to avoid https://makandracards.com/makandra/1057-why-two-ruby-time-objects-are-not-equal-although-they-appear-to-be
+  scope :unread_since, ->(datetime) { where('EXTRACT(EPOCH FROM created_at) > (?)', datetime.to_i.succ) }
+  scope :to_read, lambda { |datetime|
+    where('EXTRACT(EPOCH FROM updated_at) <= (?) and message_type = 0 and status < 2', datetime.to_i.succ)
+  }
   scope :chat, -> { where.not(message_type: :activity).where(private: false) }
   scope :non_activity_messages, -> { where.not(message_type: :activity).reorder('id desc') }
   scope :today, -> { where("date_trunc('day', created_at) = ?", Date.current) }
@@ -180,6 +185,7 @@ class Message < ApplicationRecord
       id: id,
       inbox: inbox.webhook_data,
       message_type: message_type,
+      status: status,
       private: private,
       sender: sender.try(:webhook_data),
       source_id: source_id

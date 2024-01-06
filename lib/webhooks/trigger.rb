@@ -1,14 +1,16 @@
 class Webhooks::Trigger
   SUPPORTED_ERROR_HANDLE_EVENTS = %w[message_created message_updated].freeze
 
-  def initialize(url, payload, webhook_type)
+  def initialize(url, payload, webhook_type, method, headers)
     @url = url
     @payload = payload
     @webhook_type = webhook_type
+    @method = method
+    @headers = headers
   end
 
-  def self.execute(url, payload, webhook_type)
-    new(url, payload, webhook_type).execute
+  def self.execute(url, payload, webhook_type, method = :post, headers = { content_type: :json, accept: :json })
+    new(url, payload, webhook_type, method, headers).execute
   end
 
   def execute
@@ -22,10 +24,10 @@ class Webhooks::Trigger
 
   def perform_request
     RestClient::Request.execute(
-      method: :post,
+      method: @method,
       url: @url,
       payload: @payload.to_json,
-      headers: { content_type: :json, accept: :json },
+      headers: @headers,
       timeout: 5
     )
   end
