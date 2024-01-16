@@ -313,6 +313,8 @@ export default {
   },
   computed: {
     ...mapGetters({
+//add
+      currentUserRole: 'getCurrentRole',
       currentChat: 'getSelectedChat',
       currentUser: 'getCurrentUser',
       chatLists: 'getAllConversations',
@@ -362,12 +364,18 @@ export default {
         name,
       };
     },
+    //INICIO
     assigneeTabItems() {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
         unassigned: 'unAssignedCount',
-        all: 'allCount',
+        // all: 'allCount',
       };
+
+      if (this.currentUserRole === 'administrator') {
+    ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
+  }
+
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
         return {
@@ -377,6 +385,7 @@ export default {
         };
       });
     },
+//FIM
     showAssigneeInConversationCard() {
       return (
         this.hasAppliedFiltersOrActiveFolders ||
@@ -519,6 +528,9 @@ export default {
     },
   },
   watch: {
+    teamId() {
+      this.updateVirtualListProps('teamId', this.teamId);
+    },
     activeTeam() {
       this.resetAndFetchData();
     },
@@ -571,7 +583,16 @@ export default {
       this.$store.dispatch('conversationPage/reset');
       this.$store.dispatch('emptyAllConversations');
       this.fetchFilteredConversations(payload);
+
+    // adicionado
+
+    const isAvailableForTheUser = this.currentUserRole === 'administrator' ? true : false;
+      if (isAvailableForTheUser) {
+        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
+      }
     },
+    // FIM
+
     onUpdateSavedFilter(payload, folderName) {
       const payloadData = {
         ...this.activeFolder,
@@ -602,7 +623,14 @@ export default {
     onCloseDeleteFoldersModal() {
       this.showDeleteFoldersModal = false;
     },
+
+    // adicionado
     onToggleAdvanceFiltersModal() {
+      if (this.currentUserRole === 'agent') {
+        this.showAdvancedFilters = false;
+      return;
+      }
+
       if (!this.hasAppliedFilters && !this.hasActiveFolders) {
         this.initializeExistingFilterToModal();
       }
@@ -611,6 +639,8 @@ export default {
       }
       this.showAdvancedFilters = true;
     },
+    // fim
+
     closeAdvanceFiltersModal() {
       this.showAdvancedFilters = false;
       this.appliedFilter = [];

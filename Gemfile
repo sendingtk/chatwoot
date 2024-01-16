@@ -153,6 +153,8 @@ gem 'stripe'
 ## to populate db with sample data
 gem 'faker'
 
+gem 'phonelib'
+
 # Include logrange conditionally in intializer using env variable
 gem 'lograge', '~> 0.14.0', require: false
 

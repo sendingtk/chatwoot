@@ -29,14 +29,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      # - name: Strip enterprise code
-      #   run: |
-      #     rm -rf enterprise
-      #     rm -rf spec/enterprise
-
-      # - name: Set Chatwoot edition
-      #   run: |
-      #     echo -en '\nENV CW_EDITION="ce"' >> docker/Dockerfile
 
       - name: set docker tag
         run: |
@@ -58,6 +50,6 @@ jobs:
         with:
           context: .
           file: docker/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ env.DOCKER_TAG }}

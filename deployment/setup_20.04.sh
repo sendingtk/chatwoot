@@ -21,7 +21,6 @@ LONGOPTS=console,debug,help,install,Install:,logs:,restart,ssl,upgrade,webserver
 OPTIONS=cdhiI:l:rsuwv
 CWCTL_VERSION="2.7.0"
 pg_pass=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15 ; echo '')
-#CHATWOOT_HUB_URL="https://hub.2.chatwoot.com/events"
 
 # if user does not specify an option
 if [ "$#" -eq 0 ]; then
