@@ -883,6 +883,27 @@ function webserver() {
 }
 
 ##############################################################################
+# Get installation identifier
+# Globals:
+#   None
+# Arguments:
+#   None
+# Outputs:
+#   installation_identifier
+##############################################################################
+function get_installation_identifier() {
+
+  local installation_identifier
+
+  installation_identifier=$(sudo -i -u chatwoot << "EOF"
+  cd chatwoot
+  RAILS_ENV=production bundle exec rake instance_id:get_installation_identifier
+EOF
+)
+  echo "$installation_identifier"
+}
+
+##############################################################################
 # Print cwctl version (-v/--version)
 # Globals:
 #   None
