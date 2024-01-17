@@ -19,11 +19,11 @@
 - name: BRAND_URL
   value: 'https://www.chatwoot.com'
   display_title: 'Brand URL'
-  description: 'The URL that would be used in emails under the section ìPowered Byî'
+  description: 'The URL that would be used in emails under the section ‚ÄúPowered By‚Äù'
 - name: WIDGET_BRAND_URL
   value: 'https://www.chatwoot.com'
   display_title: 'Widget Brand URL'
-  description: 'The URL that would be used in the widget under the section ìPowered Byî'
+  description: 'The URL that would be used in the widget under the section ‚ÄúPowered By‚Äù'
 - name: BRAND_NAME
   value: 'Chatwoot'
   display_title: 'Brand Name'
@@ -98,7 +98,7 @@
 - name: INSTALLATION_PRICING_PLAN
   value: 'enterprise'
 - name: INSTALLATION_PRICING_PLAN_QUANTITY
-  value: 0
+  value: 10000
 - name: CHATWOOT_SUPPORT_WEBSITE_TOKEN
   value:
 - name: CHATWOOT_SUPPORT_SCRIPT_URL

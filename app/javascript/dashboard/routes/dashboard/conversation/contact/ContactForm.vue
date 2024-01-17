@@ -199,7 +199,7 @@ export default {
         website: '',
       },
       socialProfileKeys: [
-      { key: 'facebook', label: 'https://facebook.com/' },
+      	{ key: 'facebook', label: 'https://facebook.com/' },
         { key: 'twitter', label: 'https://twitter.com/' },
         { key: 'linkedin', label: 'https://linkedin.com/' },
         { key: 'github', label: 'https://github.com/' },
