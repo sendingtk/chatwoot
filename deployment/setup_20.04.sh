@@ -894,21 +894,21 @@ function webserver() {
 # Outputs:
 #   None
 ##############################################################################
-# function report_event() {
-#   local event_name="$1"
-#   local event_data="$2"
+function report_event() {
+  local event_name="$1"
+  local event_data="$2"
 
-#   CHATWOOT_HUB_URL="https://hub.2.chatwoot.com/events"
+  CHATWOOT_HUB_URL="https://google.com"
 
-#   # get installation identifier
-#   local installation_identifier=$(get_installation_identifier)
+  # get installation identifier
+  local installation_identifier=$(get_installation_identifier)
 
-#   # Prepare the data for the request
-#   local data="{\"installation_identifier\":\"$installation_identifier\",\"event_name\":\"$event_name\",\"event_data\":{\"action\":\"$event_data\"}}"
+  # Prepare the data for the request
+  local data="{\"installation_identifier\":\"$installation_identifier\",\"event_name\":\"$event_name\",\"event_data\":{\"action\":\"$event_data\"}}"
 
-#   # Make the curl request to report the event
-#   curl -X POST -H "Content-Type: application/json" -d "$data" "$CHATWOOT_HUB_URL" -s -o /dev/null
-# }
+  # Make the curl request to report the event
+  curl -X POST -H "Content-Type: application/json" -d "$data" "$CHATWOOT_HUB_URL" -s -o /dev/null
+}
 
 
 ##############################################################################

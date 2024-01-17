@@ -3,7 +3,7 @@
     <div class="onboarding">
       <div class="scroll-wrap">
         <div class="features-item">
-          <h1 class="page-title">
+          <h1 class="page-title text-black-900 dark:text-woot-400">
             <span>{{
               $t('ONBOARDING.TITLE', {
                 installationName: globalConfig.installationName,
