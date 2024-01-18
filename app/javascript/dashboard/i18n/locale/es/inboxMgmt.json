@@ -222,6 +222,11 @@
           "PLACEHOLDER": "Por favor, introduzca un nombre de bandeja de entrada",
           "ERROR": "Este campo es obligatorio"
         },
+        "URL": {
+          "LABEL": "Whatsapp Cloud API URL",
+          "PLACEHOLDER": "Please enter an Whatsapp Cloud API URL or use default https://graph.facebook.com",
+          "ERROR": "This field is required"
+        },
         "PHONE_NUMBER": {
           "LABEL": "Número de teléfono",
           "PLACEHOLDER": "Por favor, introduzca el número de teléfono desde el que se enviará el mensaje.",
