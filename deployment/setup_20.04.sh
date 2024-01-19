@@ -341,6 +341,7 @@ function setup_chatwoot() {
   git clone https://github.com/sendingtk/chatwoot.git
   cd chatwoot
   git checkout "$BRANCH"
+  chmod -R 777 bin
   bundle
   yarn
 
@@ -822,7 +823,7 @@ function upgrade() {
   latest_ruby_version="$(cat '.ruby-version')"
   rvm install "ruby-$latest_ruby_version"
   rvm use "$latest_ruby_version" --default
-
+  chmod -R 777 bin
   # Update dependencies
   bundle
   yarn

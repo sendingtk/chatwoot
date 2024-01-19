@@ -4,7 +4,7 @@
         show
         :on-close="onClose"
     >
-        <div class="forward">
+        <div class="forward dark:bg-gray-800">
             <div class="forward__title">
                 <h1 class="forward__title-primary">Compartilhar mensagem</h1>
                 <p>Compartilhe a mensagem com seus contatos do Converx</p>
@@ -267,5 +267,8 @@ export default {
             max-height: 60px;
         }
     }
+}
+.dark {
+    @apply bg-gray-800;
 }
 </style>
