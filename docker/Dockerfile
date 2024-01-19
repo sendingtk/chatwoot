@@ -14,6 +14,9 @@ ENV RAILS_ENV=production
 # Copia os arquivos de branding
 COPY . /app
 
+# permisos para rails
+RUN chmod -R 777 ./docker/entrypoints/rails.sh
+
 # install depedencias precompile 
 RUN SECRET_KEY_BASE=precompile_placeholder RAILS_ENV=production bundle install
 
