@@ -19,6 +19,12 @@
       @close="onCloseTranslateModal"
     />
     <!-- Confirm Deletion -->
+    <!-- Forward Content -->
+    <forward-modal
+      v-if="showForwardModal"
+      :message="message"
+      @close="onCloseForwardModal"
+    />
     <woot-delete-modal
       v-if="showDeleteModal"
       class="context-menu--delete-modal"
@@ -71,6 +77,14 @@
           variant="icon"
           @click="handleTranslate"
         />
+        <menu-item
+          :option="{
+            icon: 'share',
+            label: 'Encaminhar',
+          }"
+          variant="icon"
+          @click="handleForward"
+        />
         <hr />
         <menu-item
           :option="{
@@ -117,12 +131,14 @@ import {
 } from '../../../helper/AnalyticsHelper/events';
 import TranslateModal from 'dashboard/components/widgets/conversation/bubble/TranslateModal.vue';
 import MenuItem from '../../../components/widgets/conversation/contextMenu/menuItem.vue';
+import ForwardModal from 'dashboard/components/widgets/conversation/bubble/ForwardModal.vue';
 
 export default {
   components: {
     AddCannedModal,
     TranslateModal,
     MenuItem,
+    ForwardModal,
   },
   mixins: [alertMixin, clickaway, messageFormatterMixin],
   props: {
@@ -148,6 +164,7 @@ export default {
       isCannedResponseModalOpen: false,
       showTranslateModal: false,
       showDeleteModal: false,
+      showForwardModal: false,
     };
   },
   computed: {
@@ -242,6 +259,14 @@ export default {
     },
     closeDeleteModal() {
       this.showDeleteModal = false;
+    },
+
+    handleForward() {
+      this.handleClose();
+      this.showForwardModal = true;
+    },
+    onCloseForwardModal() {
+      this.showForwardModal = false;
     },
   },
 };
