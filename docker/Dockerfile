@@ -14,6 +14,9 @@ ENV RAILS_ENV=production
 # Copia os arquivos de branding
 COPY . /app
 
+# install depedencias precompile 
+RUN SECRET_KEY_BASE=precompile_placeholder RAILS_ENV=production bundle install
+
 # Limpa os assets do rails
 RUN SECRET_KEY_BASE=precompile_placeholder RAILS_ENV=production bundle exec rake assets:clean
 
