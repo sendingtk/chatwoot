@@ -46,7 +46,7 @@ export default {
         },
         { key: 'line', icon: 'brand-line', link: 'https://line.me/R/ti/p/~' },
         { key: 'telegram', icon: 'brand-telegram', link: 'https://t.me/' },
-        { key: 'phone', icon: 'brand-whatsapp', link: 'https:/wa.me/' },
+        { key: 'phone', icon: 'brand-whatsapp', link: 'https://wa.me/' },
         { key: 'website', icon: 'globe', link: 'https://' },
       ],
     };
