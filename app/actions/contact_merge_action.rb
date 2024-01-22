@@ -37,7 +37,7 @@ class ContactMergeAction
   def merge_contact_notes
     Note.where(contact_id: @mergee_contact.id, account_id: @mergee_contact.account_id).update(contact_id: @base_contact.id)
   end
-  
+
   def merge_messages
     Message.where(sender: @mergee_contact).update(sender: @base_contact)
   end
