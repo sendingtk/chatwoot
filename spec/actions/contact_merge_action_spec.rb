@@ -68,6 +68,18 @@ describe ContactMergeAction do
       end
     end
 
+  
+    context 'when mergee contact has notes' do
+      it 'moves the notes to base contact' do
+        expect(base_contact.notes.count).to be 0
+        expect(mergee_contact.notes.count).to be 2
+
+        contact_merge
+
+        expect(base_contact.reload.notes.count).to be 2
+      end
+    end
+    
     context 'when contacts belong to a different account' do
       it 'throws an exception' do
         new_account = create(:account)
