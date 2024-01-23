@@ -12,7 +12,7 @@ class NotificationListener < BaseListener
       ).perform
     end
   end
-  
+
   def conversation_created(event)
     conversation, account = extract_conversation_and_account(event)
     return if conversation.pending?

@@ -93,7 +93,7 @@ class Whatsapp::IncomingMessageBaseService
 
     @contact_inbox = contact_inbox
     @contact = contact_inbox.contact
-    @sender = contact_inbox.contact
+    @sender = outgoing_message_type? ? nil : contact_inbox.contact
   end
 
   def set_conversation

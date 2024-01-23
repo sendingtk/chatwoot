@@ -10,21 +10,22 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
 
     super
 
-    if group_message?
-      @sender = @contact
-      contact_inbox = ::ContactInboxWithContactBuilder.new(
-        source_id: contact_params[:group_id],
-        inbox: inbox,
-        contact_attributes: {
-          email: contact_params[:group_id],
-          name: contact_params[:group_subject] || contact_params[:group_id],
-          avatar_url: contact_params[:group_picture]
-        }
-      ).perform
+    return unless group_message?
 
-      @contact_inbox = contact_inbox
-      @contact = contact_inbox.contact
-    end
+    @sender = outgoing_message_type? ? nil : @contact
+
+    contact_inbox = ::ContactInboxWithContactBuilder.new(
+      source_id: contact_params[:group_id],
+      inbox: inbox,
+      contact_attributes: {
+        email: contact_params[:group_id],
+        name: contact_params[:group_subject] || contact_params[:group_id],
+        avatar_url: contact_params[:group_picture]
+      }
+    ).perform
+
+    @contact_inbox = contact_inbox
+    @contact = contact_inbox.contact
   end
 
   def processed_params
@@ -69,7 +70,7 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
     contact_params = @processed_params[:contacts]&.first
     return if contact_params.blank?
 
-    !group_message? && @processed_params['metadata']['display_phone_number'].sub('+',
-                                                                                 '') == contact_params[:wa_id] && contact_params[:wa_id] == message[:from]
+    !group_message? &&
+    @processed_params['metadata']['display_phone_number'].sub('+', '') == contact_params[:wa_id] && contact_params[:wa_id] == message[:from]
   end
 end

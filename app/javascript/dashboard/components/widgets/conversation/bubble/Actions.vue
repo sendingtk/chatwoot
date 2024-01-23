@@ -273,7 +273,7 @@ export default {
       }
 
       &.read-indicator {
-        @apply text-green-200 dark:text-green-200;
+        @apply text-green-700 dark:text-green-700;
       }
     }
 
