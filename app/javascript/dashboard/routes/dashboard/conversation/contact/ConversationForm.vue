@@ -258,6 +258,7 @@ import {
   removeSignature,
 } from 'dashboard/helper/editorHelper';
 import uiSettingsMixin from 'dashboard/mixins/uiSettings';
+import Multiselect from 'vue-multiselect';
 
 export default {
   components: {
@@ -270,6 +271,7 @@ export default {
     FileUpload,
     AttachmentPreview,
     MessageSignatureMissingAlert,
+    Multiselect,
   },
   mixins: [alertMixin, uiSettingsMixin, inboxMixin, fileUploadMixin],
   props: {
@@ -298,6 +300,15 @@ export default {
       targetInbox: {},
       whatsappTemplateSelected: false,
       attachedFiles: [],
+      value: [{ name: this.contact.name, id: this.contact.id }],
+      whatsappContacts: [],
+      selectedContacts: [
+        {
+          name: this.contact.name,
+          id: this.contact.id,
+          phone_number: this.contact.phone_number,
+        },
+      ],
     };
   },
   validations: {
@@ -318,6 +329,7 @@ export default {
       currentUser: 'getCurrentUser',
       globalConfig: 'globalConfig/get',
       messageSignature: 'getMessageSignature',
+      getWhatsappContacts: 'contacts/getWhatsappContacts',
     }),
     sendWithSignature() {
       return this.fetchSignatureFlagFromUiSettings(this.channelType);
@@ -429,11 +441,21 @@ export default {
     targetInbox() {
       this.setSignature();
     },
+    getWhatsappContacts: {
+      handler() {
+        this.whatsappContacts = this.getWhatsappContacts;
+      },
+    },
   },
   mounted() {
     this.setSignature();
+    this.setWhatsappContacts();
   },
   methods: {
+    addContact(newValue) {
+      this.whatsappContacts.push(newValue);
+      this.selectedContacts.push(newValue);
+    },
     setSignature() {
       if (this.messageSignature) {
         if (this.isSignatureEnabledForInbox) {
@@ -442,6 +464,10 @@ export default {
           this.message = removeSignature(this.message, this.signatureToApply);
         }
       }
+    },
+    setWhatsappContacts() {
+      this.$store.dispatch('contacts/fetchWhatsappContacts');
+      this.whatsappContacts = this.getWhatsappContacts;
     },
     setAttachmentPayload(payload) {
       this.attachedFiles.forEach(attachment => {
@@ -483,13 +509,35 @@ export default {
       this.showCannedMenu = value;
     },
     prepareWhatsAppMessagePayload({ message: content, templateParams }) {
-      const payload = {
-        inboxId: this.targetInbox.id,
-        sourceId: this.targetInbox.sourceId,
-        contactId: this.contact.id,
-        message: { content, template_params: templateParams },
-        assigneeId: this.currentUser.id,
-      };
+      let payload = {};
+      let inboxId = this.targetInbox.id;
+      let assigneeId = this.currentUser.id;
+      if (this.selectedContacts.length > 1) {
+        let bulkContacts = [];
+        this.selectedContacts.forEach(function (item) {
+          let contactPayload = {
+            inbox_id: inboxId,
+            source_id: item.phone_number.slice(1),
+            contact_id: item.id,
+            message: { content, template_params: templateParams },
+            assignee_id: assigneeId,
+          };
+          bulkContacts.push(contactPayload);
+        });
+        payload = {
+          bulkContacts: bulkContacts,
+          inboxId: inboxId,
+          message: { content, template_params: templateParams },
+        };
+      } else {
+        payload = {
+          inboxId: inboxId,
+          sourceId: this.targetInbox.sourceId,
+          contactId: this.contact.id,
+          message: { content, template_params: templateParams },
+          assigneeId: assigneeId,
+        };
+      }
       return payload;
     },
     onFormSubmit() {
