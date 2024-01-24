@@ -14,7 +14,6 @@ module AccessTokenAuthHelper
     render_unauthorized('Invalid Access Token') && return if @access_token.blank?
 
     @resource = @access_token.owner
-    #Current.user = @resource if current_user.is_a?(User)
     Current.user = @resource if allowed_current_user_type?(@resource)
   end
 
