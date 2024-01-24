@@ -32,8 +32,7 @@ export const createConversationPayload = ({ params, contactId, files }) => {
 };
 
 export const createWhatsAppConversationPayload = ({ params }) => {
-  const { inboxId, message, contactId, sourceId, assigneeId, bulkContacts } =
-    params;
+  const { inboxId, message, contactId, sourceId, assigneeId } = params;
 
   const payload = {
     inbox_id: inboxId,
@@ -41,7 +40,6 @@ export const createWhatsAppConversationPayload = ({ params }) => {
     source_id: sourceId,
     message,
     assignee_id: assigneeId,
-    bulk_contacts: bulkContacts,
   };
 
   return payload;

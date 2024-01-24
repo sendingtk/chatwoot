@@ -3,10 +3,6 @@ class ContactPolicy < ApplicationPolicy
     true
   end
 
-  def all_contacts?
-    true
-  end
-
   def active?
     true
   end
