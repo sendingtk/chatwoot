@@ -159,6 +159,7 @@ class Whatsapp::IncomingMessageBaseService
       created_at: Time.at(message[:timestamp], in: 'UTC'),
       in_reply_to_external_id: @in_reply_to_external_id
     )
+    @message
   end
 
   def attach_contact(contact)
