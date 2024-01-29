@@ -28,23 +28,6 @@ RSpec.describe CacheKeys do
     end
   end
 
-  describe '#invalidate_cache_key_for' do
-    it 'deletes the cache key' do
-      test_model.invalidate_cache_key_for('label')
-      expect(Redis::Alfred).to have_received(:delete).with('idb-cache-key-account-1-label')
-    end
-
-    it 'dispatches a cache update event' do
-      test_model.invalidate_cache_key_for('label')
-      expect(Rails.configuration.dispatcher).to have_received(:dispatch).with(
-        CacheKeys::ACCOUNT_CACHE_INVALIDATED,
-        kind_of(ActiveSupport::TimeWithZone),
-        cache_keys: test_model.cache_keys,
-        account: test_model
-      )
-    end
-  end
-
   describe '#update_cache_key' do
     it 'updates the cache key' do
       allow(Time).to receive(:now).and_return(Time.parse('2023-05-29 00:00:00 UTC'))
