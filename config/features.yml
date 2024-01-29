@@ -61,5 +61,13 @@
   enabled: true
 - name: insert_article_in_reply
   enabled: false
+- name: hide_all_chats_for_agent
+  enabled: false
+- name: hide_contacts_for_agent
+  enabled: false
+- name: hide_filters_for_agent
+  enabled: false
 - name: send_agent_name_in_whatsapp_message
+  enabled: true
+- name: read_message
   enabled: true

@@ -29,7 +29,9 @@
         </span>
       </div>
       <div class="flex items-center gap-1">
-        <div v-if="hasAppliedFilters && !hasActiveFolders">
+        <div
+          v-if="hasAppliedFilters && !hasActiveFolders && !hideFiltersForAgents"
+        >
           <woot-button
             v-tooltip.top-end="$t('FILTER.CUSTOM_VIEWS.ADD.SAVE_BUTTON')"
             size="tiny"
@@ -313,8 +315,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-//add
-      currentUserRole: 'getCurrentRole',
       currentChat: 'getSelectedChat',
       currentUser: 'getCurrentUser',
       chatLists: 'getAllConversations',
@@ -333,7 +333,26 @@ export default {
       inboxesList: 'inboxes/getInboxes',
       campaigns: 'campaigns/getAllCampaigns',
       labels: 'labels/getLabels',
+      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
+      currentRole: 'getCurrentRole',
+      accountId: 'getCurrentAccountId',
     }),
+    hideAllChatsForAgents() {
+      return (
+        this.isFeatureEnabledonAccount(
+          this.accountId,
+          'hide_all_chats_for_agent'
+        ) && this.currentRole !== 'administrator'
+      );
+    },
+    hideFiltersForAgents() {
+      return (
+        this.isFeatureEnabledonAccount(
+          this.accountId,
+          'hide_filters_for_agent'
+        ) && this.currentRole !== 'administrator'
+      );
+    },
     hasAppliedFilters() {
       return this.appliedFilters.length !== 0;
     },
@@ -364,18 +383,15 @@ export default {
         name,
       };
     },
-    //INICIO
     assigneeTabItems() {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
         unassigned: 'unAssignedCount',
         // all: 'allCount',
       };
-
-      if (this.currentUserRole === 'administrator') {
-    ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
-  }
-
+      if (!this.hideAllChatsForAgents) {
+        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
+      }
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
         return {
@@ -385,7 +401,6 @@ export default {
         };
       });
     },
-//FIM
     showAssigneeInConversationCard() {
       return (
         this.hasAppliedFiltersOrActiveFolders ||
@@ -558,6 +573,7 @@ export default {
   },
   mounted() {
     this.setFiltersFromUISettings();
+    this.initializeAccount();
     this.$store.dispatch('setChatStatusFilter', this.activeStatus);
     this.$store.dispatch('setChatSortFilter', this.activeSortBy);
     this.resetAndFetchData();
@@ -571,6 +587,14 @@ export default {
     });
   },
   methods: {
+    async initializeAccount() {
+      try {
+        const { features } = this.getAccount(this.accountId);
+        this.features = features;
+      } catch (error) {
+        // Ignore error
+      }
+    },
     updateVirtualListProps(key, value) {
       this.virtualListExtraProps = {
         ...this.virtualListExtraProps,
@@ -583,16 +607,7 @@ export default {
       this.$store.dispatch('conversationPage/reset');
       this.$store.dispatch('emptyAllConversations');
       this.fetchFilteredConversations(payload);
-
-    // adicionado
-
-    const isAvailableForTheUser = this.currentUserRole === 'administrator' ? true : false;
-      if (isAvailableForTheUser) {
-        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
-      }
     },
-    // FIM
-
     onUpdateSavedFilter(payload, folderName) {
       const payloadData = {
         ...this.activeFolder,
@@ -623,14 +638,7 @@ export default {
     onCloseDeleteFoldersModal() {
       this.showDeleteFoldersModal = false;
     },
-
-    // adicionado
     onToggleAdvanceFiltersModal() {
-      if (this.currentUserRole === 'agent') {
-        this.showAdvancedFilters = false;
-      return;
-      }
-
       if (!this.hasAppliedFilters && !this.hasActiveFolders) {
         this.initializeExistingFilterToModal();
       }
@@ -639,8 +647,6 @@ export default {
       }
       this.showAdvancedFilters = true;
     },
-    // fim
-
     closeAdvanceFiltersModal() {
       this.showAdvancedFilters = false;
       this.appliedFilter = [];
