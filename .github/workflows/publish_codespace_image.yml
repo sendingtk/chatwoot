@@ -5,7 +5,8 @@ on:
 
 jobs:
   publish-code-space-image:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v2
