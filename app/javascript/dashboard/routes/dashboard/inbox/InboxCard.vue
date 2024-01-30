@@ -1,4 +1,5 @@
 <script setup>
+// import { defineProps } from 'vue';
 import { defineProps, ref, onBeforeUnmount } from 'vue';
 
 import PriorityIcon from './components/PriorityIcon.vue';
