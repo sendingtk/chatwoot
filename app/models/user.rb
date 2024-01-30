@@ -168,3 +168,4 @@ class User < ApplicationRecord
 end
 
 User.include_mod_with('Audit::User')
+User.include_mod_with('Concerns::User')
