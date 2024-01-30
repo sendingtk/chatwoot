@@ -47,8 +47,6 @@
   enabled: true
 - name: crm
   enabled: true
-- name: auto_resolve_conversations
-  enabled: true
 - name: custom_reply_email
   enabled: false
 - name: custom_reply_domain
@@ -63,13 +61,15 @@
   enabled: false
 - name: inbox_view
   enabled: false
-- name: hide_filters_for_agent
-  enabled: false
-- name: send_agent_name_in_whatsapp_message
-  enabled: true
 - name: read_message
   enabled: true
+- name: hide_filters_for_agent
+  enabled: false
 - name: hide_all_chats_for_agent
   enabled: false
 - name: hide_contacts_for_agent
   enabled: false
+- name: auto_resolve_conversations
+  enabled: true
+- name: send_agent_name_in_whatsapp_message
+  enabled: true
