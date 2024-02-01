@@ -74,3 +74,5 @@
   enabled: true
 - name: send_agent_name_in_whatsapp_message
   enabled: true
+- name: disable_whatsapp_messaging_window
+  enabled: false

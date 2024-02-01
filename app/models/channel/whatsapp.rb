@@ -47,7 +47,7 @@ class Channel::Whatsapp < ApplicationRecord
   end
 
   def messaging_window_enabled?
-    ActiveModel::Type::Boolean.new.cast(ENV.fetch('WHATSAPP_MESSAGE_WINDOW_ENABLED', 'true'))
+    !!account.feature_enabled?('disable_whatsapp_messaging_window')
   end
 
   def mark_message_templates_updated
