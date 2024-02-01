@@ -1,10 +1,7 @@
 <template>
   <li v-if="shouldRenderMessage" :id="`message${data.id}`" :class="alignBubble">
     <div :class="wrapClass">
-      <div
-        v-if="isFailed && !hasOneDayPassed && !isAnEmailInbox"
-        class="message-failed--alert"
-      >
+      <div v-if="isFailed && !hasOneDayPassed && !isAnEmailInbox" class="message-failed--alert">
         <woot-button
           v-tooltip.top-end="$t('CONVERSATION.TRY_AGAIN')"
           size="tiny"
