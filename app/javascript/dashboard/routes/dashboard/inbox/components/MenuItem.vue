@@ -1,12 +1,15 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
+
 defineProps({
   label: {
     type: String,
     default: '',
   },
 });
+
 const emits = defineEmits(['click']);
+
 const onMenuItemClick = () => {
   emits('click');
 };
