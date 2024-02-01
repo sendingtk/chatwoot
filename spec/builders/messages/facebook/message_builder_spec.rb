@@ -28,8 +28,7 @@ describe Messages::Facebook::MessageBuilder do
       contact = facebook_channel.inbox.contacts.first
       message = facebook_channel.inbox.messages.first
 
-      expect(contact.name).to eq('Jane')
-      expect(contact.last_name).to eq('Dae')
+      expect(contact.name).to eq('Jane Dae')
       expect(message.content).to eq('facebook message')
     end
 
@@ -54,11 +53,10 @@ describe Messages::Facebook::MessageBuilder do
 
       contact = facebook_channel.inbox.contacts.first
       # Refer: https://github.com/chatwoot/chatwoot/pull/3016 for this check
-      default_name = 'John'
+      default_name = 'John Doe'
 
       expect(facebook_channel.inbox.reload.contacts.count).to eq(1)
       expect(contact.name).to eq(default_name)
-      expect(contact.last_name).to eq(default_name)
     end
   end
 end
