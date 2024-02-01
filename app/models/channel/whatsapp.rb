@@ -72,6 +72,9 @@ class Channel::Whatsapp < ApplicationRecord
   end
 
   def validate_provider_config
-    errors.add(:provider_config, 'Invalid Credentials') unless provider_service.validate_provider_config?
+  rescue HTTParty::Error => e
+    errors.add(:provider_config, e.message)
+  rescue SocketError, Errno::ECONNREFUSED
+    errors.add(:provider_config, 'Conection refused, verify Whatsapp Cloud API URL field')
   end
 end
