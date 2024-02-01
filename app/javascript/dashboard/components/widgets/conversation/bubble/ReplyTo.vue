@@ -6,7 +6,9 @@
         messageType === MESSAGE_TYPE.INCOMING,
       'bg-woot-600 text-woot-50': messageType === MESSAGE_TYPE.OUTGOING,
       '-mx-2': message.content,
+      'bg-red-500': isScrolling,
     }"
+    :style="{ backgroundColor: backgroundColor }"
     @click="scrollToMessage"
   >
     <message-preview
@@ -42,11 +44,21 @@ export default {
     },
   },
   data() {
-    return { MESSAGE_TYPE };
+    return {
+      MESSAGE_TYPE,
+      isScrolling: false,
+      backgroundColor: null,
+    };
   },
   methods: {
     scrollToMessage() {
+      this.isScrolling = true;
+      this.backgroundColor = 'bg-red-500';
       bus.$emit(BUS_EVENTS.SCROLL_TO_MESSAGE, { messageId: this.message.id });
+      setTimeout(() => {
+        this.backgroundColor = null;
+        this.isScrolling = false;
+      }, 2000);
     },
   },
 };
