@@ -5,7 +5,7 @@
     @close="handleClose"
   >
     <div
-      class="bg-white dark:bg-slate-900 w-40 py-1 border shadow-md border-slate-100 dark:border-slate-500 rounded-xl"
+      class="bg-white dark:bg-slate-900 w-40 py-1 border shadow-md border-slate-100 dark:border-slate-700/50 rounded-xl"
     >
       <menu-item
         v-for="item in menuItems"
@@ -28,28 +28,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
-  },
-  data() {
-    return {
-      menuItems: [
-        {
-          key: 'mark_as_read',
-          label: this.$t('INBOX.MENU_ITEM.MARK_AS_READ'),
-        },
-        {
-          key: 'mark_as_unread',
-          label: this.$t('INBOX.MENU_ITEM.MARK_AS_UNREAD'),
-        },
-        {
-          key: 'snooze',
-          label: this.$t('INBOX.MENU_ITEM.SNOOZE'),
-        },
-        {
-          key: 'delete',
-          label: this.$t('INBOX.MENU_ITEM.DELETE'),
-        },
-      ],
-    };
+    menuItems: {
+      type: Array,
+      default: () => [],
+    },
   },
   methods: {
     handleClose() {
