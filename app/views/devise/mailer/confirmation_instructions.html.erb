@@ -1,20 +1,20 @@
-<p>Hi <%= @resource.name %>,</p>
+<p>Olá <%= @resource.name %>,</p>
 
 <% account_user = @resource&.account_users&.first %>
 
 <% if account_user&.inviter.present? && @resource.unconfirmed_email.blank? %>
-  <p><%= account_user.inviter.name %>, with <%= account_user.account.name %>, has invited you to try out <%= global_config['BRAND_NAME'] || 'Chatwoot' %>.</p>
+  <p><%= account_user.inviter.name %>, com <%= account_user.account.name %>, convidou você para experimentar <%= global_config['BRAND_NAME'] || 'Chatwoot' %>.</p>
 <% end %>
 
 <% if @resource.confirmed? %>
-  <p>You can login to your <%= global_config['BRAND_NAME'] || 'Chatwoot' %> account through the link below:</p>
+  <p>Você pode fazer login no seu <%= global_config['BRAND_NAME'] || 'Chatwoot' %> conta através do link abaixo:</p>
 <% else %>
   <% if account_user&.inviter.blank? %>
   <p>
-    Welcome to <%= global_config['BRAND_NAME'] || 'Chatwoot' %>! We have a suite of powerful tools ready for you to explore. Before that we quickly need to verify your email address to know it's really you.
+    Bem-vindo ao <%= global_config['BRAND_NAME'] || 'Chatwoot' %>! Temos um conjunto de ferramentas poderosas prontas para você explorar. Antes disso, precisamos verificar rapidamente seu endereço de e-mail para saber que é realmente você.
   </p>
   <% end %>
-  <p>Please take a moment and click the link below and activate your account.</p>
+  <p>Por favor, reserve um momento e clique no link abaixo e ative sua conta.</p>
 <% end %>
 
 
