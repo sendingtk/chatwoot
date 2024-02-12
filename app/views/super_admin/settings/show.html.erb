@@ -50,7 +50,7 @@
       </a>
     </div>
 
-    <% if ChatwootHub.pricing_plan != 'community' &&  User.count > ChatwootHub.pricing_plan_quantity %>
+    <% if ChatwootHub.pricing_plan != 'community' && User.count > ChatwootHub.pricing_plan_quantity %>
     <div role="alert">
       <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
         <p>You have <%= User.count %> agents. Please add more licenses to add more users.</p>
@@ -99,9 +99,9 @@
           <% end %>
           <div class="flex items-center justify-between mb-1.5 mt-4">
             <div class="flex items-center gap-2">
-              <h3 class="text-slate-900 font-medium"><%= attrs[:name] %></h3> 
+              <h3 class="text-slate-900 font-medium"><%= attrs[:name] %></h3>
               <% if attrs[:enterprise] %>
-                <span class="px-2 h-4 leading-4 rounded-xl text-green-800 font-medium bg-green-100/70 text-xxs">EE</span>  
+                <span class="px-2 h-4 leading-4 rounded-xl text-green-800 font-medium bg-green-100/70 text-xxs">EE</span>
               <% end %>
               <% if attrs[:config_key].present? && attrs[:enabled] %>
                 <a class="inline-flex items-center justify-center h-5 w-5 hover:bg-slate-50 rounded-sm" href="/super_admin/app_config?config=<%= attrs[:config_key] %>">
