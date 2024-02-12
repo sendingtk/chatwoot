@@ -323,7 +323,6 @@ const actions = {
       inbox_id: inboxId,
       meta: { sender },
     } = conversation;
-
     const hasAppliedFilters = !!appliedFilters.length;
     const isMatchingInboxFilter =
       !currentInbox || Number(currentInbox) === inboxId;

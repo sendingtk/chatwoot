@@ -11,7 +11,6 @@ describe('#isOnMentionsView', () => {
   });
 });
 
-
 describe('#isOnFoldersView', () => {
   it('return valid responses when passing the state', () => {
     expect(isOnFoldersView({ route: { name: 'folder_conversations' } })).toBe(
