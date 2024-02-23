@@ -176,7 +176,7 @@ export default {
   data() {
     return {
       isWidgetPreview: true,
-      color: ENV.fetch('CORES_COLOR', '#1f93ff'),
+      color: '#1f93ff',
       websiteName: '',
       welcomeHeading: '',
       welcomeTagline: '',

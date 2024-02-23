@@ -143,7 +143,7 @@ export default {
     return {
       inboxName: '',
       channelWebsiteUrl: '',
-      channelWidgetColor: ENV.fetch('CORES_COLOR', '#1f93ff'),
+      channelWidgetColor: '#009CE0',
       channelWelcomeTitle: '',
       channelWelcomeTagline: '',
       greetingEnabled: false,
