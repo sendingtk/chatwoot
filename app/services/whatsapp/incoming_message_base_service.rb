@@ -147,6 +147,7 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_message(message)
+    timestamp = message[:timestamp] ? message[:timestamp].to_i : Time.now.to_i
     @message = @conversation.messages.build(
       content: message_content(message),
       account_id: @inbox.account_id,
@@ -154,8 +155,10 @@ class Whatsapp::IncomingMessageBaseService
       message_type: @message_type,
       sender: @sender,
       source_id: message[:id].to_s,
+      created_at: Time.at(timestamp, in: 'UTC'),
       in_reply_to_external_id: @in_reply_to_external_id
     )
+    @message
   end
 
   def attach_contact(contact)

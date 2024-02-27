@@ -54,8 +54,7 @@ class Api::V1::Accounts::NotificationsController < Api::V1::Accounts::BaseContro
   end
 
   def snooze
-    updated_meta = (@notification.meta || {}).merge('last_snoozed_at' => nil)
-    @notification.update(snoozed_until: parse_date_time(params[:snoozed_until].to_s), meta: updated_meta) if params[:snoozed_until]
+    @notification.update(snoozed_until: parse_date_time(params[:snoozed_until].to_s)) if params[:snoozed_until]
     render json: @notification
   end
 

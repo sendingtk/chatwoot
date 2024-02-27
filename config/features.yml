@@ -81,3 +81,5 @@
   enabled: true
 - name: disable_whatsapp_messaging_window
   enabled: false
+- name: agent_conversation_viewed
+  enabled: true
