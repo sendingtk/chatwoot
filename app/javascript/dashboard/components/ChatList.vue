@@ -1,6 +1,6 @@
 <template>
   <div
-    class="conversations-list-wrap flex-basis-clamp flex-shrink-0 flex-basis-custom overflow-hidden flex flex-col border-r rtl:border-r-0 rtl:border-l border-slate-50 dark:border-slate-800/50"
+    class="conversations-list-wrap flex-basis-clamp flex-shrink-0 overflow-hidden flex flex-col border-r rtl:border-r-0 rtl:border-l border-slate-50 dark:border-slate-800/50"
     :class="{
       hide: !showConversationList,
       'list--full-width': isOnExpandedLayout,
@@ -16,7 +16,7 @@
     >
       <div class="flex max-w-[85%] justify-center items-center">
         <h1
-          class="text-xl break-words overflow-hidden whitespace-nowrap text-ellipsis text-black-900 dark:text-slate-100 mb-0"
+          class="text-xl break-words overflow-hidden whitespace-nowrap font-medium text-ellipsis text-black-900 dark:text-slate-100 mb-0"
           :title="pageTitle"
         >
           {{ pageTitle }}
@@ -29,9 +29,7 @@
         </span>
       </div>
       <div class="flex items-center gap-1">
-        <div
-          v-if="hasAppliedFilters && !hasActiveFolders && !hideFiltersForAgents"
-        >
+        <div v-if="hasAppliedFilters && !hasActiveFolders">
           <woot-button
             v-tooltip.top-end="$t('FILTER.CUSTOM_VIEWS.ADD.SAVE_BUTTON')"
             size="tiny"
@@ -145,7 +143,10 @@
           <div v-if="chatListLoading" class="text-center">
             <span class="spinner mt-4 mb-4" />
           </div>
-          <p v-if="showEndOfListMessage" class="text-center text-muted p-4">
+          <p
+            v-if="showEndOfListMessage"
+            class="text-center text-slate-400 dark:text-slate-300 p-4"
+          >
             {{ $t('CHAT_LIST.EOF') }}
           </p>
           <intersection-observer
@@ -333,26 +334,7 @@ export default {
       inboxesList: 'inboxes/getInboxes',
       campaigns: 'campaigns/getAllCampaigns',
       labels: 'labels/getLabels',
-      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
-      currentRole: 'getCurrentRole',
-      accountId: 'getCurrentAccountId',
     }),
-    hideAllChatsForAgents() {
-      return (
-        this.isFeatureEnabledonAccount(
-          this.accountId,
-          'hide_all_chats_for_agent'
-        ) && this.currentRole !== 'administrator'
-      );
-    },
-    hideFiltersForAgents() {
-      return (
-        this.isFeatureEnabledonAccount(
-          this.accountId,
-          'hide_filters_for_agent'
-        ) && this.currentRole !== 'administrator'
-      );
-    },
     hasAppliedFilters() {
       return this.appliedFilters.length !== 0;
     },
@@ -387,11 +369,8 @@ export default {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
         unassigned: 'unAssignedCount',
-        // all: 'allCount',
+        all: 'allCount',
       };
-      if (!this.hideAllChatsForAgents) {
-        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
-      }
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
         return {
@@ -573,7 +552,6 @@ export default {
   },
   mounted() {
     this.setFiltersFromUISettings();
-    this.initializeAccount();
     this.$store.dispatch('setChatStatusFilter', this.activeStatus);
     this.$store.dispatch('setChatSortFilter', this.activeSortBy);
     this.resetAndFetchData();
@@ -587,14 +565,6 @@ export default {
     });
   },
   methods: {
-    async initializeAccount() {
-      try {
-        const { features } = this.getAccount(this.accountId);
-        this.features = features;
-      } catch (error) {
-        // Ignore error
-      }
-    },
     updateVirtualListProps(key, value) {
       this.virtualListExtraProps = {
         ...this.virtualListExtraProps,
