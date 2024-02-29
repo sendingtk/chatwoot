@@ -29,7 +29,7 @@ class Webhooks::Trigger
       url: @url,
       payload: @payload.to_json,
       headers: @headers,
-      timeout: 25
+      timeout: 35
     )
   end
 

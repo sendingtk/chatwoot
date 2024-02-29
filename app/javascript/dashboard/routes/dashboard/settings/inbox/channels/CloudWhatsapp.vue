@@ -85,7 +85,7 @@
       </label>
     </div>
 
-    <div class="medium-8 columns">
+    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
       <label :class="{ error: $v.url.$error }">
         {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.LABEL') }}
         <fieldset>
@@ -105,7 +105,7 @@
       </label>
     </div>
 
-    <div class="medium-12 columns">
+    <div class="w-full">
       <woot-submit-button
         :loading="uiFlags.isCreating"
         :button-text="$t('INBOX_MGMT.ADD.WHATSAPP.SUBMIT_BUTTON')"
