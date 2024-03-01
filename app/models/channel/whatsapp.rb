@@ -47,7 +47,7 @@ class Channel::Whatsapp < ApplicationRecord
   end
 
   def messaging_window_enabled?
-    !account.feature_enabled?('disable_whatsapp_messaging_window')
+    provider_config['url'] == 'https://graph.facebook.com'
   end
 
   def mark_message_templates_updated
