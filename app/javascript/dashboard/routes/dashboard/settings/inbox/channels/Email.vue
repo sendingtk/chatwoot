@@ -11,10 +11,9 @@
       <channel-selector
         v-for="emailProvider in emailProviderList"
         :key="emailProvider.key"
-        :class="{ inactive: !emailProvider.isEnabled }"
         :title="emailProvider.title"
         :src="emailProvider.src"
-        @click="() => onClick(emailProvider)"
+        @click="() => onClick(emailProvider.key)"
       />
     </div>
   </div>
@@ -54,14 +53,12 @@ export default {
           key: 'other_provider',
           src: '/assets/images/dashboard/channels/email.png',
         },
-      ];
+      ].filter(provider => provider.isEnabled);
     },
   },
   methods: {
-    onClick(emailProvider) {
-      if (emailProvider.isEnabled) {
-        this.provider = emailProvider.key;
-      }
+    onClick(provider) {
+      this.provider = provider;
     },
   },
 };
