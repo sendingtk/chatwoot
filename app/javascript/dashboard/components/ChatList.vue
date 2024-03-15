@@ -16,7 +16,7 @@
     >
       <div class="flex max-w-[85%] justify-center items-center">
         <h1
-          class="text-xl break-words overflow-hidden whitespace-nowrap text-ellipsis text-black-900 dark:text-slate-100 mb-0"
+          class="text-xl break-words overflow-hidden whitespace-nowrap font-medium text-ellipsis text-black-900 dark:text-slate-100 mb-0"
           :title="pageTitle"
         >
           {{ pageTitle }}
@@ -29,7 +29,9 @@
         </span>
       </div>
       <div class="flex items-center gap-1">
-        <div v-if="hasAppliedFilters && !hasActiveFolders && !hideFiltersForAgents">
+        <div
+          v-if="hasAppliedFilters && !hasActiveFolders && !hideFiltersForAgents"
+        >
           <woot-button
             v-tooltip.top-end="$t('FILTER.CUSTOM_VIEWS.ADD.SAVE_BUTTON')"
             size="tiny"
@@ -143,7 +145,10 @@
           <div v-if="chatListLoading" class="text-center">
             <span class="spinner mt-4 mb-4" />
           </div>
-          <p v-if="showEndOfListMessage" class="text-center text-muted p-4">
+          <p
+            v-if="showEndOfListMessage"
+            class="text-center text-slate-400 dark:text-slate-300 p-4"
+          >
             {{ $t('CHAT_LIST.EOF') }}
           </p>
           <intersection-observer
@@ -385,7 +390,7 @@ export default {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
         unassigned: 'unAssignedCount',
-        // all: 'allCount',
+        //all: 'allCount',
       };
       if (!this.hideAllChatsForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';

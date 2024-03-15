@@ -68,8 +68,7 @@ class User < ApplicationRecord
   # work because :validatable in devise overrides this.
   # validates_uniqueness_of :email, scope: :account_id
 
-  validates :email, :name, presence: true
-  validates_length_of :name, minimum: 1, maximum: 255
+  validates :email, presence: true
 
   has_many :account_users, dependent: :destroy_async
   has_many :accounts, through: :account_users
@@ -157,11 +156,8 @@ class User < ApplicationRecord
     mutations_from_database.changed?('email')
   end
 
-  def notifications_meta(account_id)
-    {
-      unread_count: notifications.where(account_id: account_id, read_at: nil).count,
-      count: notifications.where(account_id: account_id).count
-    }
+  def self.from_email(email)
+    find_by(email: email.downcase)
   end
 
   private

@@ -66,6 +66,9 @@
   enabled: false
 - name: inbox_view
   enabled: false
+- name: sla
+  enabled: false
+  premium: true
 - name: hide_all_chats_for_agent
   enabled: false
 - name: hide_contacts_for_agent
@@ -78,3 +81,5 @@
   enabled: true
 - name: disable_whatsapp_messaging_window
   enabled: false
+- name: agent_conversation_viewed
+  enabled: true

@@ -34,7 +34,7 @@
         "ERROR": ""
       },
       "SUPPORT_EMAIL": {
-        "LABEL": "Email de soporte", 
+        "LABEL": "Email de soporte",
         "PLACEHOLDER": "Email de soporte de su empresa",
         "ERROR": ""
       },
@@ -113,7 +113,7 @@
       "SETTINGS": "Ajustes",
       "AI_ASSIST": "Asistencia AI",
       "APPEARANCE": "Apariencia",
-      "SNOOZE_NOTIFICATION": "Snooze Notification"
+      "SNOOZE_NOTIFICATION": "Posponer notificación"
     },
     "COMMANDS": {
       "GO_TO_CONVERSATION_DASHBOARD": "Ir al panel de conversaciones",
@@ -155,7 +155,7 @@
       "LIGHT_MODE": "Claro",
       "DARK_MODE": "Oscuro",
       "SYSTEM_MODE": "Sistema",
-      "SNOOZE_NOTIFICATION": "Snooze Notification"
+      "SNOOZE_NOTIFICATION": "Posponer notificación"
     }
   },
   "DASHBOARD_APPS": {
