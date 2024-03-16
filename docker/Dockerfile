@@ -49,7 +49,7 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
   fi
 
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --network-timeout 1000000
 
 COPY . /app
 

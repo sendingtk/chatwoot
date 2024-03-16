@@ -6,7 +6,7 @@ RAILS_ENV ?= development
 setup:
 	gem install bundler
 	bundle install
-	yarn install
+	yarn install --network-timeout 1000000 
 
 db_create:
 	RAILS_ENV=$(RAILS_ENV) bundle exec rails db:create
