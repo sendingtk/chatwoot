@@ -4,7 +4,7 @@
 # # and when tags are created.
 # #
 
-name: Publish Chatwoot CE docker images for AMD64
+name: Publish Chatwoot CE docker images for ARM64
 on:
   push:
     branches:
@@ -16,8 +16,8 @@ on:
 
 jobs:
   build:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     env:
       GIT_REF: ${{ github.head_ref || github.ref_name }} # ref_name to get tags/branches
     steps:
@@ -33,25 +33,24 @@ jobs:
 
       - name: set docker tag
         run: |
-          echo "DOCKER_TAG=sendingtk/chatwoot:$GIT_REF" >> $GITHUB_ENV
+          echo "DOCKER_ARM_TAG=sendingtk/chatwoot-arm:$GIT_REF" >> $GITHUB_ENV
 
       - name: replace docker tag if master
         if: github.ref_name == 'master'
         run: |
-          echo "DOCKER_TAG=sendingtk/chatwoot:latest" >> $GITHUB_ENV
+          echo "DOCKER_ARM_TAG=sendingtk/chatwoot-arm:latest" >> $GITHUB_ENV
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and push amd64 image
+      
+      - name: Build and push arm64 image
         uses: docker/build-push-action@v2
         with:
           context: .
           file: docker/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: true
-          tags: ${{ env.DOCKER_TAG }}
-      
+          tags: ${{ env.DOCKER_ARM_TAG }}
