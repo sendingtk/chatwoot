@@ -194,7 +194,7 @@ export default {
                 left: 10px;
                 right: 10px;
                 bottom: 60px;
-                top: 160px;
+                top: 190px;
                 &::-webkit-scrollbar {
                   width: 6px;
                 }
