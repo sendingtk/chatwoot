@@ -7,7 +7,7 @@
         <div class="forward">
             <div class="forward__title">
                 <h1 class="forward__title-primary">Compartilhar mensagem</h1>
-                <p>Compartilhe a mensagem com seus contatos do Converx</p>
+                <p>Compartilhe a mensagem com seus contatos</p>
             </div>
             <div class="forward__contacts">
                 <div class="forward__contacts-search">
@@ -194,7 +194,7 @@ export default {
                 left: 10px;
                 right: 10px;
                 bottom: 60px;
-                top: 160px;
+                top: 190px;
                 &::-webkit-scrollbar {
                   width: 6px;
                 }

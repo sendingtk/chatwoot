@@ -116,9 +116,10 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
   end
 
   def format_content(message)
-    send_agent = whatsapp_channel.inbox.account.feature_enabled?('send_agent_name_in_whatsapp_message')
-    sender = message&.sender&.try(:available_name) || message&.sender&.name
-    send_agent && sender ? "*#{sender}*:\n#{message.content}" : message.content
+    key = 'send_agent_name_in_whatsapp_message'
+    return message.content unless whatsapp_channel.inbox.account.feature_enabled?(key)
+
+    message&.sender_name.present? ? "*#{message&.sender_name}*: #{message.content}" : message.content
   end
 
   def send_attachment_message(phone_number, message)
