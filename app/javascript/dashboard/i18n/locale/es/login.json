@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Iniciar sesión en %{installationName}",
+    "TITLE": "Iniciar sesión en Chatwoot",
     "EMAIL": {
       "LABEL": "E-mail",
       "PLACEHOLDER": "Email por ejemplo: alguien@ejemplo.com",

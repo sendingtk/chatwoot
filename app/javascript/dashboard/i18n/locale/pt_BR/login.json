@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Entrar no %{installationName}",
+    "TITLE": "Entrar no Chatwoot",
     "EMAIL": {
       "LABEL": "e-mail",
       "PLACEHOLDER": "exemplo@nomedaempresa.com",
