@@ -2,17 +2,17 @@
   "SLA": {
     "HEADER": "SLA",
     "ADD_ACTION": "Add SLA",
-    "DESCRIPTION": "Service Level Agreements (SLAs) are contracts that define clear expectations between your team and customers. They establish standards for response and resolution times, creating a framework for accountability and ensures a consistent, high-quality experience.",
-    "LEARN_MORE": "Learn more about SLA",
-    "LOADING": "Fetching SLAs",
+    "DESCRIPTION": "Acordos de nível de serviço (SLAs) são contratos que definem expectativas claras entre sua equipe e os clientes. Eles estabelecem padrões para tempos de resposta e resolução, criando uma estrutura de responsabilização e garantindo uma experiência consistente e de alta qualidade.",
+    "LEARN_MORE": "Saiba mais sobre SLA",
+    "LOADING": "Buscando SLAs",
     "LIST": {
-      "404": "There are no SLAs available in this account.",
-      "BUSINESS_HOURS_ON": "Business hours on",
-      "BUSINESS_HOURS_OFF": "Business hours off",
+      "404": "Não há SLAs disponíveis nesta conta.",
+      "BUSINESS_HOURS_ON": "Horário comercial ativado",
+      "BUSINESS_HOURS_OFF": "Horário comercial desligado",
       "RESPONSE_TYPES": {
-        "FRT": "First response time threshold",
-        "NRT": "Next response time threshold",
-        "RT": "Resolution time threshold",
+        "FRT": "Limite do primeiro tempo de resposta",
+        "NRT": "Próximo limite de tempo de resposta",
+        "RT": "Limite de tempo de resolução",
         "SHORT_HAND": {
           "FRT": "FRT",
           "NRT": "NRT",
@@ -22,59 +22,59 @@
     },
     "FORM": {
       "NAME": {
-        "LABEL": "SLA Name",
-        "PLACEHOLDER": "SLA Name",
-        "REQUIRED_ERROR": "SLA name is required",
-        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required",
-        "VALID_ERROR": "Only Alphabets, Numbers, Hyphen and Underscore are allowed"
+        "LABEL": "Nome do SLA",
+        "PLACEHOLDER": "Nome do SLA",
+        "REQUIRED_ERROR": "O nome do SLA é obrigatório",
+        "MINIMUM_LENGTH_ERROR": "O comprimento mínimo 2 é obrigatório",
+        "VALID_ERROR": "Somente alfabetos, números, hífen e sublinhado são permitidos"
       },
       "DESCRIPTION": {
-        "LABEL": "Description",
-        "PLACEHOLDER": "SLA for premium customers"
+        "LABEL": "Descrição",
+        "PLACEHOLDER": "SLA para clientes premium"
       },
       "FIRST_RESPONSE_TIME": {
-        "LABEL": "First Response Time",
+        "LABEL": "Tempo de primeira resposta",
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Next Response Time",
+        "LABEL": "Próximo tempo de resposta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
-        "LABEL": "Resolution Time",
+        "LABEL": "Tempo de resolução",
         "PLACEHOLDER": "60"
       },
       "BUSINESS_HOURS": {
-        "LABEL": "Business Hours",
-        "PLACEHOLDER": "Only during business hours"
+        "LABEL": "Horário comercial",
+        "PLACEHOLDER": "Somente em horário comercial"
       },
       "THRESHOLD_TIME": {
-        "INVALID_FORMAT_ERROR": "Threshold should be a number and greater than zero"
+        "INVALID_FORMAT_ERROR": "O limite deve ser um número e maior que zero"
       },
-      "EDIT": "Edit",
-      "CREATE": "Create",
-      "DELETE": "Delete",
-      "CANCEL": "Cancel"
+      "EDIT": "Editar",
+      "CREATE": "Criar",
+      "DELETE": "Excluir",
+      "CANCEL": "Cancelar"
     },
     "ADD": {
       "TITLE": "Add SLA",
-      "DESC": "SLAs: Friendly promises for great service!",
+      "DESC": "SLAs: Promessas amigáveis ​​para um ótimo serviço!",
       "API": {
-        "SUCCESS_MESSAGE": "SLA added successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "SLA adicionado com sucesso",
+        "ERROR_MESSAGE": "Ocorreu um erro, tente novamente"
       }
     },
     "DELETE": {
-      "TITLE": "Delete SLA",
+      "TITLE": "Excluir SLA",
       "API": {
-        "SUCCESS_MESSAGE": "SLA deleted successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "SLA excluído com sucesso",
+        "ERROR_MESSAGE": "Ocorreu um erro, tente novamente"
       },
       "CONFIRM": {
-        "TITLE": "Confirm Deletion",
-        "MESSAGE": "Are you sure you want to delete ",
-        "YES": "Yes, Delete ",
-        "NO": "No, Keep "
+        "TITLE": "Confirmar exclusão",
+        "MESSAGE": "Tem certeza de que deseja excluir ",
+        "YES": "Sim, excluir ",
+        "NO": "Não, mantenha "
       }
     }
   }
