@@ -70,7 +70,7 @@ export const registerSubscription = (onSuccess = () => {}) => {
     .catch(() => {
       window.bus.$emit(
         'newToastMessage',
-        'This browser does not support desktop notification'
+        'Este navegador não suporta notificações na área de trabalho'
       );
     });
 };
@@ -79,7 +79,7 @@ export const requestPushPermissions = ({ onSuccess }) => {
   if (!('Notification' in window)) {
     window.bus.$emit(
       'newToastMessage',
-      'This browser does not support desktop notification'
+      'Este navegador não suporta notificações na área de trabalho'
     );
   } else if (Notification.permission === 'granted') {
     registerSubscription(onSuccess);
