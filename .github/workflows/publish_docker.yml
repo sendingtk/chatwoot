@@ -1,0 +1,69 @@
+# #
+# # This action will publish Chatwoot CE docker image.
+# # This is set to run against merges to develop, master
+# # and when tags are created.
+# #
+
+name: Publish Chat4you
+on:
+  push:
+    branches:
+      - main
+      - develop
+    tags:
+      - v*
+  workflow_dispatch:
+
+env:
+  DOCKER_TAG: ghcr.io/clairton/chat4you:latest
+  DOCKER_ARM_TAG: ghcr.io/clairton/chat4you-arm:latest
+  REGISTRY: ghcr.io
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      GIT_REF: ${{ github.head_ref || github.ref_name }} # ref_name to get tags/branches
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: set docker tag
+        if: github.ref_name != 'main'
+        run: |
+          echo "DOCKER_TAG=ghcr.io/clairton/chat4you:$GIT_REF" >> $GITHUB_ENV
+          echo "DOCKER_ARM_TAG=ghcr.io/clairton/chat4you-arm:$GIT_REF" >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: docker/Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: ${{ env.DOCKER_TAG }}
+
+      - name: Build and push arm64
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: docker/Dockerfile
+          platforms: linux/arm64
+          push: true
+          tags: ${{ env.DOCKER_ARM_TAG }}
