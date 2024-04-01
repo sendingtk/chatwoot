@@ -40,8 +40,8 @@
       "SORT": "Organizar",
       "DISPLAY": "Mostrar :",
       "SORT_OPTIONS": {
-        "NEWEST": "O mais novo",
-        "OLDEST": "Mais antigo",
+        "NEWEST": "Nova",
+        "OLDEST": "Antigo",
         "PRIORITY": "Prioridade"
       },
       "DISPLAY_OPTIONS": {
