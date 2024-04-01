@@ -20,7 +20,7 @@ pt_BR:
   hello: "Olá, mundo"
   messages:
     reset_password_success: Legal! A solicitação de alteração de senha foi bem sucedida. Verifique seu e-mail para obter instruções.
-    reset_password_failure: Uh ho! Não conseguimos encontrar nenhum usuário com o e-mail especificado.
+    reset_password_failure: Não conseguimos encontrar nenhum usuário com o e-mail especificado.
     inbox_deletetion_response: Seu pedido de exclusão da caixa de entrada será processado dentro de algum tempo.
   errors:
     validations:
@@ -102,12 +102,12 @@ pt_BR:
         recorded_at: Data de gravação
   notifications:
     notification_title:
-      conversation_creation: "A conversation (#%{display_id}) has been created in %{inbox_name}"
-      conversation_assignment: "A conversation (#%{display_id}) has been assigned to you"
-      assigned_conversation_new_message: "A new message is created in conversation (#%{display_id})"
-      conversation_mention: "You have been mentioned in conversation (#%{display_id})"
+      conversation_creation: "Uma conversa (#%{display_id}) foi criado em %{inbox_name}"
+      conversation_assignment: "Uma conversa (#%{display_id}) foi atribuído a você"
+      assigned_conversation_new_message: "Uma nova mensagem é criada na conversa (#%{display_id})"
+      conversation_mention: "Você foi mencionado em uma conversa (#%{display_id})"
     attachment: "Attachment"
-    no_content: "No content"
+    no_content: "Sem conteúdo"
   conversations:
     messages:
       instagram_story_content: "%{story_sender} mencionou você na conversa: "
@@ -233,14 +233,14 @@ pt_BR:
     button: Abrir conversa
   time_units:
     days:
-      one: "%{count} day"
-      other: "%{count} days"
+      one: "%{count} dia"
+      other: "%{count} dias"
     hours:
-      one: "%{count} hour"
-      other: "%{count} hours"
+      one: "%{count} hora"
+      other: "%{count} horas"
     minutes:
-      one: "%{count} minute"
-      other: "%{count} minutes"
+      one: "%{count} minuto"
+      other: "%{count} minutos"
     seconds:
-      one: "%{count} second"
-      other: "%{count} seconds"
+      one: "%{count} segundo"
+      other: "%{count} segundos"
