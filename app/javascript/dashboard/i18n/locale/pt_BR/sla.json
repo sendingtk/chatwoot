@@ -8,7 +8,7 @@
     "LIST": {
       "404": "There are no SLAs available in this account.",
       "TITLE": "Manage SLA",
-      "DESC": "SLAs: Friendly promises for great service!",
+      "DESC": "Friendly promises for great service!",
       "TABLE_HEADER": [
         "Nome",
         "Descrição",
@@ -56,7 +56,7 @@
     },
     "ADD": {
       "TITLE": "Add SLA",
-      "DESC": "SLAs: Friendly promises for great service!",
+      "DESC": "Friendly promises for great service!",
       "API": {
         "SUCCESS_MESSAGE": "SLA added successfully",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
