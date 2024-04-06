@@ -48,7 +48,8 @@ jobs:
         if: github.ref_name != 'main'
         run: |
           echo "DOCKER_TAG=ghcr.io/clairton/chat4you:$GIT_REF" >> $GITHUB_ENV
-          echo "DOCKER_ARM_TAG=ghcr.io/clairton/chat4you-arm:$GIT_REF" >> $GITHUB_ENV
+        # echo "DOCKER_ARM_TAG=ghcr.io/clairton/chat4you-arm:$GIT_REF" >> $GITHUB_ENV
+
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
@@ -59,11 +60,11 @@ jobs:
           platforms: linux/amd64
           tags: ${{ env.DOCKER_TAG }}
 
-      - name: Build and push arm64
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: docker/Dockerfile
-          platforms: linux/arm64
-          push: true
-          tags: ${{ env.DOCKER_ARM_TAG }}
+      # - name: Build and push arm64
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: docker/Dockerfile
+      #     platforms: linux/arm64
+      #     push: true
+      #     tags: ${{ env.DOCKER_ARM_TAG }}
