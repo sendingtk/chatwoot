@@ -16,7 +16,7 @@ defineProps({
     href="/"
     icon-name="document-list-clock"
   >
-  <template v-if="showActions" #actions>
+    <template v-if="showActions" #actions>
       <woot-button
         color-scheme="primary"
         icon="plus-sign"
