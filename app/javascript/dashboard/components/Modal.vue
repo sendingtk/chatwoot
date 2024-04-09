@@ -7,13 +7,13 @@
       @mousedown="handleMouseDown"
     >
       <div
-      :class="{
-        'modal-container rtl:text-right shadow-md max-h-full overflow-auto relative bg-white dark:bg-slate-800 skip-context-menu': true,
-        'rounded-xl w-[37.5rem]': !fullWidth,
-        'items-center rounded-none flex h-full justify-center w-full':
-          fullWidth,
-        [size]: true,
-      }"
+        :class="{
+          'modal-container rtl:text-right shadow-md max-h-full overflow-auto relative bg-white dark:bg-slate-800 skip-context-menu': true,
+          'rounded-xl w-[37.5rem]': !fullWidth,
+          'items-center rounded-none flex h-full justify-center w-full':
+            fullWidth,
+          [size]: true,
+        }"
         @mouse.stop
         @mousedown="event => event.stopPropagation()"
       >

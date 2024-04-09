@@ -30,9 +30,9 @@ import BaseSettingsListItem from '../../components/BaseSettingsListItem.vue';
           :key="ii"
           class="flex justify-end w-1/3 h-full px-4"
         >
-        <div
-        class="w-32 h-full rounded-md bg-slate-50 dark:bg-slate-700 animate-pulse"
-      />
+          <div
+            class="w-32 h-full rounded-md bg-slate-50 dark:bg-slate-700 animate-pulse"
+          />
         </div>
       </div>
     </template>
