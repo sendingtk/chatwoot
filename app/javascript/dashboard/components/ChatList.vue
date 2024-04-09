@@ -1065,22 +1065,8 @@ export default {
 </style>
 
 <style scoped lang="scss">
-.conversations-list-wrap {
-  &.hide {
-    @apply hidden;
-  }
-
-  &.list--full-width {
-    @apply basis-full;
-  }
-}
-
 .conversations-list {
   @apply overflow-hidden hover:overflow-y-auto;
-}
-
-.load-more--button {
-  @apply text-center rounded-none;
 }
 
 .tab--chat-type {
