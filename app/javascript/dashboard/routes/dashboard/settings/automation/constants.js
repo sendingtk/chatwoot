@@ -553,32 +553,32 @@ export const AUTOMATION_ACTION_TYPES = [
   },
   {
     key: 'assign_team',
-    label: 'Assign a team',
+    label: 'Atribuir uma equipe',
     inputType: 'search_select',
   },
   {
     key: 'add_label',
-    label: 'Add a label',
+    label: 'Adicionar um rótulo',
     inputType: 'multi_select',
   },
   {
     key: 'remove_label',
-    label: 'Remove a label',
+    label: 'Remover um rótulo',
     inputType: 'multi_select',
   },
   {
     key: 'send_email_to_team',
-    label: 'Send an email to team',
+    label: 'Envie um e-mail para a equipe',
     inputType: 'team_message',
   },
   {
     key: 'send_email_transcript',
-    label: 'Send an email transcript',
+    label: 'Envie uma transcrição por e-mail',
     inputType: 'email',
   },
   {
     key: 'mute_conversation',
-    label: 'Mute conversation',
+    label: 'Mutar conversa',
     inputType: null,
   },
   {
@@ -588,27 +588,27 @@ export const AUTOMATION_ACTION_TYPES = [
   },
   {
     key: 'resolve_conversation',
-    label: 'Resolve conversation',
+    label: 'Resolver conversa',
     inputType: null,
   },
   {
     key: 'send_webhook_event',
-    label: 'Send Webhook Event',
+    label: 'Enviar evento de webhook',
     inputType: 'url',
   },
   {
     key: 'send_attachment',
-    label: 'Send Attachment',
+    label: 'Enviar anexo',
     inputType: 'attachment',
   },
   {
     key: 'send_message',
-    label: 'Send a message',
+    label: 'Envie uma mensagem',
     inputType: 'textarea',
   },
   {
     key: 'change_priority',
-    label: 'Change Priority',
+    label: 'Alterar prioridade',
     inputType: 'search_select',
   },
   {
