@@ -529,19 +529,19 @@ export const AUTOMATIONS = {
 export const AUTOMATION_RULE_EVENTS = [
   {
     key: 'conversation_created',
-    value: 'Conversation Created',
+    value: 'Conversa criada',
   },
   {
     key: 'conversation_updated',
-    value: 'Conversation Updated',
+    value: 'Conversa atualizada',
   },
   {
     key: 'message_created',
-    value: 'Message Created',
+    value: 'Mensagem criada',
   },
   {
     key: 'conversation_opened',
-    value: 'Conversation Opened',
+    value: 'Conversa aberta',
   },
 ];
 

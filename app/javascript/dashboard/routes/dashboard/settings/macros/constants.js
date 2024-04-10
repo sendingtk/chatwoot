@@ -1,67 +1,67 @@
 export const MACRO_ACTION_TYPES = [
   {
     key: 'assign_team',
-    label: 'Assign a team',
+    label: 'Atribuir uma equipe',
     inputType: 'search_select',
   },
   {
     key: 'assign_agent',
-    label: 'Assign an agent',
+    label: 'Atribuir um agente',
     inputType: 'search_select',
   },
   {
     key: 'add_label',
-    label: 'Add a label',
+    label: 'Adicionar um rótulo',
     inputType: 'multi_select',
   },
   {
     key: 'remove_label',
-    label: 'Remove a label',
+    label: 'Remover um rótulo',
     inputType: 'multi_select',
   },
   {
     key: 'remove_assigned_team',
-    label: 'Remove Assigned Team',
+    label: 'Remover equipe atribuída',
     inputType: null,
   },
   {
     key: 'send_email_transcript',
-    label: 'Send an email transcript',
+    label: 'Envie uma transcrição por e-mail',
     inputType: 'email',
   },
   {
     key: 'mute_conversation',
-    label: 'Mute conversation',
+    label: 'Mutar conversa',
     inputType: null,
   },
   {
     key: 'snooze_conversation',
-    label: 'Snooze conversation',
+    label: 'Adiar conversa',
     inputType: null,
   },
   {
     key: 'resolve_conversation',
-    label: 'Resolve conversation',
+    label: 'Resolver conversa',
     inputType: null,
   },
   {
     key: 'send_attachment',
-    label: 'Send Attachment',
+    label: 'Enviar anexo',
     inputType: 'attachment',
   },
   {
     key: 'send_message',
-    label: 'Send a message',
+    label: 'Envie uma mensagem',
     inputType: 'textarea',
   },
   {
     key: 'add_private_note',
-    label: 'Add a private note',
+    label: 'Adicione uma nota privada',
     inputType: 'textarea',
   },
   {
     key: 'change_priority',
-    label: 'Change Priority',
+    label: 'Alterar prioridade',
     inputType: 'search_select',
   },
 ];
