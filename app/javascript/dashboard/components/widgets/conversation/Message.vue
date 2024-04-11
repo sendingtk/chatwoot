@@ -33,6 +33,7 @@
           :message="inReplyTo"
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
+          @click="navigateToMessage"
         />
         <div v-if="isUnsupported">
           <template v-if="isAFacebookInbox && isInstagram">
@@ -552,6 +553,13 @@ export default {
       this.higlightTimeout = setTimeout(() => {
         this.showBackgroundHighlight = false;
       }, HIGHLIGHT_TIMER);
+    },
+    async navigateToMessage() {
+      this.$nextTick(() => {
+        bus.$emit(BUS_EVENTS.SCROLL_TO_MESSAGE, {
+          messageId: this.inReplyToMessageId,
+        });
+      });
     },
   },
 };
