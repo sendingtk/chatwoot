@@ -3,7 +3,9 @@ import { ref, computed } from 'vue';
 
 import wootConstants from 'dashboard/constants/globals';
 import SLAEventItem from './SLAEventItem.vue';
+
 const { SLA_MISS_TYPES } = wootConstants;
+
 const props = defineProps({
   slaMissedEvents: {
     type: Array,
@@ -12,6 +14,7 @@ const props = defineProps({
 });
 
 const shouldShowAllNrts = ref(false);
+
 const frtMisses = computed(() =>
   props.slaMissedEvents.filter(
     slaEvent => slaEvent.event_type === SLA_MISS_TYPES.FRT
@@ -36,7 +39,7 @@ const toggleShowAllNRT = () => {
 </script>
 <template>
   <div
-  class="absolute flex flex-col items-start bg-[#fdfdfd] dark:bg-slate-800 z-50 p-4 border border-solid border-slate-75 dark:border-slate-700 w-[384px] rounded-xl gap-4 max-h-96 overflow-auto"
+    class="absolute flex flex-col items-start bg-[#fdfdfd] dark:bg-slate-800 z-50 p-4 border border-solid border-slate-75 dark:border-slate-700 w-[384px] rounded-xl gap-4 max-h-96 overflow-auto"
   >
     <span class="text-sm font-medium text-slate-900 dark:text-slate-25">
       {{ $t('SLA.EVENTS.TITLE') }}
@@ -51,32 +54,32 @@ const toggleShowAllNRT = () => {
       :label="$t('SLA.EVENTS.NRT')"
       :items="nrtMisses"
     >
-    <template #showMore>
-      <div
-        v-if="shouldShowMoreNRTButton"
-        class="flex flex-col items-end w-full"
-      >
-        <woot-button
-          size="small"
-          :icon="!shouldShowAllNrts ? 'plus-sign' : ''"
-          variant="link"
-          color-scheme="secondary"
-          class="hover:!no-underline !gap-1 hover:!bg-transparent dark:hover:!bg-transparent"
-          @click="toggleShowAllNRT"
+      <template #showMore>
+        <div
+          v-if="shouldShowMoreNRTButton"
+          class="flex flex-col items-end w-full"
         >
-          {{
-            shouldShowAllNrts
-              ? $t('SLA.EVENTS.HIDE', { count: nrtMisses.length })
-              : $t('SLA.EVENTS.SHOW_MORE', { count: nrtMisses.length })
-          }}
-        </woot-button>
-      </div>
-    </template>
-  </SLA-event-item>
-  <SLA-event-item
-    v-if="rtMisses.length"
-    :label="$t('SLA.EVENTS.RT')"
-    :items="rtMisses"
-  />
+          <woot-button
+            size="small"
+            :icon="!shouldShowAllNrts ? 'plus-sign' : ''"
+            variant="link"
+            color-scheme="secondary"
+            class="hover:!no-underline !gap-1 hover:!bg-transparent dark:hover:!bg-transparent"
+            @click="toggleShowAllNRT"
+          >
+            {{
+              shouldShowAllNrts
+                ? $t('SLA.EVENTS.HIDE', { count: nrtMisses.length })
+                : $t('SLA.EVENTS.SHOW_MORE', { count: nrtMisses.length })
+            }}
+          </woot-button>
+        </div>
+      </template>
+    </SLA-event-item>
+    <SLA-event-item
+      v-if="rtMisses.length"
+      :label="$t('SLA.EVENTS.RT')"
+      :items="rtMisses"
+    />
   </div>
 </template>

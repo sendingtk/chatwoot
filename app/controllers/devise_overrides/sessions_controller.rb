@@ -30,7 +30,7 @@ class DeviseOverrides::SessionsController < DeviseTokenAuth::SessionsController
 
     "#{frontend_url}/app/login?error=#{error}"
   end
-  
+
   def authenticate_resource_with_sso_token
     @token = @resource.create_token
     @resource.save!
