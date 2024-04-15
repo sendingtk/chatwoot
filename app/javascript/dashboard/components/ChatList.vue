@@ -400,12 +400,12 @@ export default {
         //unassigned: 'unAssignedCount',
         //all: 'allCount',
       };
-      if (!this.hideAllChatsForAgents) {
-        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
-      }
       // Mostrar la pestaña unassigned si se cumple la condición
       if (!this.hideUnassignedForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.unassigned = 'unAssignedCount';
+      }
+      if (!this.hideAllChatsForAgents) {
+        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
       }
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
