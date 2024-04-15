@@ -346,6 +346,15 @@ export default {
         ) && this.currentRole !== 'administrator'
       );
     },
+    // Adicionar la función hideUnassignedForAgents
+    hideUnassignedForAgents() {
+      return (
+        this.isFeatureEnabledonAccount(
+          this.accountId,
+          'hide_unassigned_for_agent'
+        ) && this.currentRole !== 'administrator'
+      );
+    },
     hideFiltersForAgents() {
       return (
         this.isFeatureEnabledonAccount(
@@ -387,11 +396,16 @@ export default {
     assigneeTabItems() {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
-        unassigned: 'unAssignedCount',
+        // Ocultar la pestaña unassigned
+        //unassigned: 'unAssignedCount',
         //all: 'allCount',
       };
       if (!this.hideAllChatsForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
+      }
+      // Mostrar la pestaña unassigned si se cumple la condición
+      if (!this.hideUnassignedForAgents) {
+        ASSIGNEE_TYPE_TAB_KEYS.unassigned = 'unAssignedCount';
       }
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
