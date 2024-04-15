@@ -30,7 +30,8 @@ module Whatsapp::IncomingMessageServiceHelpers
       message.dig(:button, :text) ||
       message.dig(:interactive, :button_reply, :title) ||
       message.dig(:interactive, :list_reply, :title) ||
-      message.dig(:name, :formatted_name)
+      message.dig(:name, :formatted_name) ||
+      message.dig[message_type.to_sym, :caption]
   end
 
   def file_content_type(file_type)
