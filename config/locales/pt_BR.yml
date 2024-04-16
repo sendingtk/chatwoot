@@ -22,6 +22,7 @@ pt_BR:
     reset_password_success: Legal! A solicitação de alteração de senha foi bem sucedida. Verifique seu e-mail para obter instruções.
     reset_password_failure: Uh ho! Não conseguimos encontrar nenhum usuário com o e-mail especificado.
     inbox_deletetion_response: Seu pedido de exclusão da caixa de entrada será processado dentro de algum tempo.
+
   errors:
     validations:
       presence: não pode ficar em branco
@@ -112,6 +113,7 @@ pt_BR:
         rating: Classificação
         feedback: Comentário de Feedback
         recorded_at: Data de gravação
+
   notifications:
     notification_title:
       conversation_creation: ""
