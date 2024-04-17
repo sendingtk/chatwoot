@@ -132,7 +132,7 @@ export const filterAttributes = [
   },
   {
     key: 'browser_language',
-    name: 'Browser Language',
+    name: 'Idioma do navegador',
     attributeI18nKey: 'BROWSER_LANGUAGE',
     inputType: 'search_select',
     filterOperators: [
@@ -142,7 +142,7 @@ export const filterAttributes = [
   },
   {
     key: 'country_code',
-    name: 'Country',
+    name: 'País',
     attributeI18nKey: 'COUNTRY_NAME',
     inputType: 'search_select',
     filterOperators: [
@@ -152,7 +152,7 @@ export const filterAttributes = [
   },
   {
     key: 'referer',
-    name: 'Referrer Link',
+    name: 'Link de referência',
     attributeI18nKey: 'REFERER_LINK',
     inputType: 'plain_text',
     filterOperators: [
@@ -164,7 +164,7 @@ export const filterAttributes = [
   },
   {
     key: 'inbox_id',
-    name: 'Inbox',
+    name: 'Caixa de entrada',
     attributeI18nKey: 'INBOX',
     inputType: 'multi_select',
     filterOperators: [
@@ -174,12 +174,12 @@ export const filterAttributes = [
   },
   {
     key: 'conversation_custom_attribute',
-    name: 'Conversation Custom Attributes',
+    name: 'Atributos personalizados de conversa',
     disabled: true,
   },
   {
     key: 'signed_up_at',
-    name: 'Signed Up At',
+    name: 'Inscreveu-se em',
     inputType: 'date',
     filterOperators: [
       { value: 'equal_to', label: 'Equal to' },
@@ -192,7 +192,7 @@ export const filterAttributes = [
   },
   {
     key: 'test',
-    name: 'Test',
+    name: 'Teste',
     inputType: 'plain_text',
     filterOperators: [
       { value: 'equal_to', label: 'Equal to' },
@@ -212,7 +212,7 @@ export const filterAttributes = [
   },
   {
     key: 'my_list',
-    name: 'My List',
+    name: 'Minha lista',
     inputType: 'search_select',
     filterOperators: [
       { value: 'equal_to', label: 'Equal to' },
@@ -230,12 +230,12 @@ export const filterAttributes = [
   },
   {
     key: 'contact_custom_attribute',
-    name: 'Contact Custom Attributes',
+    name: 'Atributos personalizados de contato',
     disabled: true,
   },
   {
     key: 'prime_user',
-    name: 'Prime User',
+    name: 'Usuário principal',
     inputType: 'search_select',
     filterOperators: [
       { value: 'equal_to', label: 'Equal to' },
@@ -639,11 +639,11 @@ export const countries = allCountries;
 export const MESSAGE_CONDITION_VALUES = [
   {
     id: 'incoming',
-    name: 'Incoming Message',
+    name: 'Mensagem recebida',
   },
   {
     id: 'outgoing',
-    name: 'Outgoing Message',
+    name: 'Mensagem de saída',
   },
 ];
 
@@ -691,7 +691,7 @@ export const savedAutomation = {
 export const contactAttrs = [
   {
     key: 'contact_list',
-    name: 'Contact List',
+    name: 'Lista de contatos',
     inputType: 'search_select',
     filterOperators: [
       {
@@ -733,7 +733,7 @@ export const conversationAttrs = [
 export const expectedOutputForCustomAttributeGenerator = [
   {
     key: 'conversation_custom_attribute',
-    name: 'Conversation Custom Attributes',
+    name: 'Atributos personalizados de conversa',
     disabled: true,
   },
   {
@@ -749,12 +749,12 @@ export const expectedOutputForCustomAttributeGenerator = [
   },
   {
     key: 'contact_custom_attribute',
-    name: 'Contact Custom Attributes',
+    name: 'Atributos personalizados de contato',
     disabled: true,
   },
   {
     key: 'contact_list',
-    name: 'Contact List',
+    name: 'Lista de contatos',
     inputType: 'search_select',
     filterOperators: [
       { value: 'equal_to', label: 'Equal to' },
@@ -766,7 +766,7 @@ export const slaPolicies = [
   {
     id: 1,
     account_id: 1,
-    name: 'Low',
+    name: 'Baixo',
     first_response_time_threshold: 60,
     next_response_time_threshold: 120,
     resolution_time_threshold: 240,
@@ -776,7 +776,7 @@ export const slaPolicies = [
   {
     id: 2,
     account_id: 1,
-    name: 'Medium',
+    name: 'Médio',
     first_response_time_threshold: 30,
     next_response_time_threshold: 60,
     resolution_time_threshold: 120,
@@ -786,7 +786,7 @@ export const slaPolicies = [
   {
     id: 3,
     account_id: 1,
-    name: 'High',
+    name: 'Alta',
     first_response_time_threshold: 15,
     next_response_time_threshold: 30,
     resolution_time_threshold: 60,
@@ -796,7 +796,7 @@ export const slaPolicies = [
   {
     id: 4,
     account_id: 1,
-    name: 'Urgent',
+    name: 'Urgente',
     first_response_time_threshold: 5,
     next_response_time_threshold: 10,
     resolution_time_threshold: 20,

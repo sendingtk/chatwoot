@@ -100,13 +100,13 @@ class Messages::MessageBuilder
 
   def validate_email_addresses(all_emails)
     all_emails&.each do |email|
-      raise StandardError, 'Invalid email address' unless email.match?(URI::MailTo::EMAIL_REGEXP)
+      raise StandardError, 'Endereço de email invalido' unless email.match?(URI::MailTo::EMAIL_REGEXP)
     end
   end
 
   def message_type
     if @conversation.inbox.channel_type != 'Channel::Api' && @message_type == 'incoming' && !@private
-      raise StandardError, 'Incoming messages are only allowed in Api inboxes'
+      raise StandardError, 'Mensagens recebidas só são permitidas em caixas de entrada da API'
     end
 
     @message_type
