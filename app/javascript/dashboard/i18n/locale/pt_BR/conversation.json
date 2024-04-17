@@ -70,7 +70,7 @@
         "NRT": "NRT {status}",
         "RT": "RT {status}",
         "MISSED": "missed",
-        "DUE": "due"
+        "DUE": "devido"
       }
     },
     "RESOLVE_DROPDOWN": {
