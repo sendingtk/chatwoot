@@ -80,7 +80,12 @@
 - name: sla
   enabled: false
   premium: true
+- name: help_center_embedding_search
+  enabled: false
+  premium: true
 - name: hide_all_chats_for_agent
+  enabled: false
+- name: hide_unassigned_for_agent
   enabled: false
 - name: hide_contacts_for_agent
   enabled: false
