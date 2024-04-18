@@ -21,7 +21,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
       )
       Rails.logger.debug("Response form NotificaMe #{response}")
       if response.success?
-        message.update!(source_id: response.parsed_response["id"], status: :sent)
+        message.update!(source_id: response.parsed_response["id"])
       else
         raise "Error on send mensagem to NotificaMe: #{response.parsed_response}"
       end
