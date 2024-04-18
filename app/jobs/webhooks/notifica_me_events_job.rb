@@ -306,7 +306,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
       elsif params['messageStatus']['code'] == 'SENT'
-        message.update!(status: :sent, source_id: params['messageStatus']['providerMessage_id']) if index < Message.statuses[:sent] || message.status == :failed
+        message.update!(status: :sent, source_id: source_id) if index < Message.statuses[:sent] || message.status == :failed
       elsif params['messageStatus']['code'] == 'DELIVERED'
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
       end
