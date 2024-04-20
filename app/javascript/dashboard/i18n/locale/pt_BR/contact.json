@@ -78,11 +78,11 @@
     "BUTTON_LABEL": "Exportar",
     "TITLE": "Exportar contatos",
     "DESC": "Exportar contatos para arquivo CSV.",
-    "SUCCESS_MESSAGE": "Export is in progress, You will be notified via email when export file is ready to dowanlod.",
+    "SUCCESS_MESSAGE": "A exportação está em andamento. Você será notificado por e-mail quando o arquivo de exportação estiver pronto para download.",
     "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente",
     "CONFIRM": {
       "TITLE": "Exportar contatos",
-      "MESSAGE": "Are you sure you want to export all contacts?",
+      "MESSAGE": "Você tem certeza de que deseja exportar todos os contatos?",
       "YES": "Sim, Exportar",
       "NO": "Não, Cancelar"
     }
@@ -296,8 +296,8 @@
     "BUTTON": "Criar atributo personalizado",
     "NOT_AVAILABLE": "Não há atributos personalizados para este contato.",
     "COPY_SUCCESSFUL": "Copiado para área de transferência com sucesso",
-    "SHOW_MORE": "Show all attributes",
-    "SHOW_LESS": "Show less attributes",
+    "SHOW_MORE": "Mostrar todos os atributos",
+    "SHOW_LESS": "Mostrar menos atributos",
     "ACTIONS": {
       "COPY": "Copiar atributo",
       "DELETE": "Excluir atributo",
