@@ -157,11 +157,10 @@ const settings = accountId => ({
       toState: frontendURL(`accounts/${accountId}/settings/audit-log/list`),
       toStateName: 'auditlogs_list',
       featureFlag: FEATURE_FLAGS.AUDIT_LOGS,
-      beta: true,
     },
     {
       icon: 'document-list-clock',
-      label: 'SLA',
+      label: 'VAR',
       hasSubMenu: false,
       toState: frontendURL(`accounts/${accountId}/settings/sla/list`),
       toStateName: 'sla_list',
