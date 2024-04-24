@@ -159,9 +159,9 @@ export default {
       ];
       this.slaTimeInputs.forEach((input, index) => {
         const converted = convertSecondsToTimeUnit(thresholds[index], {
-          minute: 'Minutes',
-          hour: 'Hours',
-          day: 'Days',
+          minute: 'Minuto',
+          hour: 'Hora',
+          day: 'Dia',
         });
         input.threshold = converted.time;
         input.unit = converted.unit;
