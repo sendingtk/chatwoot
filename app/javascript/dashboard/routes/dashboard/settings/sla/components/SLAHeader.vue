@@ -13,7 +13,7 @@ defineProps({
     :title="$t('SLA.HEADER')"
     :description="$t('SLA.DESCRIPTION')"
     :link-text="$t('SLA.LEARN_MORE')"
-    href="/"
+    href="https://app.inovechat.com/hc/inovechat/articles/1713989815-var"
     icon-name="document-list-clock"
   >
     <template v-if="showActions" #actions>

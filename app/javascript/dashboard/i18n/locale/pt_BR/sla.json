@@ -1,13 +1,13 @@
 {
   "SLA": {
-    "HEADER": "SLA",
-    "HEADER_BTN_TXT": "Adicionar SLA",
-    "ADD_ACTION_LONG": "Criar uma nova política de SLA",
-    "DESCRIPTION": "Acordos de Nível de Serviço (SLAs) são contratos que definem expectativas claras entre sua equipe e os clientes. Eles estabelecem padrões para tempos de resposta e resolução, criando um quadro de responsabilidade e garantindo uma experiência consistente e de alta qualidade.",
-    "LEARN_MORE": "Saiba mais sobre SLA",
-    "LOADING": "Carregando SLAs",
+    "HEADER": "VAR",
+    "HEADER_BTN_TXT": "Adicionar VAR",
+    "ADD_ACTION_LONG": "Criar uma nova política de VAR",
+    "DESCRIPTION": "Os VARs (Verificadores de Atendimento Rápido) são como os juízes do atendimento ao cliente, garantindo um jogo limpo.⚽ Eles definem tempos para responder e resolver as conversas, criando um ambiente de responsabilidade e assegurando uma experiência de alta qualidade para os clientes.",
+    "LEARN_MORE": "Saiba mais sobre VAR",
+    "LOADING": "Carregando VARs",
     "LIST": {
-      "404": "Não há SLAs disponíveis nesta conta.",
+      "404": "Não há VARs disponíveis nesta conta.",
       "EMPTY": {
         "TITLE_1": "Enterprise P0",
         "DESC_1": "Problemas levantados por clientes corporativos, que exigem atenção imediata.",
@@ -18,37 +18,37 @@
       "BUSINESS_HOURS_OFF": "Fora do horário comercial",
       "RESPONSE_TYPES": {
         "FRT": "Limite de tempo da primeira resposta",
-        "NRT": "Limite de tempo da próxima resposta",
-        "RT": "Limite de tempo de resolução",
+        "NRT": "Limite de tempo sem resposta",
+        "RT": "Limite de tempo para resolver a conversa",
         "SHORT_HAND": {
-          "FRT": "FRT",
-          "NRT": "NRT",
-          "RT": "RT"
+          "FRT": "TPR",
+          "NRT": "TSR",
+          "RT": "TR"
         }
       }
     },
     "FORM": {
       "NAME": {
-        "LABEL": "Nome do SLA",
-        "PLACEHOLDER": "Nome do SLA",
-        "REQUIRED_ERROR": "Nome do SLA é obrigatório",
+        "LABEL": "Nome do VAR",
+        "PLACEHOLDER": "Nome do VAR",
+        "REQUIRED_ERROR": "Nome do VAR é obrigatório",
         "MINIMUM_LENGTH_ERROR": "Tamanho mínimo 2 é necessário",
         "VALID_ERROR": "Somente Letras, Números, Hífen e Sublinhado são permitidos"
       },
       "DESCRIPTION": {
         "LABEL": "Descrição",
-        "PLACEHOLDER": "SLA for premium customers"
+        "PLACEHOLDER": "VAR for premium customers"
       },
       "FIRST_RESPONSE_TIME": {
         "LABEL": "Tempo da Primeira Resposta",
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Próximo Tempo de Resposta",
+        "LABEL": "Tempo sem resposta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
-        "LABEL": "Tempo de resolução",
+        "LABEL": "Tempo para resolver o atendimento",
         "PLACEHOLDER": "60"
       },
       "BUSINESS_HOURS": {
@@ -64,17 +64,17 @@
       "CANCEL": "Cancelar"
     },
     "ADD": {
-      "TITLE": "Adicionar SLA",
+      "TITLE": "Adicionar VAR",
       "DESC": "Promessas amigáveis para um ótimo serviço!",
       "API": {
-        "SUCCESS_MESSAGE": "SLA adicionado com sucesso",
+        "SUCCESS_MESSAGE": "VAR adicionado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       }
     },
     "EDIT": {
-      "TITLE": "Edit SLA",
+      "TITLE": "Edit VAR",
       "API": {
-        "SUCCESS_MESSAGE": "SLA atualizado com sucesso",
+        "SUCCESS_MESSAGE": "VAR atualizado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       },
       "CONFIRM": {
@@ -85,10 +85,10 @@
       }
     },
     "EVENTS": {
-      "TITLE": "SLA Perdidos",
+      "TITLE": "VARs Perdidos",
       "FRT": "Primeira resposta",
-      "NRT": "Próximo tempo de resposta",
-      "RT": "Tempo de resolução",
+      "NRT": "Tempo sem resposta",
+      "RT": "Tempo para resolver o atendimento",
       "SHOW_MORE": "{count} mais",
       "HIDE": "Ocultar {count} linhas"
       }
