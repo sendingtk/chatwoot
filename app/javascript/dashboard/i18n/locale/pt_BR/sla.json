@@ -1,9 +1,10 @@
 {
   "SLA": {
     "HEADER": "VAR",
+    "ADD_ACTION": "Adicionar VAR",
     "HEADER_BTN_TXT": "Adicionar VAR",
     "ADD_ACTION_LONG": "Criar uma nova política de VAR",
-    "DESCRIPTION": "Os VARs (Verificadores de Atendimento Rápido) são como os juízes do atendimento ao cliente, garantindo um jogo limpo.⚽ Eles definem tempos para responder e resolver as conversas, criando um ambiente de responsabilidade e assegurando uma experiência de alta qualidade para os clientes.",
+    "DESCRIPTION": "Os VARs (Verificadores de Atendimento Rápido) são como os juízes do atendimento ao cliente, garantindo um jogo limpo. Eles definem tempos para responder e resolver as conversas, criando um ambiente de responsabilidade e assegurando uma experiência de alta qualidade para os clientes.😉",
     "LEARN_MORE": "Saiba mais sobre VAR",
     "LOADING": "Carregando VARs",
     "LIST": {
@@ -37,7 +38,7 @@
       },
       "DESCRIPTION": {
         "LABEL": "Descrição",
-        "PLACEHOLDER": "VAR for premium customers"
+        "PLACEHOLDER": "VAR para clientes premium..."
       },
       "FIRST_RESPONSE_TIME": {
         "LABEL": "Tempo da Primeira Resposta",
@@ -50,7 +51,7 @@
       "RESOLUTION_TIME": {
         "LABEL": "Tempo para resolver o atendimento",
         "PLACEHOLDER": "60"
-      },
+      }, 
       "BUSINESS_HOURS": {
         "LABEL": "Horário de funcionamento",
         "PLACEHOLDER": "Apenas durante o horário comercial"
@@ -65,7 +66,7 @@
     },
     "ADD": {
       "TITLE": "Adicionar VAR",
-      "DESC": "Promessas amigáveis para um ótimo serviço!",
+      "DESC": "Elevando o padrão de excelência no atendimento ao cliente!",
       "API": {
         "SUCCESS_MESSAGE": "VAR adicionado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
