@@ -515,11 +515,11 @@
     "SATURDAY": "Sábado"
   },
   "SLA_REPORTS": {
-    "HEADER": "Relatórios de SLA",
-    "NO_RECORDS": "Conversas com SLA aplicado não estão disponíveis.",
-    "LOADING": "Carregando dados de SLA...",
-    "DOWNLOAD_SLA_REPORTS": "Download relatórios de SLA",
-    "DOWNLOAD_FAILED": "Erro ao baixar os relatórios de SLA",
+    "HEADER": "Relatórios de VAR",
+    "NO_RECORDS": "Conversas com VAR aplicado não estão disponíveis.",
+    "LOADING": "Carregando dados de VAR...",
+    "DOWNLOAD_SLA_REPORTS": "Download relatórios de VAR",
+    "DOWNLOAD_FAILED": "Erro ao baixar os relatórios de VAR",
     "DROPDOWN": {
       "ADD_FIlTER": "Adicionar filtro",
       "CLEAR_ALL": "Limpar tudo",
@@ -528,13 +528,13 @@
       "NO_FILTER": "Não há filtros disponíveis",
       "SEARCH": "Buscar filtro",
       "INPUT_PLACEHOLDER": {
-        "SLA": "Nome do SLA",
+        "SLA": "Nome do VAR",
         "AGENTS": "Nome do agente",
         "INBOXES": "Nome da caixa de entrada",
         "LABELS": "Nome do Marcador",
         "TEAMS": "Nome do Time"
       },
-      "SLA": "Política de SLA",
+      "SLA": "Política de VAR",
       "INBOXES": "Caixa de entrada",
       "AGENTS": "Agente",
       "LABELS": "Marcador",
@@ -543,15 +543,15 @@
     "METRICS": {
       "HIT_RATE": {
         "LABEL": "Taxa de Acertos",
-        "TOOLTIP": "Porcentagem de SLAs criados que foram concluídos com sucesso"
+        "TOOLTIP": "Porcentagem de VARs criados que foram concluídos com sucesso"
       },
       "NO_OF_MISSES": {
         "LABEL": "Número de Falhas",
-        "TOOLTIP": "Total de falhas de SLA em um determinado período"
+        "TOOLTIP": "Total de falhas de VARs em um determinado período"
       },
       "NO_OF_CONVERSATIONS": {
         "LABEL": "Número de Conversas",
-        "TOOLTIP": "Número total de conversas com SLA"
+        "TOOLTIP": "Número total de conversas com VAR"
       }
     },
     "TABLE": {
