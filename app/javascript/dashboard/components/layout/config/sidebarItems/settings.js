@@ -160,7 +160,7 @@ const settings = accountId => ({
     },
     {
       icon: 'document-list-clock',
-      label: 'VAR',
+      label: 'SLA',
       hasSubMenu: false,
       toState: frontendURL(`accounts/${accountId}/settings/sla/list`),
       toStateName: 'sla_list',
