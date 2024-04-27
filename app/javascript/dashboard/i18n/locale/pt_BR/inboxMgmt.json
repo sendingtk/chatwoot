@@ -224,8 +224,8 @@
         },
         "URL": {
           "LABEL": "Whatsapp Cloud API URL",
-          "PLACEHOLDER": "Please enter an Whatsapp Cloud API URL or use default https://graph.facebook.com",
-          "ERROR": "This field is required"
+          "PLACEHOLDER": "Por favor, insira uma URL da API do WhatsApp Cloud ou use a padrão: https://graph.facebook.com",
+          "ERROR": "Este campo é obrigatório"
         },
         "PHONE_NUMBER": {
           "LABEL": "Número de telefone",

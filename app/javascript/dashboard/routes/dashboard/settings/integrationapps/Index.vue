@@ -10,7 +10,7 @@
           <div
             v-for="item in integrationsList"
             :key="item.id"
-            class="bg-white dark:bg-slate-800 border border-solid border-slate-75 dark:border-slate-700/50 rounded-sm mb-4 p-4"
+            class="bg-white dark:bg-slate-800 border border-solid border-slate-75 dark:border-slate-700/50 rounded-xl mb-4 p-4"
           >
             <integration-item
               :integration-id="item.id"

@@ -23,15 +23,15 @@
         "LABEL": "SLA Name",
         "PLACEHOLDER": "SLA Name",
         "REQUIRED_ERROR": "SLA name is required",
-        "MINIMUM_LENGTH_ERROR": "La longitud mínima es de 2 caracteres",
-        "VALID_ERROR": "Sólo letras, números, guión y guión bajo son permitidos"
+        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required",
+        "VALID_ERROR": "Only Alphabets, Numbers, Hyphen and Underscore are allowed"
       },
       "DESCRIPTION": {
-        "LABEL": "Descripción",
+        "LABEL": "Description",
         "PLACEHOLDER": "SLA for premium customers"
       },
       "FIRST_RESPONSE_TIME": {
-        "LABEL": "Tiempo de primera respuesta",
+        "LABEL": "First Response Time",
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
@@ -39,35 +39,49 @@
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
-        "LABEL": "Tiempo de resolución",
+        "LABEL": "Resolution Time",
         "PLACEHOLDER": "60"
       },
       "BUSINESS_HOURS": {
-        "LABEL": "Horarios",
+        "LABEL": "Business Hours",
         "PLACEHOLDER": "Only during business hours"
       },
       "THRESHOLD_TIME": {
         "INVALID_FORMAT_ERROR": "Threshold should be a number and greater than zero"
       },
-      "EDIT": "Editar",
-      "CREATE": "Crear",
-      "DELETE": "Eliminar",
-      "CANCEL": "Cancelar"
+      "EDIT": "Edit",
+      "CREATE": "Create",
+      "DELETE": "Delete",
+      "CANCEL": "Cancel"
     },
     "ADD": {
       "TITLE": "Add SLA",
-      "DESC": "SLAs: Friendly promises for great service!",
+      "DESC": "Friendly promises for great service!",
       "API": {
         "SUCCESS_MESSAGE": "SLA added successfully",
-        "ERROR_MESSAGE": "Hubo un error, por favor inténtelo de nuevo"
+        "ERROR_MESSAGE": "There was an error, please try again"
       }
     },
-    "EDIT": {
-      "TITLE": "Edit SLA",
+    "DELETE": {
+      "TITLE": "Delete SLA",
       "API": {
-        "SUCCESS_MESSAGE": "SLA updated successfully",
-        "ERROR_MESSAGE": "Hubo un error, por favor inténtelo de nuevo"
+        "SUCCESS_MESSAGE": "SLA deleted successfully",
+        "ERROR_MESSAGE": "There was an error, please try again"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirm Deletion",
+        "MESSAGE": "Are you sure you want to delete ",
+        "YES": "Yes, Delete ",
+        "NO": "No, Keep "
       }
+    },
+    "EVENTS": {
+      "TITLE": "SLA Misses",
+      "FRT": "First response time",
+      "NRT": "Next response time",
+      "RT": "Resolution time",
+      "SHOW_MORE": "{count} more",
+      "HIDE": "Hide {count} rows"
     }
   }
 }

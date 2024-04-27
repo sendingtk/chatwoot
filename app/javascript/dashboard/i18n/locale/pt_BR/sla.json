@@ -35,7 +35,7 @@
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Next Response Time",
+        "LABEL": "Próximo Tempo de Resposta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
@@ -47,6 +47,7 @@
         "PLACEHOLDER": "Somente em horário comercial"
       },
       "THRESHOLD_TIME": {
+        "INVALID_FORMAT_ERROR": "O limite deve ser um número e maior que zero"
         "INVALID_FORMAT_ERROR": "O limite deve ser um número e maior que zero"
       },
       "EDIT": "Alterar",
@@ -66,8 +67,23 @@
       "TITLE": "Editar SLA",
       "API": {
         "SUCCESS_MESSAGE": "SLA atualizado com sucesso",
+        "SUCCESS_MESSAGE": "SLA atualizado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
+      },
+      "CONFIRM": {
+        "TITLE": "Confirmar exclusão",
+        "MESSAGE": "Tem certeza que deseja excluir?",
+        "YES": "Sim, excluir.",
+        "NO": "Não, mantenha."
       }
-    }
+    },
+    "EVENTS": {
+      "TITLE": "SLA Perdidos",
+      "FRT": "Primeira resposta",
+      "NRT": "Próximo tempo de resposta",
+      "RT": "Tempo de resolução",
+      "SHOW_MORE": "{count} mais",
+      "HIDE": "Ocultar {count} linhas"
+      }
   }
 }

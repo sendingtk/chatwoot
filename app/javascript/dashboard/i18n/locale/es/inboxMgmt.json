@@ -162,7 +162,7 @@
         "PROVIDERS": {
           "LABEL": "Proveedor de API",
           "TWILIO": "Twilio",
-          "BANDWIDTH": "Ancho de banda"
+          "BANDWIDTH": "Bandwidth"
         },
         "API": {
           "ERROR_MESSAGE": "No pudimos guardar el canal SMS"
