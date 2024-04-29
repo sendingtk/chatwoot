@@ -970,7 +970,7 @@ export default {
       this.isRecordingAudio = !this.isRecordingAudio;
       this.isRecorderAudioStopped = !this.isRecordingAudio;
       if (!this.isRecordingAudio) {
-        this.clearMessage();
+        this.clearRecorder();
         this.clearEmailField();
       }
     },
