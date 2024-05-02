@@ -1,108 +1,97 @@
 {
   "SLA": {
-    "HEADER": "SLA",
-    "ADD_ACTION": "Add SLA",
-    "ADD_ACTION_LONG": "Create a new SLA Policy",
-    "DESCRIPTION": "Service Level Agreements (SLAs) are contracts that define clear expectations between your team and customers. They establish standards for response and resolution times, creating a framework for accountability and ensures a consistent, high-quality experience.",
-    "LEARN_MORE": "Learn more about SLA",
-    "LOADING": "Fetching SLAs",
-    "PAYWALL": {
-      "TITLE": "Upgrade to create SLAs",
-      "AVAILABLE_ON": "The SLA feature is only available in the Business and Enterprise plans.",
-      "UPGRADE_PROMPT": "Upgrade your plan to get access to advanced features like team management, automations, custom attributes, and more.",
-      "UPGRADE_NOW": "Upgrade now",
-      "CANCEL_ANYTIME": "You can change or cancel your plan anytime"
-    },
-    "ENTERPRISE_PAYWALL": {
-      "AVAILABLE_ON": "The SLA feature is only available in the paid plans.",
-      "UPGRADE_PROMPT": "Upgrade to a paid plan to access advanced features like audit logs, agent capacity, and more.",
-      "ASK_ADMIN": "Please reach out to your administrator for the upgrade."
-    },
+    "HEADER": "VAR",
+    "ADD_ACTION": "Adicionar VAR",
+    "HEADER_BTN_TXT": "Adicionar VAR",
+    "ADD_ACTION_LONG": "Criar uma nova política de VAR",
+    "DESCRIPTION": "Os VARs (Verificadores de Atendimento Rápido) são como os juízes do atendimento ao cliente, garantindo um jogo limpo. Eles definem tempos para responder e resolver as conversas, criando um ambiente de responsabilidade e assegurando uma experiência de alta qualidade para os clientes.😉",
+    "LEARN_MORE": "Saiba mais sobre VAR",
+    "LOADING": "Carregando VARs",
     "LIST": {
-      "404": "There are no SLAs available in this account.",
+      "404": "Não há VARs disponíveis nesta conta.",
       "EMPTY": {
         "TITLE_1": "Enterprise P0",
-        "DESC_1": "Issues raised by enterprise customers, that require immediate attention.",
+        "DESC_1": "Problemas levantados por clientes corporativos, que exigem atenção imediata.",
         "TITLE_2": "Enterprise P1",
-        "DESC_2": "Issues raised by enterprise customers, that needs to be acknowledged quickly."
+        "DESC_2": "Problemas levantados por clientes corporativos, que precisam ser reconhecidos rapidamente."
       },
-      "BUSINESS_HOURS_ON": "Business hours on",
-      "BUSINESS_HOURS_OFF": "Business hours off",
+      "BUSINESS_HOURS_ON": "Horários de funcionamento",
+      "BUSINESS_HOURS_OFF": "Fora do horário comercial",
       "RESPONSE_TYPES": {
-        "FRT": "First response time threshold",
-        "NRT": "Next response time threshold",
-        "RT": "Resolution time threshold",
+        "FRT": "Limite de tempo da primeira resposta",
+        "NRT": "Limite de tempo sem resposta",
+        "RT": "Limite de tempo para resolver a conversa",
         "SHORT_HAND": {
-          "FRT": "FRT",
-          "NRT": "NRT",
-          "RT": "RT"
+          "FRT": "TPR",
+          "NRT": "TSR",
+          "RT": "TR"
         }
       }
     },
     "FORM": {
       "NAME": {
-        "LABEL": "SLA Name",
-        "PLACEHOLDER": "SLA Name",
-        "REQUIRED_ERROR": "SLA name is required",
-        "MINIMUM_LENGTH_ERROR": "Minimum length 2 is required",
-        "VALID_ERROR": "Only Alphabets, Numbers, Hyphen and Underscore are allowed"
+        "LABEL": "Nome do VAR",
+        "PLACEHOLDER": "Nome do VAR",
+        "REQUIRED_ERROR": "Nome do VAR é obrigatório",
+        "MINIMUM_LENGTH_ERROR": "Tamanho mínimo 2 é necessário",
+        "VALID_ERROR": "Somente Letras, Números, Hífen e Sublinhado são permitidos"
       },
       "DESCRIPTION": {
-        "LABEL": "Description",
-        "PLACEHOLDER": "SLA for premium customers"
+        "LABEL": "Descrição",
+        "PLACEHOLDER": "VAR para clientes premium..."
       },
       "FIRST_RESPONSE_TIME": {
-        "LABEL": "First Response Time",
+        "LABEL": "Tempo da Primeira Resposta",
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Next Response Time",
+        "LABEL": "Tempo sem resposta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
-        "LABEL": "Resolution Time",
+        "LABEL": "Tempo para resolver o atendimento",
         "PLACEHOLDER": "60"
-      },
+      }, 
       "BUSINESS_HOURS": {
-        "LABEL": "Business Hours",
-        "PLACEHOLDER": "Only during business hours"
+        "LABEL": "Horário de funcionamento",
+        "PLACEHOLDER": "Apenas durante o horário comercial"
       },
       "THRESHOLD_TIME": {
-        "INVALID_FORMAT_ERROR": "Threshold should be a number and greater than zero"
+        "INVALID_FORMAT_ERROR": "O limite deve ser um número e maior que zero"
       },
-      "EDIT": "Edit",
-      "CREATE": "Create",
-      "DELETE": "Delete",
-      "CANCEL": "Cancel"
+      "EDIT": "Alterar",
+      "CREATE": "Criar",
+      "DELETE": "Excluir",
+      "CANCEL": "Cancelar"
     },
     "ADD": {
-      "TITLE": "Add SLA",
-      "DESC": "Friendly promises for great service!",
+      "TITLE": "Adicionar VAR",
+      "DESC": "Elevando o padrão de excelência no atendimento ao cliente!",
       "API": {
-        "SUCCESS_MESSAGE": "SLA added successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "VAR adicionado com sucesso",
+        "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       }
     },
-    "DELETE": {
-      "TITLE": "Delete SLA",
+    "EDIT": {
+      "TITLE": "Edit VAR",
       "API": {
-        "SUCCESS_MESSAGE": "SLA deleted successfully",
-        "ERROR_MESSAGE": "There was an error, please try again"
+        "SUCCESS_MESSAGE": "VAR atualizado com sucesso",
+        "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       },
       "CONFIRM": {
-        "TITLE": "Confirm Deletion",
-        "MESSAGE": "Are you sure you want to delete ",
-        "YES": "Yes, Delete ",
-        "NO": "No, Keep "
+        "TITLE": "Confirmar exclusão",
+        "MESSAGE": "Tem certeza que deseja excluir?",
+        "YES": "Sim, excluir.",
+        "NO": "Não, mantenha."
       }
     },
     "EVENTS": {
-      "TITLE": "SLA Misses",
-      "FRT": "First response time",
-      "NRT": "Next response time",
-      "RT": "Resolution time",
-      "SHOW_MORE": "{count} more",
-      "HIDE": "Hide {count} rows"
-    }
+      "TITLE": "VARs Perdidos",
+      "FRT": "Primeira resposta",
+      "NRT": "Tempo sem resposta",
+      "RT": "Tempo para resolver o atendimento",
+      "SHOW_MORE": "{count} mais",
+      "HIDE": "Ocultar {count} linhas"
+      }
   }
 }
