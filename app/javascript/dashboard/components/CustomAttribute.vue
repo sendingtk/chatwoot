@@ -135,7 +135,6 @@
 </template>
 
 <script>
-import { mixin as clickaway } from 'vue-clickaway';
 import { format, parseISO } from 'date-fns';
 import { required, url } from 'vuelidate/lib/validators';
 import { BUS_EVENTS } from 'shared/constants/busEvents';
@@ -151,7 +150,7 @@ export default {
     MultiselectDropdown,
     HelperTextPopup,
   },
-  mixins: [customAttributeMixin, clickaway],
+  mixins: [customAttributeMixin],
   props: {
     label: { type: String, required: true },
     description: { type: String, default: '' },

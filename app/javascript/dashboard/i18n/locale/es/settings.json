@@ -327,7 +327,7 @@
     },
     "KEYS": {
       "WINDOWS_KEY_AND_COMMAND_KEY": "Windows / ⌘",
-      "ALT_OR_OPTION_KEY": "Alt / ⌥",
+      "ALT_OR_OPTION_KEY": "Alt \\ ⌥",
       "FORWARD_SLASH_KEY": "/"
     }
   }

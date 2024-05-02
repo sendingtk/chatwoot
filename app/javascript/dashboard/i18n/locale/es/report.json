@@ -36,11 +36,11 @@
         "DESC": "( Total )"
       },
       "BOT_RESOLUTION_COUNT": {
-        "NAME": "Resolution Count",
+        "NAME": "Número de resoluciones",
         "DESC": "( Total )"
       },
       "BOT_HANDOFF_COUNT": {
-        "NAME": "Handoff Count",
+        "NAME": "Recuento de traspasos",
         "DESC": "( Total )"
       },
       "REPLY_TIME": {
@@ -138,10 +138,10 @@
         "groupBy": "Mes"
       }
     ],
-    "BUSINESS_HOURS": "Business Hours",
+    "BUSINESS_HOURS": "Horarios",
     "FILTER_ACTIONS": {
       "CLEAR_FILTER": "Clear filter",
-      "EMPTY_LIST": "No results found"
+      "EMPTY_LIST": "No se encontraron resultados"
     }
   },
   "AGENT_REPORTS": {
@@ -446,23 +446,23 @@
     }
   },
   "BOT_REPORTS": {
-    "HEADER": "Bot Reports",
+    "HEADER": "Informes de bot",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
-        "TOOLTIP": "Total number of conversations handled by the bot"
+        "LABEL": "Núm. de conversaciones",
+        "TOOLTIP": "Número total de conversaciones manejadas por el bot"
       },
       "TOTAL_RESPONSES": {
-        "LABEL": "Total Responses",
-        "TOOLTIP": "Total number of responses sent by the bot"
+        "LABEL": "Total de respuestas",
+        "TOOLTIP": "Número total de respuestas enviadas por el bot"
       },
       "RESOLUTION_RATE": {
-        "LABEL": "Resolution Rate",
-        "TOOLTIP": "Total number of conversations resolved by the bot / Total number of conversations handled by the bot * 100"
+        "LABEL": "Tiempo de resolución",
+        "TOOLTIP": "Número total de conversaciones resueltas por el bot / Número total de conversaciones manejadas por el bot * 100"
       },
       "HANDOFF_RATE": {
-        "LABEL": "Handoff Rate",
-        "TOOLTIP": "Total number of conversations handed off to agents / Total number of conversations handled by the bot * 100"
+        "LABEL": "Tasa de traspasos",
+        "TOOLTIP": "Número total de conversaciones transmitidas a agentes / Número total de conversaciones manejadas por el bot * 100"
       }
     }
   },
@@ -517,24 +517,24 @@
     "DOWNLOAD_SLA_REPORTS": "Download SLA reports",
     "DOWNLOAD_FAILED": "Failed to download SLA Reports",
     "DROPDOWN": {
-      "ADD_FIlTER": "Add filter",
+      "ADD_FIlTER": "Añadir Filtro",
       "CLEAR_ALL": "Clear all",
       "CLEAR_FILTER": "Clear filter",
-      "EMPTY_LIST": "No results found",
+      "EMPTY_LIST": "No se encontraron resultados",
       "NO_FILTER": "No filters available",
       "SEARCH": "Search filter",
       "INPUT_PLACEHOLDER": {
         "SLA": "SLA name",
-        "AGENTS": "Agent name",
-        "INBOXES": "Inbox name",
-        "LABELS": "Label name",
-        "TEAMS": "Team name"
+        "AGENTS": "Nombre del agente",
+        "INBOXES": "Nombre de la bandeja de entrada",
+        "LABELS": "Nombre de la etiqueta",
+        "TEAMS": "Nombre del equipo"
       },
-      "SLA": "SLA Policy",
-      "INBOXES": "Inbox",
-      "AGENTS": "Agent",
-      "LABELS": "Label",
-      "TEAMS": "Team"
+      "SLA": "Política de SLA",
+      "INBOXES": "Bandeja de entrada",
+      "AGENTS": "Agente",
+      "LABELS": "Etiqueta",
+      "TEAMS": "Equipo"
     },
     "METRICS": {
       "HIT_RATE": {
@@ -553,8 +553,8 @@
     "TABLE": {
       "HEADER": {
         "POLICY": "Policy",
-        "CONVERSATION": "Conversation",
-        "AGENT": "Agent"
+        "CONVERSATION": "Conversación",
+        "AGENT": "Agente"
       },
       "VIEW_DETAILS": "View Details"
     }

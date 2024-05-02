@@ -121,7 +121,6 @@
 <script>
 import alertMixin from 'shared/mixins/alertMixin';
 import { mapGetters } from 'vuex';
-import { mixin as clickaway } from 'vue-clickaway';
 import adminMixin from 'dashboard/mixins/isAdmin';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import AddCannedModal from 'dashboard/routes/dashboard/settings/canned/AddCanned.vue';
@@ -142,7 +141,7 @@ export default {
     MenuItem,
     ForwardModal,
   },
-  mixins: [alertMixin, clickaway, messageFormatterMixin, adminMixin],
+  mixins: [alertMixin, messageFormatterMixin, adminMixin],
   props: {
     message: {
       type: Object,

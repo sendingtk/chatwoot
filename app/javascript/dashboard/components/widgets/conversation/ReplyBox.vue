@@ -154,7 +154,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { mixin as clickaway } from 'vue-clickaway';
 import alertMixin from 'shared/mixins/alertMixin';
 import keyboardEventListenerMixins from 'shared/mixins/keyboardEventListenerMixins';
 
@@ -219,7 +218,6 @@ export default {
     ArticleSearchPopover,
   },
   mixins: [
-    clickaway,
     inboxMixin,
     uiSettingsMixin,
     alertMixin,
