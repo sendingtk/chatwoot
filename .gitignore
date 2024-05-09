@@ -60,7 +60,6 @@ test/cypress/videos/*
 
 /config/master.key
 /config/*.enc
-/config/*.pem
 
 #ignore files under .vscode directory
 .vscode
