@@ -46,9 +46,7 @@ import webhooks from './modules/webhooks';
 import draftMessages from './modules/draftMessages';
 import SLAReports from './modules/SLAReports';
 
-
 const plugins = [];
-
 
 Vue.use(Vuex);
 export default new Vuex.Store({
