@@ -328,6 +328,7 @@ export default {
       inboxesList: 'inboxes/getInboxes',
       campaigns: 'campaigns/getAllCampaigns',
       labels: 'labels/getLabels',
+      selectedConversations: 'bulkActions/getSelectedConversationIds',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
       currentRole: 'getCurrentRole',
       accountId: 'getCurrentAccountId',
