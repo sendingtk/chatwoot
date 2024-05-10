@@ -66,11 +66,11 @@
       "SNOOZED_UNTIL_NEXT_WEEK": "Adiada até a próxima semana",
       "SNOOZED_UNTIL_NEXT_REPLY": "Adiado até a próxima resposta",
       "SLA_STATUS": {
-        "FRT": "FRT {status}",
-        "NRT": "NRT {status}",
-        "RT": "RT {status}",
-        "MISSED": "perdido",
-        "DUE": "devido"
+        "FRT": "Prim. Resp.: {status}",
+        "NRT": "Prox. Resp.: {status}",
+        "RT": "Resolva Atend.: {status}",
+        "MISSED": "Perdido",
+        "DUE": "Em andamento" 
       }
     },
     "RESOLVE_DROPDOWN": {

@@ -1,12 +1,12 @@
 <template>
   <div class="home-page--container">
-    <div v-for="(configItem, index) in config" :key="index" class="home-page--list">
+    <div v-if="defaultUrl" class="home-page--list">
+      <LoadingState v-if="loading" />
       <iframe
-        v-if="configItem.type === 'frame'"
-        :id="`home-page--frame-${index}`"
+        v-show="!loading"
         :src="defaultUrl"
-        @load="() => onIframeLoad(index)"
-        ref="iframes"
+        @load="onIframeLoad"
+        ref="iframe"
         class="iframe-hidden"
       ></iframe>
     </div>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-//
 import LoadingState from '../../../../components/widgets/LoadingState.vue';
 import { mapGetters } from 'vuex';
 
@@ -23,10 +22,6 @@ export default {
     LoadingState,
   },
   props: {
-    currentChat: {
-      type: Object,
-      default: () => ({}),
-    },
     isVisible: {
       type: Boolean,
       default: false,
@@ -34,12 +29,9 @@ export default {
   },
   data() {
     return {
-      //defaultUrl: 'https://crm.inovechat.com/apps/chatwoots/embedding?token=ccb8c849011c909c905a',
-      //defaultUrl: this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm")?.content[0]?.url || '',
-
-      config: [{ type: 'frame', url: 'example.com' }],
       eventData: this.formatEventData(),
       redirected: true,
+      loading: true
     };
   },
   computed: {
@@ -62,7 +54,6 @@ export default {
     },
     defaultUrl() {
       const dashboardApp = this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm");
-      console.log("TESTE2: ",dashboardApp)
       return dashboardApp?.content[0]?.url || '';
     },
   },
@@ -74,30 +65,11 @@ export default {
     },
   },
   mounted() {
-   
-    //console.log("TESTANDO", this.defaultUrl);
-
-    console.log(this.dashboardApps)
-    // const abc = this.dashboardApps.map(dashboardApp => ({
-    //   name: dashboardApp.title,
-    // }))
-
-    const abc = this.dashboardApps
-  .filter(dashboardApp => dashboardApp.title === "crm")
-  .map(dashboardApp => ({
-    name: dashboardApp.title,
-    url: dashboardApp.content.length > 0 ? dashboardApp.content[0].url : '',
-  }));
-  
-git 
-  
-
-
     window.onmessage = e => {
       if (typeof e.data !== 'string' || e.data !== 'chatwoot-dashboard-app:fetch-info') {
         return;
       }
-      this.onIframeLoad(null, 0);
+      this.onIframeLoad();
     };
   },
   methods: {
@@ -106,15 +78,11 @@ git
         event: 'appContext',
         data: {
           contact: { id: 1 },
-          //currentAgent: { id: 100, name: 'Douglas', email: 'doug.fsg@gmail.com' },
         },
       };
     },
-    getFrameId(index) {
-      return `dashboard-app--frame-${index}`;
-    },
-    onIframeLoad(index) {
-      const frameElement = this.$refs.iframes[index];
+    onIframeLoad() {
+      const frameElement = this.$refs.iframe;
       const eventData = { event: 'appContext', data: this.dashboardAppContext };
 
       if (frameElement) {
@@ -122,20 +90,19 @@ git
 
         frameElement.onload = () => {
           if (this.redirected) {
-            //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
-            const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
-        frameElement.contentWindow.location.href = urlParts[0];
+            const urlParts = this.defaultUrl.split('apps');
+            frameElement.contentWindow.location.href = urlParts[0];
             setTimeout(() => {
-              //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
-              const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
-        frameElement.contentWindow.location.href = urlParts[0];
+              frameElement.contentWindow.location.href = urlParts[0];
             }, 1000);
             this.redirected = false;
           }
 
           setTimeout(() => {
             frameElement.classList.remove('iframe-hidden');
-          }, 1000);
+            this.loading = false;
+          }, 1500);
+          
         };
       }
     },
