@@ -1,30 +1,27 @@
 <template>
   <div class="home-page--container">
-    <div
-      v-for="(configItem, index) in config"
-      :key="index"
-      class="home-page--list"
-    >
+    <div v-for="(configItem, index) in config" :key="index" class="home-page--list">
       <iframe
         v-if="configItem.type === 'frame'"
         :id="`home-page--frame-${index}`"
-        ref="iframes"
         :src="defaultUrl"
-        class="iframe-hidden"
         @load="() => onIframeLoad(index)"
-      />
+        ref="iframes"
+        class="iframe-hidden"
+      ></iframe>
     </div>
   </div>
 </template>
 
 <script>
-// import LoadingState from '../../../../components/widgets/LoadingState.vue';
+//
+import LoadingState from '../../../../components/widgets/LoadingState.vue';
 import { mapGetters } from 'vuex';
 
 export default {
-  // components: {
-  //   LoadingState,
-  // },
+  components: {
+    LoadingState,
+  },
   props: {
     currentChat: {
       type: Object,
@@ -37,6 +34,11 @@ export default {
   },
   data() {
     return {
+      //defaultUrl: 'https://crm.inovechat.com/apps/chatwoots/embedding?token=ccb8c849011c909c905a',
+      //defaultUrl: this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm")?.content[0]?.url || '',
+
+      config: [{ type: 'frame', url: 'example.com' }],
+      eventData: this.formatEventData(),
       redirected: true,
     };
   },
@@ -59,10 +61,9 @@ export default {
       return { id, name, email };
     },
     defaultUrl() {
-      const selectedDashboardApp = this.dashboardApps.find(
-        dashboardApp => dashboardApp.title === 'crm'
-      );
-      return selectedDashboardApp?.content[0]?.url || '';
+      const dashboardApp = this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm");
+      console.log("TESTE2: ",dashboardApp)
+      return dashboardApp?.content[0]?.url || '';
     },
   },
   watch: {
@@ -73,11 +74,27 @@ export default {
     },
   },
   mounted() {
+   
+    //console.log("TESTANDO", this.defaultUrl);
+
+    console.log(this.dashboardApps)
+    // const abc = this.dashboardApps.map(dashboardApp => ({
+    //   name: dashboardApp.title,
+    // }))
+
+    const abc = this.dashboardApps
+  .filter(dashboardApp => dashboardApp.title === "crm")
+  .map(dashboardApp => ({
+    name: dashboardApp.title,
+    url: dashboardApp.content.length > 0 ? dashboardApp.content[0].url : '',
+  }));
+  
+git 
+  
+
+
     window.onmessage = e => {
-      if (
-        typeof e.data !== 'string' ||
-        e.data !== 'chatwoot-dashboard-app:fetch-info'
-      ) {
+      if (typeof e.data !== 'string' || e.data !== 'chatwoot-dashboard-app:fetch-info') {
         return;
       }
       this.onIframeLoad(null, 0);
@@ -89,6 +106,7 @@ export default {
         event: 'appContext',
         data: {
           contact: { id: 1 },
+          //currentAgent: { id: 100, name: 'Douglas', email: 'doug.fsg@gmail.com' },
         },
       };
     },
@@ -104,10 +122,13 @@ export default {
 
         frameElement.onload = () => {
           if (this.redirected) {
-            const urlParts = this.defaultUrl.split('apps');
-            frameElement.contentWindow.location.href = urlParts[0];
+            //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
+            const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
+        frameElement.contentWindow.location.href = urlParts[0];
             setTimeout(() => {
-              frameElement.contentWindow.location.href = urlParts[0];
+              //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
+              const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
+        frameElement.contentWindow.location.href = urlParts[0];
             }, 1000);
             this.redirected = false;
           }
