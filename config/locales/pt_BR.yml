@@ -71,7 +71,7 @@ pt_BR:
     period: Reportando o período %{since} a %{until}
     utc_warning: O relatório gerado está em fuso horário UTC
     agent_csv:
-      agent_name: Nome do Agente
+      agent_name: Nome do Atendente
       conversations_count: Conversas atribuídas
       avg_first_response_time: Tempo médio de primeira resposta
       avg_resolution_time: Tempo médio de resolução
@@ -109,7 +109,7 @@ pt_BR:
         contact_email_address: E-mail de contato
         contact_phone_number: Telefone de contato
         link_to_the_conversation: Link para a conversa
-        agent_name: Nome do Agente
+        agent_name: Nome do Atendente
         rating: Classificação
         feedback: Comentário de Feedback
         recorded_at: Data de gravação
@@ -187,7 +187,7 @@ pt_BR:
   integration_apps:
     dyte:
       name: "Dyte"
-      description: "Dyte é uma ferramenta que ajuda você a adicionar áudio e vídeo ao vivo em sua aplicação com apenas algumas linhas de código. Essa integração permite dar uma opção aos seus agentes para ter uma chamada de vídeo ou voz com os seus clientes sem sair do Chatwoot."
+      description: "Dyte é uma ferramenta que ajuda você a adicionar áudio e vídeo ao vivo em sua aplicação com apenas algumas linhas de código. Essa integração permite dar uma opção aos seus atendentes para ter uma chamada de vídeo ou voz com os seus clientes sem sair do Many Talks."
       meeting_name: "%{agent_name} começou a reunião"
     slack:
       name: "Slack"
@@ -197,16 +197,16 @@ pt_BR:
       description: "Webhooks fornecem informações em tempo real sobre o que está acontecendo em sua conta. Você pode usar os webhooks para comunicar eventos com seus aplicativos favoritos como Slack ou Github. Clique em Configurar para configurar seus webhooks."
     dialogflow:
       name: "Fluxo de diálogo"
-      description: "Construa chatbots usando Dialogflow e conecte-os à sua caixa de entrada rapidamente. Deixe os bots lidarem com as consultas antes de entregá-los a um agente de atendimento ao cliente."
+      description: "Construa chatbots usando Dialogflow e conecte-os à sua caixa de entrada rapidamente. Deixe os bots lidarem com as consultas antes de entregá-los a um atendente de atendimento ao cliente."
     fullcontact:
       name: "Contato completo"
       description: "A integração de contatos completos ajuda a enriquecer perfis de visitantes. Identifique os usuários assim que eles compartilham seu endereço de e-mail e ofereça um atendimento ao cliente personalizado. Conecte seu FullContact à sua conta compartilhando a chave de API de Contato Fullcot."
     google_translate:
       name: "Tradutor do Google"
-      description: "Torne isso mais fácil para agentes traduzirem mensagens adicionando uma integração com o Tradutor do Google. O Tradutor do Google ajuda a identificar automaticamente o idioma e convertê-lo para o idioma escolhido pelo administrador de conta/agente."
+      description: "Torne isso mais fácil para atendentes traduzirem mensagens adicionando uma integração com o Tradutor do Google. O Tradutor do Google ajuda a identificar automaticamente o idioma e convertê-lo para o idioma escolhido pelo administrador de conta/atendentes."
     openai:
       name: "OpenAI"
-      description: "Integre os poderosos recursos de IA ao Chatwoot aproveitando os modelos GPT da OpenAI."
+      description: "Integre os poderosos recursos de IA ao Many Talks aproveitando os modelos GPT da OpenAI."
   public_portal:
     search:
       search_placeholder: Pesquisar por artigo por título ou corpo...

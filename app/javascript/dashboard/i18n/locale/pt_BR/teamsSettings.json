@@ -2,9 +2,9 @@
   "TEAMS_SETTINGS": {
     "NEW_TEAM": "Criar nova equipe",
     "HEADER": "Times",
-    "SIDEBAR_TXT": "<p><b>Equipes</b></p> <p>As equipes permitem que você organize seus agentes em grupos baseados em suas responsabilidades. <br /> Um agente pode fazer parte de várias equipes. Você pode atribuir conversas a uma equipe quando você estiver trabalhando colaborativamente. </p>",
+    "SIDEBAR_TXT": "<p><b>Equipes</b></p> <p>As equipes permitem que você organize seus atendentes em grupos baseados em suas responsabilidades. <br /> Um atendente pode fazer parte de várias equipes. Você pode atribuir conversas a uma equipe quando você estiver trabalhando colaborativamente. </p>",
     "LIST": {
-      "404": "Não existem agentes associados a esta conta.",
+      "404": "Não existem atendentes associados a esta conta.",
       "EDIT_TEAM": "Editar equipe"
     },
     "CREATE_FLOW": {
@@ -13,20 +13,20 @@
         "DESC": "Adicione um título e uma descrição à sua nova equipe."
       },
       "AGENTS": {
-        "BUTTON_TEXT": "Adicionar agente ao seu time",
-        "TITLE": "Adicionar agentes a equipe:  %{teamName}",
-        "DESC": "Adicione agentes à sua equipe recém-criada. Isso permite que você colabore como uma equipe em conversas, seja notificado sobre novos eventos na mesma conversa."
+        "BUTTON_TEXT": "Adicionar atendente ao seu time",
+        "TITLE": "Adicionar atendentes a equipe:  %{teamName}",
+        "DESC": "Adicione atendentes à sua equipe recém-criada. Isso permite que você colabore como uma equipe em conversas, seja notificado sobre novos eventos na mesma conversa."
       },
       "WIZARD": [
         {
           "title": "Criar",
           "route": "Novo",
-          "body": "Criar uma nova equipe de agentes."
+          "body": "Criar uma nova equipe de atendentes."
         },
         {
-          "title": "Adicionar Agentes",
+          "title": "Adicionar Atendentes",
           "route": "ajustes_equipes_adicionar_agentes",
-          "body": "Adicionar agentes a equipe."
+          "body": "Adicionar atendentes a equipe."
         },
         {
           "title": "Finalizar",
@@ -42,9 +42,9 @@
         "BUTTON_TEXT": "Atualizar equipe"
       },
       "AGENTS": {
-        "BUTTON_TEXT": "Atualizar agentes no departamento",
-        "TITLE": "Adicionar agentes a equipe: %{teamName}",
-        "DESC": "Adicionar agentes à sua equipe recém-criada. Todos os agentes adicionados serão notificados quando uma conversa for atribuída a esta equipe."
+        "BUTTON_TEXT": "Atualizar atendentes no departamento",
+        "TITLE": "Adicionar atendentes a equipe: %{teamName}",
+        "DESC": "Adicionar atendentes à sua equipe recém-criada. Todos os atendentes adicionados serão notificados quando uma conversa for atribuída a esta equipe."
       },
       "WIZARD": [
         {
@@ -53,9 +53,9 @@
           "body": "Alterar nome, descrição e outros detalhes."
         },
         {
-          "title": "Editar agente",
+          "title": "Editar atendente",
           "route": "ajustes_equipes_editar_membros",
-          "body": "Gerenciar agentes de seu departamento"
+          "body": "Gerenciar atendente de seu departamento"
         },
         {
           "title": "Finalizar",
@@ -70,20 +70,20 @@
     "AGENTS": {
       "AGENT": "AGENTE",
       "EMAIL": "E-mail",
-      "BUTTON_TEXT": "Adicionar agentes",
-      "ADD_AGENTS": "Adicionando agentes à sua caixa de entrada...",
+      "BUTTON_TEXT": "Adicionar atendentes",
+      "ADD_AGENTS": "Adicionando atendentes à sua caixa de entrada...",
       "SELECT": "Selecionar",
-      "SELECT_ALL": "Selecionar todos os agentes",
-      "SELECTED_COUNT": "%{selected} de %{total} agentes selecionados."
+      "SELECT_ALL": "Selecionar todos os atendentes",
+      "SELECTED_COUNT": "%{selected} de %{total} atendentes selecionados."
     },
     "ADD": {
-      "TITLE": "Adicionar agentes a equipe:  %{teamName}",
-      "DESC": "Adicione agentes à sua equipe recém-criada. Isso permite que você colabore como uma equipe em conversas, seja notificado sobre novos eventos na mesma conversa.",
+      "TITLE": "Adicionar atendentes a equipe:  %{teamName}",
+      "DESC": "Adicione atendentes à sua equipe recém-criada. Isso permite que você colabore como uma equipe em conversas, seja notificado sobre novos eventos na mesma conversa.",
       "SELECT": "Selecionar",
-      "SELECT_ALL": "Selecionar todos os agentes",
-      "SELECTED_COUNT": "%{selected} de %{total} agentes selecionados.",
-      "BUTTON_TEXT": "Adicionar agentes",
-      "AGENT_VALIDATION_ERROR": "Selecione pelo menos um agente."
+      "SELECT_ALL": "Selecionar todos os atendentes",
+      "SELECTED_COUNT": "%{selected} de %{total} atendentes selecionados.",
+      "BUTTON_TEXT": "Adicionar atendentes",
+      "AGENT_VALIDATION_ERROR": "Selecione pelo menos um atendente."
     },
 
     "FINISH": {
@@ -94,7 +94,7 @@
     "DELETE": {
       "BUTTON_TEXT": "Excluir",
       "API": {
-        "SUCCESS_MESSAGE": "Agente excluído com sucesso.",
+        "SUCCESS_MESSAGE": "Atendentes excluído com sucesso.",
         "ERROR_MESSAGE": "Não foi possível excluir o departamento. Tente novamente."
       },
       "CONFIRM": {

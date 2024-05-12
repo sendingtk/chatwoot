@@ -116,14 +116,14 @@
         "TOMORROW": "Até amanhã",
         "NEXT_WEEK": "Até a próxima semana"
       },
-      "ASSIGN_AGENT": "Atribuir Agente",
+      "ASSIGN_AGENT": "Atribuir Atendentes",
       "ASSIGN_LABEL": "Atribuir etiqueta",
-      "AGENTS_LOADING": "Carregando agentes...",
+      "AGENTS_LOADING": "Carregando atendentes...",
       "ASSIGN_TEAM": "Atribuir equipe",
       "API": {
         "AGENT_ASSIGNMENT": {
           "SUCCESFUL": "ID da conversa %{conversationId} atribuído para \"%{agentName}\"",
-          "FAILED": "Não foi possível atribuir agente. Por favor, tente novamente."
+          "FAILED": "Não foi possível atribuir atendente. Por favor, tente novamente."
         },
         "LABEL_ASSIGNMENT": {
           "SUCCESFUL": "Etiqueta #%{labelName} atribuída para o id de conversa %{conversationId}",
@@ -140,7 +140,7 @@
       "ENABLE_SIGN_TOOLTIP": "Ativar assinatura",
       "DISABLE_SIGN_TOOLTIP": "Desativar assinatura",
       "MSG_INPUT": "Shift + enter para nova linha. Digite '/' para atalhos.",
-      "PRIVATE_MSG_INPUT": "A mensagem será visível apenas para agentes",
+      "PRIVATE_MSG_INPUT": "A mensagem será visível apenas para atendentes",
       "MESSAGE_SIGNATURE_NOT_CONFIGURED": "A assinatura da mensagem não está configurada. Por favor, configure-a nas configurações do perfil.",
       "CLICK_HERE": "Clique aqui para atualizar"
     },
@@ -189,7 +189,7 @@
     "CHANGE_STATUS": "Estado da conversa mudou",
     "CHANGE_STATUS_FAILED": "Mudança de status da conversa falhou",
     "CHANGE_AGENT": "Responsável da conversa alterado",
-    "CHANGE_AGENT_FAILED": "Falha ao atribuir outro agente",
+    "CHANGE_AGENT_FAILED": "Falha ao atribuir outro atendente",
     "ASSIGN_LABEL_SUCCESFUL": "Etiqueta atribuída com sucesso",
     "ASSIGN_LABEL_FAILED": "Falha ao atribuir etiqueta",
     "CHANGE_TEAM": "Estado da conversa mudou",
@@ -200,7 +200,7 @@
     "SEND_FAILED": "Não foi possível enviar a mensagem! Tente novamente",
     "TRY_AGAIN": "Tentar novamente",
     "ASSIGNMENT": {
-      "SELECT_AGENT": "Selecione Agente",
+      "SELECT_AGENT": "Selecione Atendentes",
       "REMOVE": "Excluir",
       "ASSIGN": "Atribua"
     },
@@ -229,7 +229,7 @@
     "SEND_EMAIL_ERROR": "Ocorreu um erro, por favor tente novamente",
     "FORM": {
       "SEND_TO_CONTACT": "Envie a transcrição para o cliente",
-      "SEND_TO_AGENT": "Envie a transcrição para o agente designado",
+      "SEND_TO_AGENT": "Envie a transcrição para o atendente designado",
       "SEND_TO_OTHER_EMAIL_ADDRESS": "Enviar a transcrição para outro endereço de e-mail",
       "EMAIL": {
         "PLACEHOLDER": "Digite um endereço de e-mail",
@@ -247,7 +247,7 @@
     },
     "TEAM_MEMBERS": {
       "TITLE": "Convidar membros da sua equipe",
-      "DESCRIPTION": "Já que você está se preparando para conversar com seu cliente, traga seus colegas para ajudá-lo. Você pode convidar seus colegas de equipe adicionando os endereços de e-mail deles na lista de agentes.",
+      "DESCRIPTION": "Já que você está se preparando para conversar com seu cliente, traga seus colegas para ajudá-lo. Você pode convidar seus colegas de equipe adicionando os endereços de e-mail deles na lista de atendentes.",
       "NEW_LINK": "Clique aqui para convidar um membro da equipe"
     },
     "INBOXES": {
@@ -262,7 +262,7 @@
     }
   },
   "CONVERSATION_SIDEBAR": {
-    "ASSIGNEE_LABEL": "Agente atribuído",
+    "ASSIGNEE_LABEL": "Atendentes atribuído",
     "SELF_ASSIGN": "Atribuir a mim",
     "TEAM_LABEL": "Equipe Atribuída",
     "SELECT": {

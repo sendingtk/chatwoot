@@ -56,7 +56,7 @@
 - name: reports
   enabled: true
   help_url: https://chwt.app/hc/reports
-- name: crm2
+- name: crm
   enabled: false
 - name: auto_resolve_conversations
   enabled: true

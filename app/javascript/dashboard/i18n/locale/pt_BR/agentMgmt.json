@@ -1,17 +1,17 @@
 {
   "AGENT_MGMT": {
-    "HEADER": "Agentes",
-    "HEADER_BTN_TXT": "Adicionar Agente",
-    "LOADING": "Buscando lista de agente",
-    "SIDEBAR_TXT": "<p><b>Agentes</b></p> <p> Um <b>Agente</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os agentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os agentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Agente</b> para adicionar um novo agente. O agente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Chatwoot e responder às mensagens. </p><p> O acesso aos recursos do Chatwoot são baseados nas seguintes funções. </p><p> <b>Agentes</b> - Agentes com essa função só podem acessar caixas de entrada, relatórios e conversas. Eles podem atribuir conversas a outros agentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Chatwoot ativados para sua conta, incluindo configurações e todos os privilégios de agentes normais.</p>",
+    "HEADER": "Atendentess",
+    "HEADER_BTN_TXT": "Adicionar Atendentes",
+    "LOADING": "Buscando lista de atendente",
+    "SIDEBAR_TXT": "<p><b>Atendentess</b></p> <p> Um <b>Atendentes</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os atendentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os atendentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Atendentes</b> para adicionar um novo atendente. O atendente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Many Talks e responder às mensagens. </p><p> O acesso aos recursos do Many Talks são baseados nas seguintes funções. </p><p> <b>Atendentess</b> - Atendentess com essa função só podem acessar caixas de entrada, relatórios e conversas. Eles podem atribuir conversas a outros atendentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Many Talks ativados para sua conta, incluindo configurações e todos os privilégios de atendentes normais.</p>",
     "AGENT_TYPES": {
       "ADMINISTRATOR": "Administrador",
-      "AGENT": "Agente"
+      "AGENT": "Atendentes"
     },
     "LIST": {
-      "404": "Não existem agentes associados a esta conta",
-      "TITLE": "Gerenciar agentes da sua equipe",
-      "DESC": "Você pode adicionar e/ou remover agentes de um time.",
+      "404": "Não existem atendentes associados a esta conta",
+      "TITLE": "Gerenciar atendentes da sua equipe",
+      "DESC": "Você pode adicionar e/ou remover atendentes de um time.",
       "NAME": "Nome",
       "EMAIL": "E-mail",
       "STATUS": "SItuação",
@@ -20,27 +20,27 @@
       "VERIFICATION_PENDING": "Verificação Pendente"
     },
     "ADD": {
-      "TITLE": "Adicionar agente ao seu time",
+      "TITLE": "Adicionar atendente ao seu time",
       "DESC": "Você pode adicionar pessoas que poderão acompanhar o suporte de suas caixas de entrada.",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "NAME": {
-          "LABEL": "Nome do Agente",
-          "PLACEHOLDER": "Por favor, insira o nome do agente"
+          "LABEL": "Nome do Atendentes",
+          "PLACEHOLDER": "Por favor, insira o nome do atendente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de Agente",
+          "LABEL": "Tipo de Atendentes",
           "PLACEHOLDER": "Selecione um tipo",
-          "ERROR": "É necessário o tipo de agente"
+          "ERROR": "É necessário o tipo de atendente"
         },
         "EMAIL": {
           "LABEL": "Endereço de e-mail",
-          "PLACEHOLDER": "Por favor, insira um endereço de e-mail do agente"
+          "PLACEHOLDER": "Por favor, insira um endereço de e-mail do atendente"
         },
-        "SUBMIT": "Adicionar agente"
+        "SUBMIT": "Adicionar atendente"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Agente adicionado com sucesso",
+        "SUCCESS_MESSAGE": "Atendentes adicionado com sucesso",
         "EXIST_MESSAGE": "O E-mail do informado já está uso, por favor tente outro endereço de e-mail",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       }
@@ -48,7 +48,7 @@
     "DELETE": {
       "BUTTON_TEXT": "Excluir",
       "API": {
-        "SUCCESS_MESSAGE": "Agente excluído com sucesso",
+        "SUCCESS_MESSAGE": "Atendentes excluído com sucesso",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       },
       "CONFIRM": {
@@ -59,38 +59,38 @@
       }
     },
     "EDIT": {
-      "TITLE": "Editar Agente",
+      "TITLE": "Editar Atendentes",
       "FORM": {
         "NAME": {
-          "LABEL": "Nome do Agente",
-          "PLACEHOLDER": "Por favor, insira um nome do agente"
+          "LABEL": "Nome do Atendentes",
+          "PLACEHOLDER": "Por favor, insira um nome do atendente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de Agente",
+          "LABEL": "Tipo de Atendentes",
           "PLACEHOLDER": "Selecione um tipo",
-          "ERROR": "É necessário o tipo de agente"
+          "ERROR": "É necessário o tipo de atendente"
         },
         "EMAIL": {
           "LABEL": "Endereço de email",
-          "PLACEHOLDER": "Por favor, insira um endereço de e-mail do agente"
+          "PLACEHOLDER": "Por favor, insira um endereço de e-mail do atendente"
         },
         "AGENT_AVAILABILITY": {
           "LABEL": "Disponibilidade",
-          "PLACEHOLDER": "Por favor, selecione a disponibilidade do agente",
+          "PLACEHOLDER": "Por favor, selecione a disponibilidade do atendente",
           "ERROR": "A disponibilidade é necessária"
         },
-        "SUBMIT": "Editar agente"
+        "SUBMIT": "Editar atendente"
       },
       "BUTTON_TEXT": "Alterar",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "API": {
-        "SUCCESS_MESSAGE": "Agente atualizado com sucesso",
+        "SUCCESS_MESSAGE": "Atendentes atualizado com sucesso",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       },
       "PASSWORD_RESET": {
         "ADMIN_RESET_BUTTON": "Redefinir a senha",
-        "ADMIN_SUCCESS_MESSAGE": "Um e-mail com instruções de redefinição de senha foi enviado para o agente",
-        "SUCCESS_MESSAGE": "Senha do agente redefinida com sucesso",
+        "ADMIN_SUCCESS_MESSAGE": "Um e-mail com instruções de redefinição de senha foi enviado para o atendente",
+        "SUCCESS_MESSAGE": "Senha do atendente redefinida com sucesso",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       }
     },
@@ -100,18 +100,18 @@
     "MULTI_SELECTOR": {
       "PLACEHOLDER": "Nenhuma",
       "TITLE": {
-        "AGENT": "Selecionar agente",
+        "AGENT": "Selecionar atendente",
         "TEAM": "Selecionar time"
       },
       "SEARCH": {
         "NO_RESULTS": {
-          "AGENT": "Nenhum agente encontrado",
+          "AGENT": "Nenhum atendente encontrado",
           "TEAM": "Nenhum time encontrado"
         },
         "PLACEHOLDER": {
-          "AGENT": "Pesquisar agentes",
+          "AGENT": "Pesquisar atendentes",
           "TEAM": "Pesquisar times",
-          "INPUT": "Pesquisar por agentes"
+          "INPUT": "Pesquisar por atendentes"
         }
       }
     }

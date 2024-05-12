@@ -3,7 +3,7 @@
     "HEADER": "Conversas",
     "LOADING_CHART": "Carregando dados do gráfico...",
     "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
-    "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de agentes",
+    "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de atendentes",
     "DATA_FETCHING_FAILED": "Falha ao buscar dados, tente novamente mais tarde.",
     "SUMMARY_FETCHING_FAILED": "Não foi possível obter o resumo. Tente novamente mais tarde.",
     "METRICS": {
@@ -149,11 +149,11 @@
     }
   },
   "AGENT_REPORTS": {
-    "HEADER": "Visão Geral de Agentes",
+    "HEADER": "Visão Geral de Atendentes",
     "LOADING_CHART": "Carregando dados do gráfico...",
     "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
-    "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de agentes",
-    "FILTER_DROPDOWN_LABEL": "Selecione Agente",
+    "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de atendentes",
+    "FILTER_DROPDOWN_LABEL": "Selecione Atendente",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -423,13 +423,13 @@
     "DOWNLOAD_FAILED": "Falha ao baixar Relatórios CSAT",
     "FILTERS": {
       "AGENTS": {
-        "PLACEHOLDER": "Escolher agentes"
+        "PLACEHOLDER": "Escolher atendentes"
       }
     },
     "TABLE": {
       "HEADER": {
         "CONTACT_NAME": "Contato",
-        "AGENT_NAME": "Agente atribuído",
+        "AGENT_NAME": "Atendentes atribuído",
         "RATING": "Classificação",
         "FEEDBACK_TEXT": "Comentário do feedback"
       }
@@ -466,7 +466,7 @@
       },
       "HANDOFF_RATE": {
         "LABEL": "Taxa de Transferência",
-        "TOOLTIP": "Número total de conversas transferidas para agentes / Número total de conversas tratadas pelo bot * 100"
+        "TOOLTIP": "Número total de conversas transferidas para atendentes / Número total de conversas tratadas pelo bot * 100"
       }
     }
   },
@@ -488,18 +488,18 @@
       "CONVERSATIONS": "%{count} conversas"
     },
     "AGENT_CONVERSATIONS": {
-      "HEADER": "Conversas por agentes",
-      "LOADING_MESSAGE": "Carregando métricas de agente...",
-      "NO_AGENTS": "Não há conversas por agentes",
+      "HEADER": "Conversas por atendentes",
+      "LOADING_MESSAGE": "Carregando métricas de atendente...",
+      "NO_AGENTS": "Não há conversas por atendentes",
       "TABLE_HEADER": {
-        "AGENT": "Agente",
+        "AGENT": "Atendente",
         "OPEN": "Aberto",
         "UNATTENDED": "Não atendidas",
         "STATUS": "Situação"
       }
     },
     "AGENT_STATUS": {
-      "HEADER": "Status do agente",
+      "HEADER": "Status do atendente",
       "ONLINE": "Disponível",
       "BUSY": "Ocupado",
       "OFFLINE": "Desconectado"
@@ -529,14 +529,14 @@
       "SEARCH": "Buscar filtro",
       "INPUT_PLACEHOLDER": {
         "SLA": "Nome do VAR",
-        "AGENTS": "Nome do agente",
+        "AGENTS": "Nome do atendente",
         "INBOXES": "Nome da caixa de entrada",
         "LABELS": "Nome do Marcador",
         "TEAMS": "Nome do Time"
       },
       "SLA": "Política de VAR",
       "INBOXES": "Caixa de entrada",
-      "AGENTS": "Agente",
+      "AGENTS": "Atendente",
       "LABELS": "Marcador",
       "TEAMS": "Time"
     },
@@ -558,7 +558,7 @@
       "HEADER": {
         "POLICY": "Política",
         "CONVERSATION": "Conversa",
-        "AGENT": "Agente"
+        "AGENT": "Atendente"
       },
       "VIEW_DETAILS": "Ver Detalhes"
     }
