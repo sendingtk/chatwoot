@@ -423,13 +423,13 @@
     "DOWNLOAD_FAILED": "Falha ao baixar Relatórios CSAT",
     "FILTERS": {
       "AGENTS": {
-        "PLACEHOLDER": "Escolher atendentes"
+        "PLACEHOLDER": "Escolher atendente"
       }
     },
     "TABLE": {
       "HEADER": {
         "CONTACT_NAME": "Contato",
-        "AGENT_NAME": "Atendentes atribuído",
+        "AGENT_NAME": "Atendente",
         "RATING": "Classificação",
         "FEEDBACK_TEXT": "Comentário do feedback"
       }

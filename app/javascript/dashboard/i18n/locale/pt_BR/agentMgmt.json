@@ -1,12 +1,12 @@
 {
   "AGENT_MGMT": {
-    "HEADER": "Atendentess",
-    "HEADER_BTN_TXT": "Adicionar Atendentes",
+    "HEADER": "Atendentes",
+    "HEADER_BTN_TXT": "Adicionar Atendente",
     "LOADING": "Buscando lista de atendente",
-    "SIDEBAR_TXT": "<p><b>Atendentess</b></p> <p> Um <b>Atendentes</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os atendentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os atendentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Atendentes</b> para adicionar um novo atendente. O atendente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Many Talks e responder às mensagens. </p><p> O acesso aos recursos do Many Talks são baseados nas seguintes funções. </p><p> <b>Atendentess</b> - Atendentess com essa função só podem acessar caixas de entrada, relatórios e conversas. Eles podem atribuir conversas a outros atendentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Many Talks ativados para sua conta, incluindo configurações e todos os privilégios de atendentes normais.</p>",
+    "SIDEBAR_TXT": "<p><b>Atendente</b></p> <p> Um <b>Atendente</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os atendentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os atendentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Atendentes</b> para adicionar um novo atendente. O atendente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Many Talks e responder às mensagens. </p><p> O acesso aos recursos do Many Talks são baseados nas seguintes funções. </p><p> <b>Atendentess</b> - Atendentess com essa função só podem acessar caixas de entrada, relatórios e conversas. Eles podem atribuir conversas a outros atendentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Many Talks ativados para sua conta, incluindo configurações e todos os privilégios de atendentes normais.</p>",
     "AGENT_TYPES": {
       "ADMINISTRATOR": "Administrador",
-      "AGENT": "Atendentes"
+      "AGENT": "Atendente"
     },
     "LIST": {
       "404": "Não existem atendentes associados a esta conta",
@@ -25,11 +25,11 @@
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "NAME": {
-          "LABEL": "Nome do Atendentes",
+          "LABEL": "Nome do Atendente",
           "PLACEHOLDER": "Por favor, insira o nome do atendente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de Atendentes",
+          "LABEL": "Tipo de Atendente",
           "PLACEHOLDER": "Selecione um tipo",
           "ERROR": "É necessário o tipo de atendente"
         },
@@ -40,7 +40,7 @@
         "SUBMIT": "Adicionar atendente"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Atendentes adicionado com sucesso",
+        "SUCCESS_MESSAGE": "Atendente adicionado com sucesso",
         "EXIST_MESSAGE": "O E-mail do informado já está uso, por favor tente outro endereço de e-mail",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       }
@@ -48,7 +48,7 @@
     "DELETE": {
       "BUTTON_TEXT": "Excluir",
       "API": {
-        "SUCCESS_MESSAGE": "Atendentes excluído com sucesso",
+        "SUCCESS_MESSAGE": "Atendente excluído com sucesso",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       },
       "CONFIRM": {
@@ -59,14 +59,14 @@
       }
     },
     "EDIT": {
-      "TITLE": "Editar Atendentes",
+      "TITLE": "Editar Atendente",
       "FORM": {
         "NAME": {
-          "LABEL": "Nome do Atendentes",
+          "LABEL": "Nome do Atendente",
           "PLACEHOLDER": "Por favor, insira um nome do atendente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de Atendentes",
+          "LABEL": "Tipo de Atendente",
           "PLACEHOLDER": "Selecione um tipo",
           "ERROR": "É necessário o tipo de atendente"
         },
@@ -84,7 +84,7 @@
       "BUTTON_TEXT": "Alterar",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "API": {
-        "SUCCESS_MESSAGE": "Atendentes atualizado com sucesso",
+        "SUCCESS_MESSAGE": "Atendente atualizado com sucesso",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot, por favor tente novamente mais tarde"
       },
       "PASSWORD_RESET": {

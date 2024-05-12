@@ -262,7 +262,7 @@
     }
   },
   "CONVERSATION_SIDEBAR": {
-    "ASSIGNEE_LABEL": "Atendentes atribuído",
+    "ASSIGNEE_LABEL": "Atendente",
     "SELF_ASSIGN": "Atribuir a mim",
     "TEAM_LABEL": "Equipe Atribuída",
     "SELECT": {
