@@ -3,13 +3,21 @@ class Integrations::OpenaiBaseService
   # 1 token is approx 4 characters
   # 16385 * 4 = 65540 characters, sticking to 50,000 to be safe
   TOKEN_LIMIT = 50_000
-  API_URL = 'https://api.openai.com/v1/chat/completions'.freeze
-  GPT_MODEL = 'gpt-3.5-turbo'.freeze
+  #API_URL = 'https://api.openai.com/v1/chat/completions'.freeze
+  #GPT_MODEL = 'gpt-3.5-turbo'.freeze
 
   ALLOWED_EVENT_NAMES = %w[rephrase summarize reply_suggestion fix_spelling_grammar shorten expand make_friendly make_formal simplify].freeze
   CACHEABLE_EVENTS = %w[].freeze
 
-  pattr_initialize [:hook!, :event!]
+  #pattr_initialize [:hook!, :event!]
+
+  attr_reader :hook, :event, :api_url, :gpt_model
+
+  def initialize(hook:, event:)
+    @hook = hook
+    @event = event
+    set_api_url_and_gpt_model
+  end
 
   def perform
     return nil unless valid_event_name?
@@ -23,6 +31,11 @@ class Integrations::OpenaiBaseService
   end
 
   private
+
+  def set_api_url_and_gpt_model
+    @api_url = hook.settings['api_url'].presence || 'https://api.openai.com/v1/chat/completions'
+    @gpt_model = hook.settings['model_name'].presence || 'gpt-3.5-turbo'
+  end
 
   def event_name
     event['name']
@@ -74,7 +87,7 @@ class Integrations::OpenaiBaseService
     }
 
     Rails.logger.info("OpenAI API request: #{body}")
-    response = HTTParty.post(API_URL, headers: headers, body: body)
+    response = HTTParty.post(api_url, headers: headers, body: body)
     Rails.logger.info("OpenAI API response: #{response.body}")
 
     choices = JSON.parse(response.body)['choices']

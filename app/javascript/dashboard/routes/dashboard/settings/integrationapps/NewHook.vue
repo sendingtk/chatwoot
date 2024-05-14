@@ -105,7 +105,7 @@ export default {
       }, {});
 
       this.formItems.forEach(item => {
-        if (item.validation.includes('JSON')) {
+        if (item.validation && item.validation.includes('JSON')) {
           hookPayload.settings[item.name] = JSON.parse(
             hookPayload.settings[item.name]
           );

@@ -114,7 +114,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def summarize_body
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system',
           content: prompt_from_file('summary', enterprise: false) },
@@ -125,7 +125,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def reply_suggestion_body
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system',
           content: prompt_from_file('reply', enterprise: false) }
