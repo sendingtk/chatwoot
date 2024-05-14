@@ -29,7 +29,7 @@
         </span>
       </div>
       <div class="flex items-center gap-1">
-        <div v-if="hasAppliedFilters && !hasActiveFolders && !hideFiltersForAgents">
+        <div v-if="!hideFiltersForAgents || (hasAppliedFilters && !hasActiveFolders)">
           <woot-button
             v-tooltip.top-end="$t('FILTER.CUSTOM_VIEWS.ADD.SAVE_BUTTON')"
             size="tiny"
