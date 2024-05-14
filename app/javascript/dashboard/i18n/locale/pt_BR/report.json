@@ -283,11 +283,11 @@
     }
   },
   "INBOX_REPORTS": {
-    "HEADER": "Visualizar Caixa de Entrada",
+    "HEADER": "Visualizar Canal de Entrada",
     "LOADING_CHART": "Carregando dados do gráfico...",
     "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
     "DOWNLOAD_INBOX_REPORTS": "Baixar relatórios de entrada",
-    "FILTER_DROPDOWN_LABEL": "Selecionar caixa de entrada",
+    "FILTER_DROPDOWN_LABEL": "Selecionar canal de entrada",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -530,12 +530,12 @@
       "INPUT_PLACEHOLDER": {
         "SLA": "Nome do VAR",
         "AGENTS": "Nome do atendente",
-        "INBOXES": "Nome da caixa de entrada",
+        "INBOXES": "Nome do canal de entrada",
         "LABELS": "Nome do Marcador",
         "TEAMS": "Nome do Time"
       },
       "SLA": "Política de VAR",
-      "INBOXES": "Caixa de entrada",
+      "INBOXES": "Canal de entrada",
       "AGENTS": "Atendente",
       "LABELS": "Marcador",
       "TEAMS": "Time"

@@ -36,7 +36,7 @@
       },
       "MESSAGE_SIGNATURE_SECTION": {
         "TITLE": "Assinatura de mensagens pessoais",
-        "NOTE": "Crie uma assinatura de mensagem única para aparecer no final de cada mensagem que você enviar de qualquer caixa de entrada. Você também pode incluir uma imagem anexada, suportada em live-chat, e-mail e caixas de entrada de API.",
+        "NOTE": "Crie uma assinatura de mensagem única para aparecer no final de cada mensagem que você enviar de qualquer canal de entrada. Você também pode incluir uma imagem anexada, suportada em live-chat, e-mail e canais de entrada de API.",
         "BTN_TEXT": "Salvar assinatura da mensagem",
         "API_ERROR": "Não foi possível salvar a assinatura! Tente novamente",
         "API_SUCCESS": "Assinatura salva com sucesso",
@@ -166,9 +166,9 @@
     "TRIAL_MESSAGE": "dias de teste restantes.",
     "TRAIL_BUTTON": "Comprar agora",
     "DELETED_USER": "Deletar Usuário",
-    "EMAIL_VERIFICATION_PENDING": "Parece que você ainda não verificou seu endereço de e-mail. Por favor, verifique sua caixa de entrada pelo e-mail de verificação.",
+    "EMAIL_VERIFICATION_PENDING": "Parece que você ainda não verificou seu endereço de e-mail. Por favor, verifique seu canal de entrada pelo e-mail de verificação.",
     "RESEND_VERIFICATION_MAIL": "Reenviar email de verificação",
-    "EMAIL_VERIFICATION_SENT": "O e-mail de verificação foi enviado. Por favor, verifique sua caixa de entrada.",
+    "EMAIL_VERIFICATION_SENT": "O e-mail de verificação foi enviado. Por favor, verifique seu canal de entrada.",
     "ACCOUNT_SUSPENDED": {
       "TITLE": "Conta Suspensa",
       "MESSAGE": "Sua conta está suspensa. Por favor, entre em contato com a equipe de suporte para mais informações."
@@ -199,7 +199,7 @@
   "CONFIRM_EMAIL": "Verificando...",
   "SETTINGS": {
     "INBOXES": {
-      "NEW_INBOX": "Adicionar Caixa de Entrada"
+      "NEW_INBOX": "Adicionar Canal de Entrada"
     }
   },
   "SIDEBAR": {
@@ -207,7 +207,7 @@
     "SWITCH": "Trocar",
     "INBOX_VIEW": "Inbox View",
     "CONVERSATIONS": "Conversas",
-    "INBOX": "Caixa de Entrada",
+    "INBOX": "Canal de Entrada",
     "ALL_CONVERSATIONS": "Todas as conversas",
     "MENTIONED_CONVERSATIONS": "Menções",
     "PARTICIPATING_CONVERSATIONS": "Participantes",
@@ -220,7 +220,7 @@
     "AGENTS": "Atendente",
     "AGENT_BOTS": "Robôs",
     "AUDIT_LOGS": "Registros de Auditoria",
-    "INBOXES": "Caixas de Entrada",
+    "INBOXES": "Canais de Entrada",
     "NOTIFICATIONS": "Notificações",
     "CANNED_RESPONSES": "Atalhos",
     "INTEGRATIONS": "Integrações",
@@ -239,7 +239,7 @@
     "TAGGED_WITH": "Marcado com",
     "NEW_LABEL": "Nova etiqueta",
     "NEW_TEAM": "Novo time",
-    "NEW_INBOX": "Nova caixa de entrada",
+    "NEW_INBOX": "Novo canal de entrada",
     "REPORTS_CONVERSATION": "Conversas",
     "CSAT": "CSAT",
     "CAMPAIGNS": "Campanhas",
@@ -249,7 +249,7 @@
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Atendente",
     "REPORTS_LABEL": "Marcadores",
-    "REPORTS_INBOX": "Caixa de Entrada",
+    "REPORTS_INBOX": "Canal de Entrada",
     "REPORTS_TEAM": "Times",
     "SET_AVAILABILITY_TITLE": "Defina como",
     "SLA": "VAR",

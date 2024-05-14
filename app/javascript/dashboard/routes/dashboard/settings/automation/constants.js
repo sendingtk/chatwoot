@@ -31,7 +31,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'inbox_id',
-        name: 'Caixa de Entrada',
+        name: 'Canal de Entrada',
         attributeI18nKey: 'INBOX',
         inputType: 'multi_select',
         filterOperators: OPERATOR_TYPES_1,
@@ -163,7 +163,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'inbox_id',
-        name: 'Caixa de entrada',
+        name: 'Canal de entrada',
         attributeI18nKey: 'INBOX',
         inputType: 'multi_select',
         filterOperators: OPERATOR_TYPES_1,
@@ -308,7 +308,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'inbox_id',
-        name: 'Caixa de entrada',
+        name: 'Canal de entrada',
         attributeI18nKey: 'INBOX',
         inputType: 'multi_select',
         filterOperators: OPERATOR_TYPES_1,
@@ -446,7 +446,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'inbox_id',
-        name: 'Caixa de entrada',
+        name: 'Canal de entrada',
         attributeI18nKey: 'INBOX',
         inputType: 'multi_select',
         filterOperators: OPERATOR_TYPES_1,

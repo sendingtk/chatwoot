@@ -29,9 +29,9 @@
           "ERROR": "Público é necessário"
         },
         "INBOX": {
-          "LABEL": "Selecionar caixa de entrada",
-          "PLACEHOLDER": "Selecionar caixa de entrada",
-          "ERROR": "Caixa de entrada obrigatória"
+          "LABEL": "Selecionar canal de entrada",
+          "PLACEHOLDER": "Selecionar canal de entrada",
+          "ERROR": "Canal de entrada obrigatório"
         },
         "MESSAGE": {
           "LABEL": "Messagem",
@@ -85,11 +85,11 @@
     },
     "LIST": {
       "LOADING_MESSAGE": "Carregando campanhas...",
-      "404": "Não há campanhas criadas para esta caixa de entrada.",
+      "404": "Não há campanhas criadas para este canal de entrada.",
       "TABLE_HEADER": {
         "TITLE": "Título",
         "MESSAGE": "Messagem",
-        "INBOX": "Caixa de Entrada",
+        "INBOX": "Canal de Entrada",
         "STATUS": "SItuação",
         "SENDER": "Remetente",
         "URL": "URL:",
@@ -115,12 +115,12 @@
     "ONE_OFF": {
       "HEADER": "Campanhas únicas",
       "404": "Não há nenhuma campanha única criada",
-      "INBOXES_NOT_FOUND": "Por favor, crie uma caixa de entrada SMS e comece a adicionar campanhas"
+      "INBOXES_NOT_FOUND": "Por favor, crie um novo canal de entrada SMS e comece a adicionar campanhas"
     },
     "ONGOING": {
       "HEADER": "Campanhas recorrentes",
       "404": "Não há campanhas recorrentes criadas",
-      "INBOXES_NOT_FOUND": "Por favor, crie uma caixa de entrada de website e comece a adicionar campanhas"
+      "INBOXES_NOT_FOUND": "Por favor, crie um novo canal de entrada de website e comece a adicionar campanhas"
     }
   }
 }

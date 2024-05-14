@@ -22,7 +22,7 @@
     },
     "BOT_CONFIGURATION": {
       "TITLE": "Selecione um bot de atendente",
-      "DESC": "Atribua um Atendentes Bot à sua caixa de entrada. Eles podem lidar com as conversas iniciais e transferi-las para um atendente humano quando necessário.",
+      "DESC": "Atribua um Atendentes Bot ao seu canal de entrada. Eles podem lidar com as conversas iniciais e transferi-las para um atendente humano quando necessário.",
       "SUBMIT": "Atualizar",
       "DISCONNECT": "Desconectar Bot",
       "SUCCESS_MESSAGE": "Atendentes de bot atualizado com sucesso.",

@@ -3,7 +3,7 @@
     "HEADER": "Atendentes",
     "HEADER_BTN_TXT": "Adicionar Atendente",
     "LOADING": "Buscando lista de atendente",
-    "SIDEBAR_TXT": "<p><b>Atendente</b></p> <p> Um <b>Atendente</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os atendentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os atendentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Atendentes</b> para adicionar um novo atendente. O atendente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Many Talks e responder às mensagens. </p><p> O acesso aos recursos do Many Talks são baseados nas seguintes funções. </p><p> <b>Atendentess</b> - Atendentess com essa função só podem acessar caixas de entrada, relatórios e conversas. Eles podem atribuir conversas a outros atendentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Many Talks ativados para sua conta, incluindo configurações e todos os privilégios de atendentes normais.</p>",
+    "SIDEBAR_TXT": "<p><b>Atendente</b></p> <p> Um <b>Atendente</b> é um membro da sua equipe de Suporte ao Cliente. </p><p> Os atendentes serão capazes de ver e responder as mensagens dos seus usuários. A lista mostra todos os atendentes atualmente em sua conta. </p><p> Clique em <b>Adicionar Atendentes</b> para adicionar um novo atendente. O atendente que você adicionar receberá um e-mail com um link de confirmação para ativar sua conta, para acessar o Many Talks e responder às mensagens. </p><p> O acesso aos recursos do Many Talks são baseados nas seguintes funções. </p><p> <b>Atendentess</b> - Atendentess com essa função só podem acessar canais de entrada, relatórios e conversas. Eles podem atribuir conversas a outros atendentes ou a eles próprios e resolver conversas.</p><p> <b>Administrador</b> - Administrador terá acesso a todos os recursos do Many Talks ativados para sua conta, incluindo configurações e todos os privilégios de atendentes normais.</p>",
     "AGENT_TYPES": {
       "ADMINISTRATOR": "Administrador",
       "AGENT": "Atendente"
@@ -21,7 +21,7 @@
     },
     "ADD": {
       "TITLE": "Adicionar atendente ao seu time",
-      "DESC": "Você pode adicionar pessoas que poderão acompanhar o suporte de suas caixas de entrada.",
+      "DESC": "Você pode adicionar pessoas que poderão acompanhar o suporte de suas canais de entrada.",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "NAME": {

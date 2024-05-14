@@ -21,7 +21,7 @@ pt_BR:
   messages:
     reset_password_success: Legal! A solicitação de alteração de senha foi bem sucedida. Verifique seu e-mail para obter instruções.
     reset_password_failure: Uh ho! Não conseguimos encontrar nenhum usuário com o e-mail especificado.
-    inbox_deletetion_response: Seu pedido de exclusão da caixa de entrada será processado dentro de algum tempo.
+    inbox_deletetion_response: Seu pedido de exclusão do canal de entrada será processado dentro de algum tempo.
 
   errors:
     validations:
@@ -76,8 +76,8 @@ pt_BR:
       avg_first_response_time: Tempo médio de primeira resposta
       avg_resolution_time: Tempo médio de resolução
     inbox_csv:
-      inbox_name: Nome da Caixa de Entrada
-      inbox_type: Tipo da Caixa de Entrada
+      inbox_name: Nome da Canal de Entrada
+      inbox_type: Tipo da Canal de Entrada
       conversations_count: Nº de Conversas
       avg_first_response_time: Tempo médio de primeira resposta
       avg_resolution_time: Tempo médio de resolução
@@ -98,7 +98,7 @@ pt_BR:
       sla_policy_breached: Política SLA
       assignee: Responsável
       team: Times
-      inbox: Caixa de Entrada
+      inbox: Canal de Entrada
       labels: Marcadores
       conversation_link: Link para a conversa
       breached_events: Eventos Violados
@@ -197,7 +197,7 @@ pt_BR:
       description: "Webhooks fornecem informações em tempo real sobre o que está acontecendo em sua conta. Você pode usar os webhooks para comunicar eventos com seus aplicativos favoritos como Slack ou Github. Clique em Configurar para configurar seus webhooks."
     dialogflow:
       name: "Fluxo de diálogo"
-      description: "Construa chatbots usando Dialogflow e conecte-os à sua caixa de entrada rapidamente. Deixe os bots lidarem com as consultas antes de entregá-los a um atendente de atendimento ao cliente."
+      description: "Construa chatbots usando Dialogflow e conecte-os ao seu canal de entrada rapidamente. Deixe os bots lidarem com as consultas antes de entregá-los a um atendente de atendimento ao cliente."
     fullcontact:
       name: "Contato completo"
       description: "A integração de contatos completos ajuda a enriquecer perfis de visitantes. Identifique os usuários assim que eles compartilham seu endereço de e-mail e ofereça um atendimento ao cliente personalizado. Conecte seu FullContact à sua conta compartilhando a chave de API de Contato Fullcot."
@@ -248,8 +248,8 @@ pt_BR:
       email: E-mail
       phone_number: Telefone
       company_name: Empresa
-      inbox_name: Caixa de Entrada
-      inbox_type: Tipo de Caixa de Entrada
+      inbox_name: Canal de Entrada
+      inbox_type: Tipo de Canal de Entrada
     button: Abrir conversa
   time_units:
     days:

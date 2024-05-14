@@ -6,11 +6,11 @@
     "SWITCH_VIEW_LAYOUT": "Alternar o layout",
     "DASHBOARD_APP_TAB_MESSAGES": "Mensagens",
     "UNVERIFIED_SESSION": "A identidade deste usuário não foi verificada",
-    "NO_MESSAGE_1": "Oh oh! Parece que não há mensagens de clientes na sua caixa de entrada.",
+    "NO_MESSAGE_1": "Oh oh! Parece que não há mensagens de clientes no seu canal de entrada.",
     "NO_MESSAGE_2": " para enviar uma mensagem para sua página!",
-    "NO_INBOX_1": "Hola! Parece que você não adicionou nenhuma caixa de entrada ainda.",
+    "NO_INBOX_1": "Hola! Parece que você não adicionou nenhum canal de entrada ainda.",
     "NO_INBOX_2": " para começar",
-    "NO_INBOX_AGENT": "Uh Oh! Parece que você não faz parte de nenhuma caixa de entrada. Por favor, contate seu administrador",
+    "NO_INBOX_AGENT": "Uh Oh! Parece que você não faz parte de nenhum canal de entrada. Por favor, contate seu administrador",
     "SEARCH_MESSAGES": "Procurar por mensagens nas conversas",
     "EMPTY_STATE": {
       "CMD_BAR": "para abrir o menu de comando",
@@ -26,7 +26,7 @@
     "UNREAD_MESSAGES": "Mensagens não lidas",
     "UNREAD_MESSAGE": "Mensagem não lida",
     "CLICK_HERE": "Clique aqui",
-    "LOADING_INBOXES": "Carregando caixas de entrada",
+    "LOADING_INBOXES": "Carregando canais de entrada",
     "LOADING_CONVERSATIONS": "Carregando conversas",
     "CANNOT_REPLY": "Você não pode responder porque",
     "24_HOURS_WINDOW": "Restrições de janela de mensagem de 24 horas",
@@ -251,9 +251,9 @@
       "NEW_LINK": "Clique aqui para convidar um membro da equipe"
     },
     "INBOXES": {
-      "TITLE": "Conectar caixas de entrada",
+      "TITLE": "Conectar canais de entrada",
       "DESCRIPTION": "Conecte vários canais através dos quais seus clientes estariam conversando com você. Podendo ser a partir de um chat ao vivo no seu website, sua página do Facebook ou Twitter ou até mesmo seu número do WhatsApp.",
-      "NEW_LINK": "Clique aqui para criar uma caixa de entrada"
+      "NEW_LINK": "Clique aqui para criar um canal de entrada"
     },
     "LABELS": {
       "TITLE": "Organizar conversas com marcadores",

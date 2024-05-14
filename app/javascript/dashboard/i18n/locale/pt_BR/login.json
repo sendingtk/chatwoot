@@ -2,7 +2,7 @@
   "LOGIN": {
     "TITLE": "Entrar no Many Talks",
     "EMAIL": {
-      "LABEL": "e-mail",
+      "LABEL": "Email",
       "PLACEHOLDER": "exemplo@nomedaempresa.com",
       "ERROR": "Digite um endereço de e-mail válido"
     },

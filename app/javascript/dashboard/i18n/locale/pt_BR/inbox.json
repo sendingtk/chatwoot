@@ -1,7 +1,7 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "Caixa de Entrada",
+      "TITLE": "Canal de Entrada",
       "DISPLAY_DROPDOWN": "Exibir",
       "LOADING": "Carregando notificações",
       "EOF": "Todas as notificações carregadas 🎉",

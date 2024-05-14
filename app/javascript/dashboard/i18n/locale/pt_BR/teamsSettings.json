@@ -71,7 +71,7 @@
       "AGENT": "AGENTE",
       "EMAIL": "E-mail",
       "BUTTON_TEXT": "Adicionar atendentes",
-      "ADD_AGENTS": "Adicionando atendentes à sua caixa de entrada...",
+      "ADD_AGENTS": "Adicionando atendentes ao seu canal de entrada...",
       "SELECT": "Selecionar",
       "SELECT_ALL": "Selecionar todos os atendentes",
       "SELECTED_COUNT": "%{selected} de %{total} atendentes selecionados."
@@ -87,7 +87,7 @@
     },
 
     "FINISH": {
-      "TITLE": "Sua caixa de entrada está pronta!",
+      "TITLE": "Seu canal de entrada está pronto!",
       "MESSAGE": "Agora você pode colaborar como equipe em conversas.",
       "BUTTON_TEXT": "Finalizar"
     },
