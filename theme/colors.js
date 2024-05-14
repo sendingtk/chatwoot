@@ -14,18 +14,22 @@ const {
 } = require('@radix-ui/colors');
 export const colors = {
   woot: {
-    25: blue.blue2,
-    50: blue.blue3,
-    75: blue.blue4,
-    100: blue.blue5,
-    200: blue.blue7,
-    300: blue.blue8,
-    400: blueDark.blue11,
-    500: blueDark.blue10,
-    600: blueDark.blue9,
-    700: blueDark.blue8,
-    800: blueDark.blue6,
-    900: blueDark.blue2,
+    25: '#f2f6fb', // blue.blue2 #f2f6fb
+    50: '#e6efff', // blue.blue3
+    75: '#d0deff', // blue.blue4 Fundo dos icones
+    100: '#e6efff', // blue.blue5
+    200: '#f2f6fb', // blue.blue7 cor da letra no modo dark 
+    300: '#004c99', // blue.blue8
+    400: '#1a202c', // blueDark.blue11 #5b91ff
+    500: '#5b91ff', // blueDark.blue10
+    600: '#475569', // blueDark.blue9 #475569
+    700: '#596672', // blueDark.blue8
+    800: '#7b8794', // blueDark.blue6
+    900: '#ebf8ff', // blueDark.blue2
+    901:'#1c7ac7', //modo white
+    902:'#7661d4',//modo white
+    903:'#1a202c',
+    904:'#1b182e',
   },
   green: {
     50: greenDark.green12,
