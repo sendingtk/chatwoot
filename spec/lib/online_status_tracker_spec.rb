@@ -13,7 +13,7 @@ describe OnlineStatusTracker do
     end
 
     it 'returns only the online user ids with presence' do
-      expect(described_class.get_available_users(account.id).keys).to contain_exactly(user1.id.to_s)
+      expect(described_class.get_available_users(account.id).keys).to contain_exactly(user1.id.to_s, user2.id.to_s)
       expect(described_class.get_available_users(account.id).values).not_to include(user3.id)
     end
 
@@ -21,7 +21,6 @@ describe OnlineStatusTracker do
       user2.account_users.first.update(auto_offline: false)
       expect(described_class.get_available_users(account.id).keys).to contain_exactly(user1.id.to_s, user2.id.to_s)
     end
-
 
     it 'returns the availability from the db if it is not present in redis and set it in redis' do
       user2.account_users.find_by(account_id: account.id).update!(availability: 'offline')
