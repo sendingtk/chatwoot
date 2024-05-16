@@ -54,7 +54,6 @@
         v-if="showAudioRecorderEditor"
         ref="audioRecorderInput"
         :audio-record-format="audioRecordFormat"
-        :is-a-whats-app-channel="isAWhatsAppChannel"
         @state-recorder-progress-changed="onStateProgressRecorderChanged"
         @state-recorder-changed="onStateRecorderChanged"
         @finish-record="onFinishRecorder"
@@ -503,7 +502,10 @@ export default {
       return `draft-${this.conversationIdByRoute}-${this.replyType}`;
     },
     audioRecordFormat() {
-      if (this.isAPIInbox || this.isATelegramChannel) {
+      if (this.isAWhatsAppChannel || this.isATelegramChannel) {
+        return AUDIO_FORMATS.MP3;
+      }
+      if (this.isAPIInbox) {
         return AUDIO_FORMATS.OGG;
       }
       return AUDIO_FORMATS.WAV;
