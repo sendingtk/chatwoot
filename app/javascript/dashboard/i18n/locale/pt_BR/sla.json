@@ -1,24 +1,24 @@
 {
   "SLA": {
     "HEADER": "SLA",
-    "HEADER_BTN_TXT": "Add SLA",
-    "ADD_ACTION_LONG": "Create a new SLA Policy",
-    "DESCRIPTION": "Service Level Agreements (SLAs) are contracts that define clear expectations between your team and customers. They establish standards for response and resolution times, creating a framework for accountability and ensures a consistent, high-quality experience.",
+    "HEADER_BTN_TXT": "Adicionar SLA",
+    "ADD_ACTION_LONG": "Criar uma nova política de SLA",
+    "DESCRIPTION": "Acordos de Nível de Serviço (SLAs) são contratos que definem expectativas claras entre sua equipe e os clientes. Eles estabelecem padrões para tempos de resposta e resolução, criando um quadro de responsabilidade e garantindo uma experiência consistente e de alta qualidade.",
     "LEARN_MORE": "Saiba mais sobre SLA",
-    "LOADING": "Buscando SLAs",
+    "LOADING": "Carregando SLAs",
     "LIST": {
-      "404": "There are no SLAs available in this account.",
+      "404": "Não há SLAs disponíveis nesta conta.",
       "EMPTY": {
         "TITLE_1": "Enterprise P0",
-        "DESC_1": "Issues raised by enterprise customers, that require immediate attention.",
+        "DESC_1": "Problemas levantados por clientes corporativos, que exigem atenção imediata.",
         "TITLE_2": "Enterprise P1",
-        "DESC_2": "Issues raised by enterprise customers, that needs to be acknowledged quickly."
+        "DESC_2": "Problemas levantados por clientes corporativos, que precisam ser reconhecidos rapidamente."
       },
       "BUSINESS_HOURS_ON": "Horários de funcionamento",
-      "BUSINESS_HOURS_OFF": "Horário comercial desligado",
+      "BUSINESS_HOURS_OFF": "Fora do horário comercial",
       "RESPONSE_TYPES": {
-        "FRT": "Próximo limite de tempo de resposta",
-        "NRT": "Próximo limite de tempo de resposta",
+        "FRT": "Limite de tempo da primeira resposta",
+        "NRT": "Limite de tempo da próxima resposta",
         "RT": "Limite de tempo de resolução",
         "SHORT_HAND": {
           "FRT": "FRT",
@@ -29,9 +29,9 @@
     },
     "FORM": {
       "NAME": {
-        "LABEL": "SLA Name",
-        "PLACEHOLDER": "SLA Name",
-        "REQUIRED_ERROR": "SLA name is required",
+        "LABEL": "Nome do SLA",
+        "PLACEHOLDER": "Nome do SLA",
+        "REQUIRED_ERROR": "Nome do SLA é obrigatório",
         "MINIMUM_LENGTH_ERROR": "Tamanho mínimo 2 é necessário",
         "VALID_ERROR": "Somente Letras, Números, Hífen e Sublinhado são permitidos"
       },
@@ -44,7 +44,7 @@
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Next Response Time",
+        "LABEL": "Próximo Tempo de Resposta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
@@ -53,10 +53,10 @@
       },
       "BUSINESS_HOURS": {
         "LABEL": "Horário de funcionamento",
-        "PLACEHOLDER": "Only during business hours"
+        "PLACEHOLDER": "Apenas durante o horário comercial"
       },
       "THRESHOLD_TIME": {
-        "INVALID_FORMAT_ERROR": "Threshold should be a number and greater than zero"
+        "INVALID_FORMAT_ERROR": "O limite deve ser um número e maior que zero"
       },
       "EDIT": "Alterar",
       "CREATE": "Criar",
@@ -64,33 +64,33 @@
       "CANCEL": "Cancelar"
     },
     "ADD": {
-      "TITLE": "Add SLA",
-      "DESC": "Friendly promises for great service!",
+      "TITLE": "Adicionar SLA",
+      "DESC": "Promessas amigáveis para um ótimo serviço!",
       "API": {
-        "SUCCESS_MESSAGE": "SLA added successfully",
+        "SUCCESS_MESSAGE": "SLA adicionado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       }
     },
     "EDIT": {
       "TITLE": "Edit SLA",
       "API": {
-        "SUCCESS_MESSAGE": "SLA updated successfully",
+        "SUCCESS_MESSAGE": "SLA atualizado com sucesso",
         "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente"
       },
       "CONFIRM": {
         "TITLE": "Confirmar exclusão",
-        "MESSAGE": "Tem certeza que deseja excluir ",
-        "YES": "Sim, excluir ",
-        "NO": "Não, Mantenha "
+        "MESSAGE": "Tem certeza que deseja excluir?",
+        "YES": "Sim, excluir.",
+        "NO": "Não, mantenha."
       }
     },
     "EVENTS": {
-      "TITLE": "SLA Misses",
+      "TITLE": "SLA Perdidos",
       "FRT": "Primeira resposta",
-      "NRT": "Next response time",
-      "RT": "Resolution time",
-      "SHOW_MORE": "{count} more",
-      "HIDE": "Hide {count} rows"
-    }
+      "NRT": "Próximo tempo de resposta",
+      "RT": "Tempo de resolução",
+      "SHOW_MORE": "{count} mais",
+      "HIDE": "Ocultar {count} linhas"
+      }
   }
 }

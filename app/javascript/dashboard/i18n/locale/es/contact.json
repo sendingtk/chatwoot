@@ -39,10 +39,10 @@
     },
     "MERGE_CONTACT": "Combinar contacto",
     "CONTACT_ACTIONS": "Acciones de contacto",
-    "MUTE_CONTACT": "Silenciar Conversación",
-    "UNMUTE_CONTACT": "Dessilenciar conversación",
-    "MUTED_SUCCESS": "Ésta conversación está silenciada por 6 horas",
-    "UNMUTED_SUCCESS": "Ésta conversación ya no está silenciada",
+    "MUTE_CONTACT": "Bloquear contacto",
+    "UNMUTE_CONTACT": "Desbloquear contacto",
+    "MUTED_SUCCESS": "Este contacto está bloqueado con éxito. No se te notificará de ninguna conversación futura.",
+    "UNMUTED_SUCCESS": "Este contacto está desbloqueado correctamente.",
     "SEND_TRANSCRIPT": "Enviar Transcripción",
     "EDIT_LABEL": "Editar",
     "SIDEBAR_SECTIONS": {
@@ -82,9 +82,9 @@
     "ERROR_MESSAGE": "Hubo un error, por favor inténtelo de nuevo",
     "CONFIRM": {
       "TITLE": "Exportar contactos",
-      "MESSAGE": "Are you sure you want to export all contacts?",
-      "YES": "Yes, Export",
-      "NO": "No, Cancel"
+      "MESSAGE": "¿Está seguro que desea exportar todos los contactos?",
+      "YES": "Sí, exportar",
+      "NO": "No, cancelar"
     }
   },
   "DELETE_NOTE": {

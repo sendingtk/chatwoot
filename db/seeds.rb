@@ -28,6 +28,7 @@ unless Rails.env.production?
   user = User.new(name: 'John', email: 'john@acme.inc', password: 'Password1!', type: 'SuperAdmin')
   user.skip_confirmation!
   user.save!
+  user.access_token.update!(token: ENV['SUPER_ADMIN_ACCESS_TOKEN']) if ENV['SUPER_ADMIN_ACCESS_TOKEN']
 
   AccountUser.create!(
     account_id: account.id,

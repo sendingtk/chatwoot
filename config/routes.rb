@@ -96,6 +96,7 @@ Rails.application.routes.draw do
               resources :labels, only: [:create, :index]
               resource :participants, only: [:show, :create, :update, :destroy]
               resource :direct_uploads, only: [:create]
+              resource :draft_messages, only: [:show, :update, :destroy]
             end
             member do
               post :mute
@@ -125,7 +126,7 @@ Rails.application.routes.draw do
               get :search
               post :filter
               post :import
-              get :export
+              post :export
             end
             member do
               get :contactable_inboxes
@@ -394,6 +395,7 @@ Rails.application.routes.draw do
   end
 
   get 'hc/:slug', to: 'public/api/v1/portals#show'
+  get 'hc/:slug/sitemap.xml', to: 'public/api/v1/portals#sitemap'
   get 'hc/:slug/:locale', to: 'public/api/v1/portals#show'
   get 'hc/:slug/:locale/articles', to: 'public/api/v1/portals/articles#index'
   get 'hc/:slug/:locale/categories', to: 'public/api/v1/portals/categories#index'
