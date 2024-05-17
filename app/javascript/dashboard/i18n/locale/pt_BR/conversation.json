@@ -66,9 +66,9 @@
       "SNOOZED_UNTIL_NEXT_WEEK": "Adiada até a próxima semana",
       "SNOOZED_UNTIL_NEXT_REPLY": "Adiado até a próxima resposta",
       "SLA_STATUS": {
-        "FRT": "Prim. Resp.: {status}",
-        "NRT": "Prox. Resp.: {status}",
-        "RT": "Resolva Atend.: {status}",
+        "FRT": "Atenda em:", 
+        "NRT": "Responda em:", 
+        "RT": "Resolva em:", 
         "MISSED": "Perdido",
         "DUE": "Em andamento" 
       }

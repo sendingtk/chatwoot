@@ -142,14 +142,14 @@ export const AUTOMATIONS = {
       },
       {
         key: 'phone_number',
-        name: 'Número do  telefonne',
+        name: 'Número do telefone',
         attributeI18nKey: 'PHONE_NUMBER',
         inputType: 'plain_text',
         filterOperators: OPERATOR_TYPES_6,
       },
       {
         key: 'referer',
-        name: 'Link de  afiliado',
+        name: 'Link de referência',
         attributeI18nKey: 'REFERER_LINK',
         inputType: 'plain_text',
         filterOperators: OPERATOR_TYPES_2,
@@ -273,7 +273,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'referer',
-        name: 'Link de afiliado',
+        name: 'Link de referência',
         attributeI18nKey: 'REFERER_LINK',
         inputType: 'plain_text',
         filterOperators: OPERATOR_TYPES_2,
@@ -418,7 +418,7 @@ export const AUTOMATIONS = {
       },
       {
         key: 'referer',
-        name: 'Link de Afiliado',
+        name: 'Link de referência',
         attributeI18nKey: 'REFERER_LINK',
         inputType: 'plain_text',
         filterOperators: OPERATOR_TYPES_2,

@@ -13,23 +13,38 @@ const {
   violetDark,
 } = require('@radix-ui/colors');
 export const colors = {
+
+
   woot: {
-    25: '#f2f6fb', // blue.blue2 #f2f6fb
-    50: '#e6efff', // blue.blue3
-    75: '#d0deff', // blue.blue4 Fundo dos icones
-    100: '#e6efff', // blue.blue5
+    // 25: "#f5f0ff",
+    // 50: "#ebdfff",
+    // 75: "#d6bfff",
+    // 100: "#c09eff",
+    // 200: "#aa7eff",
+    // 300: "#935eff",
+    // 400: '#1a202c', //"#7c3eff",
+    // 500: "#661fff",
+    // 600: "#5000e5",
+    // 700: "#4000b3",
+    // 800: "#300081",
+    // 900: "#20004f",
+
+    25: '#f5f0ff', // blue.blue2 #f2f6fb
+    50: '#ebdfff', // blue.blue3 6A5ACD
+    75: '#d6bfff', // blue.blue4 Fundo dos icones
+    100: '#ffffff', // blue.blue5
     200: '#f2f6fb', // blue.blue7 cor da letra no modo dark 
-    300: '#004c99', // blue.blue8
+    300: '#5746af', // blue.blue8
     400: '#1a202c', // blueDark.blue11 #5b91ff
-    500: '#5b91ff', // blueDark.blue10
-    600: '#475569', // blueDark.blue9 #475569
+    500:  '#6A5ACD', //violet.violet11, // blueDark.blue10 #5b91ff
+    600: '#7661d4',//violet.violet9, // blueDark.blue9 #475569
     700: '#596672', // blueDark.blue8
-    800: '#7b8794', // blueDark.blue6
+    800: '#223260',//'#7b8794', // blueDark.blue6
     900: '#ebf8ff', // blueDark.blue2
-    901:'#1c7ac7', //modo white
-    902:'#7661d4',//modo white
-    903:'#1a202c',
-    904:'#1b182e',
+    901: '#1c7ac7', //modo white
+    902: '#7661d4', //modo white
+    903: '#1a202c',
+    904: '#1b182e',
   },
   green: {
     50: greenDark.green12,
