@@ -34,7 +34,7 @@ export const colors = {
     75: '#d6bfff', // blue.blue4 Fundo dos icones
     100: '#ffffff', // blue.blue5
     200: '#f2f6fb', // blue.blue7 cor da letra no modo dark 
-    300: '#5746af', // blue.blue8
+    300: '#1c7ac7', // blue.blue8
     400: '#1a202c', // blueDark.blue11 #5b91ff
     500:  '#6A5ACD', //violet.violet11, // blueDark.blue10 #5b91ff
     600: '#7661d4',//violet.violet9, // blueDark.blue9 #475569
