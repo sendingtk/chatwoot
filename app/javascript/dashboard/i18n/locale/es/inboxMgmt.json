@@ -22,7 +22,7 @@
         "body": "Añadir agentes a la bandeja de entrada creada."
       },
       {
-        "title": "Voila!",
+        "title": "Voilà!",
         "route": "settings_inbox_finish",
         "body": "¡Todo está listo!"
       }

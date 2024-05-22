@@ -50,7 +50,7 @@
       </a>
     </div>
 
-    <% if ChatwootHub.pricing_plan != 'community' && User.count > ChatwootHub.pricing_plan_quantity %>
+    <% if ChatwootHub.pricing_plan != 'community' &&  User.count > ChatwootHub.pricing_plan_quantity %>
     <div role="alert">
       <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
         <p>You have <%= User.count %> agents. Please add more licenses to add more users.</p>

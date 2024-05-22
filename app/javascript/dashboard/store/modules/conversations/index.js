@@ -15,6 +15,7 @@ const state = {
   currentInbox: null,
   selectedChatId: null,
   appliedFilters: [],
+  contextMenuChatId: null,
   conversationParticipants: [],
   conversationLastSeen: null,
   syncConversationsMessages: {},
@@ -283,6 +284,10 @@ export const mutations = {
     { conversationId, messageId }
   ) {
     _state.syncConversationsMessages[conversationId] = messageId;
+  },
+
+  [types.SET_CONTEXT_MENU_CHAT_ID](_state, chatId) {
+    _state.contextMenuChatId = chatId;
   },
 };
 

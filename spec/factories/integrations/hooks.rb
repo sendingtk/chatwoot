@@ -26,5 +26,10 @@ FactoryBot.define do
       app_id { 'openai' }
       settings { { api_key: 'api_key', api_url: 'https://api.openai.com/v1/chat/completions', model_name: 'gpt-3.5-turbo' } }
     end
+
+    trait :linear do
+      app_id { 'linear' }
+      settings { { api_key: 'api_key' } }
+    end
   end
 end
