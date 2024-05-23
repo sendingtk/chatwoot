@@ -101,3 +101,5 @@
   enabled: false
 - name: agent_conversation_viewed
   enabled: true
+- name: hide_all_inbox_for_agent
+  enabled: false
