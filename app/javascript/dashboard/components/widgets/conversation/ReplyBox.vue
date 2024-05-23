@@ -1259,6 +1259,7 @@ export default {
     }
   }
 }
+
 .send-button {
   @apply mb-0;
 }
@@ -1283,6 +1284,7 @@ export default {
 
 .emoji-dialog--rtl {
   @apply left-[unset] -right-80;
+
   &::before {
     transform: rotate(90deg);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08));

@@ -17,8 +17,8 @@ import {
 } from '../sdk/DOMHelpers';
 import { setCookieWithDomain } from '../sdk/cookieHelpers';
 import { SDK_SET_BUBBLE_VISIBILITY } from 'shared/constants/sharedFrameEvents';
-const runSDK = ({ baseUrl, websiteToken }) => {
 
+const runSDK = ({ baseUrl, websiteToken }) => {
   if (window.$chatwoot) {
     return;
   }

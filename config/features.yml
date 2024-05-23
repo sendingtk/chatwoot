@@ -83,6 +83,8 @@
 - name: help_center_embedding_search
   enabled: false
   premium: true
+- name: linear_integration
+  enabled: false
 - name: hide_all_chats_for_agent
   enabled: false
 - name: hide_unassigned_for_agent
@@ -99,3 +101,5 @@
   enabled: false
 - name: agent_conversation_viewed
   enabled: true
+- name: hide_all_inbox_for_agent
+  enabled: false

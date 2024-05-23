@@ -28,4 +28,8 @@ module MessageFilterHelpers
   def instagram_story_mention?
     inbox.instagram? && try(:content_attributes)[:image_type] == 'story_mention'
   end
+
+  def instagram?
+    inbox.instagram?
+  end
 end

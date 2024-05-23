@@ -53,7 +53,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def build_api_call_body(system_content, user_content = event['data']['content'])
     {
-      model: GPT_MODEL,
+      model: gpt_model,
       messages: [
         { role: 'system', content: system_content },
         { role: 'user', content: user_content }
