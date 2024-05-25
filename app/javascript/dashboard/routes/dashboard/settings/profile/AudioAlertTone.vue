@@ -43,6 +43,10 @@ const alertTones = computed(() => [
     value: 'bell',
     label: 'Bell',
   },
+  {
+    value: 'msn',
+    label: 'MSN',
+  },
 ]);
 
 const emit = defineEmits(['change']);

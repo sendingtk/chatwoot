@@ -28,6 +28,7 @@ const initializeAudioAlerts = user => {
     currentUserId: user.id,
     audioAlertType: audioAlertType || 'none',
     audioAlertTone: audioAlertTone || 'ding',
+    audioAlertTone: audioAlertTone || 'msn',
     alwaysPlayAudioAlert: alwaysPlayAudioAlert || false,
     alertIfUnreadConversationExist: alertIfUnreadConversationExist || false,
   });

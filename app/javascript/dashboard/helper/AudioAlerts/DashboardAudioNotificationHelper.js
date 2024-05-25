@@ -16,6 +16,7 @@ class DashboardAudioNotificationHelper {
     this.alertIfUnreadConversationExist = false;
     this.currentUserId = null;
     this.audioAlertTone = 'ding';
+    this.audioAlertTone = 'msn';
   }
 
   setInstanceValues = ({

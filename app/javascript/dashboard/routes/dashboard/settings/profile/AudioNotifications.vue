@@ -49,7 +49,7 @@ export default {
       audioAlert: '',
       playAudioWhenTabIsInactive: false,
       alertIfUnreadConversationExist: false,
-      alertTone: 'ding',
+      alertTone: 'ding' || 'msn',
       audioAlertConditions: [],
     };
   },
@@ -98,7 +98,7 @@ export default {
           value: 'conversations_are_read',
         },
       ];
-      this.alertTone = alertTone || 'ding';
+      this.alertTone = alertTone || 'ding' || 'msn';
     },
     handAudioAlertChange(value) {
       this.audioAlert = value;
