@@ -167,7 +167,7 @@ export default {
         });
       } catch (error) {
         this.showAlert(
-          this.$t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.API.ERROR_MESSAGE')
+          error.message || this.$t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.API.ERROR_MESSAGE')
         );
       }
     },
