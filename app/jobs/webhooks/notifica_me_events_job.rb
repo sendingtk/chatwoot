@@ -292,7 +292,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
       messageStatus = params['messageStatus']['code']
       messageProviderId = params['messageStatus']['providerMessageId']
       messageId = params['messageId']
-      source_id = ['SENT', 'REJECTED'].include?(messageStatus) ? messageId : messageProviderId
+      source_id = ['SENT', 'REJECTED', 'ERROR'].include?(messageStatus) ? messageId : messageProviderId
       Rails.logger.warn("NotificaMe Message source id #{source_id} for status #{messageStatus}")
       message = Message.find_by(source_id: source_id)
       unless message
@@ -307,7 +307,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
         return
       end
       index = Message.statuses[message.status]
-      if messageStatus == 'REJECTED'
+      if ['ERROR', 'REJECTED'].include?(messageStatus)
         Rails.logger.warn("NotificaMe Message source id #{source_id} update to failed")
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
