@@ -293,6 +293,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
       messageProviderId = params['messageStatus']['providerMessageId']
       messageId = params['messageId']
       source_id = messageStatus == 'SENT' ? messageId : messageProviderId
+      Rails.logger.warn("NotificaMe Message source id #{source_id} for status #{messageStatus}")
       message = Message.find_by(source_id: source_id)
       unless message
         unless params['retried']
@@ -307,13 +308,19 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
       end
       index = Message.statuses[message.status]
       if messageStatus == 'REJECTED'
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to failed")
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
       elsif messageStatus == 'SENT'
-        message.update!(status: :sent, source_id: messageProviderId) if index < Message.statuses[:sent] || message.status == :failed
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
+        attrs = { status: :sent }
+        attrs[:source_id] = messageProviderId if messageProviderId
+        message.update!(attrs) if index < Message.statuses[:sent] || message.status == :failed
       elsif messageStatus == 'DELIVERED'
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
       elsif messageStatus == 'READ'
+         Rails.logger.warn("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
         message.update!(status: :read) if index < Message.statuses[:read] || message.status == :failed
       end
     elsif params['type'] == 'MESSAGE'

@@ -20,7 +20,7 @@
 #  conversation_id           :integer          not null
 #  inbox_id                  :integer          not null
 #  sender_id                 :bigint
-#  source_id                 :string
+#  source_id                 :string(510)
 #
 # Indexes
 #
@@ -74,6 +74,7 @@ class Message < ApplicationRecord
 
   validates :content_type, presence: true
   validates :content, length: { maximum: 150_000 }
+  validates :source_id, length: { maximum: 510 }
   validates :processed_message_content, length: { maximum: 150_000 }
 
   # when you have a temperory id in your frontend and want it echoed back via action cable
