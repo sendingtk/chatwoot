@@ -222,8 +222,7 @@ export default {
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
         this.isASmsInbox ||
-        this.isAFacebookInbox ||
-        this.isANotificaMeChannel
+        this.isAFacebookInbox
       ) {
         return this.sourceId && this.isDelivered;
       }
@@ -244,8 +243,7 @@ export default {
       if (
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
-        this.isAFacebookInbox ||
-        this.isANotificaMeChannel
+        this.isAFacebookInbox
       ) {
         return this.sourceId && this.isRead;
       }
