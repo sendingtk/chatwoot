@@ -503,7 +503,11 @@ export default {
       return `draft-${this.conversationIdByRoute}-${this.replyType}`;
     },
     audioRecordFormat() {
-      if (this.isAWhatsAppChannel || this.isATelegramChannel) {
+      if (
+        this.isAWhatsAppChannel ||
+        this.isATelegramChannel ||
+        this.isANotificaMeChannel
+      ) {
         return AUDIO_FORMATS.MP3;
       }
       if (this.isAPIInbox) {
