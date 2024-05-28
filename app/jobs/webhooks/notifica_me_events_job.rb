@@ -292,7 +292,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
       messageStatus = params['messageStatus']['code']
       messageProviderId = params['messageStatus']['providerMessageId']
       messageId = params['messageId']
-      source_id = messageStatus == 'SENT' ? messageId : messageProviderId
+      source_id = ['SENT', 'REJECTED'].include?(messageStatus) ? messageId : messageProviderId
       Rails.logger.warn("NotificaMe Message source id #{source_id} for status #{messageStatus}")
       message = Message.find_by(source_id: source_id)
       unless message
