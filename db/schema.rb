@@ -322,7 +322,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_16_003531) do
     t.integer "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["notifica_me_id", "notifica_me_type", "notifica_me_token"], name: "index_channel_notifica_me", unique: true
+    t.index ["notifica_me_id", "account_id"], name: "index_channel_notifica_me", unique: true
   end
 
   create_table "channel_sms", force: :cascade do |t|
@@ -621,7 +621,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_16_003531) do
     t.bigint "portal_id"
     t.integer "sender_name_type", default: 0, null: false
     t.string "business_name"
-    t.boolean "allow_agent_to_delete_message", default: true
+    t.boolean "allow_agent_to_delete_message", default: true, null: false
     t.index ["account_id"], name: "index_inboxes_on_account_id"
     t.index ["channel_id", "channel_type"], name: "index_inboxes_on_channel_id_and_channel_type"
     t.index ["portal_id"], name: "index_inboxes_on_portal_id"

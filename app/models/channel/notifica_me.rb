@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_channel_notifica_me  (notifica_me_id,notifica_me_type,notifica_me_token) UNIQUE
+#  index_channel_notifica_me  (notifica_me_id,account_id) UNIQUE
 #
 
 class Channel::NotificaMe < ApplicationRecord
@@ -28,5 +28,9 @@ class Channel::NotificaMe < ApplicationRecord
 
   def name
     'NotificaMe'
+  end
+
+  def notifica_me_path
+    notifica_me_type == 'whatsapp_business_account' ? 'whatsapp' : notifica_me_type
   end
 end

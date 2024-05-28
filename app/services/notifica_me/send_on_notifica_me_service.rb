@@ -7,7 +7,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
 
   def perform_reply
     begin
-      url = "https://hub.notificame.com.br/v1/channels/#{channel.notifica_me_type}/messages"
+      url = "https://hub.notificame.com.br/v1/channels/#{channel.notifica_me_path}/messages"
       body = message_params.to_json
       Rails.logger.error("NotificaMe message params #{body}")
       response = HTTParty.post(
@@ -19,7 +19,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
         },
         format: :json
       )
-      Rails.logger.debug("Response form NotificaMe #{response}")
+      Rails.logger.error("Response form NotificaMe #{response}")
       if response.success?
         message.update!(source_id: response.parsed_response["id"])
       else

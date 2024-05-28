@@ -289,26 +289,32 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
 
   def process_event_params(channel, params)
     if params['type'] == 'MESSAGE_STATUS'
-      source_id = params['messageStatus']['code'] == 'SENT' ? params['messageId'] : params['messageStatus']['providerMessage_id']
+      messageStatus = params['messageStatus']['code']
+      messageProviderId = params['messageStatus']['providerMessageId']
+      messageId = params['messageId']
+      source_id = messageStatus == 'SENT' ? messageId : messageProviderId
       message = Message.find_by(source_id: source_id)
       unless message
         unless params['retried']
-          Rails.logger.warn("NotificaMe Message source id #{params['messageId']} not found try again")
+          Rails.logger.warn("NotificaMe Message source id #{source_id} not found try again")
           params['retried'] = true
-          Webhooks::NotificaMeEventsJob.set(wait: 10.seconds).perform_later(params)
+          time = messageStatus == 'SENT' ? 3 : 5
+          Webhooks::NotificaMeEventsJob.set(wait: time.seconds).perform_later(params)
         else
-          Rails.logger.warn("NotificaMe Message source id #{params['messageId']} not found")
+          Rails.logger.warn("NotificaMe Message source id #{source_id} not found")
         end
         return
       end
       index = Message.statuses[message.status]
-      if params['messageStatus']['code'] == 'REJECTED'
+      if messageStatus == 'REJECTED'
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
-      elsif params['messageStatus']['code'] == 'SENT'
-        message.update!(status: :sent, source_id: source_id) if index < Message.statuses[:sent] || message.status == :failed
-      elsif params['messageStatus']['code'] == 'DELIVERED'
+      elsif messageStatus == 'SENT'
+        message.update!(status: :sent, source_id: messageProviderId) if index < Message.statuses[:sent] || message.status == :failed
+      elsif messageStatus == 'DELIVERED'
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
+      elsif messageStatus == 'READ'
+        message.update!(status: :read) if index < Message.statuses[:read] || message.status == :failed
       end
     elsif params['type'] == 'MESSAGE'
       return if  params['direction']  == 'OUT'
