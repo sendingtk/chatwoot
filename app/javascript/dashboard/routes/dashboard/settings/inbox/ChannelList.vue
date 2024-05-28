@@ -63,7 +63,6 @@ export default {
         },
         { key: 'telegram', name: 'Telegram' },
         { key: 'line', name: 'Line' },
-        { key: 'notifica_me', name: 'NotificaMe' },
       ];
     },
     ...mapGetters({

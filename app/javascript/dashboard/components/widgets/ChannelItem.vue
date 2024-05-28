@@ -47,7 +47,6 @@ export default {
         'sms',
         'telegram',
         'line',
-        'notifica_me',
       ].includes(key);
     },
   },
