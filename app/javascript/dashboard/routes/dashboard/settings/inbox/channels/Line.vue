@@ -137,7 +137,7 @@ export default {
         });
       } catch (error) {
         this.showAlert(
-          error.message || this.$t('INBOX_MGMT.ADD.LINE_CHANNEL.API.ERROR_MESSAGE')
+          this.$t('INBOX_MGMT.ADD.LINE_CHANNEL.API.ERROR_MESSAGE')
         );
       }
     },

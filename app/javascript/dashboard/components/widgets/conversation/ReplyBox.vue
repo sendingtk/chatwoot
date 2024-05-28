@@ -399,8 +399,7 @@ export default {
         this.isAnEmailChannel ||
         this.isASmsInbox ||
         this.isATelegramChannel ||
-        this.isALineChannel ||
-        this.isANotificaMeChannel
+        this.isALineChannel
       );
     },
     replyButtonLabel() {
