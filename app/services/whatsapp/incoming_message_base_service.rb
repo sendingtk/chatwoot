@@ -156,7 +156,8 @@ class Whatsapp::IncomingMessageBaseService
       sender: @sender,
       source_id: message[:id].to_s,
       created_at: Time.at(timestamp, in: 'UTC'),
-      in_reply_to_external_id: @in_reply_to_external_id
+      in_reply_to_external_id: @in_reply_to_external_id,
+      in_reply_to_interactive_id: @in_reply_to_interactive_id
     )
     @message
   end

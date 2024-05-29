@@ -89,6 +89,7 @@ module Whatsapp::IncomingMessageServiceHelpers
   end
 
   def process_in_reply_to(message)
+    @in_reply_to_interactive_id = message['interactive']&.[]('list_reply')&.[]('id') || message['interactive']&.[]('button_reply')&.[]('id')
     @in_reply_to_external_id = message['context']&.[]('id')
   end
 
