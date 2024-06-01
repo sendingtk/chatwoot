@@ -93,7 +93,7 @@
         "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Enviar notificações por email quando uma nova mensagem é criada em uma conversa que você participa",
         "SLA_MISSED_FIRST_RESPONSE": "Enviar notificações por e-mail quando uma conversa perder a primeira resposta SLA",
         "SLA_MISSED_NEXT_RESPONSE": "Enviar notificações por e-mail quando uma conversa perder a próxima resposta SLA",
-        "SLA_MISSED_RESOLUTION": "Enviar notificações por e-mail quando uma conversa perder resolução de resolução SLA",
+        "SLA_MISSED_RESOLUTION": "Enviar notificações por e-mail quando uma conversa perder resolução de resolução SLA"
       },
       "NOTIFICATIONS": {
         "TITLE": "Notification preferences",
