@@ -103,6 +103,13 @@ export default {
       return !this.uiFlags.isFetching && !this.notifications.length;
     },
   },
+  watch: {
+    inboxFilters(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$store.dispatch('notifications/updateNotificationFilters', newVal);
+      }
+    },
+  },
   mounted() {
     this.setSavedFilter();
     this.fetchNotifications();
@@ -190,6 +197,10 @@ export default {
       this.status = status;
       this.type = type;
       this.sortOrder = sortBy || wootConstants.INBOX_SORT_BY.NEWEST;
+      this.$store.dispatch(
+        'notifications/setNotificationFilters',
+        this.inboxFilters
+      );
     },
   },
 };
