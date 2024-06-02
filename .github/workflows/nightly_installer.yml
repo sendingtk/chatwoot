@@ -16,8 +16,8 @@ on:
 
 jobs:
   nightly:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     steps:
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
