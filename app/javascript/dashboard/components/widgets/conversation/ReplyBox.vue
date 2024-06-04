@@ -29,7 +29,6 @@
         v-if="shouldShowReplyToMessage"
         :message="inReplyTo"
         @dismiss="resetReplyToMessage"
-        @navigate-to-message="navigateToMessage"
       />
       <canned-response
         v-if="showMentions && hasSlashCommand"
@@ -1203,11 +1202,6 @@ export default {
       const replyStorageKey = LOCAL_STORAGE_KEYS.MESSAGE_REPLY_TO;
       LocalStorage.deleteFromJsonStore(replyStorageKey, this.conversationId);
       this.$emitter.emit(BUS_EVENTS.TOGGLE_REPLY_TO_MESSAGE);
-    },
-    navigateToMessage(messageId) {
-      this.$emitter.emit(BUS_EVENTS.SCROLL_TO_MESSAGE, {
-        messageId,
-      });
     },
     onNewConversationModalActive(isActive) {
       // Issue is if the new conversation modal is open and we drag and drop the file
