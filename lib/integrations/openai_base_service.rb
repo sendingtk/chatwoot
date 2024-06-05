@@ -3,15 +3,15 @@ class Integrations::OpenaiBaseService
   # 1 token is approx 4 characters
   # 16385 * 4 = 65540 characters, sticking to 50,000 to be safe
   TOKEN_LIMIT = 50_000
-  #API_URL = 'https://api.openai.com/v1/chat/completions'.freeze
-  #GPT_MODEL = 'gpt-3.5-turbo'.freeze
+  API_URL = 'https://api.openai.com/v1/chat/completions'.freeze
+  GPT_MODEL = 'gpt-3.5-turbo'.freeze
 
   ALLOWED_EVENT_NAMES = %w[rephrase summarize reply_suggestion fix_spelling_grammar shorten expand make_friendly make_formal simplify].freeze
   CACHEABLE_EVENTS = %w[].freeze
 
   #pattr_initialize [:hook!, :event!]
 
-  pattr_reader :hook, :event, :api_url, :gpt_model
+  attr_reader :hook, :event, :api_url, :gpt_model
 
   def initialize(hook:, event:)
     @hook = hook
@@ -33,8 +33,8 @@ class Integrations::OpenaiBaseService
   private
 
   def set_api_url_and_gpt_model
-    @api_url = hook.settings['api_url'].presence || 'https://api.openai.com/v1/chat/completions'
-    @gpt_model = hook.settings['model_name'].presence || 'gpt-3.5-turbo'
+    @api_url = hook.settings['api_url'].presence || API_URL
+    @gpt_model = hook.settings['model_name'].presence || GPT_MODEL
   end
 
   def event_name
