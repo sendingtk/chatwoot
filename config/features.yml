@@ -103,3 +103,5 @@
   enabled: true
 - name: hide_all_inbox_for_agent
   enabled: false
+- name: channel_notifica_me
+  enabled: false

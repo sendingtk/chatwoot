@@ -38,6 +38,9 @@ export default {
       if (key === 'email') {
         return this.enabledFeatures.channel_email;
       }
+      if (key === 'notifica_me') {
+        return this.enabledFeatures.channel_notifica_me;
+      }
 
       return [
         'website',
