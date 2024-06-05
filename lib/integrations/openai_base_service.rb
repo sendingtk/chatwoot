@@ -11,7 +11,7 @@ class Integrations::OpenaiBaseService
 
   #pattr_initialize [:hook!, :event!]
 
-  attr_reader :hook, :event, :api_url, :gpt_model
+  pattr_reader :hook, :event, :api_url, :gpt_model
 
   def initialize(hook:, event:)
     @hook = hook
