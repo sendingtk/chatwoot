@@ -47,6 +47,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import wootConstants from 'dashboard/constants/globals';
+
 import InboxCard from './components/InboxCard.vue';
 import InboxListHeader from './components/InboxListHeader.vue';
 import { INBOX_EVENTS } from 'dashboard/helper/AnalyticsHelper/events';

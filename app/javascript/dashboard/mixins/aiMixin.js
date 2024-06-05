@@ -101,11 +101,7 @@ export default {
         } = result;
         return generatedMessage;
       } catch (error) {
-        const errorData = error.response.data.error;
-        const errorMessage =
-          errorData?.error?.message ||
-          this.$t('INTEGRATION_SETTINGS.OPEN_AI.GENERATE_ERROR');
-        this.showAlert(errorMessage);
+        this.showAlert(this.$t('INTEGRATION_SETTINGS.OPEN_AI.GENERATE_ERROR'));
         return '';
       }
     },
