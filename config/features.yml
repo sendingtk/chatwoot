@@ -7,8 +7,14 @@
 - name: channel_facebook
   enabled: true
   help_url: https://chwt.app/hc/fb
-- name: channel_twitter
+- name: channel_sms
+  enabled: false
+- name: channel_whatsapp
   enabled: true
+- name: channel_telegram
+  enabled: false
+- name: channel_line
+  enabled: false
 - name: ip_lookup
   enabled: false
 - name: disable_branding
