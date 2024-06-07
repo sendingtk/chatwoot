@@ -9,7 +9,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
     begin
       url = "https://hub.notificame.com.br/v1/channels/#{channel.notifica_me_type}/messages"
       body = message_params.to_json
-      Rails.logger.degug("NotificaMe message params #{body}")
+      Rails.logger.debug("NotificaMe message params #{body}")
       response = HTTParty.post(
         url,
         body: body,
@@ -25,7 +25,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
         raise "Error on send mensagem to NotificaMe: #{response.parsed_response}"
       end
     rescue StandardError => e
-      Rails.logger.degug("Error on send do NotificaMe")
+      Rails.logger.debug("Error on send do NotificaMe")
       Rails.logger.error(e)
       message.update!(status: :failed, external_error: e.message)
     end
