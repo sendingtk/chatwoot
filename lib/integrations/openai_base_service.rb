@@ -9,15 +9,7 @@ class Integrations::OpenaiBaseService
   ALLOWED_EVENT_NAMES = %w[rephrase summarize reply_suggestion fix_spelling_grammar shorten expand make_friendly make_formal simplify].freeze
   CACHEABLE_EVENTS = %w[].freeze
 
-  #pattr_initialize [:hook!, :event!]
-
-  attr_reader :hook, :event, :api_url, :gpt_model
-
-  def initialize(hook:, event:)
-    @hook = hook
-    @event = event
-    set_api_url_and_gpt_model
-  end
+  pattr_initialize [:hook!, :event!]
 
   def perform
     return nil unless valid_event_name?
@@ -31,11 +23,6 @@ class Integrations::OpenaiBaseService
   end
 
   private
-
-  def set_api_url_and_gpt_model
-    @api_url = hook.settings['api_url'].presence || API_URL
-    @gpt_model = hook.settings['model_name'].presence || GPT_MODEL
-  end
 
   def event_name
     event['name']
@@ -87,7 +74,7 @@ class Integrations::OpenaiBaseService
     }
 
     Rails.logger.info("OpenAI API request: #{body}")
-    response = HTTParty.post(api_url, headers: headers, body: body)
+    response = HTTParty.post(API_URL, headers: headers, body: body)
     Rails.logger.info("OpenAI API response: #{response.body}")
 
     choices = JSON.parse(response.body)['choices']

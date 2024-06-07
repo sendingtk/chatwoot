@@ -140,8 +140,6 @@ openai:
     "properties": {
         "api_key": { "type": "string" },
         "label_suggestion": { "type": "boolean" },
-        "model_name": { "type": "string" },
-        "api_url": { "type": "string" },
       },
     "required": ["api_key"],
     "additionalProperties": false,
@@ -154,23 +152,13 @@ openai:
       "validation": "required",
     },
     {
-      "label": "Model Name (optional)",
-      "type": "text",
-      "name": "model_name",
-    },
-    {
-      "label": "API URL (optional)",
-      "type": "text",
-      "name": "api_url",
-    },
-    {
       "label": "Show label suggestions",
       "type": "checkbox",
       "name": "label_suggestion",
       "validation": "",
     },
   ]
-  visible_properties: ['api_key', 'label_suggestion', 'model_name', 'api_url']
+  visible_properties: ['api_key', 'label_suggestion']
 linear:
   id: linear
   logo: linear.png
