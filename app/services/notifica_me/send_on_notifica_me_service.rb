@@ -85,7 +85,6 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
   end
 
   def extension(url)
-    split = url.split('.')
-    split[split.length - 1]
+    url.match(/\.(\w+)$/)&.captures.first
   end
 end
