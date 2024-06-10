@@ -4,6 +4,10 @@
 class Whatsapp::IncomingMessageBaseService
   include ::Whatsapp::IncomingMessageServiceHelpers
 
+  # rubocop:disable Style/ClassVars
+  @@microsecond = 0
+  # rubocop:enable Style/ClassVars
+
   pattr_initialize [:inbox!, :params!]
 
   def perform
@@ -151,7 +155,7 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_message(message)
-    timestamp = message[:timestamp] ? message[:timestamp].to_i : Time.now.to_i
+    timestamp = message[:timestamp] ? Time.at(message[:timestamp].to_i, microsecond, :microsecond, in: 'UTC') : Time.current.utc
     @message = @conversation.messages.build(
       content: message_content(message),
       account_id: @inbox.account_id,
@@ -159,7 +163,7 @@ class Whatsapp::IncomingMessageBaseService
       message_type: @message_type,
       sender: @sender,
       source_id: message[:id].to_s,
-      created_at: Time.at(timestamp, in: 'UTC'),
+      created_at: timestamp,
       in_reply_to_external_id: @in_reply_to_external_id,
       in_reply_to_interactive_id: @in_reply_to_interactive_id
     )
@@ -181,5 +185,13 @@ class Whatsapp::IncomingMessageBaseService
 
   def set_message_type
     @message_type = :incoming
+  end
+
+  def microsecond
+    # rubocop:disable Style/ClassVars
+    @@microsecond = 0 if @@microsecond > 999_999
+    @@microsecond += 1
+    @@microsecond
+    # rubocop:enable Style/ClassVars
   end
 end
