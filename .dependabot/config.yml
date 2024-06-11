@@ -5,7 +5,7 @@ update_configs:
     update_schedule: "weekly"
     default_reviewers:
       - "sony-mathew"
-      - "sojan-official"
+      - "nestordavalos"
       - "subintp"
     default_labels:
       - "dependencies"
@@ -15,8 +15,7 @@ update_configs:
     directory: "/"
     update_schedule: "weekly"
     default_reviewers:
-      - "pranavrajs"
-      - "nithindavid"
+      - "nestordavalos"
     default_labels:
       - "dependencies"
       - "javascript"
