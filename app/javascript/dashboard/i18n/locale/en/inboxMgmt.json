@@ -24,7 +24,7 @@
         "body": "Add agents to the created inbox."
       },
       {
-        "title": "Voilà!",
+        "title": "Voilï¿½!",
         "route": "settings_inbox_finish",
         "body": "You are all set to go!"
       }
@@ -776,6 +776,7 @@
     },
     "EMAIL_PROVIDERS": {
       "MICROSOFT": "Microsoft",
+      "GOOGLE": "Google",
       "OTHER_PROVIDERS": "Other Providers"
     }
   }
