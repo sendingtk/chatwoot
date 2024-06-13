@@ -9,7 +9,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
     begin
       url = "https://hub.notificame.com.br/v1/channels/#{channel.notifica_me_path}/messages"
       body = message_params.to_json
-      Rails.logger.error("NotificaMe message params #{body}")
+      Rails.logger.debug("NotificaMe message params #{body}")
       response = HTTParty.post(
         url,
         body: body,
@@ -19,16 +19,16 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
         },
         format: :json
       )
-      Rails.logger.error("Response form NotificaMe #{response}")
+      Rails.logger.debug("Response form NotificaMe #{response}")
       if response.success?
         message.update!(source_id: response.parsed_response["id"])
       else
-        raise "Error on send mensagem to NotificaMe: #{response.parsed_response}"
+        raise "Error on send mensagem to NotificaMe: #{response['code']} -> #{response['message']}"
       end
     rescue StandardError => e
       Rails.logger.error("Error on send do NotificaMe")
       Rails.logger.error(e)
-      message.update!(status: :failed, external_error: e.message)
+      message.update!(status: :failed, external_error: e.to_s)
     end
   end
 
@@ -91,7 +91,6 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
   end
 
   def extension(url)
-    split = url.split('.')
-    split[split.length - 1]
+    url.match(/\.(\w+)$/)&.captures.first
   end
 end
