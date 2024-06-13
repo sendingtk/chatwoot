@@ -275,7 +275,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
 =end
 
   def perform(params = {})
-    Rails.logger.error("NotificaMe params webhook #{params}")
+    Rails.logger.debug("NotificaMe params webhook #{params}")
     channel = Channel::NotificaMe.find_by(notifica_me_id: params['channel_id'])
     unless channel
       Rails.logger.warn("NotificaMe Channel #{params['channel_id']} not found")
@@ -312,15 +312,15 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
       elsif messageStatus == 'SENT'
-        Rails.logger.warn("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
+        Rails.logger.info("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
         attrs = { status: :sent }
         attrs[:source_id] = messageProviderId if messageProviderId
         message.update!(attrs) if index < Message.statuses[:sent] || message.status == :failed
       elsif messageStatus == 'DELIVERED'
-        Rails.logger.warn("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
+        Rails.logger.info("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
       elsif messageStatus == 'READ'
-         Rails.logger.warn("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
+         Rails.logger.info("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
         message.update!(status: :read) if index < Message.statuses[:read] || message.status == :failed
       end
     elsif params['type'] == 'MESSAGE'

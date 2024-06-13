@@ -19,7 +19,7 @@ class NotificaMe::SendOnNotificaMeService < Base::SendOnChannelService
         },
         format: :json
       )
-      Rails.logger.debug("Response form NotificaMe #{response}")
+      Rails.logger.debug("Response from NotificaMe #{response}")
       if response.success?
         message.update!(source_id: response.parsed_response["id"])
       else
