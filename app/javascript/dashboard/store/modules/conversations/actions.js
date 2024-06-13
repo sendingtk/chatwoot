@@ -38,9 +38,10 @@ const actions = {
     }
   },
 
-  fetchAllConversations: async ({ commit, dispatch }, params) => {
+  fetchAllConversations: async ({ commit, state, dispatch }) => {
     commit(types.SET_LIST_LOADING_STATUS);
     try {
+      const params = state.conversationFilters;
       const {
         data: { data },
       } = await ConversationApi.get(params);
@@ -175,10 +176,10 @@ const actions = {
     });
   },
 
-  async setActiveChat({ commit, dispatch }, { data, after, force = false }) {
+  async setActiveChat({ commit, dispatch }, { data, after }) {
     commit(types.SET_CURRENT_CHAT_WINDOW, data);
     commit(types.CLEAR_ALL_MESSAGES_LOADED);
-    if (data.dataFetched === undefined || force) {
+    if (data.dataFetched === undefined) {
       try {
         await dispatch('fetchPreviousMessages', {
           after,
@@ -445,6 +446,14 @@ const actions = {
 
   clearConversationFilters({ commit }) {
     commit(types.CLEAR_CONVERSATION_FILTERS);
+  },
+
+  setChatListFilters({ commit }, data) {
+    commit(types.SET_CHAT_LIST_FILTERS, data);
+  },
+
+  updateChatListFilters({ commit }, data) {
+    commit(types.UPDATE_CHAT_LIST_FILTERS, data);
   },
 
   assignPriority: async ({ dispatch }, { conversationId, priority }) => {

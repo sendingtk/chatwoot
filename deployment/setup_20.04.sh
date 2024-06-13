@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Description: Install and manage a Chatwoot installation.
-# OS: Ubuntu 20.04 LTS
-# Script Version: 2.7.0
+# OS: Ubuntu 20.04 LTS, 22.04 LTS, 24.04 LTS
+# Script Version: 2.8.0
 # Run this script as root
 
 set -eu -o errexit -o pipefail -o noclobber -o nounset
@@ -19,7 +19,7 @@ fi
 # option --output/-o requires 1 argument
 LONGOPTS=console,debug,help,install,Install:,logs:,restart,ssl,upgrade,webserver,version
 OPTIONS=cdhiI:l:rsuwv
-CWCTL_VERSION="2.7.0"
+CWCTL_VERSION="2.8.0"
 pg_pass=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15 ; echo '')
 
 # if user does not specify an option
@@ -190,7 +190,7 @@ function install_dependencies() {
       postgresql-client redis-tools \
       nodejs yarn patch ruby-dev zlib1g-dev liblzma-dev \
       libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev sudo \
-      libvips python3-pip
+      libvips python3-pip python3-packaging
 }
 
 ##############################################################################
@@ -230,7 +230,7 @@ function install_webserver() {
 ##############################################################################
 function create_cw_user() {
   if ! id -u "chatwoot"; then
-    adduser --disabled-login --gecos "" chatwoot
+    adduser --disabled-password --gecos "" chatwoot
   fi
 }
 
@@ -505,7 +505,7 @@ EOF
   fi
 
   echo -en "\n"
-  read -rp 'Would you like to install Postgres and Redis? (Answer no if you plan to use external services): ' install_pg_redis
+  read -rp 'Would you like to install Postgres and Redis? (Answer no if you plan to use external services)(yes or no): ' install_pg_redis
 
   echo -en "\n➥ 1/9 Installing dependencies. This takes a while.\n"
   install_dependencies &>> "${LOG_FILE}"
@@ -942,7 +942,7 @@ function cwctl_upgrade_check() {
     # Check if packaging library is installed, and install it if not
     if ! python3 -c "import packaging.version" &> /dev/null; then
         echo "Installing packaging library..."
-        python3 -m pip install packaging
+        sudo apt install python3-packaging
     fi
 
     needs_update=$(python3 -c "from packaging import version; v1 = version.parse('$CWCTL_VERSION'); v2 = version.parse('$remote_version'); print(1 if v2 > v1 else 0)")

@@ -268,6 +268,7 @@ export default {
       chatLists: 'getAllConversations',
       mineChatsList: 'getMineChats',
       allChatList: 'getAllStatusChats',
+      chatListFilters: 'getChatListFilters',
       unAssignedChatsList: 'getUnAssignedChats',
       chatListLoading: 'getChatListLoadingStatus',
       currentUserID: 'getCurrentUserID',
@@ -524,7 +525,13 @@ export default {
       this.resetAndFetchData();
       this.updateVirtualListProps('conversationType', this.conversationType);
     },
-    activeFolder() {
+    activeFolder(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$store.dispatch(
+          'customViews/setActiveConversationFolder',
+          newVal || null
+        );
+      }
       this.resetAndFetchData();
       this.updateVirtualListProps('foldersId', this.foldersId);
     },
@@ -534,8 +541,14 @@ export default {
     showAssigneeInConversationCard(newVal) {
       this.updateVirtualListProps('showAssignee', newVal);
     },
+    conversationFilters(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$store.dispatch('updateChatListFilters', newVal);
+      }
+    },
   },
   mounted() {
+    this.$store.dispatch('setChatListFilters', this.conversationFilters);
     this.setFiltersFromUISettings();
     this.initializeAccount();
     this.$store.dispatch('setChatStatusFilter', this.activeStatus);
@@ -546,14 +559,14 @@ export default {
       this.$store.dispatch('campaigns/get');
     }
 
-    bus.$on('fetch_conversation_stats', () => {
+    this.$emitter.on('fetch_conversation_stats', () => {
       this.$store.dispatch('conversationStats/get', this.conversationFilters);
     });
 
-    bus.$on(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
+    this.$emitter.on(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
   },
   beforeDestroy() {
-    bus.$off(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
+    this.$emitter.off(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
   },
   methods: {
     async initializeAccount() {
@@ -740,6 +753,7 @@ export default {
       this.fetchConversations();
     },
     fetchConversations() {
+      this.$store.dispatch('updateChatListFilters', this.conversationFilters);
       this.$store
         .dispatch('fetchAllConversations', this.conversationFilters)
         .then(this.emitConversationLoaded);
@@ -781,7 +795,7 @@ export default {
     updateAssigneeTab(selectedTab) {
       if (this.activeAssigneeTab !== selectedTab) {
         this.resetBulkActions();
-        bus.$emit('clearSearchInput');
+        this.$emitter.emit('clearSearchInput');
         this.activeAssigneeTab = selectedTab;
         if (!this.currentPage) {
           this.fetchConversations();

@@ -48,7 +48,8 @@
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Atributos Personalizados",
       "CONTACT_LABELS": "Etiquetas de contato",
-      "PREVIOUS_CONVERSATIONS": "Conversas anteriores"
+      "PREVIOUS_CONVERSATIONS": "Conversas anteriores",
+      "NO_RECORDS_FOUND": "No attributes found"
     }
   },
   "EDIT_CONTACT": {
@@ -82,7 +83,8 @@
     "ERROR_MESSAGE": "Ocorreu um erro, por favor tente novamente",
     "CONFIRM": {
       "TITLE": "Exportar contatos",
-      "MESSAGE": "Você tem certeza de que deseja exportar todos os contatos?",
+      "MESSAGE": "Are you sure you want to export all contacts?",
+      "FILTERED_MESSAGE": "Are you sure you want to export all the filtered contacts?",
       "YES": "Sim, Exportar",
       "NO": "Não, Cancelar"
     }
