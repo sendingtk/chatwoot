@@ -289,25 +289,39 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
 
   def process_event_params(channel, params)
     if params['type'] == 'MESSAGE_STATUS'
-      source_id = params['messageStatus']['code'] == 'SENT' ? params['messageId'] : params['messageStatus']['providerMessage_id']
+      messageStatus = params['messageStatus']['code']
+      messageProviderId = params['messageStatus']['providerMessageId']
+      messageId = params['messageId']
+      source_id = ['SENT', 'REJECTED', 'ERROR'].include?(messageStatus) ? messageId : messageProviderId
+      Rails.logger.warn("NotificaMe Message source id #{source_id} for status #{messageStatus}")
       message = Message.find_by(source_id: source_id)
       unless message
         unless params['retried']
-          Rails.logger.warn("NotificaMe Message source id #{params['messageId']} not found try again")
+          Rails.logger.warn("NotificaMe Message source id #{source_id} not found try again")
           params['retried'] = true
-          Webhooks::NotificaMeEventsJob.set(wait: 10.seconds).perform_later(params)
+          time = messageStatus == 'SENT' ? 3 : 5
+          Webhooks::NotificaMeEventsJob.set(wait: time.seconds).perform_later(params)
         else
-          Rails.logger.warn("NotificaMe Message source id #{params['messageId']} not found")
+          Rails.logger.warn("NotificaMe Message source id #{source_id} not found")
         end
         return
       end
       index = Message.statuses[message.status]
-      if params['messageStatus']['code'] == 'REJECTED'
-        message.update!(status: :failed, external_error: params['messageStatus']['description'])
-      elsif params['messageStatus']['code'] == 'SENT'
-        message.update!(status: :sent, source_id: params['messageStatus']['providerMessage_id']) if index < Message.statuses[:sent] || message.status == :failed
-      elsif params['messageStatus']['code'] == 'DELIVERED'
+      if ['ERROR', 'REJECTED'].include?(messageStatus)
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to failed")
+        error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
+        message.update!(status: :failed, external_error: error)
+      elsif messageStatus == 'SENT'
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
+        attrs = { status: :sent }
+        attrs[:source_id] = messageProviderId if messageProviderId
+        message.update!(attrs) if index < Message.statuses[:sent] || message.status == :failed
+      elsif messageStatus == 'DELIVERED'
+        Rails.logger.warn("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
+      elsif messageStatus == 'READ'
+         Rails.logger.warn("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
+        message.update!(status: :read) if index < Message.statuses[:read] || message.status == :failed
       end
     elsif params['type'] == 'MESSAGE'
       return if  params['direction']  == 'OUT'

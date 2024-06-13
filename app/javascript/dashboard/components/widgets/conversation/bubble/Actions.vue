@@ -244,7 +244,8 @@ export default {
       if (
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
-        this.isAFacebookInbox
+        this.isAFacebookInbox ||
+        this.isANotificaMeChannel
       ) {
         return this.sourceId && this.isRead;
       }
