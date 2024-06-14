@@ -275,7 +275,7 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
 =end
 
   def perform(params = {})
-    Rails.logger.debug("NotificaMe params webhook #{params}")
+    Rails.logger.error("NotificaMe params webhook #{params}")
     channel = Channel::NotificaMe.find_by(notifica_me_id: params['channel_id'])
     unless channel
       Rails.logger.warn("NotificaMe Channel #{params['channel_id']} not found")
@@ -357,7 +357,40 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
           )
 
           if c['type'] != 'text'
-            attachment_file = Down.download(c['fileUrl'])
+            Rails.logger.error("channel.notifica_me_type #{channel.notifica_me_type}")
+            attachment_file = if channel.notifica_me_type == 'whatsapp_business_account'
+               body = {
+                  from: params['channel_id'],
+                  contents: [{
+                     type: c['type'],
+                     fileMimeType: c['fileMimeType'],
+                     fileUrl: c['fileUrl']
+                  }]
+               }.to_json
+               url = "https://hub.notificame.com.br/v1/channels/whatsapp/media"
+               Rails.logger.error("Download #{url} => #{body}")
+               headers = {
+                  'X-API-Token' => channel.notifica_me_token,
+                  'Content-Type' => 'application/json'
+               }
+               # response = HTTParty.post(
+               #    url,
+               #    body: ,
+               #    headers: {
+               #       'X-API-Token' => channel.notifica_me_token,
+               #       'Content-Type' => 'application/json'
+               #    }, 
+               #    stream_body: true,
+               # )
+               # # Rails.logger.error("response #{response}")
+               # io = StringIO.new(response.body)
+               # Rails.logger.error("io #{io}")
+               content = Down.download(url, method: :post, body: body, headers: headers)
+               Rails.logger.error("content #{content}")
+               content.read
+            else
+               Down.download(c['fileUrl'])
+            end
             return if attachment_file.blank?
             a = m.attachments.new(
               account_id: contact_inbox.inbox.account_id,
