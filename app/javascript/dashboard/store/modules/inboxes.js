@@ -99,9 +99,6 @@ export const getters = {
   getWebsiteInboxes($state) {
     return $state.records.filter(item => item.channel_type === INBOX_TYPES.WEB);
   },
-  getApiInboxes($state) {
-    return $state.records.filter(item => item.channel_type === INBOX_TYPES.API);
-  },
   getTwilioInboxes($state) {
     return $state.records.filter(
       item => item.channel_type === INBOX_TYPES.TWILIO
