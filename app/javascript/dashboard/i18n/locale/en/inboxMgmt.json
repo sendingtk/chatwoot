@@ -24,7 +24,7 @@
         "body": "Add agents to the created inbox."
       },
       {
-        "title": "Voil�!",
+        "title": "Voila!",
         "route": "settings_inbox_finish",
         "body": "You are all set to go!"
       }
