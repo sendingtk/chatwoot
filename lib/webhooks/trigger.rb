@@ -29,7 +29,7 @@ class Webhooks::Trigger
       url: @url,
       payload: @payload.to_json,
       headers: @headers,
-      timeout: ENV.fetch('WEBHOOKS_TRIGGER_TIMEOUT', '35').to_i
+      timeout: ENV.fetch('WEBHOOKS_TRIGGER_TIMEOUT', '5').to_i
     )
   end
 

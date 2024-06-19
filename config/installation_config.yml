@@ -217,3 +217,10 @@
   locked: false
   description: 'Contents on your firebase credentials json file'
 ## ------ End of Configs added for FCM v1 notifications ------ ##
+
+## ------ Configs custom ------ ##
+- name: CONVESATION_STYLE_CSS
+  display_title: 'Conversation Style CSS'
+  value:
+  description: 'Customize conversation, put your valid css'
+## ------ End of Configs custom ------ ##

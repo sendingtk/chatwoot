@@ -26,6 +26,7 @@ module Enterprise::SuperAdmin::AppConfigsController
       TERMS_URL
       PRIVACY_URL
       DISPLAY_MANIFEST
+      CONVESATION_STYLE_CSS
     ]
   end
 

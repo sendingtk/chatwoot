@@ -41,6 +41,9 @@
         size="14"
       />
     </span>
+    <span v-else-if="showProgressIndicator" class="read-indicator-wrap">
+      <fluent-icon icon="clock" class="action--icon" size="14" />
+    </span>
     <fluent-icon
       v-if="isEmail"
       v-tooltip.top-start="$t('CHAT_LIST.RECEIVED_VIA_EMAIL')"
@@ -158,6 +161,9 @@ export default {
     isSent() {
       return MESSAGE_STATUS.SENT === this.messageStatus;
     },
+    isProgress() {
+      return MESSAGE_STATUS.PROGRESS === this.messageStatus;
+    },
     readableTime() {
       return this.messageTimestamp(this.createdAt, 'LLL d, h:mm a');
     },
@@ -187,6 +193,9 @@ export default {
         return true;
       }
       return false;
+    },
+    showProgressIndicator() {
+      return this.isProgress;
     },
     showSentIndicator() {
       if (!this.showStatusIndicators) {
