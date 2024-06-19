@@ -10,6 +10,7 @@
     <chat-list-header
       :page-title="pageTitle"
       :has-applied-filters="hasAppliedFilters"
+      :has-hide-filters-for-agents="hideFiltersForAgents"
       :has-active-folders="hasActiveFolders"
       :active-status="activeStatus"
       @add-folders="onClickOpenAddFoldersModal"

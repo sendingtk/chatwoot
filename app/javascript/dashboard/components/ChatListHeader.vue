@@ -11,6 +11,10 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
+  hasHideFiltersForAgents: {
+    type: Boolean,
+    required: true,
+  },
   hasActiveFolders: {
     type: Boolean,
     required: true,
@@ -98,7 +102,7 @@ const hasAppliedFiltersOrActiveFolders = computed(() => {
         />
       </div>
       <woot-button
-        v-else
+        v-if="!hasHideFiltersForAgents && !hasActiveFolders"
         v-tooltip.right="$t('FILTER.TOOLTIP_LABEL')"
         variant="smooth"
         color-scheme="secondary"
