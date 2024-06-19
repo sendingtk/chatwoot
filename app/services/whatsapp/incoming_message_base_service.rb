@@ -155,7 +155,7 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_message(message)
-    timestamp = message[:timestamp] ? Time.at(message[:timestamp].to_i, microsecond, :microsecond, in: 'UTC') : Time.current.utc
+    timestamp = message[:timestamp] ? Time.at(message[:timestamp].to_i, Time.current.usec, :millisecond, in: 'UTC') : Time.current.utc
     @message = @conversation.messages.build(
       content: message_content(message),
       account_id: @inbox.account_id,
