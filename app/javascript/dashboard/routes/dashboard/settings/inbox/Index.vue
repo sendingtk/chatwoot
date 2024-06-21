@@ -58,6 +58,9 @@
                   Telegram
                 </span>
                 <span v-if="item.channel_type === 'Channel::Line'">Line</span>
+                <span v-if="item.channel_type === 'Channel::NotificaMe'">
+                  NotificaMe
+                </span>
                 <span v-if="item.channel_type === 'Channel::Api'">
                   {{ globalConfig.apiChannelName || 'API' }}
                 </span>
@@ -136,12 +139,13 @@ import Settings from './Settings.vue';
 import adminMixin from '../../../../mixins/isAdmin';
 import accountMixin from '../../../../mixins/account';
 import globalConfigMixin from 'shared/mixins/globalConfigMixin';
+import alertMixin from 'shared/mixins/alertMixin';
 
 export default {
   components: {
     Settings,
   },
-  mixins: [adminMixin, accountMixin, globalConfigMixin],
+  mixins: [adminMixin, accountMixin, globalConfigMixin, alertMixin],
   data() {
     return {
       loading: {},
@@ -194,15 +198,9 @@ export default {
     async deleteInbox({ id }) {
       try {
         await this.$store.dispatch('inboxes/delete', id);
-        bus.$emit(
-          'newToastMessage',
-          this.$t('INBOX_MGMT.DELETE.API.SUCCESS_MESSAGE')
-        );
+        this.showAlert(this.$t('INBOX_MGMT.DELETE.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        bus.$emit(
-          'newToastMessage',
-          this.$t('INBOX_MGMT.DELETE.API.ERROR_MESSAGE')
-        );
+        this.showAlert(this.$t('INBOX_MGMT.DELETE.API.ERROR_MESSAGE'));
       }
     },
 

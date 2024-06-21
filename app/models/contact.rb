@@ -60,6 +60,7 @@ class Contact < ApplicationRecord
   has_many :notes, dependent: :destroy_async
   before_validation :prepare_contact_attributes
   after_create_commit :dispatch_create_event, :ip_lookup
+  after_create_commit :create_label_also
   after_update_commit :dispatch_update_event
   after_destroy_commit :dispatch_destroy_event
   before_save :sync_contact_attributes
@@ -222,5 +223,15 @@ class Contact < ApplicationRecord
 
   def dispatch_destroy_event
     Rails.configuration.dispatcher.dispatch(CONTACT_DELETED, Time.zone.now, contact: self)
+  end
+
+  def create_label_also
+    prev_labels = Label.where(name: self.label_list)
+
+    new_labels = self.label_list - prev_labels
+
+    new_labels.each do |label|
+      Label.create!(name: label)
+    end
   end
 end

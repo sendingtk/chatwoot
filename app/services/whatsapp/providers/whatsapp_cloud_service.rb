@@ -119,7 +119,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
     key = 'send_agent_name_in_whatsapp_message'
     return message.content unless whatsapp_channel.inbox.account.feature_enabled?(key)
 
-    message&.sender_name.present? ? "*#{message&.sender_name}*: #{message.content}" : message.content
+    message&.sender_name.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
   end
 
   def send_attachment_message(phone_number, message)

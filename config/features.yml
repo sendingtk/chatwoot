@@ -103,3 +103,15 @@
   enabled: true
 - name: hide_all_inbox_for_agent
   enabled: false
+# - name: channel_notifica_me
+#   enabled: false
+- name: channel_sms
+  enabled: false
+- name: channel_whatsapp
+  enabled: true
+- name: channel_telegram
+  enabled: false
+- name: channel_line
+  enabled: false
+- name: channel_api
+  enabled: true

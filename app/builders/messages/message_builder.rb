@@ -169,6 +169,6 @@ class Messages::MessageBuilder
   end
 
   def params_status_progress?
-    @params[:status].blank? && @message_type == 'outgoing' && !@private && @params[:action] == 'create' && @conversation.inbox&.whatsapp?
+    @params[:status].blank? && @message_type == 'outgoing' && !@private && @params[:action] == 'create' && (@conversation.inbox&.whatsapp? || @conversation.inbox&.notifica_me?)
   end
 end

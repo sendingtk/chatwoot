@@ -20,7 +20,7 @@
         @click="onToggleContactPanel"
       />
     </div>
-    <ul class="conversation-panel">
+    <ul class="conversation-panel" :style="globalConfig.conversationStyleCss">
       <transition name="slide-up">
         <li class="min-h-[4rem]">
           <span v-if="shouldShowSpinner" class="spinner message" />
@@ -118,6 +118,7 @@ import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
 import configMixin from 'shared/mixins/configMixin';
 import keyboardEventListenerMixins from 'shared/mixins/keyboardEventListenerMixins';
 import aiMixin from 'dashboard/mixins/aiMixin';
+import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 
 // utils
 import { getTypingUsersText } from '../../../helper/commons';
@@ -143,6 +144,7 @@ export default {
     keyboardEventListenerMixins,
     configMixin,
     aiMixin,
+    globalConfigMixin,
   ],
   props: {
     isContactPanelOpen: {
@@ -179,6 +181,7 @@ export default {
       appIntegrations: 'integrations/getAppIntegrations',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
       currentAccountId: 'getCurrentAccountId',
+      globalConfig: 'globalConfig/get',
     }),
     isOpen() {
       return this.currentChat?.status === wootConstants.STATUS_TYPE.OPEN;
@@ -324,12 +327,12 @@ export default {
   },
 
   created() {
-    bus.$on(BUS_EVENTS.SCROLL_TO_MESSAGE, this.onScrollToMessage);
+    this.$emitter.on(BUS_EVENTS.SCROLL_TO_MESSAGE, this.onScrollToMessage);
     // when a new message comes in, we refetch the label suggestions
-    bus.$on(BUS_EVENTS.FETCH_LABEL_SUGGESTIONS, this.fetchSuggestions);
+    this.$emitter.on(BUS_EVENTS.FETCH_LABEL_SUGGESTIONS, this.fetchSuggestions);
     // when a message is sent we set the flag to true this hides the label suggestions,
     // until the chat is changed and the flag is reset in the watch for currentChat
-    bus.$on(BUS_EVENTS.MESSAGE_SENT, () => {
+    this.$emitter.on(BUS_EVENTS.MESSAGE_SENT, () => {
       this.messageSentSinceOpened = true;
     });
   },
@@ -396,21 +399,14 @@ export default {
       this.$store.dispatch('fetchAllAttachments', this.currentChat.id);
     },
     removeBusListeners() {
-      bus.$off(BUS_EVENTS.SCROLL_TO_MESSAGE, this.onScrollToMessage);
+      this.$emitter.off(BUS_EVENTS.SCROLL_TO_MESSAGE, this.onScrollToMessage);
     },
-    async onScrollToMessage({ messageId = '' } = {}) {
-      if (messageId) {
-        await this.$store.dispatch('setActiveChat', {
-          data: this.currentChat,
-          after: messageId,
-          force: true,
-        });
-      }
+    onScrollToMessage({ messageId = '' } = {}) {
       this.$nextTick(() => {
         const messageElement = document.getElementById('message' + messageId);
         if (messageElement) {
           this.isProgrammaticScroll = true;
-          messageElement.scrollIntoView();
+          messageElement.scrollIntoView({ behavior: 'smooth' });
           this.fetchPreviousMessages();
         } else {
           this.scrollToBottom();
@@ -521,7 +517,7 @@ export default {
       } else {
         this.hasUserScrolled = true;
       }
-      bus.$emit(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL);
+      this.$emitter.emit(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL);
       this.fetchPreviousMessages(e.target.scrollTop);
     },
 

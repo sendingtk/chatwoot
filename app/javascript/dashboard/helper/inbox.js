@@ -42,6 +42,9 @@ export const getReadableInboxByType = (type, phoneNumber) => {
     case INBOX_TYPES.TELEGRAM:
       return 'telegram';
 
+    case INBOX_TYPES.NOTIFICA_ME:
+      return 'notifica_me';
+
     case INBOX_TYPES.LINE:
       return 'line';
 
@@ -87,7 +90,8 @@ export const getInboxClassByType = (type, phoneNumber) => {
 };
 
 export const getInboxWarningIconClass = (type, reauthorizationRequired) => {
-  if (type === INBOX_TYPES.FB && reauthorizationRequired) {
+  const allowedInboxTypes = [INBOX_TYPES.FB, INBOX_TYPES.EMAIL];
+  if (allowedInboxTypes.includes(type) && reauthorizationRequired) {
     return 'warning';
   }
   return '';

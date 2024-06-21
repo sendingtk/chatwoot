@@ -53,7 +53,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def build_api_call_body(system_content, user_content = event['data']['content'])
     {
-      model: gpt_model,
+      model: GPT_MODEL,
       messages: [
         { role: 'system', content: system_content },
         { role: 'user', content: user_content }
@@ -114,7 +114,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def summarize_body
     {
-      model: gpt_model,
+      model: GPT_MODEL,
       messages: [
         { role: 'system',
           content: prompt_from_file('summary', enterprise: false) },
@@ -125,7 +125,7 @@ class Integrations::Openai::ProcessorService < Integrations::OpenaiBaseService
 
   def reply_suggestion_body
     {
-      model: gpt_model,
+      model: GPT_MODEL,
       messages: [
         { role: 'system',
           content: prompt_from_file('reply', enterprise: false) }

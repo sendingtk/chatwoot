@@ -5,6 +5,7 @@ import InboxesAPI from '../../api/inboxes';
 import WebChannel from '../../api/channel/webChannel';
 import FBChannel from '../../api/channel/fbChannel';
 import TwilioChannel from '../../api/channel/twilioChannel';
+import NotificaMeChannel from '../../api/channel/notificaMeChannel';
 import { throwErrorMessage } from '../utils/api';
 import AnalyticsHelper from '../../helper/AnalyticsHelper';
 import { ACCOUNT_EVENTS } from '../../helper/AnalyticsHelper/events';
@@ -98,9 +99,6 @@ export const getters = {
   getWebsiteInboxes($state) {
     return $state.records.filter(item => item.channel_type === INBOX_TYPES.WEB);
   },
-  getApiInboxes($state) {
-    return $state.records.filter(item => item.channel_type === INBOX_TYPES.API);
-  },
   getTwilioInboxes($state) {
     return $state.records.filter(
       item => item.channel_type === INBOX_TYPES.TWILIO
@@ -174,6 +172,19 @@ export const actions = {
     } catch (error) {
       commit(types.default.SET_INBOXES_UI_FLAG, { isCreating: false });
       return throwErrorMessage(error);
+    }
+  },
+  createNotificaMeChannel: async ({ commit }, params) => {
+    try {
+      commit(types.default.SET_INBOXES_UI_FLAG, { isCreating: true });
+      const response = await NotificaMeChannel.create(params);
+      commit(types.default.ADD_INBOXES, response.data);
+      commit(types.default.SET_INBOXES_UI_FLAG, { isCreating: false });
+      sendAnalyticsEvent('notifica_me');
+      return response.data;
+    } catch (error) {
+      commit(types.default.SET_INBOXES_UI_FLAG, { isCreating: false });
+      throw new Error(error);
     }
   },
   createTwilioChannel: async ({ commit }, params) => {

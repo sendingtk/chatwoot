@@ -41,6 +41,9 @@
         size="14"
       />
     </span>
+    <span v-else-if="showProgressIndicator" class="read-indicator-wrap">
+      <fluent-icon icon="clock" class="action--icon" size="14" />
+    </span>
     <fluent-icon
       v-if="isEmail"
       v-tooltip.top-start="$t('CHAT_LIST.RECEIVED_VIA_EMAIL')"
@@ -158,6 +161,9 @@ export default {
     isSent() {
       return MESSAGE_STATUS.SENT === this.messageStatus;
     },
+    isProgress() {
+      return MESSAGE_STATUS.PROGRESS === this.messageStatus;
+    },
     readableTime() {
       return this.messageTimestamp(this.createdAt, 'LLL d, h:mm a');
     },
@@ -188,6 +194,9 @@ export default {
       }
       return false;
     },
+    showProgressIndicator() {
+      return this.isProgress;
+    },
     showSentIndicator() {
       if (!this.showStatusIndicators) {
         return false;
@@ -202,7 +211,8 @@ export default {
         this.isATwilioChannel ||
         this.isAFacebookInbox ||
         this.isASmsInbox ||
-        this.isATelegramChannel
+        this.isATelegramChannel ||
+        this.isANotificaMeChannel
       ) {
         return this.sourceId && this.isSent;
       }
@@ -221,7 +231,8 @@ export default {
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
         this.isASmsInbox ||
-        this.isAFacebookInbox
+        this.isAFacebookInbox ||
+        this.isANotificaMeChannel
       ) {
         return this.sourceId && this.isDelivered;
       }
@@ -242,7 +253,8 @@ export default {
       if (
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
-        this.isAFacebookInbox
+        this.isAFacebookInbox ||
+        this.isANotificaMeChannel
       ) {
         return this.sourceId && this.isRead;
       }

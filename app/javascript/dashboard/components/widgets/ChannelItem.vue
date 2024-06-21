@@ -38,6 +38,25 @@ export default {
       if (key === 'email') {
         return this.enabledFeatures.channel_email;
       }
+      if (key === 'sms') {
+        return this.enabledFeatures.channel_sms;
+      }
+      if (key === 'whatsapp') {
+        return this.enabledFeatures.channel_whatsapp;
+      }
+      if (key === 'telegram') {
+        return this.enabledFeatures.channel_telegram;
+      }
+      if (key === 'line') {
+        return this.enabledFeatures.channel_line;
+      }
+      if (key === 'api') {
+        return this.enabledFeatures.channel_api;
+      }
+      if (key === 'notifica_me') {
+        return this.enabledFeatures.channel_notifica_me;
+      }
+
 
       return [
         'website',
@@ -47,6 +66,7 @@ export default {
         'sms',
         'telegram',
         'line',
+        'notifica_me',
       ].includes(key);
     },
   },

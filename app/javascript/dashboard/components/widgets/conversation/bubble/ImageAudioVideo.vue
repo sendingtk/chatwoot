@@ -1,9 +1,18 @@
 <template>
   <div class="message-text__wrap" :class="attachmentTypeClasses">
     <img
-      v-if="isImage && !isImageError"
+      v-if="isImage && !isImageErrorDelay"
       class="bg-woot-200 dark:bg-woot-900"
       :src="dataUrl"
+      :width="imageWidth"
+      :height="imageHeight"
+      @click="onClick"
+      @error="onImgErrorDelay"
+    />
+    <img
+      v-else-if="isImageErrorDelay && !isImageError"
+      class="bg-woot-200 dark:bg-woot-900"
+      :src="`${dataUrl}?t=${Date.now()}`"
       :width="imageWidth"
       :height="imageHeight"
       @click="onClick"
@@ -56,6 +65,7 @@ export default {
     return {
       show: false,
       isImageError: false,
+      isImageErrorDelay: false,
     };
   },
   computed: {
@@ -112,6 +122,12 @@ export default {
     onImgError() {
       this.isImageError = true;
       this.$emit('error');
+    },
+    onImgErrorDelay() {
+      setTimeout(() => {
+        this.isImageErrorDelay = true;
+        this.$emit('error');
+      }, 1000);
     },
   },
 };
