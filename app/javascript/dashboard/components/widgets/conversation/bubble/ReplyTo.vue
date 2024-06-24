@@ -5,7 +5,7 @@
       'bg-slate-50 dark:bg-slate-600 dark:text-slate-50':
         messageType === MESSAGE_TYPE.INCOMING,
       'bg-woot-600 text-woot-50': messageType === MESSAGE_TYPE.OUTGOING,
-      '-mx-2': !parentHasAttachments,
+      '-mx-2': message.content,
     }"
     @click="scrollToMessage"
   >
