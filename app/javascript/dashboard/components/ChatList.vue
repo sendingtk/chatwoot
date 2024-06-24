@@ -291,10 +291,11 @@ export default {
     }),
     hideAllChatsForAgents() {
       return (
+        this.currentRole !== 'administrator' &&
         this.isFeatureEnabledonAccount(
           this.accountId,
           'hide_all_chats_for_agent'
-        ) && this.currentRole !== 'administrator'
+        )
       );
     },
     // Adicionar la función hideUnassignedForAgents
@@ -310,8 +311,14 @@ export default {
       return (
         this.isFeatureEnabledonAccount(
           this.accountId,
-          'hide_filters_for_agent'
-        ) && this.currentRole !== 'administrator'
+          'hide_unassigned_for_agent'
+        )
+      );
+    },
+    hideFiltersForAgents() {
+      return (
+        this.currentRole !== 'administrator' &&
+        this.isFeatureEnabledonAccount(this.accountId, 'hide_filters_for_agent')
       );
     },
     hasAppliedFilters() {
