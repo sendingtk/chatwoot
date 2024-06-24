@@ -21,6 +21,7 @@ class UpdateLastSeenJob < ApplicationJob
   end
 
   def agent_viewed(conversation, user)
+    return unless conversation.open?
     key = "conversation:last_seen:#{conversation.id}:#{user.id}"
     return if ::Redis::Alfred.get(key)
 
