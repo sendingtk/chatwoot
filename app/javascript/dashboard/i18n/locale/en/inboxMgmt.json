@@ -217,12 +217,28 @@
           "LABEL": "API Provider",
           "TWILIO": "Twilio",
           "WHATSAPP_CLOUD": "WhatsApp Cloud",
-          "360_DIALOG": "360Dialog"
+          "360_DIALOG": "360Dialog",
+          "UNOAPI": "Unoapi"
         },
         "INBOX_NAME": {
           "LABEL": "Inbox Name",
           "PLACEHOLDER": "Please enter an inbox name",
           "ERROR": "This field is required"
+        },
+        "SEND_AGENT_NAME": {
+          "LABEL": "Send agent name",
+          "PLACEHOLDER": "Check to send agent name.",
+          "ERROR": "Check to send agent name."
+        },
+        "IGNORE_HISTORY": {
+          "LABEL": "Ignore history on connect",
+          "PLACEHOLDER": "Check to ignore history on connect.",
+          "ERROR": "Check to ignore history on connect."
+        },
+        "IGNORE_GROUPS": {
+          "LABEL": "Ignore groups messages",
+          "PLACEHOLDER": "Check to ignore groups messages.",
+          "ERROR": "Check to ignore groups messages."
         },
         "URL": {
           "LABEL": "Whatsapp Cloud API URL",
@@ -503,7 +519,8 @@
       "PRE_CHAT_FORM": "Pre Chat Form",
       "BUSINESS_HOURS": "Business Hours",
       "WIDGET_BUILDER": "Widget Builder",
-      "BOT_CONFIGURATION": "Bot Configuration"
+      "BOT_CONFIGURATION": "Bot Configuration",
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration"
     },
     "SETTINGS": "Settings",
     "FEATURES": {
@@ -553,6 +570,8 @@
       "WHATSAPP_SECTION_UPDATE_PLACEHOLDER": "Enter the new API Key here",
       "WHATSAPP_SECTION_UPDATE_BUTTON": "Update",
       "WHATSAPP_WEBHOOK_TITLE": "Webhook Verification Token",
+      "WHATSAPP_CONNECT": "Connect",
+      "WHATSAPP_DISCONNECT": "Disconnect",
       "WHATSAPP_WEBHOOK_SUBHEADER": "This token is used to verify the authenticity of the webhook endpoint.",
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings",
       "AGENT_PERMISSIONS": "Agent Permissions",

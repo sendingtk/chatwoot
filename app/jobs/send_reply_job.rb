@@ -1,5 +1,6 @@
 class SendReplyJob < ApplicationJob
   queue_as :high
+  retry_on ActiveRecord::RecordNotFound, wait: 30.seconds, attempts: 5
 
   def perform(message_id)
     message = Message.find(message_id)
