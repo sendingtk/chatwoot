@@ -1,6 +1,21 @@
 <template>
-  <form class="mx-0 flex flex-wrap" @submit.prevent="updateInbox()">
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
+  <div class="my-2 mx-8 text-base">
+  <form class="flex flex-col" @submit.prevent="updateInbox()">
+    <div class="w-1/4">
+      <label :class="{ error: $v.url.$error }">
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.LABEL') }}
+        <input
+          v-model.trim="url"
+          type="text"
+          placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
+        />
+        <span v-if="$v.url.$error" class="message">
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.ERROR') }}
+        </span>
+      </label>
+    </div>
+
+    <div class="w-1/4">
       <label :class="{ error: $v.apiKey.$error }">
         <span>
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.API_KEY.LABEL') }}
@@ -17,77 +32,54 @@
       </label>
     </div>
 
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
-      <label :class="{ error: $v.url.$error }">
-        {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.LABEL') }}
-        <input
-          v-model.trim="url"
-          type="text"
-          placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
-        />
-        <span v-if="$v.url.$error" class="message">
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.ERROR') }}
-        </span>
-      </label>
-    </div>
-
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.sendAgentName.$error }">
-        {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.LABEL') }}
+    <div class="w-3/4 pb-4 config-helptext">
+      <label :class="{ error: $v.sendAgentName.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="sendAgentName"
-          size="small"
           :value="sendAgentName"
-          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.LABEL') }}
         <span v-if="$v.url.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.ERROR') }}
         </span>
       </label>
     </div>
 
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.ignoreGroupMessages.$error }">
-        <span>
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.LABEL') }}
-        </span>
+    <div class="w-3/4 pb-4 config-helptext">
+      <label :class="{ error: $v.ignoreGroupMessages.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="ignoreGroupMessages"
-          size="small"
           :value="ignoreGroupMessages"
-          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.PLACEHOLDER')"
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.LABEL') }}
         <span v-if="$v.ignoreGroupMessages.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.ERROR') }}
         </span>
       </label>
     </div>
 
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.ignoreHistoryMessages.$error }">
-        <span>
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.LABEL') }}
-        </span>
+    <div class="w-3/4 pb-4 config-helptext">
+      <label :class="{ error: $v.ignoreHistoryMessages.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="ignoreHistoryMessages"
-          size="small"
           :value="ignoreHistoryMessages"
-          :placeholder="
-            $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.PLACEHOLDER')
-          "
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.LABEL') }}
         <span v-if="$v.ignoreHistoryMessages.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.ERROR') }}
         </span>
       </label>
     </div>
 
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
+    <div class="w-3/4 pb-4 config-helptext">
       <img v-if="qrcode" :src="qrcode" />
       <div v-if="notice">{{ notice }}</div>
     </div>
 
-    <div class="w-full">
+    <div class="my-4 w-auto">
       <woot-submit-button
         :loading="uiFlags.isUpdating"
         :button-text="
@@ -106,6 +98,7 @@
       /> -->
     </div>
   </form>
+  </div>
 </template>
 <script type="module">
 import { io } from 'socket.io-client';
@@ -236,9 +229,5 @@ export default {
   ::v-deep input {
     margin-bottom: 0;
   }
-}
-.config-helptext {
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 </style>

@@ -62,14 +62,13 @@
     </div>
 
     <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.sendAgentName.$error }">
-        {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.LABEL') }}
+      <label :class="{ error: $v.sendAgentName.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="sendAgentName"
-          size="small"
           :value="sendAgentName"
-          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.LABEL') }}
         <span v-if="$v.url.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.SEND_AGENT_NAME.ERROR') }}
         </span>
@@ -77,16 +76,13 @@
     </div>
 
     <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.ignoreGroupMessages.$error }">
-        <span>
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.LABEL') }}
-        </span>
+      <label :class="{ error: $v.ignoreGroupMessages.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="ignoreGroupMessages"
-          size="small"
           :value="ignoreGroupMessages"
-          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.PLACEHOLDER')"
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.LABEL') }}
         <span v-if="$v.ignoreGroupMessages.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_GROUPS.ERROR') }}
         </span>
@@ -94,25 +90,21 @@
     </div>
 
     <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
-      <label :class="{ error: $v.ignoreHistoryMessages.$error }">
-        <span>
-          {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.LABEL') }}
-        </span>
+      <label :class="{ error: $v.ignoreHistoryMessages.$error }" style="display: flex; align-items: center;">
         <woot-switch
           v-model="ignoreHistoryMessages"
-          size="small"
           :value="ignoreHistoryMessages"
-          :placeholder="
-            $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.PLACEHOLDER')
-          "
+          style="flex: 0 0 auto; margin-right: 10px;"
         />
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.LABEL') }}
         <span v-if="$v.ignoreHistoryMessages.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.IGNORE_HISTORY.ERROR') }}
         </span>
       </label>
     </div>
 
-    <div class="w-full">
+
+    <div class="w-full" style="margin-top: 20px;">
       <woot-submit-button
         :loading="uiFlags.isCreating"
         :button-text="$t('INBOX_MGMT.ADD.WHATSAPP.SUBMIT_BUTTON')"
@@ -201,9 +193,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.config-helptext {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-</style>
