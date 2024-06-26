@@ -7,6 +7,7 @@
     ]"
   >
     <slot />
+
     <chat-list-header
       :page-title="pageTitle"
       :has-applied-filters="hasAppliedFilters"
@@ -291,27 +292,26 @@ export default {
     }),
     hideAllChatsForAgents() {
       return (
+        this.currentRole !== 'administrator' &&
         this.isFeatureEnabledonAccount(
           this.accountId,
           'hide_all_chats_for_agent'
-        ) && this.currentRole !== 'administrator'
+        )
       );
     },
-    // Adicionar la función hideUnassignedForAgents
-    hideUnassignedForAgents() {
+    hideUnassingnedForAgents() {
       return (
+        this.currentRole !== 'administrator' &&
         this.isFeatureEnabledonAccount(
           this.accountId,
           'hide_unassigned_for_agent'
-        ) && this.currentRole !== 'administrator'
+        )
       );
     },
     hideFiltersForAgents() {
       return (
-        this.isFeatureEnabledonAccount(
-          this.accountId,
-          'hide_filters_for_agent'
-        ) && this.currentRole !== 'administrator'
+        this.currentRole !== 'administrator' &&
+        this.isFeatureEnabledonAccount(this.accountId, 'hide_filters_for_agent')
       );
     },
     hasAppliedFilters() {
@@ -322,13 +322,6 @@ export default {
     },
     hasAppliedFiltersOrActiveFolders() {
       return this.hasAppliedFilters || this.hasActiveFolders;
-    },
-    savedFoldersValue() {
-      if (this.hasActiveFolders) {
-        const payload = this.activeFolder.query;
-        this.fetchSavedFilteredConversations(payload);
-      }
-      return {};
     },
     showEndOfListMessage() {
       return (
@@ -352,12 +345,13 @@ export default {
         //all: 'allCount',
       };
       // Mostrar la pestaña unassigned si se cumple la condición
-      if (!this.hideUnassignedForAgents) {
+      if (!this.hideUnassingnedForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.unassigned = 'unAssignedCount';
       }
       if (!this.hideAllChatsForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
       }
+
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
         return {
@@ -413,7 +407,6 @@ export default {
         labels: this.label ? [this.label] : undefined,
         teamId: this.teamId || undefined,
         conversationType: this.conversationType || undefined,
-        folders: this.hasActiveFolders ? this.savedFoldersValue : undefined,
       };
     },
     conversationListPagination() {
@@ -756,7 +749,7 @@ export default {
     fetchConversations() {
       this.$store.dispatch('updateChatListFilters', this.conversationFilters);
       this.$store
-        .dispatch('fetchAllConversations', this.conversationFilters)
+        .dispatch('fetchAllConversations')
         .then(this.emitConversationLoaded);
     },
     loadMoreConversations() {
