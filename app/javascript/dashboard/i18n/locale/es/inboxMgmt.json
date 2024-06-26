@@ -217,16 +217,32 @@
           "LABEL": "Proveedor de API",
           "TWILIO": "Twilio",
           "WHATSAPP_CLOUD": "Nube de WhatsApp",
-          "360_DIALOG": "360 Diálogo"
+          "360_DIALOG": "360 Diálogo",
+          "UNOAPI": "Unoapi"
         },
         "INBOX_NAME": {
           "LABEL": "Nombre de la bandeja de entrada",
           "PLACEHOLDER": "Por favor, introduzca un nombre de bandeja de entrada",
           "ERROR": "Este campo es obligatorio"
         },
+        "SEND_AGENT_NAME": {
+          "LABEL": "Send agent name",
+          "PLACEHOLDER": "Check to send agent name.",
+          "ERROR": "Check to send agent name."
+        },
+        "IGNORE_HISTORY": {
+          "LABEL": "Ignore history on connect",
+          "PLACEHOLDER": "Check to ignore history on connect.",
+          "ERROR": "Check to ignore history on connect."
+        },
+        "IGNORE_GROUPS": {
+          "LABEL": "Ignore groups messages",
+          "PLACEHOLDER": "Check to ignore groups messages.",
+          "ERROR": "Check to ignore groups messages."
+        },
         "URL": {
-          "LABEL": "Whatsapp Cloud API URL",
-          "PLACEHOLDER": "Please enter an Whatsapp Cloud API URL or use default https://graph.facebook.com",
+          "LABEL": "Unoapi URL",
+          "PLACEHOLDER": "Please enter an Unoapi URL or use default https://unoapi.cloud",
           "ERROR": "This field is required"
         },
         "PHONE_NUMBER": {
@@ -282,6 +298,29 @@
         "SUBMIT_BUTTON": "Crear canal de API",
         "API": {
           "ERROR_MESSAGE": "No pudimos guardar el canal API"
+        }
+      },
+      "NOTIFICA_ME_CHANNEL": {
+        "TITLE": "NotificaMe Channel",
+        "DESC": "Integrate with NotificaMe Hub.",
+        "CHANNEL_NAME": {
+          "LABEL": "Channel Name",
+          "PLACEHOLDER": "Please enter a channel name",
+          "ERROR": "This field is required"
+        },
+        "CHANNEL": {
+          "LABEL": "Channel",
+          "SUBTITLE": "Choose channel",
+          "PLACEHOLDER": "Choose a channel, if empty, put the channel token first"
+        },
+        "CHANNEL_TOKEN": {
+          "LABEL": "Channel Token",
+          "SUBTITLE": "Configure channel token",
+          "PLACEHOLDER": "Configure channel token"
+        },
+        "SUBMIT_BUTTON": "Create NotificaMe Channel",
+        "API": {
+          "ERROR_MESSAGE": "We were not able to save the NotificaMe channel"
         }
       },
       "EMAIL_CHANNEL": {
@@ -373,6 +412,14 @@
         "EMAIL_PLACEHOLDER": "Introduzca la dirección de correo",
         "HELP": "Para añadir su cuenta de Microsoft como un canal, debe autenticar su cuenta de Microsoft haciendo clic en 'Iniciar sesión con Microsoft' ",
         "ERROR_MESSAGE": "Hubo un error al conectarse a Microsoft, por favor inténtalo de nuevo"
+      },
+      "GOOGLE": {
+        "TITLE": "Google Email",
+        "DESCRIPTION": "Click on the Sign in with Google button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
+        "SIGN_IN": "Sign in with Google",
+        "EMAIL_PLACEHOLDER": "Enter email address",
+        "HELP": "To add your Google account as a channel, you need to authenticate your Google account by clicking on 'Sign in with Google' ",
+        "ERROR_MESSAGE": "There was an error connecting to Google, please try again"
       }
     },
     "DETAILS": {
@@ -471,7 +518,8 @@
       "PRE_CHAT_FORM": "Pre-formulario de chat",
       "BUSINESS_HOURS": "Horarios",
       "WIDGET_BUILDER": "Constructor de Widget",
-      "BOT_CONFIGURATION": "Configuración del bot"
+      "BOT_CONFIGURATION": "Configuración del bot",
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
     },
     "SETTINGS": "Ajustes",
     "FEATURES": {
@@ -521,6 +569,8 @@
       "WHATSAPP_SECTION_UPDATE_PLACEHOLDER": "Introduzca aquí la nueva Clave API",
       "WHATSAPP_SECTION_UPDATE_BUTTON": "Actualizar",
       "WHATSAPP_WEBHOOK_TITLE": "Token de verificación del Webhook",
+      "WHATSAPP_CONNECT": "Connect",
+      "WHATSAPP_DISCONNECT": "Disconnect",
       "WHATSAPP_WEBHOOK_SUBHEADER": "Este token se utiliza para verificar la autenticidad del extremo del webhook.",
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Actualizar configuración de Formulario de Chat",
       "AGENT_PERMISSIONS": "Agent Permissions",

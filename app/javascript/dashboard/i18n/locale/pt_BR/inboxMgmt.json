@@ -241,8 +241,8 @@
           "ERROR": "Este campo é obrigatório"
         },
         "URL": {
-          "LABEL": "Whatsapp Cloud API URL",
-          "PLACEHOLDER": "Por favor, insira uma URL da API do WhatsApp Cloud ou use a padrão: https://graph.facebook.com",
+          "LABEL": "Unoapi URL",
+          "PLACEHOLDER": "Insira um URL Unoapi ou use o padrão https://unoapi.cloud",
           "ERROR": "Este campo é obrigatório"
         },
         "PHONE_NUMBER": {

@@ -241,8 +241,8 @@
           "ERROR": "Check to ignore groups messages."
         },
         "URL": {
-          "LABEL": "Whatsapp Cloud API URL",
-          "PLACEHOLDER": "Please enter an Whatsapp Cloud API URL or use default https://graph.facebook.com",
+          "LABEL": "Unoapi URL",
+          "PLACEHOLDER": "Please enter an Unoapi URL or use default https://unoapi.cloud",
           "ERROR": "This field is required"
         },
         "PHONE_NUMBER": {
@@ -520,7 +520,7 @@
       "BUSINESS_HOURS": "Business Hours",
       "WIDGET_BUILDER": "Widget Builder",
       "BOT_CONFIGURATION": "Bot Configuration",
-      "UNOAPI_CONFIGURATION": "Unoapi Configuration"
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
     },
     "SETTINGS": "Settings",
     "FEATURES": {
