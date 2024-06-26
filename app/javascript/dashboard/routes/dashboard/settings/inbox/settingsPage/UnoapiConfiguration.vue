@@ -7,7 +7,7 @@
         <input
           v-model.trim="url"
           type="text"
-          placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
+          :placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
         />
         <span v-if="$v.url.$error" class="message">
           {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.ERROR') }}

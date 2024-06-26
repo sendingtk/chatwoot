@@ -242,7 +242,7 @@
         },
         "URL": {
           "LABEL": "Unoapi URL",
-          "PLACEHOLDER": "Insira um URL Unoapi ou use o padrão https://unoapi.cloud",
+          "PLACEHOLDER": "Insira um URL Unoapi",
           "ERROR": "Este campo é obrigatório"
         },
         "PHONE_NUMBER": {
