@@ -359,20 +359,40 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
           if c['type'] != 'text'
             Rails.logger.error("channel.notifica_me_type #{channel.notifica_me_type}")
             attachment_file = if channel.notifica_me_type == 'whatsapp_business_account'
-               body = {
-                  from: params['channel_id'],
-                  contents: [{
-                     type: c['type'],
-                     fileMimeType: c['fileMimeType'],
-                     fileUrl: c['fileUrl']
-                  }]
-               }.to_json
                url = "https://hub.notificame.com.br/v1/channels/whatsapp/media"
-               Rails.logger.error("Download #{url} => #{body}")
-               headers = {
-                  'X-API-Token' => channel.notifica_me_token,
-                  'Content-Type' => 'application/json'
-               }
+
+               uri = URI.parse(url)
+               request = Net::HTTP::Get.new(uri)
+               request["X-API-Token"] = channel.notifica_me_token,
+               req_options = { use_ssl: uri.scheme == "https" }
+      
+               response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+                 http.request(request)
+               end
+               Rails.logger.error(">>>> response: #{response}")
+               if response.code == '200'
+                  file = Tempfile.new
+                  file_path = file.path
+                  Rails.logger.error(">>>> file_path: #{file_path}")
+                  File.write(file_path, response.body, mode: 'wb')
+                  Rails.logger.error(">>>> fil: #{file}")
+                  file
+               end
+
+               # body = {
+               #    from: params['channel_id'],
+               #    contents: [{
+               #       type: c['type'],
+               #       fileMimeType: c['fileMimeType'],
+               #       fileUrl: c['fileUrl']
+               #    }]
+               # }.to_json
+               # Rails.logger.error("Download #{url} => #{body}")
+               # headers = {
+               #    'X-API-Token' => channel.notifica_me_token,
+               #    'Content-Type' => 'application/json'
+               # }
+
                # response = HTTParty.post(
                #    url,
                #    body: ,
@@ -385,9 +405,9 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
                # # Rails.logger.error("response #{response}")
                # io = StringIO.new(response.body)
                # Rails.logger.error("io #{io}")
-               content = Down.download(url, method: :post, body: body, headers: headers)
-               Rails.logger.error("content #{content}")
-               content.read
+               # content = Down.download(url, method: :post, body: body, headers: headers)
+               # Rails.logger.error("content #{content}")
+               # content.read
             else
                Down.download(c['fileUrl'])
             end
