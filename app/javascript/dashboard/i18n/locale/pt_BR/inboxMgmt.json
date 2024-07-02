@@ -225,6 +225,11 @@
           "360_DIALOG": "360Dialog",
           "UNOAPI": "Unoapi"
         },
+        "INBOX_NAME": {
+          "LABEL": "Inbox Name",
+          "PLACEHOLDER": "Please enter an inbox name",
+          "ERROR": "This field is required"
+        },
         "SEND_AGENT_NAME": {
           "LABEL": "Enviar nome do agent",
           "PLACEHOLDER": "Selecione para enviar o nome do agent.",
@@ -232,18 +237,13 @@
         },
         "IGNORE_HISTORY": {
           "LABEL": "Ignorar histórico ao connectar",
-          "PLACEHOLDER": "Selecione para ignorar histórico ao conectar.",
+          "PLACEHOLDER": "Selecione para ignorar histórico ao conectar.", 
           "ERROR": "Selecione para ignorar histórico ao conectar."
         },
         "IGNORE_GROUPS": {
           "LABEL": "Ignorar mensagens de grupos",
           "PLACEHOLDER": "Selecione para ignorar mensagens de grupos.",
           "ERROR": "Selecione para ignorar mensagens de grupos."
-        },
-        "INBOX_NAME": {
-          "LABEL": "Nome da Caixa de Entrada",
-          "PLACEHOLDER": "Por favor, digite um nome para caixa de entrada",
-          "ERROR": "Este campo é obrigatório"
         },
         "URL": {
           "LABEL": "Unoapi URL",
@@ -424,6 +424,14 @@
         "SIGN_IN": "Sign in with Microsoft",
         "HELP": "Para adicionar sua conta da Microsoft como um canal, você precisa autenticar em sua conta clicando em 'Entrar com a Microsoft' ",
         "ERROR_MESSAGE": "Ocorreu um erro ao conectar com a Microsoft, por favor, tente novamente"
+      },
+      "GOOGLE": {
+        "TITLE": "Google Email",
+        "DESCRIPTION": "Click on the Sign in with Google button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
+        "SIGN_IN": "Sign in with Google",
+        "EMAIL_PLACEHOLDER": "Enter email address",
+        "HELP": "To add your Google account as a channel, you need to authenticate your Google account by clicking on 'Sign in with Google' ",
+        "ERROR_MESSAGE": "There was an error connecting to Google, please try again"
       }
     },
     "DETAILS": {

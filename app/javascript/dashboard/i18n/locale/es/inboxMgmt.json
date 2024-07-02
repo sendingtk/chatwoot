@@ -19,6 +19,11 @@
         "body": "Autenticar tu cuenta y crear una bandeja de entrada."
       },
       {
+        "title": "Add Teams",
+        "route": "settings_inboxes_add_teams",
+        "body": "Add teams to the created inbox."
+      },
+      {
         "title": "Añadir agentes",
         "route": "settings_inboxes_add_agents",
         "body": "Añadir agentes a la bandeja de entrada creada."
@@ -391,8 +396,14 @@
       "AGENTS": {
         "TITLE": "Agentes",
         "DESC": "Aquí puede agregar agentes para administrar su recién creada bandeja de entrada. Sólo estos agentes seleccionados tendrán acceso a su bandeja de entrada. Los agentes que no forman parte de esta bandeja de entrada no podrán ver o responder a los mensajes de esta bandeja de entrada cuando inicien sesión. <br> <b>PS:</b> Como administrador, si necesita acceso a todas las bandejas, debes añadirte como agente a todas las bandejas de entrada que crees.",
-        "VALIDATION_ERROR": "Añadir al menos un agente a su nueva bandeja de entrada",
-        "PICK_AGENTS": "Elegir agentes para la bandeja de entrada"
+        "VALIDATION_ERROR": "Add at least one agent to your new inbox",
+        "PICK_AGENTS": "Choose agents for the inbox"
+      },
+      "TEAMS": {
+        "TITLE": "Teams",
+        "DESC": "Here you can add teams to manage your newly created inbox. Only agents assigned to these selected teams will have access to your inbox. Agents who are not part of these teams will not be able to see or respond to messages in this inbox when they log in.",
+        "VALIDATION_ERROR": "Add at least one team to your new inbox",
+        "PICK_AGENTS": "Choose teams for inbox"
       },
       "DETAILS": {
         "TITLE": "Detalles de la bandeja de entrada",
@@ -434,6 +445,11 @@
     "AGENTS": {
       "BUTTON_TEXT": "Añadir agentes",
       "ADD_AGENTS": "Añadiendo agentes a tu bandeja de entrada..."
+    },
+    "TEAMS": {
+      "BUTTON_TEXT": "Add teams",
+      "BUTTON_TEXT_SKIP": "Add teams later",
+      "ADD_TEAMS": "Adding teams to your inbox..."
     },
     "FINISH": {
       "TITLE": "¡Tu bandeja de entrada está lista!",
