@@ -403,7 +403,7 @@
         "TITLE": "Teams",
         "DESC": "Here you can add teams to manage your newly created inbox. Only agents assigned to these selected teams will have access to your inbox. Agents who are not part of these teams will not be able to see or respond to messages in this inbox when they log in.",
         "VALIDATION_ERROR": "Add at least one team to your new inbox",
-        "PICK_AGENTS": "Choose teams for inbox"
+        "PICK_TEAMS": "Choose teams for inbox"
       },
       "DETAILS": {
         "TITLE": "Detalles de la bandeja de entrada",
