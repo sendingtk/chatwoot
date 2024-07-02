@@ -16,7 +16,13 @@ export const filterByInbox = (shouldFilter, inboxId, chatInboxId) => {
 };
 
 export const filterByTeam = (shouldFilter, teamId, chatTeamId) => {
-  const isOnTeam = Number(teamId) === chatTeamId;
+  const isArrayOfTeams = Array.isArray(teamId);
+  let isOnTeam = false;
+  if (isArrayOfTeams) {
+    isOnTeam = teamId.includes(chatTeamId);
+  } else {
+    isOnTeam = Number(teamId) === chatTeamId;
+  }
   return teamId ? isOnTeam && shouldFilter : shouldFilter;
 };
 

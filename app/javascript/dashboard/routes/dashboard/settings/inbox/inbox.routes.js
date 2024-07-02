@@ -8,6 +8,7 @@ const Settings = () => import('./Settings.vue');
 const InboxChannel = () => import('./InboxChannels.vue');
 const ChannelList = () => import('./ChannelList.vue');
 const AddAgents = () => import('./AddAgents.vue');
+const AddTeams = () => import('./AddTeams.vue');
 const FinishSetup = () => import('./FinishSetup.vue');
 
 export default {
@@ -67,6 +68,12 @@ export default {
               name: 'settings_inboxes_add_agents',
               roles: ['administrator'],
               component: AddAgents,
+            },
+            {
+              path: ':inbox_id/teams',
+              name: 'settings_inboxes_add_teams',
+              roles: ['administrator'],
+              component: AddTeams,
             },
           ],
         },

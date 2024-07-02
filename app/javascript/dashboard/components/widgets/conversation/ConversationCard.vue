@@ -8,6 +8,7 @@
       'has-inbox-name': showInboxName,
       'conversation-selected': selected,
     }"
+    :style="{ borderColor: borderColor }"
     @mouseenter="onCardHover"
     @mouseleave="onCardLeave"
     @click="onCardClick"
@@ -261,6 +262,12 @@ export default {
     },
     hasSlaPolicyId() {
       return this.chat?.sla_policy_id;
+    },
+
+    borderColor() {
+      const teamColor = this.chat?.meta?.team?.color || '';
+      const color = teamColor || '#D7DBDF';
+      return color;
     },
   },
   methods: {

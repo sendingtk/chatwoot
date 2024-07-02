@@ -4,6 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  allow_auto_assign :boolean          default(TRUE)
+#  color             :string           default("#D7DBDF"), not null
 #  description       :text
 #  name              :string           not null
 #  created_at        :datetime         not null
@@ -22,6 +23,9 @@ class Team < ApplicationRecord
   has_many :team_members, dependent: :destroy_async
   has_many :members, through: :team_members, source: :user
   has_many :conversations, dependent: :nullify
+
+  has_many :inbox_teams, dependent: :destroy_async
+  has_many :inboxes, through: :inbox_teams, source: :inbox
 
   validates :name,
             presence: { message: I18n.t('errors.validations.presence') },

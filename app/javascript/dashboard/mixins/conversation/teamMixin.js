@@ -2,7 +2,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters({ teams: 'teams/getTeams' }),
+    ...mapGetters({ teams: 'teams/getTeams', myTeams: 'teams/getMyTeams' }),
     hasAnAssignedTeam() {
       return !!this.currentChat?.meta?.team;
     },
@@ -17,6 +17,9 @@ export default {
         ];
       }
       return this.teams;
+    },
+    myTeamsList() {
+      return this.myTeams;
     },
   },
 };

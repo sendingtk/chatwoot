@@ -19,6 +19,11 @@
         "body": "Autenticar sua conta e criar uma caixa de entrada."
       },
       {
+        "title": "Adicionar Times",
+        "route": "settings_inboxes_add_teams",
+        "body": "Adicionar times à caixa de entrada criada."
+      },
+      {
         "title": "Adicionar Agentes",
         "route": "settings_inboxes_add_agents",
         "body": "Adicionar agentes à caixa de entrada criada."
@@ -394,6 +399,12 @@
         "VALIDATION_ERROR": "Adicione ao menos um agente a sua nova caixa de entrada",
         "PICK_AGENTS": "Escolha agentes para a caixa de entrada"
       },
+      "TEAMS": {
+        "TITLE": "Times",
+        "DESC": "Aqui você pode adicionar times para gerenciar sua caixa de entrada recém-criada. Somente agentes relecionado a estes times selecionados terão acesso à sua caixa de entrada. Os agentes que não fazem parte destes times não poderão ver ou responder a mensagens nessa caixa de entrada quando fizerem login.",
+        "VALIDATION_ERROR": "Adicione pelo menos um time à sua nova caixa de entrada",
+        "PICK_TEAMS": "Escolha times para a caixa de entrada"
+      },
       "DETAILS": {
         "TITLE": "Detalhes da Caixa de Entrada",
         "DESC": "No menu abaixo, selecione a Página do Facebook que você deseja se conectar ao Chatwoot. Você também pode dar um nome personalizado para sua caixa de entrada para uma melhor identificação."
@@ -427,6 +438,11 @@
     "AGENTS": {
       "BUTTON_TEXT": "Adicionar agentes",
       "ADD_AGENTS": "Adicionando agentes à sua caixa de entrada..."
+    },
+    "TEAMS": {
+      "BUTTON_TEXT": "Adicionar times",
+      "BUTTON_TEXT_SKIP": "Adicionar times depois",
+      "ADD_TEAMS": "Adicionando times à sua caixa de entrada..."
     },
     "FINISH": {
       "TITLE": "Sua caixa de entrada está pronta!",

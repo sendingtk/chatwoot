@@ -28,6 +28,33 @@
     </settings-section>
 
     <settings-section
+      title="Teams"
+      sub-title="Adicionar ou remover times dessa caixa de entrada"
+    >
+      <multiselect
+        v-model="selectedTeams"
+        :options="teamList"
+        track-by="id"
+        label="name"
+        :multiple="true"
+        :close-on-select="false"
+        :clear-on-select="false"
+        :hide-selected="true"
+        placeholder="Pick some"
+        selected-label
+        :select-label="$t('FORMS.MULTISELECT.ENTER_TO_SELECT')"
+        :deselect-label="$t('FORMS.MULTISELECT.ENTER_TO_REMOVE')"
+        @select="$v.selectedTeams.$touch"
+      />
+
+      <woot-submit-button
+        :button-text="$t('INBOX_MGMT.SETTINGS_POPUP.UPDATE')"
+        :loading="isTeamListUpdating"
+        @click="updateTeams"
+      />
+    </settings-section>
+
+    <settings-section
       :title="$t('INBOX_MGMT.SETTINGS_POPUP.AGENT_ASSIGNMENT')"
       :sub-title="$t('INBOX_MGMT.SETTINGS_POPUP.AGENT_ASSIGNMENT_SUB_TEXT')"
     >
@@ -123,7 +150,9 @@ export default {
   data() {
     return {
       selectedAgents: [],
+      selectedTeams: [],
       isAgentListUpdating: false,
+      isTeamListUpdating: false,
       enableAutoAssignment: false,
       allowAgentToDeleteMessage: false,
       maxAssignmentLimit: null,
@@ -132,6 +161,7 @@ export default {
   computed: {
     ...mapGetters({
       agentList: 'agents/getAgents',
+      teamList: 'teams/getTeams',
     }),
     maxAssignmentLimitErrors() {
       if (this.$v.maxAssignmentLimit.$error) {
@@ -157,6 +187,7 @@ export default {
         this.inbox?.auto_assignment_config?.max_assignment_limit || null;
         this.allowAgentToDeleteMessage = this.inbox.allow_agent_to_delete_message;
       this.fetchAttachedAgents();
+      this.fetchAttachedTeams();
     },
     async fetchAttachedAgents() {
       try {
@@ -167,6 +198,19 @@ export default {
           data: { payload: inboxMembers },
         } = response;
         this.selectedAgents = inboxMembers;
+      } catch (error) {
+        //  Handle error
+      }
+    },
+    async fetchAttachedTeams() {
+      try {
+        const response = await this.$store.dispatch('inboxTeams/get', {
+          inboxId: this.inbox.id,
+        });
+        const {
+          data: { payload: inboxTeams },
+        } = response;
+        this.selectedTeams = inboxTeams;
       } catch (error) {
         //  Handle error
       }
@@ -191,6 +235,20 @@ export default {
       }
       this.isAgentListUpdating = false;
     },
+    async updateTeams() {
+      const teamList = this.selectedTeams.map(el => el.id);
+      this.isTeamListUpdating = true;
+      try {
+        await this.$store.dispatch('inboxTeams/create', {
+          inboxId: this.inbox.id,
+          teamList,
+        });
+        this.showAlert('Times Atualizado com Sucesso');
+      } catch (error) {
+        this.showAlert('Erro ao Atualizar Times');
+      }
+      this.isTeamListUpdating = false;
+    },
     async updateInbox() {
       try {
         const payload = {
@@ -213,6 +271,11 @@ export default {
     selectedAgents: {
       isEmpty() {
         return !!this.selectedAgents.length;
+      },
+    },
+    selectedTeams: {
+      isEmpty() {
+        return !!this.selectedTeams.length;
       },
     },
     maxAssignmentLimit: {

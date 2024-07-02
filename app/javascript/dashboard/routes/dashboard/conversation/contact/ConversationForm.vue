@@ -77,6 +77,33 @@
           </label>
         </div>
       </div>
+      <div class="w-[50%]">
+        <label> Times </label>
+        <multiselect
+          v-model="assignedTeam"
+          track-by="id"
+          label="name"
+          placeholder="Escolha um time"
+          selected-label=""
+          select-label=""
+          deselect-label=""
+          :max-height="160"
+          :close-on-select="true"
+          :options="myTeamsList"
+          :clear-on-select="false"
+        >
+          <template slot="option" slot-scope="{ option }">
+            <div class="w-full flex align-center">
+              <span
+                class="inline-flex rounded-sm bg-slate-100 mr-1.5 rtl:mr-0 rtl:ml-1.5 border border-slate-50 dark:border-slate-900"
+                styles="width:0.75rem,height:0.75rem"
+                :style="{ backgroundColor: option.color }"
+              />
+              {{ option.name }}
+            </div>
+          </template>
+        </multiselect>
+      </div>
       <div v-if="isAnEmailInbox" class="w-full">
         <div class="w-full">
           <label :class="{ error: $v.subject.$error }">
@@ -252,6 +279,7 @@ import { ExceptionWithMessage } from 'shared/helpers/CustomErrors';
 import { getInboxSource } from 'dashboard/helper/inbox';
 import { required, requiredIf } from 'vuelidate/lib/validators';
 import inboxMixin from 'shared/mixins/inboxMixin';
+import teamMixin from 'dashboard/mixins/conversation/teamMixin';
 import FileUpload from 'vue-upload-component';
 import AttachmentPreview from 'dashboard/components/widgets/AttachmentsPreview';
 import { ALLOWED_FILE_TYPES } from 'shared/constants/messages';
@@ -274,7 +302,7 @@ export default {
     AttachmentPreview,
     MessageSignatureMissingAlert,
   },
-  mixins: [alertMixin, uiSettingsMixin, inboxMixin, fileUploadMixin],
+  mixins: [alertMixin, uiSettingsMixin, inboxMixin, fileUploadMixin, teamMixin],
   props: {
     contact: {
       type: Object,
@@ -294,6 +322,7 @@ export default {
       name: '',
       subject: '',
       message: '',
+      assignedTeam: {},
       showCannedResponseMenu: false,
       cannedResponseSearchKey: '',
       bccEmails: '',
@@ -311,6 +340,9 @@ export default {
       required,
     },
     targetInbox: {
+      required,
+    },
+    assignedTeam: {
       required,
     },
   },
@@ -336,6 +368,7 @@ export default {
         message: { content: this.message },
         mailSubject: this.subject,
         assigneeId: this.currentUser.id,
+        teamId: this.assignedTeam?.id,
       };
 
       if (this.attachedFiles && this.attachedFiles.length) {
@@ -555,6 +588,13 @@ export default {
     toggleMessageSignature() {
       this.setSignatureFlagForInbox(this.channelType, !this.sendWithSignature);
       this.setSignature();
+    },
+    onClickAssignTeam(selectedItemTeam) {
+      if (this.assignedTeam && this.assignedTeam.id === selectedItemTeam.id) {
+        this.assignedTeam = null;
+      } else {
+        this.assignedTeam = selectedItemTeam;
+      }
     },
   },
 };

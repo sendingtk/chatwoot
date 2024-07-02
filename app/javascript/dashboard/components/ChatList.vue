@@ -281,6 +281,7 @@ export default {
       inboxes: 'inboxes/getInboxes',
       agentList: 'agents/getAgents',
       teamsList: 'teams/getTeams',
+      myTeams: 'teams/getMyTeams',
       inboxesList: 'inboxes/getInboxes',
       campaigns: 'campaigns/getAllCampaigns',
       labels: 'labels/getLabels',
@@ -331,10 +332,11 @@ export default {
       );
     },
     currentUserDetails() {
-      const { id, name } = this.currentUser;
+      const { id, name, role } = this.currentUser;
       return {
         id,
         name,
+        role,
       };
     },
     assigneeTabItems() {
@@ -397,6 +399,15 @@ export default {
       ).count;
       return count;
     },
+    teamIdFilter() {
+      if (this.teamId) return this.teamId;
+
+      const isToFilterByTeams = this.currentUser.role === 'agent';
+      const teamIds = isToFilterByTeams
+        ? this.myTeams?.map(team => team.id)
+        : undefined;
+      return teamIds;
+    },
     conversationFilters() {
       return {
         inboxId: this.conversationInbox ? this.conversationInbox : undefined,
@@ -405,7 +416,7 @@ export default {
         sortBy: this.activeSortBy,
         page: this.conversationListPagination,
         labels: this.label ? [this.label] : undefined,
-        teamId: this.teamId || undefined,
+        teamId: this.teamIdFilter,
         conversationType: this.conversationType || undefined,
       };
     },
@@ -534,6 +545,13 @@ export default {
     },
     showAssigneeInConversationCard(newVal) {
       this.updateVirtualListProps('showAssignee', newVal);
+    },
+    teamIdFilter(newVal, oldVal) {
+      const newValStr = JSON.stringify(newVal);
+      const oldValStr = JSON.stringify(oldVal);
+      if (newValStr !== oldValStr) {
+        this.resetAndFetchData();
+      }
     },
     conversationFilters(newVal, oldVal) {
       if (newVal !== oldVal) {

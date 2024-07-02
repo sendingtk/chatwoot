@@ -234,6 +234,7 @@ describe('createConversationPayload', () => {
         sourceId: '12',
         mailSubject: 'Test Subject',
         assigneeId: '123',
+        teamId: '1',
       },
       contactId: '23',
       files: ['file1.pdf', 'file2.jpg'],
@@ -251,6 +252,7 @@ describe('createConversationPayload', () => {
       options.params.mailSubject
     );
     expect(payload.get('assignee_id')).toBe(options.params.assigneeId);
+    expect(payload.get('team_id')).toBe(options.params.teamId);
     expect(payload.getAll('message[attachments][]')).toEqual(options.files);
   });
 
@@ -264,6 +266,7 @@ describe('createConversationPayload', () => {
         sourceId: '12',
         mailSubject: 'Test Subject',
         assigneeId: '123',
+        teamId: '1',
       },
       contactId: '23',
     };
@@ -279,6 +282,7 @@ describe('createConversationPayload', () => {
     expect(payload.get('additional_attributes[mail_subject]')).toBe(
       options.params.mailSubject
     );
+    expect(payload.get('team_id')).toBe(options.params.teamId);
     expect(payload.get('assignee_id')).toBe(options.params.assigneeId);
     expect(payload.getAll('message[attachments][]')).toEqual([]);
   });

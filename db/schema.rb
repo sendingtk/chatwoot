@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_19_200304) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -599,6 +599,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
     t.index ["inbox_id"], name: "index_inbox_members_on_inbox_id"
   end
 
+  create_table "inbox_teams", force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "inbox_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inbox_id", "team_id"], name: "index_inbox_teams_on_inbox_id_and_team_id", unique: true
+    t.index ["inbox_id"], name: "index_inbox_teams_on_inbox_id"
+  end
+
   create_table "inboxes", id: :serial, force: :cascade do |t|
     t.integer "channel_id", null: false
     t.integer "account_id", null: false
@@ -929,6 +938,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
     t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color", default: "#D7DBDF", null: false
     t.index ["account_id"], name: "index_teams_on_account_id"
     t.index ["name", "account_id"], name: "index_teams_on_name_and_account_id", unique: true
   end

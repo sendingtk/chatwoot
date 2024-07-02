@@ -198,6 +198,7 @@ export default {
         children: this.teams.map(team => ({
           id: team.id,
           label: team.name,
+          color: team?.color || '#d7dbdf',
           truncateLabel: true,
           toState: frontendURL(`accounts/${this.accountId}/team/${team.id}`),
         })),

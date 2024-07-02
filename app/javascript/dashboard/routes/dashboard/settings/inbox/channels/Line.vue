@@ -129,7 +129,7 @@ export default {
         );
 
         router.replace({
-          name: 'settings_inboxes_add_agents',
+          name: 'settings_inboxes_add_teams',
           params: {
             page: 'new',
             inbox_id: lineChannel.id,

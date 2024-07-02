@@ -11,7 +11,8 @@ export const createMessagePayload = (payload, message) => {
 };
 
 export const createConversationPayload = ({ params, contactId, files }) => {
-  const { inboxId, message, sourceId, mailSubject, assigneeId } = params;
+  const { inboxId, message, sourceId, mailSubject, assigneeId, teamId } =
+    params;
   const payload = new FormData();
 
   if (message) {
@@ -27,6 +28,7 @@ export const createConversationPayload = ({ params, contactId, files }) => {
   payload.append('source_id', sourceId);
   payload.append('additional_attributes[mail_subject]', mailSubject);
   payload.append('assignee_id', assigneeId);
+  payload.append('team_id', teamId);
 
   return payload;
 };

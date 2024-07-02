@@ -32,6 +32,7 @@ import globalConfig from 'shared/store/globalConfig';
 import inboxAssignableAgents from './modules/inboxAssignableAgents';
 import inboxes from './modules/inboxes';
 import inboxMembers from './modules/inboxMembers';
+import inboxTeams from './modules/inboxTeams';
 import integrations from './modules/integrations';
 import labels from './modules/labels';
 import macros from './modules/macros';
@@ -82,6 +83,7 @@ export default new Vuex.Store({
     inboxAssignableAgents,
     inboxes,
     inboxMembers,
+    inboxTeams,
     integrations,
     labels,
     macros,

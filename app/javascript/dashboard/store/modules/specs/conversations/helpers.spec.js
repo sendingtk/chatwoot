@@ -146,6 +146,14 @@ describe('#filterByTeam', () => {
     const [teamId, chatTeamId] = ['1', 12];
     expect(filterByTeam(true, teamId, chatTeamId)).toEqual(false);
   });
+  it('returns true if conversation has team and the agent is in the team roster, filter is active', () => {
+    const [agentTeams, chatTeamId] = [[1, 2], 1];
+    expect(filterByTeam(true, agentTeams, chatTeamId)).toEqual(true);
+  });
+  it('returns false if conversation has team and the agent is not in the team roster, filter is not active', () => {
+    const [teamId, chatTeamId] = [[1, 2], 12];
+    expect(filterByTeam(true, teamId, chatTeamId)).toEqual(false);
+  });
 });
 
 describe('#filterByLabel', () => {
