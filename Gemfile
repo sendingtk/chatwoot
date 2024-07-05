@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '3.3.3'
 
 ##-- base gems for rails --##
 gem 'rack-cors', '2.0.0', require: 'rack/cors'
@@ -116,7 +116,7 @@ gem 'sentry-ruby', require: false
 gem 'sentry-sidekiq', '>= 5.18.0', require: false
 
 ##-- background job processing --##
-gem 'sidekiq', '>= 7.2.4'
+gem 'sidekiq', '>= 7.3.0'
 # We want cron jobs
 gem 'sidekiq-cron', '>= 1.12.0'
 
