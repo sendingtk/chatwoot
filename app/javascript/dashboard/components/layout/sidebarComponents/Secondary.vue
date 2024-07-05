@@ -62,9 +62,9 @@ export default {
       type: Object,
       default: () => {},
     },
-    currentRole: {
-      type: String,
-      default: '',
+    currentUser: {
+      type: Object,
+      default: () => {},
     },
     isOnChatwootCloud: {
       type: Boolean,
