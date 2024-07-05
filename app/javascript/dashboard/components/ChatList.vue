@@ -528,7 +528,6 @@ export default {
   mounted() {
     this.$store.dispatch('setChatListFilters', this.conversationFilters);
     this.setFiltersFromUISettings();
-    this.initializeAccount();
     this.$store.dispatch('setChatStatusFilter', this.activeStatus);
     this.$store.dispatch('setChatSortFilter', this.activeSortBy);
     this.resetAndFetchData();
