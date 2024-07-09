@@ -50,14 +50,6 @@ export default {
       this.$emitter.emit(BUS_EVENTS.SCROLL_TO_MESSAGE, {
         messageId: this.message.id,
       });
-      const targetMessage = document.getElementById(`message${this.message.id}`);
-      if (targetMessage) {
-        targetMessage.classList.add('has-bg');
-        const HIGHLIGHT_TIMER = 2000;
-        setTimeout(() => {
-          targetMessage.classList.remove('has-bg');
-        }, HIGHLIGHT_TIMER);
-      }
     },
   },
 };
