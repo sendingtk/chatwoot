@@ -163,10 +163,14 @@ export default {
       this.disconect = false;
     },
     listenerQrCode() {
-      const url = `${this.inbox.provider_config.url}`;
+      const url = `${this.inbox.provider_config.url}`
+        .replace('https', 'wss')
+        .replace('http', 'ws');
       const socket = io(url, { path: '/ws' });
       socket.on('broadcast', data => {
         if (data.phone !== this.inbox.provider_config.phone_number_id) {
+          this.notice = `Received qrcode from ${data.phone} but the current number in chatwoot is ${this.inbox.provider_config.phone_number_id}`;
+          this.qrcode = '';
           // broadcast phone is other
           return;
         }
