@@ -95,8 +95,8 @@
   enabled: true
 - name: read_message
   enabled: true
-- name: disable_whatsapp_messaging_window
-  enabled: false
+#- name: disable_whatsapp_messaging_window
+#  enabled: false
 - name: agent_conversation_viewed
   enabled: true
 - name: hide_unassigned_for_agent
