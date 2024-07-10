@@ -97,8 +97,11 @@ export default {
       return this.attachment.data_url;
     },
     computedDataUrlWithTimestamp() {
-        const separator = this.dataUrl.includes('?') ? '&' : '?';
-        return `${this.dataUrl}${separator}t=${Date.now()}`;
+      if (!this.dataUrl) {
+        return null;
+      }
+      const separator = this.dataUrl.includes('?') ? '&' : '?';
+      return `${this.dataUrl}${separator}t=${Date.now()}`;
     },
     imageWidth() {
       return this.attachment.width ? `${this.attachment.width}px` : 'auto';
