@@ -65,10 +65,6 @@ export const createBubbleHolder = hideMessageBubble => {
   body.appendChild(bubbleHolder);
 };
 
-export const createNotificationBubble = () => {
-  addClasses(notificationBubble, 'woot--notification');
-  return notificationBubble;
-};
 
 export const onBubbleClick = (props = {}) => {
   const { toggleValue } = props;
