@@ -1,5 +1,6 @@
 {
   "CHAT_LIST": {
+    "SEARCH_CHAT": "Pesquisar conversas...",
     "LOADING": "Buscando conversas",
     "LOAD_MORE_CONVERSATIONS": "Carregar mais conversas",
     "EOF": "Todas as conversas carregadas 🎉",

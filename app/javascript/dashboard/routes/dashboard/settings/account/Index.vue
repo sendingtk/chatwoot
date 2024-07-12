@@ -180,14 +180,7 @@ export default {
       );
     },
     hasAnUpdateAvailable() {
-      if (!semver.valid(this.latestChatwootVersion)) {
-        return false;
-      }
-
-      return semver.lt(
-        this.globalConfig.appVersion,
-        this.latestChatwootVersion
-      );
+      return false;
     },
     languagesSortedByCode() {
       const enabledLanguages = [...this.enabledLanguages];

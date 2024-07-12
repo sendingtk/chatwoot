@@ -45,6 +45,7 @@ import userNotificationSettings from './modules/userNotificationSettings';
 import webhooks from './modules/webhooks';
 import draftMessages from './modules/draftMessages';
 import SLAReports from './modules/SLAReports';
+import forwardMessage from './modules/forwardMessage';
 
 const plugins = [];
 
@@ -78,6 +79,7 @@ export default new Vuex.Store({
     csat,
     customViews,
     dashboardApps,
+    forwardMessage,
     globalConfig,
     inboxAssignableAgents,
     inboxes,

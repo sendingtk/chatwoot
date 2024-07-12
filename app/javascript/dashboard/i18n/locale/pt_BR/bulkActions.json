@@ -13,15 +13,17 @@
     "ASSIGN_FAILED": "Falha ao atribuir conversas. Por favor, tente novamente.",
     "RESOLVE_SUCCESFUL": "Conversas resolvidas com sucesso.",
     "RESOLVE_FAILED": "Falha ao resolver conversas. Por favor, tente novamente.",
+    "MESSAGES_SELECTED_ALERT": "%{conversationCount} mensagens selecionadas.",
     "ALL_CONVERSATIONS_SELECTED_ALERT": "Conversas visíveis nesta página só estão selecionadas.",
     "AGENT_LIST_LOADING": "Carregando agentes",
     "UPDATE": {
       "CHANGE_STATUS": "Alterar status",
-      "SNOOZE_UNTIL_NEXT_REPLY": "Adiar até a próxima resposta.",
+      "SNOOZE_UNTIL": "Adiar",
       "UPDATE_SUCCESFUL": "Status da conversa atualizado com sucesso.",
       "UPDATE_FAILED": "Falha ao atualizar conversas. Por favor, tente novamente."
     },
     "LABELS": {
+      "FORWARD_LABELS":"Encaminhar Messages",
       "ASSIGN_LABELS": "Atribuir rótulo",
       "NO_LABELS_FOUND": "Não há rótulos encontrados para",
       "ASSIGN_SELECTED_LABELS": "Atribuir rótulos selecionados",

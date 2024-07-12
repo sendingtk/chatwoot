@@ -29,10 +29,7 @@ export default {
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     updateAvailable() {
-      return hasAnUpdateAvailable(
-        this.latestChatwootVersion,
-        this.globalConfig.appVersion
-      );
+      return false;
     },
     bannerMessage() {
       return this.$t('GENERAL_SETTINGS.UPDATE_CHATWOOT', {

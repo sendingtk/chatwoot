@@ -69,7 +69,7 @@
         "FRT": "FRT {status}",
         "NRT": "NRT {status}",
         "RT": "RT {status}",
-        "MISSED": "perdido",
+        "MISSED": "perdidos(as)",
         "DUE": "devido"
       }
     },
@@ -206,6 +206,7 @@
     },
     "CONTEXT_MENU": {
       "COPY": "Copiar",
+      "FORWARD_TO": "Encaminhar mensagem",
       "REPLY_TO": "Responder mensagem",
       "DELETE": "Excluir",
       "CREATE_A_CANNED_RESPONSE": "Adicionar às respostas prontas",
@@ -280,7 +281,7 @@
   },
   "CONVERSATION_CUSTOM_ATTRIBUTES": {
     "ADD_BUTTON_TEXT": "Criar atributo",
-    "NO_RECORDS_FOUND": "No attributes found",
+    "NO_RECORDS_FOUND": "Nenhum atributo encontrado",
     "UPDATE": {
       "SUCCESS": "Atributo atualizado com sucesso",
       "ERROR": "Não foi possível atualizar o atributo. Por favor, tente mais tarde"

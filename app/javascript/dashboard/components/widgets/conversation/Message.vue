@@ -2,11 +2,25 @@
   <li
     v-if="shouldRenderMessage"
     :id="`message${data.id}`"
-    :class="[alignBubble, 'group']"
+    :class="[
+      alignBubble,
+      'group',
+      { 'gray-background': isChecked || isHovered },
+    ]"
   >
-    <div :class="wrapClass">
+    <input
+      v-show="showCheckbox"
+      :id="`checkbox-message${data.id}`"
+      v-model="isChecked"
+      type="checkbox"
+      class="left-checkbox"
+      @mouseover="isHovered = true"
+      @mouseleave="isHovered = false"
+      @click="toggleMessageSelection(data.id)"
+    />
+    <div :class="[wrapClass, { 'with-checkbox-margin': showCheckbox }]">
       <div
-        v-if="isFailed && !data.source_id && !hasOneDayPassed && !isAnEmailInbox"
+        v-if="isFailed && !hasOneDayPassed && !isAnEmailInbox"
         class="message-failed--alert"
       >
         <woot-button
@@ -112,7 +126,7 @@
         <woot-thumbnail
           :src="sender.thumbnail"
           :username="senderNameForAvatar"
-          size="25px"
+          size="16px"
         />
         <a
           v-if="isATweet && isIncoming"
@@ -138,11 +152,13 @@
         @open="openContextMenu"
         @close="closeContextMenu"
         @replyTo="handleReplyTo"
+        @forwardTo="handleForwardTo"
       />
     </div>
   </li>
 </template>
 <script>
+import { mapGetters, mapState } from 'vuex';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import BubbleActions from './bubble/Actions.vue';
 import BubbleContact from './bubble/Contact.vue';
@@ -189,6 +205,10 @@ export default {
       type: Object,
       required: true,
     },
+    showCheckbox: {
+      type: Boolean,
+      default: false,
+    },
     isATweet: {
       type: Boolean,
       default: false,
@@ -228,9 +248,17 @@ export default {
       hasMediaLoadError: false,
       contextMenuPosition: {},
       showBackgroundHighlight: false,
+      isChecked: false,
+      isHovered: false,
     };
   },
   computed: {
+    ...mapGetters({
+      selectedMessageIds: 'forwardMessage/getSelectedMessageIds',
+    }),
+    ...mapState({
+      selectedMessageIdsState: state => state.forwardMessage.selectedMessageIds,
+    }),
     attachments() {
       // Here it is used to get sender and created_at for each attachment
       return this.data?.attachments.map(attachment => ({
@@ -486,6 +514,9 @@ export default {
     data() {
       this.hasMediaLoadError = false;
     },
+    selectedMessageIdsState() {
+      this.isChecked = this.selectedMessageIds.includes(this.data.id);
+    },
   },
   mounted() {
     this.hasMediaLoadError = false;
@@ -497,6 +528,12 @@ export default {
     clearTimeout(this.higlightTimeout);
   },
   methods: {
+    handleForwardTo(messageId) {
+      this.$emit('forwardTo', messageId);
+    },
+    toggleMessageSelection(messageId) {
+      this.$emit('toggleMessageSelection', messageId);
+    },
     isAttachmentImageVideoAudio(fileType) {
       return ['image', 'audio', 'video', 'story_mention'].includes(fileType);
     },
@@ -764,5 +801,18 @@ li.right {
       @apply text-woot-75 dark:text-woot-75;
     }
   }
+}
+
+.left-checkbox {
+  position: absolute;
+  margin-left: 5px;
+  top: 41%;
+}
+.with-checkbox-margin {
+  margin-left: 25px !important;
+}
+
+.gray-background {
+  @apply bg-slate-50 dark:bg-slate-700;
 }
 </style>

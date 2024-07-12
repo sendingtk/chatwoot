@@ -51,7 +51,8 @@ class Api::V1::Accounts::Conversations::MessagesController < Api::V1::Accounts::
     ::Conversations::ForwardMessageJob.perform_later(forward_message_params)
     head :ok
     rescue StandardError => e
-      render e
+      Rails.logger.error e
+      render json: { error: e.message }, status: :unprocessable_entity
   end
 
   private
@@ -76,7 +77,7 @@ class Api::V1::Accounts::Conversations::MessagesController < Api::V1::Accounts::
     {
       user_id: Current.user.id,
       account_id: Current.account.id,
-      message_id: message.id,
+      messages: params[:messages],
       contacts: params[:contacts]
     }
   end

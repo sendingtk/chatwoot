@@ -13,7 +13,7 @@ const {
   violetDark,
 } = require('@radix-ui/colors');
 export const colors = {
-  woot: {
+  primary: {
     25: blue.blue2,
     50: blue.blue3,
     75: blue.blue4,
@@ -101,7 +101,7 @@ export const colors = {
     800: violetDark.violet6,
     900: violet.violet12,
   },
-  primary: {
+  woot: {
     25: 'rgb(var(--color-primary-25) / <alpha-value>)',
     50: 'rgb(var(--color-primary-50) / <alpha-value>)',
     75: 'rgb(var(--color-primary-75) / <alpha-value>)',

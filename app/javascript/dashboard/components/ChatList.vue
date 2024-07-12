@@ -18,6 +18,7 @@
       @filters-modal="onToggleAdvanceFiltersModal"
       @reset-filters="resetAndFetchData"
       @basic-filter-change="onBasicFilterChange"
+      @input-search="onInputSearch"
     />
 
     <add-custom-views
@@ -72,7 +73,7 @@
       <virtual-list
         ref="conversationVirtualList"
         :data-key="'id'"
-        :data-sources="conversationList"
+        :data-sources="filteredChatsOnView"
         :data-component="itemComponent"
         :extra-props="virtualListExtraProps"
         class="w-full h-full overflow-auto"
@@ -112,6 +113,15 @@
         @updateFolder="onUpdateSavedFilter"
       />
     </woot-modal>
+    <woot-modal
+      :show.sync="showCustomSnoozeModal"
+      :on-close="hideCustomSnoozeModal"
+    >
+      <custom-snooze-modal
+        @close="hideCustomSnoozeModal"
+        @choose-time="chooseSnoozeTime"
+      />
+    </woot-modal>
   </div>
 </template>
 
@@ -144,6 +154,10 @@ import {
   isOnUnattendedView,
 } from '../store/modules/conversations/helpers/actionHelpers';
 import { CONVERSATION_EVENTS } from '../helper/AnalyticsHelper/events';
+import { CMD_SNOOZE_CONVERSATION } from 'dashboard/routes/dashboard/commands/commandBarBusEvents';
+import { findSnoozeTime } from 'dashboard/helper/snoozeHelpers';
+import { getUnixTime } from 'date-fns';
+import CustomSnoozeModal from 'dashboard/components/CustomSnoozeModal.vue';
 import IntersectionObserver from './IntersectionObserver.vue';
 
 export default {
@@ -158,6 +172,7 @@ export default {
     ConversationBulkActions,
     IntersectionObserver,
     VirtualList,
+    CustomSnoozeModal,
   },
   mixins: [
     timeMixin,
@@ -213,6 +228,7 @@ export default {
   },
   data() {
     return {
+      searchQuery: '',
       activeAssigneeTab: wootConstants.ASSIGNEE_TYPE.ME,
       activeStatus: wootConstants.STATUS_TYPE.OPEN,
       activeSortBy: wootConstants.SORT_BY_TYPE.LAST_ACTIVITY_AT_DESC,
@@ -234,6 +250,7 @@ export default {
         root: this.$refs.conversationList,
         rootMargin: '100px 0px 100px 0px',
       },
+      showCustomSnoozeModal: false,
 
       itemComponent: ConversationItem,
       // virtualListExtraProps is to pass the props to the conversationItem component.
@@ -298,6 +315,9 @@ export default {
         this.isFeatureEnabledonAccount(this.accountId, 'hide_filters_for_agent')
       );
     },
+    filteredChatsOnView() {
+      return this.chatsOnView;
+    },
     hasAppliedFilters() {
       return this.appliedFilters.length !== 0;
     },
@@ -324,18 +344,16 @@ export default {
     assigneeTabItems() {
       const ASSIGNEE_TYPE_TAB_KEYS = {
         me: 'mineCount',
-        // Ocultar la pestaña unassigned
         //unassigned: 'unAssignedCount',
         //all: 'allCount',
       };
-      // Mostrar la pestaña unassigned si se cumple la condición
-      if (!this.hideUnassingnedForAgents) {
+       // Mostrar la pestaña unassigned si se cumple la condición
+       if (!this.hideUnassingnedForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.unassigned = 'unAssignedCount';
       }
       if (!this.hideAllChatsForAgents) {
         ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
       }
-
       return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
         const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
         return {
@@ -514,7 +532,7 @@ export default {
       this.updateVirtualListProps('foldersId', this.foldersId);
     },
     chatLists() {
-      this.chatsOnView = this.conversationList;
+      this.updateChatsOnView();
     },
     showAssigneeInConversationCard(newVal) {
       this.updateVirtualListProps('showAssignee', newVal);
@@ -539,8 +557,36 @@ export default {
     this.$emitter.on('fetch_conversation_stats', () => {
       this.$store.dispatch('conversationStats/get', this.conversationFilters);
     });
+
+    this.$emitter.on(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
+  },
+  beforeDestroy() {
+    this.$emitter.off(CMD_SNOOZE_CONVERSATION, this.onCmdSnoozeConversation);
   },
   methods: {
+    onInputSearch(event) {
+      const newQuery = event.target.value.toLowerCase();
+      this.searchQuery = newQuery;
+      this.updateChatsOnView();
+    },
+    updateChatsOnView() {
+      if (!this.searchQuery) {
+        this.chatsOnView = this.conversationList;
+      } else {
+        this.chatsOnView = this.conversationList.filter(conversation => {
+          const contactName = conversation.meta.sender.name
+            ? conversation.meta.sender.name.toLowerCase()
+            : '';
+          const contactPhone = conversation.meta.sender.phone_number
+            ? conversation.meta.sender.phone_number.toLowerCase()
+            : '';
+          return (
+            contactName.includes(this.searchQuery) ||
+            contactPhone.includes(this.searchQuery)
+          );
+        });
+      }
+    },
     updateVirtualListProps(key, value) {
       this.virtualListExtraProps = {
         ...this.virtualListExtraProps,
@@ -1015,6 +1061,43 @@ export default {
     },
     onContextMenuToggle(state) {
       this.isContextMenuOpen = state;
+    },
+    onCmdSnoozeConversation(snoozeType) {
+      if (snoozeType === wootConstants.SNOOZE_OPTIONS.UNTIL_CUSTOM_TIME) {
+        this.showCustomSnoozeModal = true;
+      } else {
+        this.toggleStatus(
+          wootConstants.STATUS_TYPE.SNOOZED,
+          findSnoozeTime(snoozeType) || null
+        );
+      }
+    },
+    chooseSnoozeTime(customSnoozeTime) {
+      this.showCustomSnoozeModal = false;
+      if (customSnoozeTime) {
+        this.toggleStatus(
+          wootConstants.STATUS_TYPE.SNOOZED,
+          getUnixTime(customSnoozeTime)
+        );
+      }
+    },
+    toggleStatus(status, snoozedUntil) {
+      this.$store
+        .dispatch('toggleStatus', {
+          conversationId: this.currentChat?.id || this.contextMenuChatId,
+          status,
+          snoozedUntil,
+        })
+        .then(() => {
+          this.$store.dispatch('setContextMenuChatId', null);
+          this.showAlert(this.$t('CONVERSATION.CHANGE_STATUS'));
+        });
+    },
+    hideCustomSnoozeModal() {
+      // if we select custom snooze and then the custom snooze modal is open
+      // Then if the custom snooze modal is closed and set the context menu chat id to null
+      this.$store.dispatch('setContextMenuChatId', null);
+      this.showCustomSnoozeModal = false;
     },
   },
 };
