@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <woot-modal
     full-width
@@ -57,14 +56,6 @@
             size="large"
             color-scheme="secondary"
             variant="clear"
-            icon="zoom-in"
-            @click="onZoom(0.1)"
-          />
-          <woot-button
-            v-if="isImage"
-            size="large"
-            color-scheme="secondary"
-            variant="clear"
             icon="zoom-out"
             @click="onZoom(-0.1)"
           />
@@ -118,35 +109,24 @@
             "
           />
         </div>
-        <div class="flex flex-col items-center justify-center w-full h-full">
-          <div>
-            <img
-              v-if="isImage"
-              :key="activeAttachment.message_id"
-              :src="activeAttachment.data_url"
-              class="mx-auto my-0 duration-150 ease-in-out transform modal-image skip-context-menu"
-              :style="imageRotationStyle"
-              @click.stop="onClickZoomImage"
-              @wheel.stop="onWheelImageZoom"
-            />
-            <video
-              v-if="isVideo"
-              :key="activeAttachment.message_id"
-              :src="activeAttachment.data_url"
-              controls
-              playsInline
-              class="mx-auto my-0 modal-video skip-context-menu"
-              @click.stop
-            />
-            <audio
-              v-if="isAudio"
-              :key="activeAttachment.message_id"
-              controls
-              class="skip-context-menu"
-              @click.stop
+        <div class="flex items-center justify-center w-full h-full">
+          <div class="flex flex-col items-center justify-center w-full h-full">
+            <div
+              class="image-container"
+              ref="imageContainer"
+              @mousedown="onPanStart"
+              @mousemove="onPanMove"
+              @mouseup="onPanEnd"
             >
-              <source :src="`${activeAttachment.data_url}?t=${Date.now()}`" />
-            </audio>
+              <img
+                v-if="isImage"
+                :key="activeAttachment.message_id"
+                :src="activeAttachment.data_url"
+                class="mx-auto my-0 duration-150 ease-in-out transform modal-image skip-context-menu"
+                :style="imageStyle"
+                @wheel.stop="onWheelImageZoom"
+              />
+            </div>
           </div>
         </div>
         <div class="flex justify-center min-w-[6.25rem] w-[6.25rem]">
@@ -179,6 +159,7 @@
     </div>
   </woot-modal>
 </template>
+
 <script>
 import { mapGetters } from 'vuex';
 import keyboardEventListenerMixins from 'shared/mixins/keyboardEventListenerMixins';
@@ -217,6 +198,11 @@ export default {
   data() {
     return {
       zoomScale: 1,
+      panX: 0,
+      panY: 0,
+      panStartX: 0,
+      panStartY: 0,
+      isPanning: false,
       activeAttachment: {},
       activeFileType: '',
       activeImageIndex:
@@ -267,9 +253,9 @@ export default {
       const fileName = dataUrl?.split('/').pop();
       return decodeURIComponent(fileName || '');
     },
-    imageRotationStyle() {
+    imageStyle() {
       return {
-        transform: `rotate(${this.activeImageRotation}deg) scale(${this.zoomScale})`,
+        transform: `scale(${this.zoomScale}) translate(${this.panX}px, ${this.panY}px) rotate(${this.activeImageRotation}deg)`,
         cursor: this.zoomScale < MAX_ZOOM_LEVEL ? 'zoom-in' : 'zoom-out',
       };
     },
@@ -287,8 +273,7 @@ export default {
       }
       this.activeImageIndex = index;
       this.setImageAndVideoSrc(attachment);
-      this.activeImageRotation = 0;
-      this.zoomScale = 1;
+      this.resetZoomAndPan();
     },
     setImageAndVideoSrc(attachment) {
       const { file_type: type } = attachment;
@@ -347,9 +332,7 @@ export default {
         this.activeImageRotation += rotation;
       }
     },
-    onClickZoomImage() {
-      this.onZoom(0.1);
-    },
+
     onZoom(scale) {
       if (!this.isImage) {
         return;
@@ -365,19 +348,112 @@ export default {
       if (newZoomScale < MIN_ZOOM_LEVEL) {
         // Set zoom to min but do not reset to default
         this.zoomScale = MIN_ZOOM_LEVEL;
+        this.panX = 0;
+        this.panY = 0;
         return;
       }
       // If within bounds, update the zoom scale
       this.zoomScale = newZoomScale;
     },
-
     onWheelImageZoom(e) {
       if (!this.isImage) {
         return;
       }
+
       const scale = e.deltaY > 0 ? -0.1 : 0.1;
-      this.onZoom(scale);
+      const newZoomScale = this.zoomScale + scale;
+
+      // Check if the new zoom scale is within the allowed range
+      if (newZoomScale > MAX_ZOOM_LEVEL) {
+        this.zoomScale = MAX_ZOOM_LEVEL;
+        return;
+      }
+      if (newZoomScale < MIN_ZOOM_LEVEL) {
+        this.zoomScale = MIN_ZOOM_LEVEL;
+        // Reset pan to default when zoom is at minimum
+        this.panX = 0;
+        this.panY = 0;
+        return;
+      }
+
+      // Calculate the focal point of the zoom
+      const rect = e.target.getBoundingClientRect();
+      const offsetX = (e.clientX - rect.left) / rect.width;
+      const offsetY = (e.clientY - rect.top) / rect.height;
+
+      const newPanX =
+        this.panX -
+        (offsetX - 0.5) * (newZoomScale - this.zoomScale) * rect.width;
+      const newPanY =
+        this.panY -
+        (offsetY - 0.5) * (newZoomScale - this.zoomScale) * rect.height;
+
+      this.zoomScale = newZoomScale;
+      this.panX = newPanX;
+      this.panY = newPanY;
+    },
+
+    onPanStart(event) {
+      if (!this.isImage || this.zoomScale === 1) {
+        return;
+      }
+
+      this.isPanning = true;
+      this.panStartX = event.clientX;
+      this.panStartY = event.clientY;
+
+      this.$refs.imageContainer.style.cursor = 'grabbing';
+    },
+
+    onPanMove(event) {
+      if (!this.isPanning || this.zoomScale === 1 || !this.$refs.image) return;
+
+      const deltaX = event.clientX - this.panStartX;
+      const deltaY = event.clientY - this.panStartY;
+
+      this.panX += deltaX;
+      this.panY += deltaY;
+
+      this.panStartX = event.clientX;
+      this.panStartY = event.clientY;
+
+      requestAnimationFrame(() => {
+        this.$refs.imageContainer.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoomScale})`;
+      });
+    },
+
+    onPanEnd() {
+      if (this.zoomScale === 1) {
+        return;
+      }
+
+      this.isPanning = false; 
+      this.$refs.imageContainer.style.cursor = 'grab';
+    },
+
+    resetZoomAndPan() {
+      this.zoomScale = 1;
+      this.panX = 0;
+      this.panY = 0;
+      this.activeImageRotation = 0;
     },
   },
 };
 </script>
+
+<style scoped>
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-image {
+  transition: transform 0.3s ease;
+  user-select: none; /* Evitar seleção de texto durante o pan */
+  cursor: grab; /* Alterar cursor durante o pan */
+}
+
+.image-container:active .modal-image {
+  cursor: grabbing; /* Alterar cursor ativo durante o pan */
+}
+</style>
