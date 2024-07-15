@@ -33,7 +33,8 @@ export default {
               return !(
                 prop.action_name === 'mute_conversation' ||
                 prop.action_name === 'snooze_conversation' ||
-                prop.action_name === 'resolve_conversation'
+                prop.action_name === 'resolve_conversation' ||
+                prop.action_name === 'reopen_conversation'
               );
             }),
           },

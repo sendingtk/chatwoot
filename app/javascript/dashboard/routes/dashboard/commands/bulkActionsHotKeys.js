@@ -32,7 +32,7 @@ export const SNOOZE_CONVERSATION_BULK_ACTIONS = [
   ),
 ];
 
-export const RESOLVED_CONVERSATION_BULK_ACTIONS = [
+export const OPEN_CONVERSATION_BULK_ACTIONS = [
   {
     id: 'bulk_action_reopen_conversation',
     title: 'COMMAND_BAR.COMMANDS.REOPEN_CONVERSATION',
@@ -42,7 +42,7 @@ export const RESOLVED_CONVERSATION_BULK_ACTIONS = [
   },
 ];
 
-export const OPEN_CONVERSATION_BULK_ACTIONS = [
+export const RESOLVED_CONVERSATION_BULK_ACTIONS = [
   {
     id: 'bulk_action_resolve_conversation',
     title: 'COMMAND_BAR.COMMANDS.RESOLVE_CONVERSATION',

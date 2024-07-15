@@ -13,7 +13,10 @@ class Api::V1::Accounts::AutomationRulesController < Api::V1::Accounts::BaseCont
     @automation_rule.actions = params[:actions]
     @automation_rule.conditions = params[:conditions]
 
-    render json: { error: @automation_rule.errors.messages }, status: :unprocessable_entity and return unless @automation_rule.valid?
+    unless @automation_rule.valid?
+      puts @automation_rule.errors.messages
+      render json: { error: @automation_rule.errors.messages }, status: :unprocessable_entity and return
+    end
 
     @automation_rule.save!
     process_attachments

@@ -45,6 +45,11 @@ export const MACRO_ACTION_TYPES = [
     inputType: null,
   },
   {
+    key: 'reopen_conversation',
+    label: 'Reopen conversation',
+    inputType: null,
+  },
+  {
     key: 'send_webhook_event',
     label: 'Send Webhook Event',
     inputType: 'url',

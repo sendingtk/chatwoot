@@ -69,6 +69,7 @@ export default {
         mute_conversation: null,
         snooze_conversation: null,
         resolve_conversation: null,
+        reopen_conversation: null,
         remove_assigned_team: null,
         send_webhook_event: params[0],
         send_message: params[0],

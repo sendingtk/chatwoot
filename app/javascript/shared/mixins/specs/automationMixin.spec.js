@@ -291,6 +291,7 @@ describe('automationMethodsMixin', () => {
     expect(wrapper.vm.showActionInput('send_message')).toBeFalsy();
     expect(wrapper.vm.showActionInput('send_webhook_event')).toBeTruthy();
     expect(wrapper.vm.showActionInput('resolve_conversation')).toBeFalsy();
+    expect(wrapper.vm.showActionInput('reopen_conversation')).toBeFalsy();
     expect(wrapper.vm.showActionInput('add_label')).toBeTruthy();
   });
 
