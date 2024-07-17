@@ -59,7 +59,7 @@ describe('#createPendingMessage', () => {
     });
   });
 
-  it('returns the pending message with attachmnet key if file is passed', () => {
+  it('returns the pending message with attachment key if file is passed', () => {
     const messageWithFile = {
       message: 'hi',
       file: {},
