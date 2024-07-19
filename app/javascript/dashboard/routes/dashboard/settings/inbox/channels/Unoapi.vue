@@ -103,6 +103,19 @@
       </label>
     </div>
 
+    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%] config-helptext">
+      <label :class="{ error: $v.webhookSendNewMessages.$error }" style="display: flex; align-items: center;">
+        <woot-switch
+          v-model="webhookSendNewMessages"
+          :value="webhookSendNewMessages"
+          style="flex: 0 0 auto; margin-right: 10px;"
+        />
+        {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.LABEL') }}
+        <span v-if="$v.webhookSendNewMessages.$error" class="message">
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.ERROR') }}
+        </span>
+      </label>
+    </div>
 
     <div class="w-full" style="margin-top: 20px;">
       <woot-submit-button
@@ -131,6 +144,7 @@ export default {
       ignoreGroupMessages: true,
       ignoreHistoryMessages: true,
       sendAgentName: true,
+      webhookSendNewMessages: true,
     };
   },
   computed: {
@@ -143,6 +157,7 @@ export default {
     ignoreGroupMessages: { required },
     ignoreHistoryMessages: { required },
     sendAgentName: { required },
+    webhookSendNewMessages: { required },
     url: { required },
   },
   methods: {
@@ -169,6 +184,7 @@ export default {
                 ignore_history_messages: this.ignoreHistoryMessages,
                 ignore_group_messages: this.ignoreGroupMessages,
                 send_agent_name: this.sendAgentName,
+                webhook_send_new_messages: this.webhookSendNewMessages,
                 url: this.url,
               },
             },

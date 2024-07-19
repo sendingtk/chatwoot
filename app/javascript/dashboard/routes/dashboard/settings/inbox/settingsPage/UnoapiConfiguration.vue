@@ -75,6 +75,20 @@
     </div>
 
     <div class="w-3/4 pb-4 config-helptext">
+      <label :class="{ error: $v.webhookSendNewMessages.$error }" style="display: flex; align-items: center;">
+        <woot-switch
+          v-model="webhookSendNewMessages"
+          :value="webhookSendNewMessages"
+          style="flex: 0 0 auto; margin-right: 10px;"
+        />
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.LABEL') }}
+        <span v-if="$v.webhookSendNewMessages.$error" class="message">
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.ERROR') }}
+        </span>
+      </label>
+    </div>
+
+    <div class="w-3/4 pb-4 config-helptext">
       <img v-if="qrcode" :src="qrcode" />
       <div v-if="notice">{{ notice }}</div>
     </div>
@@ -123,6 +137,7 @@ export default {
       url: 'https://unoapi.cloud',
       ignoreGroupMessages: true,
       ignoreHistoryMessages: true,
+      webhookSendNewMessages: true,
       sendAgentName: true,
       connect: false,
       disconect: false,
@@ -138,6 +153,7 @@ export default {
     ignoreGroupMessages: { required },
     generateQrcode: { required },
     ignoreHistoryMessages: { required },
+    webhookSendNewMessages: { required },
     sendAgentName: { required },
     url: { required },
   },
@@ -158,6 +174,8 @@ export default {
         this.inbox.provider_config.ignore_group_messages;
       this.ignoreHistoryMessages =
         this.inbox.provider_config.ignore_history_messages;
+      this.webhookSendNewMessages =
+        this.inbox.provider_config.webhook_send_new_messages;
       this.sendAgentName = this.inbox.provider_config.send_agent_name;
       this.connect = false;
       this.disconect = false;
@@ -213,6 +231,7 @@ export default {
               ignore_history_messages: this.ignoreHistoryMessages,
               ignore_group_messages: this.ignoreGroupMessages,
               send_agent_name: this.sendAgentName,
+              webhook_send_new_messages: this.webhookSendNewMessages,
               url: this.url,
               connect: this.connect,
               disconect: this.disconect,
