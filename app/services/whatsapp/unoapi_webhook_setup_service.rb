@@ -25,6 +25,8 @@ class Whatsapp::UnoapiWebhookSetupService
     Rails.logger.debug { "Connecting #{phone_number} from unoapi" }
     body = {
       webhooks: [
+        sendNewMessages: whatsapp_channel.provider_config['webhook_send_new_messages'],
+        id: 'default',
         urlAbsolute: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp/#{phone_number}",
         token: whatsapp_channel.provider_config['webhook_verify_token'],
         header: :Authorization
