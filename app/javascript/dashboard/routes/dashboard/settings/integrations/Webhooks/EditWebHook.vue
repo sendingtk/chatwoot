@@ -51,7 +51,7 @@ export default {
         this.onClose();
       } catch (error) {
         const alertMessage =
-        error?.response?.data?.message ||
+          error?.response?.data?.message ||
           this.$t('INTEGRATION_SETTINGS.WEBHOOK.EDIT.API.ERROR_MESSAGE');
         this.showAlert(alertMessage);
       }

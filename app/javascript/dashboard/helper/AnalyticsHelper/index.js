@@ -41,6 +41,7 @@ export class AnalyticsHelper {
     if (!this.analytics || !user) {
       return;
     }
+
     this.user = user;
     this.analytics.identify(this.user.email, {
       userId: this.user.id,
