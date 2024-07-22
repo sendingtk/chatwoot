@@ -80,10 +80,10 @@
 import { MESSAGE_TYPE, MESSAGE_STATUS } from 'shared/constants/messages';
 import inboxMixin from 'shared/mixins/inboxMixin';
 import { mapGetters } from 'vuex';
-import timeMixin from '../../../../mixins/time';
+import { messageTimestamp } from 'shared/helpers/timeHelper';
 
 export default {
-  mixins: [inboxMixin, timeMixin],
+  mixins: [inboxMixin],
   props: {
     sender: {
       type: Object,
@@ -165,7 +165,7 @@ export default {
       return MESSAGE_STATUS.PROGRESS === this.messageStatus;
     },
     readableTime() {
-      return this.messageTimestamp(this.createdAt, 'LLL d, h:mm a');
+      return messageTimestamp(this.createdAt, 'LLL d, h:mm a');
     },
     screenName() {
       const { additional_attributes: additionalAttributes = {} } =

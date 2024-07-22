@@ -65,7 +65,6 @@ export const createBubbleHolder = hideMessageBubble => {
   body.appendChild(bubbleHolder);
 };
 
-
 export const onBubbleClick = (props = {}) => {
   const { toggleValue } = props;
   const { isOpen } = window.$chatwoot;
