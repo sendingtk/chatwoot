@@ -64,13 +64,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
 import TimeAgo from 'dashboard/components/ui/TimeAgo';
 
 const DEFAULT_PAGE = 1;
 
 export default {
-    mixins: [alertMixin],
     components: {
         TimeAgo,
     },
