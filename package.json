@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "@braid/vue-formulate": "^2.5.2",
+    "@babel/preset-env": "7.13.15",
     "@chatwoot/ninja-keys": "1.2.3",
     "@chatwoot/prosemirror-schema": "1.0.11",
     "@chatwoot/utils": "^0.0.25",
@@ -51,6 +52,7 @@
     "autoprefixer": "^10.4.14",
     "axios": "^1.6.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-macros": "^3.1.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "chart.js": "~2.9.4",
     "color2k": "^2.0.2",
