@@ -105,7 +105,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { minValue } from 'vuelidate/lib/validators';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import configMixin from 'shared/mixins/configMixin';
 import SettingsSection from '../../../../../components/SettingsSection.vue';
 
@@ -113,7 +113,7 @@ export default {
   components: {
     SettingsSection,
   },
-  mixins: [alertMixin, configMixin],
+  mixins: [configMixin],
   props: {
     inbox: {
       type: Object,
@@ -185,9 +185,9 @@ export default {
           inboxId: this.inbox.id,
           agentList,
         });
-        this.showAlert(this.$t('AGENT_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('AGENT_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(this.$t('AGENT_MGMT.EDIT.API.ERROR_MESSAGE'));
+        useAlert(this.$t('AGENT_MGMT.EDIT.API.ERROR_MESSAGE'));
       }
       this.isAgentListUpdating = false;
     },
@@ -203,9 +203,9 @@ export default {
           allow_agent_to_delete_message: this.allowAgentToDeleteMessage,
         };
         await this.$store.dispatch('inboxes/updateInbox', payload);
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       }
     },
   },

@@ -4,7 +4,7 @@
 # 3. Automation Filters  (app/services/automation_rules/conditions_filter_service.rb), (app/services/automation_rules/condition_validation_service.rb)
 
 
-# Format
+# Format 
 # - Parent Key (conversation, contact, messages)
 #   - Key (attribute_name)
 #     - attribute_type: "standard" : supported ["standard", "additional_attributes (only for conversations and messages)"]
