@@ -1,0 +1,47 @@
+# Use the Ruby 3.3.3 Alpine image as the base image
+FROM ruby:3.3.3-alpine
+
+# Install dependencies
+RUN apk update && apk add --no-cache \
+  build-base \
+  postgresql-client \
+  postgresql-dev \
+  nodejs \
+  yarn \
+  tzdata \
+  git \
+  bash \
+  imagemagick \
+  file \
+  && rm -rf /var/cache/apk/*
+
+# Set environment variables
+ENV RAILS_ENV=production
+ENV NODE_ENV=production \
+    NODE_ENV=production \
+    BUNDLER_VERSION=2.3.26 \
+    SECRET_KEY_BASE=b8d5e7f8c1e2e4f6a7b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1
+# Create and set working directory
+WORKDIR /app
+
+# Copy Gemfile and Gemfile.lock
+COPY Gemfile Gemfile.lock ./
+
+# Install gems
+RUN gem install bundler:2.2.16
+RUN bundle install --without development test
+
+# Copy the rest of the application code
+COPY . .
+
+# Install JavaScript dependencies
+RUN yarn install --production
+
+# Precompile assets
+RUN bundle exec rake assets:precompile
+
+# Set the entrypoint to the existing entrypoint script
+ENTRYPOINT ["/app/docker/entrypoints/rails.sh"]
+
+# Start the Rails server
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
