@@ -109,7 +109,6 @@ export default {
       apiKey: '',
       phoneNumberId: '',
       businessAccountId: '',
-      advanced: false,
     };
   },
   computed: {
@@ -121,7 +120,6 @@ export default {
     apiKey: { required },
     phoneNumberId: { required, isNumber },
     businessAccountId: { required, isNumber },
-    url: { required },
   },
   methods: {
     async createChannel() {
