@@ -134,7 +134,6 @@
 import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import configMixin from 'shared/mixins/configMixin';
-import uiSettingsMixin from 'dashboard/mixins/uiSettings';
 import TableHeaderCell from 'dashboard/components/widgets/TableHeaderCell.vue';
 import CheckBox from 'v3/components/Form/CheckBox.vue';
 import {
@@ -152,7 +151,7 @@ export default {
     FormSwitch,
     CheckBox,
   },
-  mixins: [configMixin, uiSettingsMixin],
+  mixins: [configMixin],
   data() {
     return {
       selectedEmailFlags: [],
@@ -167,7 +166,6 @@ export default {
       accountId: 'getCurrentAccountId',
       emailFlags: 'userNotificationSettings/getSelectedEmailFlags',
       pushFlags: 'userNotificationSettings/getSelectedPushFlags',
-      uiSettings: 'getUISettings',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
     }),
     hasPushAPISupport() {
