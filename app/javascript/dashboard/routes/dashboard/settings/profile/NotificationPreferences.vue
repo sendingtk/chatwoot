@@ -132,9 +132,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import configMixin from 'shared/mixins/configMixin';
-import uiSettingsMixin from 'dashboard/mixins/uiSettings';
 import TableHeaderCell from 'dashboard/components/widgets/TableHeaderCell.vue';
 import CheckBox from 'v3/components/Form/CheckBox.vue';
 import {
@@ -152,7 +151,7 @@ export default {
     FormSwitch,
     CheckBox,
   },
-  mixins: [alertMixin, configMixin, uiSettingsMixin],
+  mixins: [configMixin],
   data() {
     return {
       selectedEmailFlags: [],
@@ -167,7 +166,6 @@ export default {
       accountId: 'getCurrentAccountId',
       emailFlags: 'userNotificationSettings/getSelectedEmailFlags',
       pushFlags: 'userNotificationSettings/getSelectedPushFlags',
-      uiSettings: 'getUISettings',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
     }),
     hasPushAPISupport() {
@@ -237,9 +235,9 @@ export default {
           selectedEmailFlags: this.selectedEmailFlags,
           selectedPushFlags: this.selectedPushFlags,
         });
-        this.showAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
+        useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
       } catch (error) {
-        this.showAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_ERROR'));
+        useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_ERROR'));
       }
     },
 
@@ -248,7 +246,7 @@ export default {
       this.updateUISettings({
         enable_audio_alerts: this.enableAudioAlerts,
       });
-      this.showAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
+      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
     },
     handleAudioAlertConditions(e) {
       let condition = e.target.value;
@@ -261,11 +259,11 @@ export default {
           alert_if_unread_assigned_conversation_exist: e.target.checked,
         });
       }
-      this.showAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
+      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
     },
     handleAudioToneChange(value) {
       this.updateUISettings({ notification_tone: value });
-      this.showAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
+      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
     },
     handleInput(type, id) {
       if (type === 'email') {

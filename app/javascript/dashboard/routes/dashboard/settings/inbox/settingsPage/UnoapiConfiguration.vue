@@ -116,7 +116,7 @@
 </template>
 <script type="module">
 import { io } from 'socket.io-client';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import inboxMixin from 'shared/mixins/inboxMixin';
 import { required } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
@@ -124,7 +124,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   components: {},
-  mixins: [inboxMixin, alertMixin],
+  mixins: [inboxMixin],
   props: {
     inbox: {
       type: Object,
@@ -239,9 +239,9 @@ export default {
           },
         };
         await this.$store.dispatch('inboxes/updateInbox', payload);
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE'));
       }
     },
   },
