@@ -312,15 +312,15 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
         error = (params['messageStatus']['error'] && params['messageStatus']['error']['message']) || params['messageStatus']['description']
         message.update!(status: :failed, external_error: error)
       elsif messageStatus == 'SENT'
-        Rails.logger.warn("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
+        Rails.logger.info("NotificaMe Message source id #{source_id} update to sent current index #{index} compare #{Message.statuses[:sent]}")
         attrs = { status: :sent }
         attrs[:source_id] = messageProviderId if messageProviderId
         message.update!(attrs) if index < Message.statuses[:sent] || message.status == :failed
       elsif messageStatus == 'DELIVERED'
-        Rails.logger.warn("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
+        Rails.logger.info("NotificaMe Message source id #{source_id} update to delivered current index #{index} compare #{Message.statuses[:delivered]}")
         message.update!(status: :delivered) if index < Message.statuses[:delivered] || message.status == :failed
       elsif messageStatus == 'READ'
-         Rails.logger.warn("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
+         Rails.logger.info("NotificaMe Message source id #{source_id} update to read current index #{index} compare #{Message.statuses[:read]}")
         message.update!(status: :read) if index < Message.statuses[:read] || message.status == :failed
       end
     elsif params['type'] == 'MESSAGE'
@@ -357,7 +357,40 @@ class Webhooks::NotificaMeEventsJob < ApplicationJob
           )
 
           if c['type'] != 'text'
-            attachment_file = Down.download(c['fileUrl'])
+            Rails.logger.error("channel.notifica_me_type #{channel.notifica_me_type}")
+            attachment_file = if channel.notifica_me_type == 'whatsapp_business_account'
+               body = {
+                  from: params['channel_id'],
+                  contents: [{
+                     type: c['type'],
+                     fileMimeType: c['fileMimeType'],
+                     fileUrl: c['fileUrl']
+                  }]
+               }.to_json
+               url = "https://hub.notificame.com.br/v1/channels/whatsapp/media"
+               Rails.logger.error("Download #{url} => #{body}")
+               headers = {
+                  'X-API-Token' => channel.notifica_me_token,
+                  'Content-Type' => 'application/json'
+               }
+               # response = HTTParty.post(
+               #    url,
+               #    body: ,
+               #    headers: {
+               #       'X-API-Token' => channel.notifica_me_token,
+               #       'Content-Type' => 'application/json'
+               #    }, 
+               #    stream_body: true,
+               # )
+               # # Rails.logger.error("response #{response}")
+               # io = StringIO.new(response.body)
+               # Rails.logger.error("io #{io}")
+               content = Down.download(url, method: :post, body: body, headers: headers)
+               Rails.logger.error("content #{content}")
+               content.read
+            else
+               Down.download(c['fileUrl'])
+            end
             return if attachment_file.blank?
             a = m.attachments.new(
               account_id: contact_inbox.inbox.account_id,

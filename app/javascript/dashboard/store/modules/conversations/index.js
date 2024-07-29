@@ -151,13 +151,16 @@ export const mutations = {
       selectedChatId: conversationId,
     });
 
-    if (!chat) return;
+    if (!chat?.attachments) return;
 
     const isMessageSent =
       message.status === MESSAGE_STATUS.SENT && message.attachments;
     if (isMessageSent) {
       message.attachments.forEach(attachment => {
-        if (!chat.attachments.some(a => a.id === attachment.id)) {
+        if (
+          chat.attachments &&
+          !chat.attachments.some(a => a.id === attachment.id)
+        ) {
           chat.attachments.push(attachment);
         }
       });

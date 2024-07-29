@@ -96,10 +96,12 @@ class ActionCableConnector extends BaseActionCableConnector {
     } = data;
     DashboardAudioNotificationHelper.onNewMessage(data);
     this.app.$store.dispatch('addMessage', data);
-    this.app.$store.dispatch('updateConversationLastActivity', {
-      lastActivityAt,
-      conversationId,
-    });
+    if (lastActivityAt && conversationId) {
+      this.app.$store.dispatch('updateConversationLastActivity', {
+        lastActivityAt,
+        conversationId,
+      });
+    }
   };
 
   // eslint-disable-next-line class-methods-use-this

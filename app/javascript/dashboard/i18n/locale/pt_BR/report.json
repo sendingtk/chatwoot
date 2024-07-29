@@ -126,10 +126,6 @@
     ],
     "GROUP_BY_YEAR_OPTIONS": [
       {
-        "id": 1,
-        "groupBy": "Dia"
-      },
-      {
         "id": 2,
         "groupBy": "Semana"
       },

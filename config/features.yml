@@ -44,6 +44,7 @@
   help_url: https://chwt.app/hc/canned
 - name: integrations
   enabled: true
+  help_url: https://chwt.app/hc/integrations
 - name: voice_recorder
   enabled: true
 - name: mobile_v2
@@ -80,14 +81,15 @@
 - name: sla
   enabled: false
   premium: true
+  help_url: https://chwt.app/hc/sla
 - name: help_center_embedding_search
   enabled: false
   premium: true
 - name: linear_integration
   enabled: false
-- name: hide_all_chats_for_agent
+- name: captain_integration
   enabled: false
-- name: hide_unassigned_for_agent
+- name: hide_all_chats_for_agent
   enabled: false
 - name: hide_contacts_for_agent
   enabled: false
@@ -97,10 +99,12 @@
   enabled: true
 - name: read_message
   enabled: true
-- name: disable_whatsapp_messaging_window
-  enabled: false
+#- name: disable_whatsapp_messaging_window
+#  enabled: false
 - name: agent_conversation_viewed
   enabled: true
+- name: hide_unassigned_for_agent
+  enabled: false
 - name: hide_all_inbox_for_agent
   enabled: false
 - name: channel_notifica_me
@@ -114,3 +118,4 @@
 - name: channel_line
   enabled: false
 - name: channel_api
+  enabled: true

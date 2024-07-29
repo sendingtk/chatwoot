@@ -76,7 +76,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import { required } from 'vuelidate/lib/validators';
 import router from '../../../../index';
 import PageHeader from '../../SettingsSubPageHeader.vue';
@@ -86,7 +86,6 @@ export default {
   components: {
     PageHeader,
   },
-  mixins: [alertMixin],
   data() {
     return {
       channelName: '',
@@ -166,8 +165,7 @@ export default {
           },
         });
       } catch (error) {
-        this.showAlert(
-          this.$t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.API.ERROR_MESSAGE')
+        useAlert(this.$t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.API.ERROR_MESSAGE')
         );
       }
     },

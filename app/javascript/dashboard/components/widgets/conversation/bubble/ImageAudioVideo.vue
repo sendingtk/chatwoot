@@ -1,9 +1,18 @@
 <template>
   <div class="message-text__wrap" :class="attachmentTypeClasses">
     <img
-      v-if="isImage && !isImageError"
+      v-if="isImage && !isImageErrorDelay"
       class="bg-woot-200 dark:bg-woot-900"
       :src="dataUrl"
+      :width="imageWidth"
+      :height="imageHeight"
+      @click="onClick"
+      @error="onImgErrorDelay"
+    />
+    <img
+      v-else-if="isImageErrorDelay && !isImageError"
+      class="bg-woot-200 dark:bg-woot-900"
+      :src="`${dataUrl}?t=${Date.now()}`"
       :width="imageWidth"
       :height="imageHeight"
       @click="onClick"
@@ -18,7 +27,7 @@
       @click="onClick"
     />
     <audio v-else-if="isAudio" controls class="skip-context-menu mb-0.5">
-      <source :src="`${dataUrl}?t=${Date.now()}`" />
+      <source :src="`${computedDataUrlWithTimestamp}`" />
     </audio>
     <gallery-view
       v-if="show"
@@ -40,6 +49,7 @@ const ALLOWED_FILE_TYPES = {
   IMAGE: 'image',
   VIDEO: 'video',
   AUDIO: 'audio',
+  IG_REEL: 'ig_reel',
 };
 
 export default {
@@ -56,6 +66,7 @@ export default {
     return {
       show: false,
       isImageError: false,
+      isImageErrorDelay: false,
     };
   },
   computed: {
@@ -66,7 +77,10 @@ export default {
       return this.attachment.file_type === ALLOWED_FILE_TYPES.IMAGE;
     },
     isVideo() {
-      return this.attachment.file_type === ALLOWED_FILE_TYPES.VIDEO;
+      return (
+        this.attachment.file_type === ALLOWED_FILE_TYPES.VIDEO ||
+        this.attachment.file_type === ALLOWED_FILE_TYPES.IG_REEL
+      );
     },
     isAudio() {
       return this.attachment.file_type === ALLOWED_FILE_TYPES.AUDIO;
@@ -85,6 +99,13 @@ export default {
     },
     dataUrl() {
       return this.attachment.data_url;
+    },
+    computedDataUrlWithTimestamp() {
+      if (!this.dataUrl) {
+        return null;
+      }
+      const separator = this.dataUrl.includes('?') ? '&' : '?';
+      return `${this.dataUrl}${separator}t=${Date.now()}`;
     },
     imageWidth() {
       return this.attachment.width ? `${this.attachment.width}px` : 'auto';
@@ -112,6 +133,12 @@ export default {
     onImgError() {
       this.isImageError = true;
       this.$emit('error');
+    },
+    onImgErrorDelay() {
+      setTimeout(() => {
+        this.isImageErrorDelay = true;
+        this.$emit('error');
+      }, 1000);
     },
   },
 };

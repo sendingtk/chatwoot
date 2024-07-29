@@ -217,16 +217,37 @@
           "LABEL": "API Provider",
           "TWILIO": "Twilio",
           "WHATSAPP_CLOUD": "Cloud do WhatsApp",
-          "360_DIALOG": "360Dialog"
+          "360_DIALOG": "360Dialog",
+          "UNOAPI": "Unoapi"
         },
         "INBOX_NAME": {
-          "LABEL": "Nome da Caixa de Entrada",
-          "PLACEHOLDER": "Por favor, digite um nome para caixa de entrada",
-          "ERROR": "Este campo é obrigatório"
+          "LABEL": "Inbox Name",
+          "PLACEHOLDER": "Please enter an inbox name",
+          "ERROR": "This field is required"
+        },
+        "SEND_AGENT_NAME": {
+          "LABEL": "Enviar nome do agent",
+          "PLACEHOLDER": "Selecione para enviar o nome do agent.",
+          "ERROR": "Selecione para enviar o nome do agent."
+        },
+        "IGNORE_HISTORY": {
+          "LABEL": "Ignore history on connect",
+          "PLACEHOLDER": "Check to ignore history on connect.",
+          "ERROR": "Check to ignore history on connect."
+        },
+        "WEBWOOK_SEND_NEW_MESSAGES": {
+          "LABEL": "Webhook send new messages",
+          "PLACEHOLDER": "Check to ignore history on connect.",
+          "ERROR": "Check to webhook send new messages."
+        },
+        "IGNORE_GROUPS": {
+          "LABEL": "Ignorar mensagens de grupos",
+          "PLACEHOLDER": "Selecione para ignorar mensagens de grupos.",
+          "ERROR": "Selecione para ignorar mensagens de grupos."
         },
         "URL": {
-          "LABEL": "Whatsapp Cloud API URL",
-          "PLACEHOLDER": "Por favor, insira uma URL da API do WhatsApp Cloud ou use a padrão: https://graph.facebook.com",
+          "LABEL": "Unoapi URL",
+          "PLACEHOLDER": "Insira um URL Unoapi",
           "ERROR": "Este campo é obrigatório"
         },
         "PHONE_NUMBER": {
@@ -396,11 +417,20 @@
         "EMAIL_PLACEHOLDER": "Digite o endereço de e-mail",
         "SIGN_IN": "Sign in with Microsoft",
         "HELP": "Para adicionar sua conta da Microsoft como um canal, você precisa autenticar em sua conta clicando em 'Entrar com a Microsoft' ",
-        "ERROR_MESSAGE": "Ocorreu um erro ao conectar com a Microsoft, por favor, tente novamente"
+        "ERROR_MESSAGE": "There was an error connecting to Microsoft, please try again"
+      },
+      "GOOGLE": {
+        "TITLE": "Google Email",
+        "DESCRIPTION": "Click on the Sign in with Google button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
+        "SIGN_IN": "Sign in with Google",
+        "EMAIL_PLACEHOLDER": "Enter email address",
+        "HELP": "To add your Google account as a channel, you need to authenticate your Google account by clicking on 'Sign in with Google' ",
+        "ERROR_MESSAGE": "There was an error connecting to Google, please try again"
       }
     },
     "DETAILS": {
       "LOADING_FB": "Autenticando você com o Facebook...",
+      "ERROR_FB_LOADING": "Error loading Facebook SDK. Please disable any ad-blockers and try again from a different browser.",
       "ERROR_FB_AUTH": "Algo deu errado, por favor, atualize a página...",
       "ERROR_FB_UNAUTHORIZED": "Você não está autorizado a realizar esta ação. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "A tradução é:\n\nPor favor, certifique-se de que você tem acesso à página do Facebook com controle total. Você pode ler mais sobre as funções do Facebook <a href=\" https://www.facebook.com/help/187316341316631\">aqui</a>.",
@@ -495,7 +525,8 @@
       "PRE_CHAT_FORM": "Formulário Chat Pré",
       "BUSINESS_HOURS": "Horário de funcionamento",
       "WIDGET_BUILDER": "Construtor de Widget",
-      "BOT_CONFIGURATION": "Configuração do Bot"
+      "BOT_CONFIGURATION": "Configuração do Bot",
+      "UNOAPI_CONFIGURATION": "Configuração da Unoapi"
     },
     "SETTINGS": "Confirgurações",
     "FEATURES": {
@@ -546,6 +577,8 @@
       "WHATSAPP_SECTION_UPDATE_BUTTON": "Atualizar",
       "WHATSAPP_WEBHOOK_TITLE": "Token de verificação do Webhook",
       "WHATSAPP_WEBHOOK_SUBHEADER": "Este token é usado para verificar a autenticidade do webhook endpoint.",
+      "WHATSAPP_CONNECT": "Conectar",
+      "WHATSAPP_DISCONNECT": "Desconectar",
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Atualizar configurações do Formulário Pre Chat",
       "AGENT_PERMISSIONS": "Agent Permissions",
       "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",

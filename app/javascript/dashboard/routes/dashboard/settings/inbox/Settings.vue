@@ -420,6 +420,9 @@
     <div v-if="selectedTabKey === 'botConfiguration'">
       <bot-configuration :inbox="inbox" />
     </div>
+    <div v-if="selectedTabKey === 'unoApiConfiguration'">
+      <unoapi-configuration :inbox="inbox" />
+    </div>
   </div>
 </template>
 
@@ -427,7 +430,7 @@
 import { mapGetters } from 'vuex';
 import { shouldBeUrl } from 'shared/helpers/Validators';
 import configMixin from 'shared/mixins/configMixin';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import SettingIntroBanner from 'dashboard/components/widgets/SettingIntroBanner.vue';
 import SettingsSection from '../../../../components/SettingsSection.vue';
 import inboxMixin from 'shared/mixins/inboxMixin';
@@ -440,6 +443,7 @@ import CollaboratorsPage from './settingsPage/CollaboratorsPage.vue';
 import MicrosoftReauthorize from './channels/microsoft/Reauthorize.vue';
 import WidgetBuilder from './WidgetBuilder.vue';
 import BotConfiguration from './components/BotConfiguration.vue';
+import UnoapiConfiguration from './settingsPage/UnoapiConfiguration.vue';
 import { FEATURE_FLAGS } from '../../../../featureFlags';
 import SenderNameExamplePreview from './components/SenderNameExamplePreview.vue';
 
@@ -457,8 +461,9 @@ export default {
     WidgetBuilder,
     SenderNameExamplePreview,
     MicrosoftReauthorize,
+    UnoapiConfiguration,
   },
-  mixins: [alertMixin, configMixin, inboxMixin],
+  mixins: [configMixin, inboxMixin],
   data() {
     return {
       avatarFile: null,
@@ -504,6 +509,9 @@ export default {
       if (this.isATwilioWhatsAppChannel) {
         return this.$t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.TWILIO');
       }
+      if (this.isAUnoapiChannel) {
+        return this.$t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.UNOAPI');
+      }
       return '';
     },
     tabs() {
@@ -536,15 +544,26 @@ export default {
         ];
       }
 
+      if (this.isAUnoapiChannel) {
+        visibleToAllChannelTabs = [
+          ...visibleToAllChannelTabs,
+          {
+            key: 'unoApiConfiguration',
+            name: this.$t('INBOX_MGMT.TABS.UNOAPI_CONFIGURATION'),
+          },
+        ];
+      }
+
       if (
-        this.isATwilioChannel ||
-        this.isALineChannel ||
-        this.isAPIInbox ||
-        (this.isAnEmailChannel && !this.inbox.provider) ||
-        this.isAMicrosoftInbox ||
-        this.isAGoogleInbox ||
-        this.isAWhatsAppChannel ||
-        this.isAWebWidgetInbox
+        (this.isATwilioChannel ||
+          this.isALineChannel ||
+          this.isAPIInbox ||
+          (this.isAnEmailChannel && !this.inbox.provider) ||
+          this.isAMicrosoftInbox ||
+          this.isAGoogleInbox ||
+          this.isAWhatsAppChannel ||
+          this.isAWebWidgetInbox) &&
+        !this.isAUnoapiChannel
       ) {
         visibleToAllChannelTabs = [
           ...visibleToAllChannelTabs,
@@ -720,11 +739,9 @@ export default {
           payload.avatar = this.avatarFile;
         }
         await this.$store.dispatch('inboxes/updateInbox', payload);
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(
-          error.message || this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE')
-        );
+        useAlert(error.message || this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE'));
       }
     },
     handleImageUpload({ file, url }) {
@@ -739,9 +756,9 @@ export default {
         );
         this.avatarFile = null;
         this.avatarUrl = '';
-        this.showAlert(this.$t('INBOX_MGMT.DELETE.API.AVATAR_SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.DELETE.API.AVATAR_SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(
+        useAlert(
           error.message
             ? error.message
             : this.$t('INBOX_MGMT.DELETE.API.AVATAR_ERROR_MESSAGE')

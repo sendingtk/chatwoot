@@ -116,8 +116,9 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
   end
 
   def format_content(message)
-    key = 'send_agent_name_in_whatsapp_message'
-    return message.content unless whatsapp_channel.inbox.account.feature_enabled?(key)
+    feature = whatsapp_channel.inbox.account.feature_enabled?('send_agent_name_in_whatsapp_message')
+    config = whatsapp_channel.provider_config['send_agent_name']
+    return message.content if !feature && !config
 
     message&.sender_name.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
   end

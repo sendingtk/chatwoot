@@ -85,26 +85,6 @@
       </label>
     </div>
 
-    <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
-      <label :class="{ error: $v.url.$error }">
-        {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.LABEL') }}
-        <fieldset>
-          <legend>
-            <woot-switch v-model="advanced" size="small" :value="advanced" />
-          </legend>
-          <input
-            v-model.trim="url"
-            :disabled="!advanced"
-            type="text"
-            placeholder="$t('INBOX_MGMT.ADD.WHATSAPP.URL.PLACEHOLDER')"
-          />
-          <span v-if="$v.url.$error" class="message">
-            {{ $t('INBOX_MGMT.ADD.WHATSAPP.URL.ERROR') }}
-          </span>
-        </fieldset>
-      </label>
-    </div>
-
     <div class="w-full">
       <woot-submit-button
         :loading="uiFlags.isCreating"
@@ -116,22 +96,19 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import { required } from 'vuelidate/lib/validators';
 import router from '../../../../index';
 import { isPhoneE164OrEmpty, isNumber } from 'shared/helpers/Validators';
 
 export default {
-  mixins: [alertMixin],
   data() {
     return {
       inboxName: '',
       phoneNumber: '',
       apiKey: '',
-      url: 'https://graph.facebook.com',
       phoneNumberId: '',
       businessAccountId: '',
-      advanced: false,
     };
   },
   computed: {
@@ -143,7 +120,6 @@ export default {
     apiKey: { required },
     phoneNumberId: { required, isNumber },
     businessAccountId: { required, isNumber },
-    url: { required },
   },
   methods: {
     async createChannel() {
@@ -165,7 +141,6 @@ export default {
                 api_key: this.apiKey,
                 phone_number_id: this.phoneNumberId,
                 business_account_id: this.businessAccountId,
-                url: this.url,
               },
             },
           }
@@ -179,10 +154,8 @@ export default {
           },
         });
       } catch (error) {
-        this.showAlert(
-          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE') +
-            '\n detail:' +
-            error
+        useAlert(
+          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE')
         );
       }
     },

@@ -16,22 +16,24 @@
           <option value="twilio">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.TWILIO') }}
           </option>
-          <!-- <option value="360dialog">
-            {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.360_DIALOG') }}
-          </option> -->
+          <option value="unoapi">
+            {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.UNOAPI') }}
+          </option>
         </select>
       </label>
     </div>
 
     <twilio v-if="provider === 'twilio'" type="whatsapp" />
     <three-sixty-dialog-whatsapp v-else-if="provider === '360dialog'" />
-    <cloud-whatsapp v-else />
+    <cloud-whatsapp v-else-if="provider === 'whatsapp_cloud'" />
+    <unoapi v-else />
   </div>
 </template>
 
 <script>
 import PageHeader from '../../SettingsSubPageHeader.vue';
 import Twilio from './Twilio.vue';
+import Unoapi from './Unoapi.vue';
 import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
 
@@ -41,6 +43,7 @@ export default {
     Twilio,
     ThreeSixtyDialogWhatsapp,
     CloudWhatsapp,
+    Unoapi,
   },
   data() {
     return {
