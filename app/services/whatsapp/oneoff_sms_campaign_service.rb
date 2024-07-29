@@ -1,4 +1,4 @@
-class WhatsApp::OneoffSmsCampaignService
+class Whatsapp::OneoffSmsCampaignService
   pattr_initialize [:campaign!]
 
   def perform
