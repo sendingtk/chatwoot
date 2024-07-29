@@ -806,9 +806,7 @@ export default {
         this.resetBulkActions();
         this.$emitter.emit('clearSearchInput');
         this.activeAssigneeTab = selectedTab;
-        if (!this.currentPage) {
-          this.fetchConversations();
-        }
+        this.fetchConversations();
       }
     },
     emitConversationLoaded() {
