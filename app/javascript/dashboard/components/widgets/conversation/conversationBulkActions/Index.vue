@@ -140,7 +140,7 @@ import UpdateActions from './UpdateActions.vue';
 import LabelActions from './LabelActions.vue';
 import TeamActions from './TeamActions.vue';
 import CustomSnoozeModal from 'dashboard/components/CustomSnoozeModal.vue';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 
 export default {
   components: {
@@ -150,7 +150,6 @@ export default {
     TeamActions,
     CustomSnoozeModal,
   },
-  mixins: [alertMixin],
   props: {
     conversations: {
       type: Array,
@@ -274,7 +273,7 @@ export default {
         messages: this.selectedMessageIds,
         contacts: this.conversations,
       });
-      this.showAlert('Encaminhando mensagem...');
+      useAlert('Encaminhando mensagem...');
       this.$emit('select-all-conversations', false);
       this.$store.dispatch('forwardMessage/clearImmediately');
     },

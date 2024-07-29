@@ -56,6 +56,7 @@ class Campaign < ApplicationRecord
 
     Twilio::OneoffSmsCampaignService.new(campaign: self).perform if inbox.inbox_type == 'Twilio SMS'
     Sms::OneoffSmsCampaignService.new(campaign: self).perform if inbox.inbox_type == 'Sms'
+    WhatsApp::OneoffSmsCampaignService.new(campaign: self).perform if inbox.inbox_type != 'Sms' && inbox.inbox_type != 'Twilio SMS'
   end
 
   private
