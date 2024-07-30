@@ -2,7 +2,7 @@ class Whatsapp::OneoffSmsCampaignService
   pattr_initialize [:campaign!]
 
   def perform
-    raise "Invalid campaign #{campaign.id}" || !campaign.one_off?
+    raise "Invalid campaign #{campaign.id}" unless campaign.one_off?
     raise 'Completed Campaign' if campaign.completed?
 
     # marks campaign completed so that other jobs won't pick it up
