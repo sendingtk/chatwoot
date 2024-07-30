@@ -153,7 +153,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
+import { useUISettings } from 'dashboard/composables/useUISettings';
 import keyboardEventListenerMixins from 'shared/mixins/keyboardEventListenerMixins';
 
 import CannedResponse from './CannedResponse.vue';
@@ -180,10 +181,8 @@ import {
 import WhatsappTemplates from './WhatsappTemplates/Modal.vue';
 import { MESSAGE_MAX_LENGTH } from 'shared/helpers/MessageTypeHelper';
 import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
-import uiSettingsMixin from 'dashboard/mixins/uiSettings';
 import { trimContent, debounce } from '@chatwoot/utils';
 import wootConstants from 'dashboard/constants/globals';
-import { isEditorHotKeyEnabled } from 'dashboard/mixins/uiSettings';
 import { CONVERSATION_EVENTS } from '../../../helper/AnalyticsHelper/events';
 import rtlMixin from 'shared/mixins/rtlMixin';
 import fileUploadMixin from 'dashboard/mixins/fileUploadMixin';
@@ -197,7 +196,7 @@ import {
 import { LOCAL_STORAGE_KEYS } from 'dashboard/constants/localStorage';
 import { LocalStorage } from 'shared/helpers/localStorage';
 
-const EmojiInput = () => import('shared/components/emoji/EmojiInput');
+const EmojiInput = () => import('shared/components/emoji/EmojiInput.vue');
 
 export default {
   components: {
@@ -218,8 +217,6 @@ export default {
   },
   mixins: [
     inboxMixin,
-    uiSettingsMixin,
-    alertMixin,
     messageFormatterMixin,
     rtlMixin,
     fileUploadMixin,
@@ -230,6 +227,21 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  setup() {
+    const {
+      uiSettings,
+      updateUISettings,
+      isEditorHotKeyEnabled,
+      fetchSignatureFlagFromUISettings,
+    } = useUISettings();
+
+    return {
+      uiSettings,
+      updateUISettings,
+      isEditorHotKeyEnabled,
+      fetchSignatureFlagFromUISettings,
+    };
   },
   data() {
     return {
@@ -310,7 +322,7 @@ export default {
             agentId,
           })
           .then(() => {
-            this.showAlert(this.$t('CONVERSATION.CHANGE_AGENT'));
+            useAlert(this.$t('CONVERSATION.CHANGE_AGENT'));
           });
       },
     },
@@ -407,7 +419,7 @@ export default {
       if (this.isPrivate) {
         sendMessageText = this.$t('CONVERSATION.REPLYBOX.CREATE');
       }
-      const keyLabel = isEditorHotKeyEnabled(this.uiSettings, 'cmd_enter')
+      const keyLabel = this.isEditorHotKeyEnabled('cmd_enter')
         ? '(⌘ + ↵)'
         : '(↵)';
       return `${sendMessageText} ${keyLabel}`;
@@ -480,7 +492,7 @@ export default {
       return !!this.signatureToApply;
     },
     sendWithSignature() {
-      return this.fetchSignatureFlagFromUiSettings(this.channelType);
+      return this.fetchSignatureFlagFromUISettings(this.channelType);
     },
     editorMessageKey() {
       const { editor_message_key: isEnabled } = this.uiSettings;
@@ -753,7 +765,7 @@ export default {
         !this.showCannedMenu &&
         !this.showVariablesMenu &&
         this.isFocused &&
-        isEditorHotKeyEnabled(this.uiSettings, selectedKey)
+        this.isEditorHotKeyEnabled(selectedKey)
       );
     },
     onPaste(e) {
@@ -885,7 +897,7 @@ export default {
       } catch (error) {
         const errorMessage =
           error?.response?.data?.error || this.$t('CONVERSATION.MESSAGE_ERROR');
-        this.showAlert(errorMessage);
+        useAlert(errorMessage);
       }
     },
     async onSendWhatsAppReply(messagePayload) {

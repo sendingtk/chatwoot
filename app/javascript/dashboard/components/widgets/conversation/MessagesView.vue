@@ -408,6 +408,11 @@ export default {
           this.isProgrammaticScroll = true;
           messageElement.scrollIntoView({ behavior: 'smooth' });
           this.fetchPreviousMessages();
+          messageElement.classList.add('has-bg');
+          const HIGHLIGHT_TIMER = 2000;
+          setTimeout(() => {
+            messageElement.classList.remove('has-bg');
+          }, HIGHLIGHT_TIMER);
         } else {
           this.scrollToBottom();
         }

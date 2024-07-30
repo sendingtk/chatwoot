@@ -235,6 +235,11 @@
           "PLACEHOLDER": "Check to ignore history on connect.",
           "ERROR": "Check to ignore history on connect."
         },
+        "WEBWOOK_SEND_NEW_MESSAGES": {
+          "LABEL": "Webhook send new messages",
+          "PLACEHOLDER": "Check to ignore history on connect.",
+          "ERROR": "Check to webhook send new messages."
+        },
         "IGNORE_GROUPS": {
           "LABEL": "Ignore groups messages",
           "PLACEHOLDER": "Check to ignore groups messages.",
@@ -410,6 +415,7 @@
         "TITLE": "Microsoft Email",
         "DESCRIPTION": "Haga clic en el botón Iniciar sesión con Microsoft para empezar. Serás redirigido a la página de inicio de sesión de correo electrónico. Una vez que aceptes los permisos solicitados, serás redirigido al paso de creación de la bandeja de entrada.",
         "EMAIL_PLACEHOLDER": "Introduzca la dirección de correo",
+        "SIGN_IN": "Iniciar sesión con Microsoft",
         "HELP": "Para añadir su cuenta de Microsoft como un canal, debe autenticar su cuenta de Microsoft haciendo clic en 'Iniciar sesión con Microsoft' ",
         "ERROR_MESSAGE": "Hubo un error al conectarse a Microsoft, por favor inténtalo de nuevo"
       },
@@ -424,6 +430,7 @@
     },
     "DETAILS": {
       "LOADING_FB": "Autenticándote con Facebook...",
+      "ERROR_FB_LOADING": "Error loading Facebook SDK. Please disable any ad-blockers and try again from a different browser.",
       "ERROR_FB_AUTH": "Algo salió mal, Por favor actualiza la página...",
       "ERROR_FB_UNAUTHORIZED": "No estás autorizado a realizar esta acción. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Asegúrate de tener acceso a la página de Facebook con control completo. Puedes leer más sobre los roles de Facebook <a href=\" https://www.facebook.com/help/187316341316631\">here</a>.",

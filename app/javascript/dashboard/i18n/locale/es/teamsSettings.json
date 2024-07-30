@@ -85,6 +85,7 @@
       "BUTTON_TEXT": "Añadir agentes",
       "AGENT_VALIDATION_ERROR": "Seleccione al menos un agente."
     },
+
     "FINISH": {
       "TITLE": "¡Su equipo está listo!",
       "MESSAGE": "Usted ahora puede colaborar como un equipo en las conversaciones. Feliz soporte ",

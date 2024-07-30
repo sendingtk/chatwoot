@@ -75,6 +75,20 @@
     </div>
 
     <div class="w-3/4 pb-4 config-helptext">
+      <label :class="{ error: $v.webhookSendNewMessages.$error }" style="display: flex; align-items: center;">
+        <woot-switch
+          v-model="webhookSendNewMessages"
+          :value="webhookSendNewMessages"
+          style="flex: 0 0 auto; margin-right: 10px;"
+        />
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.LABEL') }}
+        <span v-if="$v.webhookSendNewMessages.$error" class="message">
+          {{ $t('INBOX_MGMT.ADD.WHATSAPP.WEBWOOK_SEND_NEW_MESSAGES.ERROR') }}
+        </span>
+      </label>
+    </div>
+
+    <div class="w-3/4 pb-4 config-helptext">
       <img v-if="qrcode" :src="qrcode" />
       <div v-if="notice">{{ notice }}</div>
     </div>
@@ -102,7 +116,7 @@
 </template>
 <script type="module">
 import { io } from 'socket.io-client';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import inboxMixin from 'shared/mixins/inboxMixin';
 import { required } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
@@ -110,7 +124,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   components: {},
-  mixins: [inboxMixin, alertMixin],
+  mixins: [inboxMixin],
   props: {
     inbox: {
       type: Object,
@@ -123,6 +137,7 @@ export default {
       url: 'https://unoapi.cloud',
       ignoreGroupMessages: true,
       ignoreHistoryMessages: true,
+      webhookSendNewMessages: true,
       sendAgentName: true,
       connect: false,
       disconect: false,
@@ -138,6 +153,7 @@ export default {
     ignoreGroupMessages: { required },
     generateQrcode: { required },
     ignoreHistoryMessages: { required },
+    webhookSendNewMessages: { required },
     sendAgentName: { required },
     url: { required },
   },
@@ -158,15 +174,21 @@ export default {
         this.inbox.provider_config.ignore_group_messages;
       this.ignoreHistoryMessages =
         this.inbox.provider_config.ignore_history_messages;
+      this.webhookSendNewMessages =
+        this.inbox.provider_config.webhook_send_new_messages;
       this.sendAgentName = this.inbox.provider_config.send_agent_name;
       this.connect = false;
       this.disconect = false;
     },
     listenerQrCode() {
-      const url = `${this.inbox.provider_config.url}`;
+      const url = `${this.inbox.provider_config.url}`
+        .replace('https', 'wss')
+        .replace('http', 'ws');
       const socket = io(url, { path: '/ws' });
       socket.on('broadcast', data => {
         if (data.phone !== this.inbox.provider_config.phone_number_id) {
+          this.notice = `Received qrcode from ${data.phone} but the current number in chatwoot is ${this.inbox.provider_config.phone_number_id}`;
+          this.qrcode = '';
           // broadcast phone is other
           return;
         }
@@ -209,6 +231,7 @@ export default {
               ignore_history_messages: this.ignoreHistoryMessages,
               ignore_group_messages: this.ignoreGroupMessages,
               send_agent_name: this.sendAgentName,
+              webhook_send_new_messages: this.webhookSendNewMessages,
               url: this.url,
               connect: this.connect,
               disconect: this.disconect,
@@ -216,9 +239,9 @@ export default {
           },
         };
         await this.$store.dispatch('inboxes/updateInbox', payload);
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.SUCCESS_MESSAGE'));
       } catch (error) {
-        this.showAlert(this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE'));
+        useAlert(this.$t('INBOX_MGMT.EDIT.API.ERROR_MESSAGE'));
       }
     },
   },

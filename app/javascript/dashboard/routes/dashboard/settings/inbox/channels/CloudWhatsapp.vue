@@ -96,13 +96,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import alertMixin from 'shared/mixins/alertMixin';
+import { useAlert } from 'dashboard/composables';
 import { required } from 'vuelidate/lib/validators';
 import router from '../../../../index';
 import { isPhoneE164OrEmpty, isNumber } from 'shared/helpers/Validators';
 
 export default {
-  mixins: [alertMixin],
   data() {
     return {
       inboxName: '',
@@ -110,7 +109,6 @@ export default {
       apiKey: '',
       phoneNumberId: '',
       businessAccountId: '',
-      advanced: false,
     };
   },
   computed: {
@@ -122,7 +120,6 @@ export default {
     apiKey: { required },
     phoneNumberId: { required, isNumber },
     businessAccountId: { required, isNumber },
-    url: { required },
   },
   methods: {
     async createChannel() {
@@ -157,10 +154,8 @@ export default {
           },
         });
       } catch (error) {
-        this.showAlert(
-          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE') +
-            '\n detail:' +
-            error
+        useAlert(
+          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE')
         );
       }
     },

@@ -73,7 +73,14 @@ class ActionCableConnector extends BaseActionCableConnector {
     const { id } = payload;
     if (id) {
       this.app.$store.dispatch('updateConversation', payload);
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[Chatwoot] Skipping assignee change event with payload: ',
+        payload
+      );
     }
+
     this.fetchConversationStats();
   };
 

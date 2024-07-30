@@ -66,6 +66,6 @@
     },
     "ACCOUNT": {
       "EDIT": "%{agentName} atualizou a configuração de conta (#%{id})"
-    }
   }
+}
 }
