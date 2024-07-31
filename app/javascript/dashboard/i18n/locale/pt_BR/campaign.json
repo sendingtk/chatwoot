@@ -8,7 +8,7 @@
     },
     "ADD": {
       "TITLE": "Criar uma campanha",
-      "DESC": "Mensagens proativas permitem ao cliente enviar mensagens de saída para seus contatos, o que acionaria mais conversas.",
+      "DESC": "Mensagens proativas permitem ao cliente enviar mensagens de saída para seus contatos, o que acionaria mais conversas. <br /> <b>Atenção!</b><br/> Enviar mensagens para um grande número de contatos que não possuem seu número salvo pode resultar no banimento do seu número no WhatsApp.",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "CREATE_BUTTON_TEXT": "Criar",
       "FORM": {
