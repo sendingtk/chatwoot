@@ -8,7 +8,7 @@
     />
     <form class="mx-0 flex flex-wrap" @submit.prevent="createChannel()">
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
-        <label :class="{ error: $v.channelName.$error }">
+        <label :class="{ error: v$.channelName.$error }">
           {{ $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL_NAME.LABEL') }}
           <input
             v-model.trim="channelName"
@@ -16,16 +16,16 @@
             :placeholder="
               $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL_NAME.PLACEHOLDER')
             "
-            @blur="$v.channelName.$touch"
+            @blur="v$.channelName.$touch"
           />
-          <span v-if="$v.channelName.$error" class="message">{{
+          <span v-if="v$.channelName.$error" class="message">{{
             $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL_NAME.ERROR')
           }}</span>
         </label>
       </div>
 
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
-        <label :class="{ error: $v.notificaMeToken.$error }">
+        <label :class="{ error: v$.notificaMeToken.$error }">
           {{ $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL_TOKEN.LABEL') }}
           <input
             v-model.trim="notificaMeToken"
@@ -33,7 +33,7 @@
             :placeholder="
               $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL_TOKEN.PLACEHOLDER')
             "
-            @blur="$v.notificaMeToken.$touch"
+            @blur="v$.notificaMeToken.$touch"
           />
         </label>
         <p class="help-text">
@@ -42,9 +42,9 @@
       </div>
 
       <div class="w-[65%] flex-shrink-0 flex-grow-0 max-w-[65%]">
-        <label :class="{ error: $v.notificaMeId.$error }">
+        <label :class="{ error: v$.notificaMeId.$error }">
           {{ $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL.LABEL') }}
-          <select v-model.trim="notificaMeId" @blur="$v.notificaMeId.$touch">
+          <select v-model.trim="notificaMeId" @blur="v$.notificaMeId.$touch">
             <option value="">
               {{ $t('INBOX_MGMT.ADD.NOTIFICA_ME_CHANNEL.CHANNEL.PLACEHOLDER') }}
             </option>
@@ -76,8 +76,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { useVuelidate } from '@vuelidate/core';
 import { useAlert } from 'dashboard/composables';
-import { required } from 'vuelidate/lib/validators';
+import { required } from '@vuelidate/validators';
 import router from '../../../../index';
 import PageHeader from '../../SettingsSubPageHeader.vue';
 import notificaMeChannel from '../../../../../api/channel/notificaMeChannel';
@@ -85,6 +86,9 @@ import notificaMeChannel from '../../../../../api/channel/notificaMeChannel';
 export default {
   components: {
     PageHeader,
+  },
+  setup() {
+    return { v$: useVuelidate() };
   },
   data() {
     return {
@@ -137,8 +141,8 @@ export default {
     },
 
     async createChannel() {
-      this.$v.$touch();
-      if (this.$v.$invalid) {
+      this.v$.$touch();
+      if (this.v$.$invalid) {
         return;
       }
       this.notificaMeType = this.channels.find(
