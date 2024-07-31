@@ -240,31 +240,6 @@ export default {
         useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_ERROR'));
       }
     },
-
-    handleAudioInput(e) {
-      this.enableAudioAlerts = e.target.value;
-      this.updateUISettings({
-        enable_audio_alerts: this.enableAudioAlerts,
-      });
-      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
-    },
-    handleAudioAlertConditions(e) {
-      let condition = e.target.value;
-      if (condition === 'tab_is_inactive') {
-        this.updateUISettings({
-          always_play_audio_alert: !e.target.checked,
-        });
-      } else if (condition === 'conversations_are_read') {
-        this.updateUISettings({
-          alert_if_unread_assigned_conversation_exist: e.target.checked,
-        });
-      }
-      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
-    },
-    handleAudioToneChange(value) {
-      this.updateUISettings({ notification_tone: value });
-      useAlert(this.$t('PROFILE_SETTINGS.FORM.API.UPDATE_SUCCESS'));
-    },
     handleInput(type, id) {
       if (type === 'email') {
         this.handleEmailInput(id);
