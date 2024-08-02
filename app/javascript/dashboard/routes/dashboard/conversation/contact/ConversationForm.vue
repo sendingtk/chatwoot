@@ -290,8 +290,11 @@ export default {
     const { fetchSignatureFlagFromUISettings, setSignatureFlagForInbox } =
       useUISettings();
     const v$ = useVuelidate();
-
-    return { fetchSignatureFlagFromUISettings, setSignatureFlagForInbox, v$ };
+    return {
+      fetchSignatureFlagFromUISettings,
+      setSignatureFlagForInbox,
+      v$,
+    };
   },
   data() {
     return {
