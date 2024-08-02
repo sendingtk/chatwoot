@@ -224,3 +224,13 @@
   value:
   description: 'Customize conversation, put your valid css'
 ## ------ End of Configs custom ------ ##
+## ----- Captain Configs ----- ##
+- name: CAPTAIN_API_URL
+  value: 
+  display_title: 'Captain API URL'
+  description: 'The API URL for Captain'
+- name: CAPTAIN_APP_URL
+  value: 
+  display_title: 'Captain App URL'
+  description: 'The App URL for Captain'
+## ----- End of Captain Configs ----- ##
