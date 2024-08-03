@@ -72,3 +72,9 @@ microsoft:
   enabled: true
   icon: 'icon-microsoft'
   config_key: 'microsoft'
+unoapi:
+  name: 'UNOAPI'
+  description: 'Configuration for setting up UNOAPI'
+  enabled: true
+  icon: 'icon-chat-smile-3-line'
+  config_key: 'unoapi'
