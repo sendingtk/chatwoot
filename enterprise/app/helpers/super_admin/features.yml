@@ -72,6 +72,12 @@ microsoft:
   enabled: true
   icon: 'icon-microsoft'
   config_key: 'microsoft'
+captain:
+  name: 'Captain'
+  description: 'Configuration for setting up Microsoft Email'
+  enabled: true
+  icon: 'captain-outline'
+  config_key: 'captain'
 unoapi:
   name: 'UNOAPI'
   description: 'Configuration for setting up UNOAPI'
