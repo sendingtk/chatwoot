@@ -133,6 +133,13 @@
   locked: false
 # End of Microsoft Email Channel Config
 
+# MARK: UNOAPI Channel Config
+- NAME: UNOAPI_AUTH_TOKEN
+  value:
+  display_title: 'UNO API Auth Token'
+  description: 'The Auth Token for UNO API. Find more details on how to configure UNOAPI here: https://github.com/clairton/unoapi-cloud/tree/main'
+# End of UNOAPI Channel Config
+
 # ------- Chatwoot Internal Config for Cloud ----#
 - name: CHATWOOT_INBOX_TOKEN
   value:
