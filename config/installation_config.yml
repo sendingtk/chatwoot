@@ -134,7 +134,7 @@
 # End of Microsoft Email Channel Config
 
 # MARK: UNOAPI Channel Config
-- NAME: UNOAPI_AUTH_TOKEN
+- name: UNOAPI_AUTH_TOKEN
   value:
   display_title: 'UNO API Auth Token'
   description: 'The Auth Token for UNO API. Find more details on how to configure UNOAPI here: https://github.com/clairton/unoapi-cloud/tree/main'
