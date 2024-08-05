@@ -41,7 +41,7 @@ export default {
       rel="noopener noreferrer nofollow"
     >
       <fluent-icon
-        :icon="`brand-${profile.key}`"
+        :icon="profile.icon"
         size="16"
         class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
       />

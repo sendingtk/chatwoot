@@ -3,6 +3,7 @@ import PageHeader from '../../SettingsSubPageHeader.vue';
 import Twilio from './Twilio.vue';
 import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
+import Unoapi from './Unoapi.vue';
 
 export default {
   components: {
@@ -10,6 +11,7 @@ export default {
     Twilio,
     ThreeSixtyDialogWhatsapp,
     CloudWhatsapp,
+    Unoapi,
   },
   data() {
     return {
@@ -47,6 +49,6 @@ export default {
     <Twilio v-if="provider === 'twilio'" type="whatsapp" />
     <ThreeSixtyDialogWhatsapp v-else-if="provider === '360dialog'" />
     <CloudWhatsapp v-else-if="provider === 'whatsapp_cloud'" />
-    <unoapi v-else />
+    <Unoapi v-else />
   </div>
 </template>

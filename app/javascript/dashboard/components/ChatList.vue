@@ -203,6 +203,8 @@ export default {
       campaigns: 'campaigns/getAllCampaigns',
       labels: 'labels/getLabels',
       selectedConversations: 'bulkActions/getSelectedConversationIds',
+      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
+      currentRole: 'getCurrentRole',
     }),
     hideAllChatsForAgents() {
       return (
