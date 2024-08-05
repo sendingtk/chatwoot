@@ -1,3 +1,45 @@
+<script>
+export default {
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+    icons: {
+      type: Object,
+      required: true,
+    },
+    size: {
+      type: [String, Number],
+      default: '20',
+    },
+    type: {
+      type: String,
+      default: 'outline',
+    },
+    viewBox: {
+      type: String,
+      default: '0 0 24 24',
+    },
+    iconLib: {
+      type: String,
+      default: 'fluent',
+    },
+  },
+
+  computed: {
+    pathSource() {
+      // To support icons with multiple paths
+      const path = this.icons[`${this.icon}-${this.type}`];
+      if (path.constructor === Array) {
+        return path;
+      }
+      return [path];
+    },
+  },
+};
+</script>
+
 <template>
   <svg
     v-if="iconLib === 'fluent'"
@@ -32,47 +74,3 @@
     </g>
   </svg>
 </template>
-<script>
-export default {
-  props: {
-    icon: {
-      type: String,
-      required: true,
-    },
-    icons: {
-      type: Object,
-      required: true,
-    },
-    size: {
-      type: [String, Number],
-      default: '20',
-    },
-    type: {
-      type: String,
-      default: 'outline',
-    },
-    viewBox: {
-      type: String,
-      default: '0 0 24 24',
-    },
-    iconLib: {
-      type: String,
-      default: 'fluent',
-    },
-  },
-
-  computed: {
-    pathSource() {
-      // To support icons with multiple paths
-      const path = this.icons[`${this.icon}-${this.type}`];
-      if (!path) {
-        throw new Error(`Icon not found ${this.icon}-${this.type}`);
-      }
-      if (path.constructor === Array) {
-        return path;
-      }
-      return [path];
-    },
-  },
-};
-</script>
