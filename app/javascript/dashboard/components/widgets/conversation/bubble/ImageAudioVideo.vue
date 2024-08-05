@@ -24,7 +24,6 @@ export default {
     return {
       show: false,
       isImageError: false,
-      isImageErrorDelay: false,
     };
   },
   computed: {
@@ -58,13 +57,6 @@ export default {
     dataUrl() {
       return this.attachment.data_url;
     },
-    computedDataUrlWithTimestamp() {
-      if (!this.dataUrl) {
-        return null;
-      }
-      const separator = this.dataUrl.includes('?') ? '&' : '?';
-      return `${this.dataUrl}${separator}t=${Date.now()}`;
-    },
     imageWidth() {
       return this.attachment.width ? `${this.attachment.width}px` : 'auto';
     },
@@ -91,12 +83,6 @@ export default {
     onImgError() {
       this.isImageError = true;
       this.$emit('error');
-    },
-    onImgErrorDelay() {
-      setTimeout(() => {
-        this.isImageErrorDelay = true;
-        this.$emit('error');
-      }, 1000);
     },
   },
 };
