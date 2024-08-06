@@ -120,7 +120,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
     config = whatsapp_channel.provider_config['send_agent_name']
     return message.content if !feature && !config
 
-    message&.sender_name.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
+    message.sender_name&.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
   end
 
   def send_attachment_message(phone_number, message)

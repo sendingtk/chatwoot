@@ -257,16 +257,17 @@ export default {
           variant="icon"
           @click="showCannedResponseModal"
         />
-        <hr v-if="enabledOptions['delete']" />
-        <MenuItem
-          v-if="enabledOptions['delete']"
-          :option="{
-            icon: 'delete',
-            label: $t('CONVERSATION.CONTEXT_MENU.DELETE'),
-          }"
-          variant="icon"
-          @click="openDeleteModal"
-        />
+        <template v-if="canDeleteMessage()">
+          <hr />
+          <menu-item
+            :option="{
+              icon: 'delete',
+              label: this.$t('CONVERSATION.CONTEXT_MENU.DELETE'),
+            }"
+            variant="icon"
+            @click="openDeleteModal"
+          />
+        </template>
       </div>
     </woot-context-menu>
   </div>

@@ -205,6 +205,7 @@ export default {
       selectedConversations: 'bulkActions/getSelectedConversationIds',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
       currentRole: 'getCurrentRole',
+      accountId: 'getCurrentAccountId',
     }),
     hideAllChatsForAgents() {
       return (

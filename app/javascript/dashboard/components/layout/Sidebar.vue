@@ -80,6 +80,7 @@ export default {
   computed: {
     ...mapGetters({
       accountId: 'getCurrentAccountId',
+      currentRole: 'getCurrentRole',
       currentUser: 'getCurrentUser',
       globalConfig: 'globalConfig/get',
       inboxes: 'inboxes/getInboxes',
@@ -116,6 +117,13 @@ export default {
       const userPermissions = this.currentUser.permissions;
       const menuItems = this.sideMenuConfig.primaryMenu;
       return menuItems.filter(menuItem => {
+        if (
+          menuItem.key === 'contacts' &&
+          this.currentRole === 'agent' &&
+          this.hideContactsForAgents
+        ) {
+          return false;
+        }
         const isAvailableForTheUser = hasPermissions(
           routesWithPermissions[menuItem.toStateName],
           userPermissions
