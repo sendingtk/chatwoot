@@ -550,7 +550,7 @@ export default {
         <woot-thumbnail
           :src="sender.thumbnail"
           :username="senderNameForAvatar"
-          size="16px"
+          size="30px"
         />
         <a
           v-if="isATweet && isIncoming"
