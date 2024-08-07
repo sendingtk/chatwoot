@@ -2,7 +2,6 @@ module Enterprise::Account::ConversationsResolutionSchedulerJob
   def perform
     super
 
-
     # TODO: remove this when response bot is remove in favor of captain
     resolve_response_bot_conversations
 
