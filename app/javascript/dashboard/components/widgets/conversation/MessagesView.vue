@@ -15,6 +15,7 @@ import { mapGetters } from 'vuex';
 // mixins
 import conversationMixin, {
   filterDuplicateSourceMessages,
+  filterDuplicateIdMessages,
 } from '../../../mixins/conversations';
 import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
 import configMixin from 'shared/mixins/configMixin';
