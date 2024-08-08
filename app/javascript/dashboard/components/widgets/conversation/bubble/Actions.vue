@@ -127,8 +127,7 @@ export default {
         this.isATwilioChannel ||
         this.isAFacebookInbox ||
         this.isASmsInbox ||
-        this.isATelegramChannel ||
-        this.isANotificaMeChannel
+        this.isATelegramChannel
       ) {
         return this.sourceId && this.isSent;
       }
@@ -147,8 +146,7 @@ export default {
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
         this.isASmsInbox ||
-        this.isAFacebookInbox ||
-        this.isANotificaMeChannel
+        this.isAFacebookInbox
       ) {
         return this.sourceId && this.isDelivered;
       }
@@ -169,8 +167,7 @@ export default {
       if (
         this.isAWhatsAppChannel ||
         this.isATwilioChannel ||
-        this.isAFacebookInbox ||
-        this.isANotificaMeChannel
+        this.isAFacebookInbox
       ) {
         return this.sourceId && this.isRead;
       }

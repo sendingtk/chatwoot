@@ -159,7 +159,6 @@ class Messages::MessageBuilder
       items: @items,
       in_reply_to: @in_reply_to,
       echo_id: @params[:echo_id],
-      source_id: @params[:source_id]
     }.merge(external_created_at)
       .merge(automation_rule_id)
       .merge(campaign_id)
@@ -169,6 +168,6 @@ class Messages::MessageBuilder
   end
 
   def params_status_progress?
-    @params[:status].blank? && @message_type == 'outgoing' && !@private && @params[:action] == 'create' && (@conversation.inbox&.whatsapp? || @conversation.inbox&.notifica_me?)
+    @params[:status].blank? && @message_type == 'outgoing' && !@private && @params[:action] == 'create' && @conversation.inbox&.whatsapp?
   end
 end

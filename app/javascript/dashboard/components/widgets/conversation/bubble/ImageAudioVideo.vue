@@ -24,6 +24,7 @@ export default {
     return {
       show: false,
       isImageError: false,
+      isImageErrorDelay: false,
     };
   },
   computed: {
@@ -83,6 +84,12 @@ export default {
     onImgError() {
       this.isImageError = true;
       this.$emit('error');
+    },
+    onImgErrorDelay() {
+      setTimeout(() => {
+        this.isImageErrorDelay = true;
+        this.$emit('error');
+      }, 1000);
     },
   },
 };

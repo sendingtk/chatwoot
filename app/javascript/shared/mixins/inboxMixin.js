@@ -9,7 +9,6 @@ export const INBOX_TYPES = {
   TELEGRAM: 'Channel::Telegram',
   LINE: 'Channel::Line',
   SMS: 'Channel::Sms',
-  NOTIFICA_ME: 'Channel::NotificaMe',
 };
 
 export const INBOX_FEATURES = {
@@ -76,9 +75,6 @@ export default {
     },
     isATelegramChannel() {
       return this.channelType === INBOX_TYPES.TELEGRAM;
-    },
-    isANotificaMeChannel() {
-      return this.channelType === INBOX_TYPES.NOTIFICA_ME;
     },
     isATwilioSMSChannel() {
       const { medium: medium = '' } = this.inbox;

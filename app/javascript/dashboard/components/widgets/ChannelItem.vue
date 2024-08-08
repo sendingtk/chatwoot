@@ -45,10 +45,6 @@ export default {
       if (key === 'api') {
         return this.enabledFeatures.channel_api;
       }
-      if (key === 'notifica_me') {
-        return this.enabledFeatures.channel_notifica_me;
-      }
-
 
       return [
         'website',
@@ -58,7 +54,6 @@ export default {
         'sms',
         'telegram',
         'line',
-        'notifica_me',
       ].includes(key);
     },
   },

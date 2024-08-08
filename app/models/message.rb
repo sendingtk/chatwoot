@@ -20,7 +20,7 @@
 #  conversation_id           :integer          not null
 #  inbox_id                  :integer          not null
 #  sender_id                 :bigint
-#  source_id                 :string(510)
+#  source_id                 :string
 #
 # Indexes
 #
@@ -74,7 +74,6 @@ class Message < ApplicationRecord
 
   validates :content_type, presence: true
   validates :content, length: { maximum: 150_000 }
-  validates :source_id, length: { maximum: 510 }
   validates :processed_message_content, length: { maximum: 150_000 }
 
   # when you have a temperory id in your frontend and want it echoed back via action cable
@@ -126,7 +125,7 @@ class Message < ApplicationRecord
   belongs_to :account
   belongs_to :inbox
   belongs_to :conversation, touch: true
-  belongs_to :sender, polymorphic: true, required: false
+  belongs_to :sender, polymorphic: true, optional: true
 
   has_many :attachments, dependent: :destroy, autosave: true, before_add: :validate_attachments_limit
   has_one :csat_survey_response, dependent: :destroy_async
@@ -147,8 +146,8 @@ class Message < ApplicationRecord
       conversation_id: conversation.display_id,
       conversation: conversation_push_event_data
     )
-    data.merge!(echo_id: echo_id) if echo_id.present?
-    data.merge!(attachments: attachments.map(&:push_event_data)) if attachments.present?
+    data[:echo_id] = echo_id if echo_id.present?
+    data[:attachments] = attachments.map(&:push_event_data) if attachments.present?
     merge_sender_attributes(data)
   end
 
@@ -171,8 +170,8 @@ class Message < ApplicationRecord
   end
 
   def merge_sender_attributes(data)
-    data.merge!(sender: sender.push_event_data) if sender && !sender.is_a?(AgentBot)
-    data.merge!(sender: sender.push_event_data(inbox)) if sender.is_a?(AgentBot)
+    data[:sender] = sender.push_event_data if sender && !sender.is_a?(AgentBot)
+    data[:sender] = sender.push_event_data(inbox) if sender.is_a?(AgentBot)
     data
   end
 
@@ -197,7 +196,7 @@ class Message < ApplicationRecord
       sender: sender.try(:webhook_data),
       source_id: source_id
     }
-    data.merge!(attachments: attachments.map(&:push_event_data)) if attachments.present?
+    data[:attachments] = attachments.map(&:push_event_data) if attachments.present?
     data
   end
 
