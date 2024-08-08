@@ -7,16 +7,16 @@
     "LEARN_MORE": "Saiba mais sobre SLA",
     "LOADING": "Carregando SLAs",
     "PAYWALL": {
-      "TITLE": "Upgrade to create SLAs",
-      "AVAILABLE_ON": "The SLA feature is only available in the Business and Enterprise plans.",
-      "UPGRADE_PROMPT": "Upgrade your plan to get access to advanced features like team management, automations, custom attributes, and more.",
-      "UPGRADE_NOW": "Upgrade now",
-      "CANCEL_ANYTIME": "You can change or cancel your plan anytime"
+      "TITLE": "Faça um upgrade para criar SLAs",
+      "AVAILABLE_ON": "O recurso de SLA está disponível apenas nos planos Business e Enterprise.",
+      "UPGRADE_PROMPT": "Faça um upgrade do seu plano para ter acesso a recursos avançados como gerenciamento de equipe, automações, atributos personalizados e mais.",
+      "UPGRADE_NOW": "Faça o upgrade agora",
+      "CANCEL_ANYTIME": "Você pode alterar ou cancelar seu plano a qualquer momento"
     },
     "ENTERPRISE_PAYWALL": {
-      "AVAILABLE_ON": "The SLA feature is only available in the paid plans.",
-      "UPGRADE_PROMPT": "Upgrade to a paid plan to access advanced features like audit logs, agent capacity, and more.",
-      "ASK_ADMIN": "Please reach out to your administrator for the upgrade."
+      "AVAILABLE_ON": "O recurso de SLA está disponível apenas nos planos pagos.",
+      "UPGRADE_PROMPT": "Faça um upgrade para um plano pago para acessar recursos avançados como logs de auditoria, capacidade do agente e mais..",
+      "ASK_ADMIN": "Por favor, entre em contato com o seu administrador para realizar o upgrade."
     },
     "LIST": {
       "404": "Não há SLAs disponíveis nesta conta.",
@@ -103,6 +103,6 @@
       "RT": "Tempo de resolução",
       "SHOW_MORE": "{count} mais",
       "HIDE": "Ocultar {count} linhas"
-      }
+    }
   }
 }
