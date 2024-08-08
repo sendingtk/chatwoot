@@ -17,10 +17,10 @@ export const SIGNATURE_DELIMITER = '--';
 export function cleanSignature(signature) {
   try {
     // remove any horizontal rule tokens
-    signature = signature
+    signature = "**" + (signature
       .replace(/^( *\* *){3,} *$/gm, '')
       .replace(/^( *- *){3,} *$/gm, '')
-      .replace(/^( *_ *){3,} *$/gm, '');
+      .replace(/^( *_ *){3,} *$/gm, '')) + "**";
 
     const nodes = new MessageMarkdownTransformer(messageSchema).parse(
       signature
@@ -43,7 +43,8 @@ export function cleanSignature(signature) {
  * @returns {string} - The signature with the delimiter added.
  */
 function appendDelimiter(signature) {
-  return `${SIGNATURE_DELIMITER}\n\n${cleanSignature(signature)}`;
+  return `${SIGNATURE_DELIMITER}\n${cleanSignature(signature)}`;
+  // return `${SIGNATURE_DELIMITER}\n\n${cleanSignature(signature)}`;
 }
 
 /**
@@ -80,7 +81,8 @@ export function appendSignature(body, signature) {
     return body;
   }
 
-  return `${body.trimEnd()}\n\n${appendDelimiter(cleanedSignature)}`;
+  return `${body.trimEnd()}\n${appendDelimiter(cleanedSignature)}`;
+  // return `${body.trimEnd()}\n\n${appendDelimiter(cleanedSignature)}`;
 }
 
 /**
