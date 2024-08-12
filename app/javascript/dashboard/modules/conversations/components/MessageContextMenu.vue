@@ -187,6 +187,13 @@ export default {
       @close="onCloseTranslateModal"
     />
     <!-- Confirm Deletion -->
+    <!-- Forward Content -->
+    <forward-modal
+      v-if="showForwardModal"
+      :message="message"
+      @close="onCloseForwardModal"
+    />
+    <!-- Confirm Deletion -->
     <woot-delete-modal
       v-if="showDeleteModal"
       class="context-menu--delete-modal"
@@ -238,6 +245,14 @@ export default {
           }"
           variant="icon"
           @click="handleTranslate"
+        />
+        <menu-item
+          :option="{
+            icon: 'share',
+            label: 'Encaminhar',
+          }"
+          variant="icon"
+          @click="handleForward"
         />
         <hr />
         <MenuItem

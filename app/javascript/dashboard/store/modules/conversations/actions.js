@@ -12,6 +12,7 @@ import {
 } from './helpers/actionHelpers';
 import messageReadActions from './actions/messageReadActions';
 import messageTranslateActions from './actions/messageTranslateActions';
+import messageForwardActions from './actions/messageForwardActions';
 import * as Sentry from '@sentry/browser';
 
 export const hasMessageFailedWithExternalError = pendingMessage => {
@@ -492,6 +493,7 @@ const actions = {
 
   ...messageReadActions,
   ...messageTranslateActions,
+  ...messageForwardActions,
 };
 
 export default actions;
