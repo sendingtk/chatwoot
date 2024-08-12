@@ -15,7 +15,6 @@ import { mapGetters } from 'vuex';
 // mixins
 import conversationMixin, {
   filterDuplicateSourceMessages,
-  filterDuplicateIdMessages,
 } from '../../../mixins/conversations';
 import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
 import configMixin from 'shared/mixins/configMixin';
@@ -137,7 +136,7 @@ export default {
       if (this.isAWhatsAppChannel) {
         return filterDuplicateSourceMessages(messages);
       }
-      return filterDuplicateIdMessages(messages);
+      return messages;
     },
     getReadMessages() {
       return this.readMessages(

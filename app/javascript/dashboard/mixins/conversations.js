@@ -12,18 +12,6 @@ const getLastNonActivityMessage = (messageInStore, messageFromAPI) => {
   return messageInStore || messageFromAPI;
 };
 
-export const filterDuplicateIdMessages = (messages = []) => {
-  const messagesWithoutDuplicateId = [];
-
-  messages.forEach(message => {
-    if (messagesWithoutDuplicateId.findIndex(m1 => m1.id === message.id) < 0) {
-      messagesWithoutDuplicateId.push(message);
-    }
-  });
-
-  return messagesWithoutDuplicateId;
-};
-
 export const filterDuplicateSourceMessages = (messages = []) => {
   const messagesWithoutDuplicates = [];
   // We cannot use Map or any short hand method as it returns the last message with the duplicate ID
