@@ -56,9 +56,26 @@ describe('ReportsFiltersInboxes.vue', () => {
     const selectedInbox = { id: 1, name: 'Inbox 1' };
     wrapper.setData({ selectedOption: selectedInbox });
 
-    wrapper.vm.handleInput();
+    wrapper
+      .findComponent({ name: 'multiselect' })
+      .vm.$emit('input', selectedInbox);
 
     expect(wrapper.emitted('inboxFilterSelection')).toBeTruthy();
     expect(wrapper.emitted('inboxFilterSelection')[0]).toEqual([selectedInbox]);
+  });
+
+  it('passes the correct "multiple" prop to multiselect component', () => {
+    const wrapper = shallowMount(ReportsFiltersInboxes, {
+      store,
+      localVue,
+      propsData: {
+        multiple: true,
+      },
+      ...mountParams,
+    });
+
+    const multiselect = wrapper.findComponent({ name: 'multiselect' });
+    const attributes = multiselect.attributes();
+    expect(attributes.multiple).toBe('true');
   });
 });
