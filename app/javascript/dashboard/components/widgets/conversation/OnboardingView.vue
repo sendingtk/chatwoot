@@ -10,7 +10,20 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ globalConfig: 'globalConfig/get' }),
+    ...mapGetters({
+      globalConfig: 'globalConfig/get',
+      currentUser: 'getCurrentUser',
+    }),
+    greeting() {
+      const time = new Date();
+      const hours = time.getHours();
+      if (hours < 12) return 'Good morning';
+      if (hours < 18) return 'Good afternoon';
+      return 'Good evening';
+    },
+    greetingMessage() {
+      return `👋 ${this.greeting}, ${this.currentUser.name}. Welcome to ${this.globalConfig.installationName}.`;
+    },
     newInboxURL() {
       return this.accountScopedUrl('settings/inboxes/new');
     },
@@ -25,81 +38,115 @@ export default {
 </script>
 
 <template>
-  <div class="onboarding-wrap">
-    <div class="onboarding">
-      <div class="scroll-wrap">
-        <div class="features-item">
-          <h1 class="text-2xl text-slate-900 dark:text-slate-50">
-            <span>{{
-              $t('ONBOARDING.TITLE', {
-                installationName: globalConfig.installationName,
-              })
-            }}</span>
-          </h1>
-          <p class="intro-body">
-            {{
-              $t('ONBOARDING.DESCRIPTION', {
-                installationName: globalConfig.installationName,
-              })
-            }}
-          </p>
-          <p v-if="globalConfig.installationName === 'Chatwoot'">
-            <a
-              href="https://www.chatwoot.com/changelog"
-              target="_blank"
-              rel="noopener nofollow noreferrer"
-              class="onboarding--link"
-            >
-              {{ $t('ONBOARDING.READ_LATEST_UPDATES') }}
-            </a>
-            <span>🎉</span>
-          </p>
-        </div>
-        <div class="features-item">
-          <h2 class="text-lg text-black-900 dark:text-slate-200">
-            <span class="emoji">💬</span>
-            <span class="conversation--title">{{
-              $t('ONBOARDING.ALL_CONVERSATION.TITLE')
-            }}</span>
-          </h2>
-          <p class="intro-body">
-            {{ $t('ONBOARDING.ALL_CONVERSATION.DESCRIPTION') }}
-          </p>
-        </div>
-        <div class="features-item">
-          <h2 class="text-lg text-black-900 dark:text-slate-200">
-            <span class="emoji">👥</span>
-            {{ $t('ONBOARDING.TEAM_MEMBERS.TITLE') }}
-          </h2>
-          <p class="intro-body">
-            {{ $t('ONBOARDING.TEAM_MEMBERS.DESCRIPTION') }}
-          </p>
-          <router-link :to="newAgentURL" class="onboarding--link">
-            {{ $t('ONBOARDING.TEAM_MEMBERS.NEW_LINK') }}
-          </router-link>
-        </div>
-        <div class="features-item">
-          <h2 class="text-lg text-black-900 dark:text-slate-200">
-            <span class="emoji">📥</span>{{ $t('ONBOARDING.INBOXES.TITLE') }}
-          </h2>
-          <p class="intro-body">
-            {{ $t('ONBOARDING.INBOXES.DESCRIPTION') }}
-          </p>
-          <router-link :to="newInboxURL" class="onboarding--link">
-            {{ $t('ONBOARDING.INBOXES.NEW_LINK') }}
-          </router-link>
-        </div>
-        <div class="features-item">
-          <h2 class="text-lg text-black-900 dark:text-slate-200">
-            <span class="emoji">🔖</span>{{ $t('ONBOARDING.LABELS.TITLE') }}
-          </h2>
-          <p class="intro-body">
-            {{ $t('ONBOARDING.LABELS.DESCRIPTION') }}
-          </p>
-          <router-link :to="newLabelsURL" class="onboarding--link">
-            {{ $t('ONBOARDING.LABELS.NEW_LINK') }}
-          </router-link>
-        </div>
+  <div
+    class="min-h-screen grid grid-cols-2 grid-rows-[auto_1fr_1fr] gap-4 p-8 w-full font-inter bg-white dark:bg-slate-900 overflow-auto"
+  >
+    <div class="col-span-full self-start">
+      <p
+        class="text-xl font-semibold text-slate-900 dark:text-white font-interDisplay tracking-[0.3px]"
+      >
+        {{ greetingMessage }}
+      </p>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base">
+        {{
+          $t('ONBOARDING.DESCRIPTION', {
+            installationName: globalConfig.installationName,
+          })
+        }}
+      </p>
+    </div>
+    <div
+      class="h-full w-full bg-gradient-to-b from-slate-50 dark:from-slate-800 to-white dark:to-slate-900 border border-slate-100 dark:border-white/10 rounded-lg p-4 flex flex-col"
+    >
+      <img
+        src="~dashboard/assets/images/onboarding/omnichannel.png"
+        alt="Omnichannel"
+        class="h-32 w-auto mx-auto"
+      />
+      <div class="mt-auto">
+        <p
+          class="text-base text-slate-800 dark:text-slate-100 font-interDisplay font-semibold tracking-[0.3px]"
+        >
+          {{ $t('ONBOARDING.ALL_CONVERSATION.TITLE') }}
+        </p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          {{ $t('ONBOARDING.ALL_CONVERSATION.DESCRIPTION') }}
+        </p>
+      </div>
+    </div>
+    <div
+      class="h-full w-full bg-gradient-to-b from-slate-50 dark:from-slate-800 to-white dark:to-slate-900 border border-slate-100 dark:border-white/10 rounded-lg p-4 flex flex-col"
+    >
+      <img
+        src="~dashboard/assets/images/onboarding/teams.png"
+        alt="Teams"
+        class="h-36 w-auto mx-auto"
+      />
+      <div class="mt-auto">
+        <p
+          class="text-base text-slate-800 dark:text-slate-100 font-interDisplay font-semibold tracking-[0.3px]"
+        >
+          {{ $t('ONBOARDING.TEAM_MEMBERS.TITLE') }}
+        </p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          {{ $t('ONBOARDING.TEAM_MEMBERS.DESCRIPTION') }}
+        </p>
+        <router-link
+          :to="newLabelsURL"
+          class="no-underline text-woot-500 text-sm"
+        >
+          {{ $t('ONBOARDING.TEAM_MEMBERS.NEW_LINK') }} <span>→</span>
+        </router-link>
+      </div>
+    </div>
+    <div
+      class="h-full w-full bg-gradient-to-b from-slate-50 dark:from-slate-800 to-white dark:to-slate-900 border border-slate-100 dark:border-white/10 rounded-lg p-4 flex flex-col"
+    >
+      <img
+        src="~dashboard/assets/images/onboarding/inboxes.png"
+        alt="Connect inboxes"
+        class="h-44 w-auto mx-auto"
+      />
+      <div class="mt-auto">
+        <p
+          class="text-base text-slate-800 dark:text-slate-100 font-interDisplay font-semibold tracking-[0.3px]"
+        >
+          {{ $t('ONBOARDING.INBOXES.TITLE') }}
+        </p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          {{ $t('ONBOARDING.INBOXES.DESCRIPTION') }}
+        </p>
+        <router-link
+          :to="newLabelsURL"
+          class="no-underline text-woot-500 text-sm"
+        >
+          {{ $t('ONBOARDING.INBOXES.NEW_LINK') }} <span>→</span>
+        </router-link>
+      </div>
+    </div>
+    <div
+      class="h-full w-full bg-gradient-to-b from-slate-50 dark:from-slate-800 to-white dark:to-slate-900 border border-slate-100 dark:border-white/10 rounded-lg p-4 flex flex-col"
+    >
+      <img
+        src="~dashboard/assets/images/onboarding/labels.png"
+        alt="Labels"
+        class="h-36 w-auto mx-auto"
+      />
+      <div class="mt-auto">
+        <p
+          class="text-base text-slate-800 dark:text-slate-100 font-interDisplay font-semibold tracking-[0.3px]"
+        >
+          {{ $t('ONBOARDING.LABELS.TITLE') }}
+        </p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          {{ $t('ONBOARDING.LABELS.DESCRIPTION') }}
+        </p>
+        <router-link
+          :to="newLabelsURL"
+          class="no-underline text-woot-500 text-sm"
+        >
+          {{ $t('ONBOARDING.LABELS.NEW_LINK') }} <span>→</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -113,6 +160,7 @@ export default {
   overflow: auto;
   text-align: left;
 }
+
 .onboarding {
   height: 100vh;
   overflow: auto;
