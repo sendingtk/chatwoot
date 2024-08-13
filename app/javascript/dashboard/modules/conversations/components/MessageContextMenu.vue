@@ -155,6 +155,7 @@ export default {
         this.enabledOptions.delete && this.inbox.allow_agent_to_delete_message
       );
     },
+
     handleForward() {
       this.handleClose();
       this.showForwardModal = true;
