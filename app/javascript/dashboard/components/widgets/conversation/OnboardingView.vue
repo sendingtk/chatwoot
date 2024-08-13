@@ -92,7 +92,7 @@ export default {
           {{ $t('ONBOARDING.TEAM_MEMBERS.DESCRIPTION') }}
         </p>
         <router-link
-          :to="newLabelsURL"
+          :to="newAgentURL"
           class="no-underline text-woot-500 text-sm"
         >
           {{ $t('ONBOARDING.TEAM_MEMBERS.NEW_LINK') }} <span>→</span>
@@ -117,7 +117,7 @@ export default {
           {{ $t('ONBOARDING.INBOXES.DESCRIPTION') }}
         </p>
         <router-link
-          :to="newLabelsURL"
+          :to="newInboxURL"
           class="no-underline text-woot-500 text-sm"
         >
           {{ $t('ONBOARDING.INBOXES.NEW_LINK') }} <span>→</span>
