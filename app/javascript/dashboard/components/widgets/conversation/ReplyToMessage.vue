@@ -27,6 +27,7 @@ export default {
       />
     </div>
     <woot-button
+      v-tooltip="$t('CONVERSATION.REPLYBOX.DISMISS_REPLY')"
       color-scheme="secondary"
       icon="dismiss"
       variant="clear"
