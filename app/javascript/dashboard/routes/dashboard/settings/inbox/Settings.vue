@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import { shouldBeUrl } from 'shared/helpers/Validators';
-import configMixin from 'shared/mixins/configMixin';
 import { useAlert } from 'dashboard/composables';
 import { useVuelidate } from '@vuelidate/core';
 import SettingIntroBanner from 'dashboard/components/widgets/SettingIntroBanner.vue';
@@ -36,7 +35,7 @@ export default {
     MicrosoftReauthorize,
     UnoapiConfiguration,
   },
-  mixins: [configMixin, inboxMixin],
+  mixins: [inboxMixin],
   setup() {
     return { v$: useVuelidate() };
   },
