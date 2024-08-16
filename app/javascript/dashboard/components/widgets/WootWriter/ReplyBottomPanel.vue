@@ -116,6 +116,7 @@ export default {
   setup() {
     const { setSignatureFlagForInbox, fetchSignatureFlagFromUISettings } =
       useUISettings();
+
     const uploadRef = ref(null);
     // TODO: This is really hacky, we need to replace the file picker component with
     // a custom one, where the logic and the component markup is isolated.

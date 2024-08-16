@@ -59,7 +59,6 @@ useKeyboardEvents(keyboardEvents, chatTypeTabsRef);
   </div>
 </template>
 
-
 <style scoped lang="scss">
 .tab--chat-type {
   ::v-deep {
