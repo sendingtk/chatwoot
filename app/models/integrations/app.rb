@@ -41,8 +41,8 @@ class Integrations::App
     when 'linear'
       account.feature_enabled?('linear_integration')
     when 'captain'
-      #account.feature_enabled?('captain_integration') && GlobalConfigService.load('CAPTAIN_API_URL', '').present?
-      account.feature_enabled?('captain_integration') && InstallationConfig.find_by(name: 'CAPTAIN_APP_URL').present?
+      account.feature_enabled?('captain_integration') && GlobalConfigService.load('CAPTAIN_API_URL', '').present?
+      #account.feature_enabled?('captain_integration') && InstallationConfig.find_by(name: 'CAPTAIN_APP_URL').present?
     else
       true
     end
