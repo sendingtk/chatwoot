@@ -15,7 +15,9 @@ class Api::V1::Accounts::Conversations::MessagesController < Api::V1::Accounts::
     return head :bad_request unless message.can_delete_message?
   
     ActiveRecord::Base.transaction do
-      message.update!(content: I18n.t('conversations.messages.deleted'), content_attributes: { deleted: true })
+      original_content = message.content
+      new_content = "?#{I18n.t('conversations.messages.deleted')}\n#{original_content}"
+      message.update!(content: new_content, content_attributes: { deleted: true })
       message.attachments.destroy_all
     end
   end
