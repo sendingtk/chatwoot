@@ -16,7 +16,7 @@ class Api::V1::Accounts::Conversations::MessagesController < Api::V1::Accounts::
   
     ActiveRecord::Base.transaction do
       original_content = message.content
-      new_content = "?#{I18n.t('conversations.messages.deleted')}\n#{original_content}"
+      new_content = "⛔#{I18n.t('conversations.messages.deleted')}\n#{original_content}"
       message.update!(content: new_content, content_attributes: { deleted: true })
       message.attachments.destroy_all
     end

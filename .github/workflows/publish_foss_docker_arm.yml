@@ -53,4 +53,5 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: ${{ env.DOCKER_TAG }}
-      
+          cache-from: type=gha
+          cache-to: type=gha,mode=max      
