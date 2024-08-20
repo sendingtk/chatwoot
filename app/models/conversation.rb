@@ -80,9 +80,9 @@ class Conversation < ApplicationRecord
 
     case auto_resolve_unit
     when 'days'
-      open.where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.days)
+      where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.to_i.days)
     when 'hours'
-      open.where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.hours)
+      where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.to_i.hours)
     else
       none
     end
