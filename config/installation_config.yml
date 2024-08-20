@@ -113,7 +113,7 @@
 - name: FACEBOOK_API_VERSION
   display_title: 'Facebook API Version'
   description: 'Configure this if you want to use a different Facebook API version. Make sure its prefixed with `v`'
-  value: 'v18.0'
+  value: 'v20.0'
   locked: false
 - name: ENABLE_MESSENGER_CHANNEL_HUMAN_AGENT
   display_title: 'Enable human agent'
@@ -132,6 +132,13 @@
   display_title: 'Azure App Secret'
   locked: false
 # End of Microsoft Email Channel Config
+
+# MARK: UNOAPI Channel Config
+- name: UNOAPI_AUTH_TOKEN
+  value:
+  display_title: 'UNO API Auth Token'
+  description: 'The Auth Token for UNO API. Find more details on how to configure UNOAPI here: https://github.com/clairton/unoapi-cloud/tree/main'
+# End of UNOAPI Channel Config
 
 # ------- Chatwoot Internal Config for Cloud ----#
 - name: CHATWOOT_INBOX_TOKEN
@@ -224,3 +231,13 @@
   value:
   description: 'Customize conversation, put your valid css'
 ## ------ End of Configs custom ------ ##
+## ----- Captain Configs ----- ##
+- name: CAPTAIN_API_URL
+  value: 
+  display_title: 'Captain API URL'
+  description: 'The API URL for Captain'
+- name: CAPTAIN_APP_URL
+  value: 
+  display_title: 'Captain App URL'
+  description: 'The App URL for Captain'
+## ----- End of Captain Configs ----- ##

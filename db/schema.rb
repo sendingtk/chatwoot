@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_16_003531) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -313,16 +313,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["line_channel_id"], name: "index_channel_line_on_line_channel_id", unique: true
-  end
-
-  create_table "channel_notifica_me", force: :cascade do |t|
-    t.string "notifica_me_id", null: false
-    t.string "notifica_me_type", null: false
-    t.string "notifica_me_token", null: false
-    t.integer "account_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["notifica_me_id", "account_id"], name: "index_channel_notifica_me", unique: true
   end
 
   create_table "channel_sms", force: :cascade do |t|
@@ -697,7 +687,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_173755) do
     t.datetime "updated_at", precision: nil, null: false
     t.boolean "private", default: false, null: false
     t.integer "status", default: 0
-    t.string "source_id", limit: 510
+    t.string "source_id"
     t.integer "content_type", default: 0, null: false
     t.json "content_attributes", default: {}
     t.string "sender_type"

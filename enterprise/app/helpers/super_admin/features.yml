@@ -72,3 +72,15 @@ microsoft:
   enabled: true
   icon: 'icon-microsoft'
   config_key: 'microsoft'
+captain:
+  name: 'Captain'
+  description: 'Configuration for setting up Captain'
+  enabled: true
+  icon: 'captain-outline'
+  config_key: 'captain'
+unoapi:
+  name: 'UNOAPI'
+  description: 'Configuration for setting up UNOAPI'
+  enabled: true
+  icon: 'icon-chat-smile-3-line'
+  config_key: 'unoapi'

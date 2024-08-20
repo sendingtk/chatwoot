@@ -1,22 +1,14 @@
-<template>
-  <div
-    class="flex flex-row overflow-auto p-4 h-full bg-slate-25 dark:bg-slate-800"
-  >
-    <woot-wizard
-      class="hidden md:block w-1/4"
-      :global-config="globalConfig"
-      :items="items"
-    />
-    <router-view />
-  </div>
-</template>
-
 <script>
 import { mapGetters } from 'vuex';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 
 export default {
-  mixins: [globalConfigMixin],
+  setup() {
+    const { useInstallationName } = useGlobalConfig();
+    return {
+      useInstallationName,
+    };
+  },
   computed: {
     ...mapGetters({
       globalConfig: 'globalConfig/get',
@@ -33,3 +25,16 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div
+    class="flex flex-row overflow-auto p-4 h-full bg-slate-25 dark:bg-slate-800"
+  >
+    <woot-wizard
+      class="hidden md:block w-1/4"
+      :global-config="globalConfig"
+      :items="items"
+    />
+    <router-view />
+  </div>
+</template>

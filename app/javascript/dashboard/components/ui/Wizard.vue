@@ -1,3 +1,39 @@
+<script>
+/* eslint no-console: 0 */
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+
+export default {
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  setup() {
+    const { useInstallationName } = useGlobalConfig();
+    return {
+      useInstallationName,
+    };
+  },
+  computed: {
+    classObject() {
+      return 'w-full';
+    },
+    activeIndex() {
+      return this.items.findIndex(i => i.route === this.$route.name);
+    },
+  },
+  methods: {
+    isActive(item) {
+      return this.items.indexOf(item) === this.activeIndex;
+    },
+    isOver(item) {
+      return this.items.indexOf(item) < this.activeIndex;
+    },
+  },
+};
+</script>
+
 <template>
   <transition-group
     name="wizard-items"
@@ -19,7 +55,7 @@
         </h3>
         <span
           v-if="isOver(item)"
-          class="text-green-500 dark:text-green-500 ml-1"
+          class="ml-1 text-green-500 dark:text-green-500"
         >
           <fluent-icon icon="checkmark" />
         </span>
@@ -27,44 +63,13 @@
       <span class="step">
         {{ items.indexOf(item) + 1 }}
       </span>
-      <p class="text-slate-600 dark:text-slate-300 text-sm m-0 pl-6">
+      <p class="pl-6 m-0 text-sm text-slate-600 dark:text-slate-300">
         {{ item.body }}
       </p>
     </div>
   </transition-group>
 </template>
 
-<script>
-/* eslint no-console: 0 */
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
-
-export default {
-  mixins: [globalConfigMixin],
-  props: {
-    isFullwidth: Boolean,
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  computed: {
-    classObject() {
-      return 'w-full';
-    },
-    activeIndex() {
-      return this.items.findIndex(i => i.route === this.$route.name);
-    },
-  },
-  methods: {
-    isActive(item) {
-      return this.items.indexOf(item) === this.activeIndex;
-    },
-    isOver(item) {
-      return this.items.indexOf(item) < this.activeIndex;
-    },
-  },
-};
-</script>
 <style lang="scss" scoped>
 .wizard-box {
   .item {

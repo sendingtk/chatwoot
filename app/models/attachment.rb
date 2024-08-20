@@ -81,8 +81,7 @@ class Attachment < ApplicationRecord
       height: file.metadata[:height]
     }
 
-    #metadata[:data_url] = metadata[:thumb_url] = external_url if message.instagram_story_mention?
-    metadata[:data_url] = metadata[:thumb_url] = external_url if message.inbox.instagram?
+    metadata[:data_url] = metadata[:thumb_url] = external_url if message.inbox.instagram? && message.incoming?
     metadata
   end
 

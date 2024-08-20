@@ -56,7 +56,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
   end
 
   def media_url(media_id)
-    "#{api_base_path}/v13.0/#{media_id}"
+    "#{api_base_path}/v20.0/#{media_id}"
   end
 
   def message_update_payload(message)
@@ -88,7 +88,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
 
   # TODO: See if we can unify the API versions and for both paths and make it consistent with out facebook app API versions
   def phone_id_path
-    "#{api_base_path}/v13.0/#{whatsapp_channel.provider_config['phone_number_id']}"
+    "#{api_base_path}/v20.0/#{whatsapp_channel.provider_config['phone_number_id']}"
   end
 
   def messages_path
@@ -120,7 +120,7 @@ class Whatsapp::Providers::WhatsappCloudService < Whatsapp::Providers::BaseServi
     config = whatsapp_channel.provider_config['send_agent_name']
     return message.content if !feature && !config
 
-    message&.sender_name.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
+    message.sender_name&.present? ? "*#{message&.sender_name}*: \n#{message.content}" : message.content
   end
 
   def send_attachment_message(phone_number, message)
