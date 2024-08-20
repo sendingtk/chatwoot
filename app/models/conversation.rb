@@ -75,17 +75,8 @@ class Conversation < ApplicationRecord
   scope :assigned, -> { where.not(assignee_id: nil) }
   scope :assigned_to, ->(agent) { where(assignee_id: agent.id) }
   scope :unattended, -> { where(first_reply_created_at: nil).or(where.not(waiting_since: nil)) }
-  scope :resolvable, lambda { |auto_resolve_duration, auto_resolve_unit|
-    return none if auto_resolve_duration.to_i.zero?
-
-    case auto_resolve_unit
-    when 'days'
-      where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.to_i.days)
-    when 'hours'
-      where('last_activity_at < ?', Time.now.utc - auto_resolve_duration.to_i.hours)
-    else
-      none
-    end
+  scope :resolvable, lambda { |auto_resolve_duration|
+    open.where('last_activity_at < ? ', Time.now.utc - auto_resolve_duration.days)
   }
 
   scope :last_user_message_at, lambda {
