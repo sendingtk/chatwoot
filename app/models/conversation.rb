@@ -76,8 +76,6 @@ class Conversation < ApplicationRecord
   scope :assigned_to, ->(agent) { where(assignee_id: agent.id) }
   scope :unattended, -> { where(first_reply_created_at: nil).or(where.not(waiting_since: nil)) }
   scope :resolvable, lambda { |auto_resolve_duration|
-    return none if auto_resolve_duration.to_i.zero?
-
     open.where('last_activity_at < ? ', Time.now.utc - auto_resolve_duration.days)
   }
 
@@ -122,6 +120,10 @@ class Conversation < ApplicationRecord
 
     messaging_window = inbox.api? ? channel.additional_attributes['agent_reply_time_window'].to_i : 24
     last_message_in_messaging_window?(messaging_window)
+  end
+
+  def last_activity_at
+    self[:last_activity_at] || created_at
   end
 
   def last_incoming_message

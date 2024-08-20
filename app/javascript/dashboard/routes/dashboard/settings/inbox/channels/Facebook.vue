@@ -3,14 +3,14 @@
 /* global FB */
 import { useVuelidate } from '@vuelidate/core';
 import { useAlert } from 'dashboard/composables';
+import { useAccount } from 'dashboard/composables/useAccount';
 import { required } from '@vuelidate/validators';
 import LoadingState from 'dashboard/components/widgets/LoadingState.vue';
 import { mapGetters } from 'vuex';
 import ChannelApi from '../../../../../api/channels';
 import PageHeader from '../../SettingsSubPageHeader.vue';
 import router from '../../../../index';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
-import accountMixin from '../../../../../mixins/account';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 
 import { loadScript } from 'dashboard/helper/DOMHelpers';
 import * as Sentry from '@sentry/browser';
@@ -20,9 +20,14 @@ export default {
     LoadingState,
     PageHeader,
   },
-  mixins: [globalConfigMixin, accountMixin],
   setup() {
-    return { v$: useVuelidate() };
+    const { accountId } = useAccount();
+    const { useInstallationName } = useGlobalConfig();
+    return {
+      useInstallationName,
+      accountId,
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {

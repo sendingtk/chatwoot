@@ -2,19 +2,22 @@
 import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import { useAdmin } from 'dashboard/composables/useAdmin';
+import { useAccount } from 'dashboard/composables/useAccount';
 import Settings from './Settings.vue';
-import accountMixin from '../../../../mixins/account';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 
 export default {
   components: {
     Settings,
   },
-  mixins: [accountMixin, globalConfigMixin],
   setup() {
     const { isAdmin } = useAdmin();
+    const { accountScopedUrl } = useAccount();
+    const { useInstallationName } = useGlobalConfig();
     return {
       isAdmin,
+      accountScopedUrl,
+      useInstallationName,
     };
   },
   data() {
@@ -102,7 +105,7 @@ export default {
           {{ $t('INBOX_MGMT.LIST.404') }}
           <router-link
             v-if="isAdmin"
-            :to="addAccountScoping('settings/inboxes/new')"
+            :to="accountScopedUrl('settings/inboxes/new')"
           >
             {{ $t('SETTINGS.INBOXES.NEW_INBOX') }}
           </router-link>
@@ -164,7 +167,7 @@ export default {
               <td>
                 <div class="button-wrapper">
                   <router-link
-                    :to="addAccountScoping(`settings/inboxes/${item.id}`)"
+                    :to="accountScopedUrl(`settings/inboxes/${item.id}`)"
                   >
                     <woot-button
                       v-if="isAdmin"

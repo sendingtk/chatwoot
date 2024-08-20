@@ -56,7 +56,9 @@ class Whatsapp::IncomingMessageBaseService
 
   def update_message_with_status(message, status)
     if status[:status] == 'deleted'
-      message.assign_attributes(content: I18n.t('conversations.messages.deleted'), content_attributes: { deleted: true })
+      original_content = message.content
+      new_content = "#{I18n.t('conversations.messages.deleted')}\n#{original_content}"
+      message.assign_attributes(content: new_content, content_attributes: { deleted: true })
     else
       message.status = status[:status]
     end

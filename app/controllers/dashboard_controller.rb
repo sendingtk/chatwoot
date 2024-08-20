@@ -67,6 +67,7 @@ class DashboardController < ActionController::Base
       AZURE_APP_ID: GlobalConfigService.load('AZURE_APP_ID', ''),
       UNOAPI_AUTH_TOKEN: GlobalConfigService.load('UNOAPI_AUTH_TOKEN', ''),
       CAPTAIN_APP_URL: GlobalConfigService.load('CAPTAIN_APP_URL', ''),
+      CAPTAIN_API_URL: GlobalConfigService.load('CAPTAIN_API_URL', ''),
       GIT_SHA: GIT_HASH
     }
   end

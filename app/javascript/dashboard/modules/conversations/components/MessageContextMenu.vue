@@ -155,6 +155,7 @@ export default {
         this.enabledOptions.delete && this.inbox.allow_agent_to_delete_message
       );
     },
+
     handleForward() {
       this.handleClose();
       this.showForwardModal = true;
@@ -185,6 +186,13 @@ export default {
       :content="messageContent"
       :content-attributes="contentAttributes"
       @close="onCloseTranslateModal"
+    />
+    <!-- Confirm Deletion -->
+    <!-- Forward Content -->
+    <forward-modal
+      v-if="showForwardModal"
+      :message="message"
+      @close="onCloseForwardModal"
     />
     <!-- Confirm Deletion -->
     <woot-delete-modal
@@ -238,6 +246,14 @@ export default {
           }"
           variant="icon"
           @click="handleTranslate"
+        />
+        <menu-item
+          :option="{
+            icon: 'share',
+            label: 'Encaminhar',
+          }"
+          variant="icon"
+          @click="handleForward"
         />
         <hr />
         <MenuItem

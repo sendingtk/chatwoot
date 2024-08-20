@@ -40,7 +40,7 @@ class SuperAdmin::AppConfigsController < SuperAdmin::ApplicationController
                        when 'email'
                          ['MAILER_INBOUND_EMAIL_DOMAIN']
                        when 'unoapi'
-                          %w[UNOAPI_AUTH_TOKEN]
+                         %w[UNOAPI_AUTH_TOKEN]
                        else
                          %w[ENABLE_ACCOUNT_SIGNUP FIREBASE_PROJECT_ID FIREBASE_CREDENTIALS]
                        end
