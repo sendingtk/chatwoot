@@ -1,9 +1,3 @@
-# #
-# # This action will strip the enterprise folder
-# # and run the spec.
-# # This is set to run against every PR.
-# #
-
 name: Run Chatwoot CE spec
 on:
   push:
@@ -15,7 +9,6 @@ on:
 
 jobs:
   test:
-    #runs-on: ubuntu-20.04
     runs-on: self-hosted
     services:
       postgres:
@@ -27,8 +20,6 @@ jobs:
           POSTGRES_HOST_AUTH_METHOD: trust
         ports:
           - 5433:5432
-        # needed because the postgres container does not provide a healthcheck
-        # tmpfs makes DB faster by using RAM
         options: >-
           --mount type=tmpfs,destination=/var/lib/postgresql/data
           --health-cmd pg_isready
@@ -49,7 +40,7 @@ jobs:
 
     - uses: ruby/setup-ruby@v1
       with:
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        bundler-cache: true
 
     - uses: actions/setup-node@v4
       with:
@@ -58,11 +49,6 @@ jobs:
 
     - name: yarn
       run: yarn install
-
-    # - name: Strip enterprise code
-    #   run: |
-    #     rm -rf enterprise
-    #     rm -rf spec/enterprise
 
     - name: Create database
       run: bundle exec rake db:create
@@ -73,7 +59,6 @@ jobs:
     - name: yarn check-files
       run: yarn install --check-files
 
-    # Run rails tests
     - name: Run backend tests
       run: |
         bundle exec rspec --profile=10 --format documentation
