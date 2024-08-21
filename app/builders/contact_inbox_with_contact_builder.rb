@@ -22,9 +22,8 @@ class ContactInboxWithContactBuilder
 
     ActiveRecord::Base.transaction(requires_new: true) do
       build_contact_with_contact_inbox
-      update_contact_avatar(@contact) unless @contact.avatar.attached?
     end
-
+    update_contact_avatar(@contact) unless @contact.avatar.attached?
     @contact_inbox
   end
 

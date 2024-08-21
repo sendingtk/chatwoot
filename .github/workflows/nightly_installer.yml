@@ -16,8 +16,8 @@ on:
 
 jobs:
   nightly:
-    #runs-on: ubuntu-20.04
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
+    #runs-on: self-hosted
     steps:
 
     - name: get installer
