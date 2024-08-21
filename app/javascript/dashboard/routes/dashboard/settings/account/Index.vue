@@ -14,7 +14,6 @@ export default {
     const { updateUISettings } = useUISettings();
     const { enabledLanguages } = useConfig();
     const v$ = useVuelidate();
-
     return { updateUISettings, v$, enabledLanguages };
   },
   data() {
@@ -26,6 +25,7 @@ export default {
       supportEmail: '',
       features: {},
       autoResolveDuration: null,
+      autoResolveUnit: 'hours', // Nueva propiedad para la unidad de tiempo
       latestChatwootVersion: null,
     };
   },
@@ -59,7 +59,6 @@ export default {
       if (!semver.valid(this.latestChatwootVersion)) {
         return false;
       }
-
       return semver.lt(
         this.globalConfig.appVersion,
         this.latestChatwootVersion
@@ -74,23 +73,19 @@ export default {
     isUpdating() {
       return this.uiFlags.isUpdating;
     },
-
     featureInboundEmailEnabled() {
       return !!this.features?.inbound_emails;
     },
-
     featureCustomReplyDomainEnabled() {
       return (
         this.featureInboundEmailEnabled && !!this.features.custom_reply_domain
       );
     },
-
     featureCustomReplyEmailEnabled() {
       return (
         this.featureInboundEmailEnabled && !!this.features.custom_reply_email
       );
     },
-
     getAccountId() {
       return this.id.toString();
     },
@@ -111,7 +106,6 @@ export default {
           auto_resolve_duration,
           latest_chatwoot_version: latestChatwootVersion,
         } = this.getAccount(this.accountId);
-
         this.$root.$i18n.locale = locale;
         this.name = name;
         this.locale = locale;
@@ -125,7 +119,6 @@ export default {
         // Ignore error
       }
     },
-
     async updateAccount() {
       this.v$.$touch();
       if (this.v$.$invalid) {
@@ -133,12 +126,16 @@ export default {
         return;
       }
       try {
+        let duration = this.autoResolveDuration;
+        if (this.autoResolveUnit === 'days') {
+          duration *= 24; // Convertir días a horas
+        }
         await this.$store.dispatch('accounts/update', {
           locale: this.locale,
           name: this.name,
           domain: this.domain,
           support_email: this.supportEmail,
-          auto_resolve_duration: this.autoResolveDuration,
+          auto_resolve_duration: duration,
         });
         this.$root.$i18n.locale = this.locale;
         this.getAccount(this.id).locale = this.locale;
@@ -148,7 +145,6 @@ export default {
         useAlert(this.$t('GENERAL_SETTINGS.UPDATE.ERROR'));
       }
     },
-
     updateDirectionView(locale) {
       const isRTLSupported = getLanguageDirection(locale);
       this.updateUISettings({
@@ -240,13 +236,16 @@ export default {
               "
               @blur="v$.autoResolveDuration.$touch"
             />
+            <select v-model="autoResolveUnit">
+              <option value="hours">{{ $t('GENERAL_SETTINGS.FORM.UNIT.HOURS') }}</option>
+              <option value="days">{{ $t('GENERAL_SETTINGS.FORM.UNIT.DAYS') }}</option>
+            </select>
             <span v-if="v$.autoResolveDuration.$error" class="message">
               {{ $t('GENERAL_SETTINGS.FORM.AUTO_RESOLVE_DURATION.ERROR') }}
             </span>
           </label>
         </div>
       </div>
-
       <div
         class="flex flex-row p-4 border-slate-25 dark:border-slate-700 text-black-900 dark:text-slate-300"
       >
@@ -277,14 +276,12 @@ export default {
           <div>{{ `Build ${globalConfig.gitSha}` }}</div>
         </div>
       </div>
-
       <woot-submit-button
         class="button nice success button--fixed-top"
         :button-text="$t('GENERAL_SETTINGS.SUBMIT')"
         :loading="isUpdating"
       />
     </form>
-
     <woot-loading-state v-if="uiFlags.isFetchingItem" />
   </div>
 </template>
