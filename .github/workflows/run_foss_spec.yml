@@ -63,10 +63,11 @@ jobs:
       run: yarn install --check-files
 
     - name: Run backend tests
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        NODE_OPTIONS: --openssl-legacy-provider
       run: |
         bundle exec rspec --profile=10 --format documentation
-      env:
-        NODE_OPTIONS: --openssl-legacy-provider
 
     - name: Upload rails log folder
       uses: actions/upload-artifact@v4
