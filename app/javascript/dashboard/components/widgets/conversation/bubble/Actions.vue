@@ -201,6 +201,13 @@ export default {
         size="14"
       />
     </span>
+    <span v-else-if="showProgressIndicator" class="read-indicator-wrap">
+      <fluent-icon 
+        icon="clock" 
+        class="action--icon read-tick" 
+        size="14" 
+      />
+    </span>
     <span v-if="showReadIndicator" class="read-indicator-wrap">
       <fluent-icon
         v-tooltip.top-start="$t('CHAT_LIST.MESSAGE_READ')"
@@ -224,9 +231,6 @@ export default {
         class="action--icon read-tick"
         size="14"
       />
-    </span>
-    <span v-else-if="showProgressIndicator" class="read-indicator-wrap">
-      <fluent-icon icon="clock" class="action--icon" size="14" />
     </span>
     <fluent-icon
       v-if="isEmail"
