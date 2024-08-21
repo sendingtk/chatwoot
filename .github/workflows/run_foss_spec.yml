@@ -17,7 +17,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: postgres
-          POSTGRES_HOST_AUTH_METHOD: trust
         ports:
           - 5433:5432
         options: >-
@@ -32,6 +31,45 @@ jobs:
           - 6380:6379
         options: --entrypoint redis-server
 
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: yarn
+
+    - name: yarn
+      run: yarn install
+
+    - name: Create database
+      run: bundle exec rake db:create
+
+    - name: Seed database
+      run: bundle exec rake db:schema:load
+
+    - name: yarn check-files
+      run: yarn install --check-files
+
+    - name: Run backend tests
+      run: |
+        bundle exec rspec --profile=10 --format documentation
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+
+    - name: Upload rails log folder
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: rails-log-folder
+        path: log
     steps:
     - uses: actions/checkout@v4
       with:
