@@ -19,14 +19,14 @@ jobs:
     runs-on: self-hosted
     services:
       postgres:
-        image: postgres:15.3
+        image: postgres:16
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: ""
           POSTGRES_DB: postgres
           POSTGRES_HOST_AUTH_METHOD: trust
         ports:
-          - 5432:5432
+          - 5433:5432
         # needed because the postgres container does not provide a healthcheck
         # tmpfs makes DB faster by using RAM
         options: >-
