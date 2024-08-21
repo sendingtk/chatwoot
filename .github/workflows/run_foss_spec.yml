@@ -50,9 +50,13 @@ jobs:
       run: yarn install
 
     - name: Create database
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       run: bundle exec rake db:create
 
     - name: Seed database
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       run: bundle exec rake db:schema:load
 
     - name: yarn check-files
