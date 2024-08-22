@@ -3,6 +3,7 @@ import { ref } from 'vue';
 // composable
 import { useConfig } from 'dashboard/composables/useConfig';
 import { useKeyboardEvents } from 'dashboard/composables/useKeyboardEvents';
+import { useAI } from 'dashboard/composables/useAI';
 
 // components
 import ReplyBox from './ReplyBox.vue';
@@ -15,8 +16,6 @@ import { mapGetters } from 'vuex';
 
 // mixins
 import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
-import aiMixin from 'dashboard/mixins/aiMixin';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 
 // utils
 import { getTypingUsersText } from '../../../helper/commons';
@@ -41,7 +40,7 @@ export default {
     Banner,
     ConversationLabelSuggestion,
   },
-  mixins: [inboxMixin, aiMixin, globalConfigMixin],
+  mixins: [inboxMixin],
   props: {
     isContactPanelOpen: {
       type: Boolean,
@@ -53,7 +52,6 @@ export default {
     },
   },
   setup() {
-    const conversationFooterRef = ref(null);
     const isPopOutReplyBox = ref(false);
     const { isEnterprise } = useConfig();
 
@@ -71,14 +69,24 @@ export default {
       },
     };
 
-    useKeyboardEvents(keyboardEvents, conversationFooterRef);
+    useKeyboardEvents(keyboardEvents);
+
+    const {
+      isAIIntegrationEnabled,
+      isLabelSuggestionFeatureEnabled,
+      fetchIntegrationsIfRequired,
+      fetchLabelSuggestions,
+    } = useAI();
 
     return {
       isEnterprise,
-      conversationFooterRef,
       isPopOutReplyBox,
       closePopOutReplyBox,
       showPopOutReplyBox,
+      isAIIntegrationEnabled,
+      isLabelSuggestionFeatureEnabled,
+      fetchIntegrationsIfRequired,
+      fetchLabelSuggestions,
     };
   },
   data() {
@@ -525,7 +533,6 @@ export default {
       />
     </ul>
     <div
-      ref="conversationFooterRef"
       class="conversation-footer"
       :class="{ 'modal-mask': isPopOutReplyBox }"
     >
