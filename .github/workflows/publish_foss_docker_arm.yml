@@ -4,11 +4,10 @@
 # # and when tags are created.
 # #
 
-name: Publish Chatwoot CE docker images for ARM64
+name: Publish Chatwoot CE docker images for ARM
 on:
   push:
     branches:
-      - develop
       - master
     tags:
       - v*
@@ -33,12 +32,12 @@ jobs:
 
       - name: set docker tag
         run: |
-          echo "DOCKER_ARM_TAG=sendingtk/chatwoot-arm:$GIT_REF" >> $GITHUB_ENV
+          echo "DOCKER_TAG=sendingtk/chatwoot-arm:$GIT_REF" >> $GITHUB_ENV
 
       - name: replace docker tag if master
         if: github.ref_name == 'master'
         run: |
-          echo "DOCKER_ARM_TAG=sendingtk/chatwoot-arm:latest" >> $GITHUB_ENV
+          echo "DOCKER_TAG=sendingtk/chatwoot-arm:latest" >> $GITHUB_ENV
 
       - name: Login to DockerHub
         uses: docker/login-action@v3.3.0
@@ -53,4 +52,6 @@ jobs:
           file: docker/Dockerfile
           platforms: linux/arm64
           push: true
-          tags: ${{ env.DOCKER_ARM_TAG }}
+          tags: ${{ env.DOCKER_TAG }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max      

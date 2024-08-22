@@ -1,6 +1,6 @@
 {
   "name": "@chatwoot/chatwoot",
-  "version": "3.10.3",
+  "version": "3.12.0",
   "license": "MIT",
   "scripts": {
     "eslint": "eslint app/**/*.{js,vue}",
@@ -97,7 +97,6 @@
     "vue-virtual-scroll-list": "^2.3.5",
     "vue2-datepicker": "^3.9.1",
     "vuedraggable": "^2.24.3",
-    "vuelidate": "0.7.7",
     "vuex": "~2.1.1",
     "vuex-router-sync": "~4.1.2",
     "wavesurfer.js": "^6.0.4",
@@ -150,7 +149,7 @@
     "webpack-dev-server": "^3"
   },
   "engines": {
-    "node": "20.x",
+    "node": ">= 20.x",
     "npm": ">=6.x",
     "yarn": "1.22.x"
   },

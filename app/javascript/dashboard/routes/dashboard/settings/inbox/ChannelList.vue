@@ -1,44 +1,21 @@
-<template>
-  <div
-    class="border border-slate-25 dark:border-slate-800/60 bg-white dark:bg-slate-900 h-full p-6 w-full max-w-full md:w-3/4 md:max-w-[75%] flex-shrink-0 flex-grow-0"
-  >
-    <page-header
-      class="max-w-4xl"
-      :header-title="$t('INBOX_MGMT.ADD.AUTH.TITLE')"
-      :header-content="
-        useInstallationName(
-          $t('INBOX_MGMT.ADD.AUTH.DESC'),
-          globalConfig.installationName
-        )
-      "
-    />
-    <div
-      class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mx-0 max-w-3xl"
-    >
-      <channel-item
-        v-for="channel in channelList"
-        :key="channel.key"
-        :channel="channel"
-        :enabled-features="enabledFeatures"
-        @channel-item-click="initChannelAuth"
-      />
-    </div>
-  </div>
-</template>
-
 <script>
 import ChannelItem from 'dashboard/components/widgets/ChannelItem.vue';
 import router from '../../../index';
 import PageHeader from '../SettingsSubPageHeader.vue';
 import { mapGetters } from 'vuex';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 
 export default {
   components: {
     ChannelItem,
     PageHeader,
   },
-  mixins: [globalConfigMixin],
+  setup() {
+    const { useInstallationName } = useGlobalConfig();
+    return {
+      useInstallationName,
+    };
+  },
   data() {
     return {
       enabledFeatures: {},
@@ -63,7 +40,6 @@ export default {
         },
         { key: 'telegram', name: 'Telegram' },
         { key: 'line', name: 'Line' },
-        { key: 'notifica_me', name: 'NotificaMe' },
       ];
     },
     ...mapGetters({
@@ -88,3 +64,31 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div
+    class="border border-slate-25 dark:border-slate-800/60 bg-white dark:bg-slate-900 h-full p-6 w-full max-w-full md:w-3/4 md:max-w-[75%] flex-shrink-0 flex-grow-0"
+  >
+    <PageHeader
+      class="max-w-4xl"
+      :header-title="$t('INBOX_MGMT.ADD.AUTH.TITLE')"
+      :header-content="
+        useInstallationName(
+          $t('INBOX_MGMT.ADD.AUTH.DESC'),
+          globalConfig.installationName
+        )
+      "
+    />
+    <div
+      class="grid max-w-3xl grid-cols-2 mx-0 mt-6 sm:grid-cols-3 lg:grid-cols-4"
+    >
+      <ChannelItem
+        v-for="channel in channelList"
+        :key="channel.key"
+        :channel="channel"
+        :enabled-features="enabledFeatures"
+        @channelItemClick="initChannelAuth"
+      />
+    </div>
+  </div>
+</template>

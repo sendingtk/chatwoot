@@ -27,6 +27,7 @@ const settings = accountId => ({
     'settings_inboxes_add_agents',
     'settings_inboxes_page_channel',
     'settings_integrations_dashboard_apps',
+    'settings_integrations_captain',
     'settings_integrations_integration',
     'settings_integrations_slack',
     'settings_integrations_webhook',
@@ -173,11 +174,10 @@ const settings = accountId => ({
       meta: {
         permissions: ['administrator'],
       },
-      toState: frontendURL(`accounts/${accountId}/settings/audit-log/list`),
+      toState: frontendURL(`accounts/${accountId}/settings/audit-logs/list`),
       toStateName: 'auditlogs_list',
       isEnterpriseOnly: true,
       featureFlag: FEATURE_FLAGS.AUDIT_LOGS,
-      beta: true,
     },
     {
       icon: 'document-list-clock',

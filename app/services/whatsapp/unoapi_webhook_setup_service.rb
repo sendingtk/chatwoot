@@ -69,7 +69,7 @@ class Whatsapp::UnoapiWebhookSetupService
 
   def headers(whatsapp_channel)
     {
-      Authorization: ENV.fetch('UNOAPI_AUTH_TOKEN', whatsapp_channel.provider_config['api_key']),
+      Authorization: GlobalConfigService.load('UNOAPI_AUTH_TOKEN', whatsapp_channel.provider_config['api_key']),
       'Content-Type': 'application/json'
     }
   end

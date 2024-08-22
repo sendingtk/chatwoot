@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useStoreGetters } from 'dashboard/composables/store';
 import { useI18n } from 'dashboard/composables/useI18n';
 import { frontendURL } from 'dashboard/helper/URLHelper';
-import { useInstallationName } from 'shared/mixins/globalConfigMixin';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 
 const props = defineProps({
   id: {
@@ -24,6 +24,7 @@ const props = defineProps({
   },
 });
 
+const { useInstallationName } = useGlobalConfig();
 const getters = useStoreGetters();
 const accountId = getters.getCurrentAccountId;
 const globalConfig = getters['globalConfig/get'];
@@ -44,6 +45,7 @@ const actionURL = computed(() =>
   frontendURL(`accounts/${accountId.value}/settings/integrations/${props.id}`)
 );
 </script>
+
 <template>
   <div
     class="flex flex-col flex-1 p-6 bg-white border border-solid rounded-md dark:bg-slate-800 border-slate-50 dark:border-slate-700/50"

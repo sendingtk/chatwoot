@@ -1,11 +1,3 @@
-<template>
-  <channel-selector
-    :class="{ inactive: !isActive }"
-    :title="channel.name"
-    :src="getChannelThumbnail()"
-    @click="onItemClick"
-  />
-</template>
 <script>
 import ChannelSelector from '../ChannelSelector.vue';
 export default {
@@ -53,10 +45,6 @@ export default {
       if (key === 'api') {
         return this.enabledFeatures.channel_api;
       }
-      if (key === 'notifica_me') {
-        return this.enabledFeatures.channel_notifica_me;
-      }
-
 
       return [
         'website',
@@ -66,7 +54,6 @@ export default {
         'sms',
         'telegram',
         'line',
-        'notifica_me',
       ].includes(key);
     },
   },
@@ -79,9 +66,18 @@ export default {
     },
     onItemClick() {
       if (this.isActive) {
-        this.$emit('channel-item-click', this.channel.key);
+        this.$emit('channelItemClick', this.channel.key);
       }
     },
   },
 };
 </script>
+
+<template>
+  <ChannelSelector
+    :class="{ inactive: !isActive }"
+    :title="channel.name"
+    :src="getChannelThumbnail()"
+    @click="onItemClick"
+  />
+</template>

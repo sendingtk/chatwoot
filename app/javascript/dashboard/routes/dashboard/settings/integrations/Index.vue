@@ -4,11 +4,16 @@ import { computed, onMounted } from 'vue';
 import IntegrationItem from './IntegrationItem.vue';
 import SettingsLayout from '../SettingsLayout.vue';
 import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+import { useI18n } from 'dashboard/composables/useI18n';
 
+const { useInstallationName } = useGlobalConfig();
 const store = useStore();
 const getters = useStoreGetters();
 
 const uiFlags = getters['integrations/getUIFlags'];
+
+const { t } = useI18n();
 
 const integrationList = computed(
   () => getters['integrations/getAppIntegrations'].value
@@ -22,20 +27,20 @@ onMounted(() => {
 <template>
   <SettingsLayout
     :is-loading="uiFlags.isFetching"
-    :loading-message="$t('INTEGRATION_SETTINGS.LOADING')"
+    :loading-message="t('INTEGRATION_SETTINGS.LOADING')"
   >
     <template #header>
       <BaseSettingsHeader
-        :title="$t('INTEGRATION_SETTINGS.HEADER')"
-        :description="$t('INTEGRATION_SETTINGS.DESCRIPTION')"
-        :link-text="$t('INTEGRATION_SETTINGS.LEARN_MORE')"
+        :title="t('INTEGRATION_SETTINGS.HEADER')"
+        :description="t('INTEGRATION_SETTINGS.DESCRIPTION')"
+        :link-text="t('INTEGRATION_SETTINGS.LEARN_MORE')"
         feature-name="integrations"
       />
     </template>
     <template #body>
       <div class="flex-grow flex-shrink overflow-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          <integration-item
+          <IntegrationItem
             v-for="item in integrationList"
             :id="item.id"
             :key="item.id"
