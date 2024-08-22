@@ -212,7 +212,7 @@ RSpec.describe 'Conversation Messages API', type: :request do
                as: :json
 
         expect(response).to have_http_status(:success)
-        expect(message.reload.content).to eq 'This message was deleted'
+        expect(message.reload.content).to eq '⛔ This message was deleted'
         expect(message.reload.deleted).to be true
         expect(message.reload.content_attributes['bcc_emails']).to be_nil
       end
