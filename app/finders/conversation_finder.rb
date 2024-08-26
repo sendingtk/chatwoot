@@ -32,13 +32,14 @@ class ConversationFinder
   def initialize(current_user, params)
     @current_user = current_user
     @current_account = current_user.account
+    @admin = current_user.type == 'SuperAdmin'
     @params = params
   end
 
   def perform
     set_up
 
-    mine_count, unassigned_count, all_count, = set_count_for_all_conversations
+    mine_count, unassigned_count, all_count = set_count_for_all_conversations
     assigned_count = all_count - unassigned_count
 
     filter_by_assignee_type
@@ -88,7 +89,9 @@ class ConversationFinder
   def find_all_conversations
     @conversations = current_account.conversations.where(inbox_id: @inbox_ids)
     filter_by_conversation_type if params[:conversation_type]
-    @conversations
+
+    # Ensure only SuperAdmin sees all conversations
+    @conversations = @admin ? @conversations : @conversations.where(assignee: current_user)
   end
 
   def filter_by_assignee_type
@@ -100,7 +103,9 @@ class ConversationFinder
     when 'assigned'
       @conversations = @conversations.assigned
     end
-    @conversations
+
+    # Ensure only SuperAdmin sees all conversations
+    @conversations = @admin ? @conversations : @conversations.where(assignee: current_user)
   end
 
   def filter_by_conversation_type
@@ -113,7 +118,9 @@ class ConversationFinder
     when 'unattended'
       @conversations = @conversations.unattended
     end
-    @conversations
+
+    # Ensure only SuperAdmin sees all conversations
+    @conversations = @admin ? @conversations : @conversations.where(assignee: current_user)
   end
 
   def filter_by_query
@@ -124,6 +131,10 @@ class ConversationFinder
                                   .where(messages: { message_type: allowed_message_types }).includes(:messages)
                                   .where('messages.content ILIKE :search', search: "%#{params[:q]}%")
                                   .where(messages: { message_type: allowed_message_types })
+
+
+    # Ensure only SuperAdmin sees all conversations
+    @conversations = @admin ? @conversations : @conversations.where(assignee: current_user)
   end
 
   def filter_by_status
@@ -175,10 +186,13 @@ class ConversationFinder
     sort_by, sort_order = SORT_OPTIONS[params[:sort_by]] || SORT_OPTIONS['last_activity_at_desc']
     @conversations = @conversations.send(sort_by, sort_order)
 
+    # Ensure only SuperAdmin sees all conversations
+    @conversations = @admin ? @conversations : @conversations.where(assignee: current_user)
+
     if params[:updated_within].present?
-      @conversations.where('conversations.updated_at > ?', Time.zone.now - params[:updated_within].to_i.seconds)
+      @conversations = @conversations.where('conversations.updated_at > ?', Time.zone.now - params[:updated_within].to_i.seconds)
     else
-      @conversations.page(current_page).per(ENV.fetch('CONVERSATION_RESULTS_PER_PAGE', '25').to_i)
+      @conversations = @conversations.page(current_page).per(ENV.fetch('CONVERSATION_RESULTS_PER_PAGE', '25').to_i)
     end
   end
 end
