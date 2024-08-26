@@ -471,6 +471,7 @@ export default {
         <BubbleReplyTo
           v-if="inReplyToMessageId && inboxSupportsReplyTo.incoming"
           :message="inReplyToMessage"
+          :message-id="inReplyToMessageId"
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />
