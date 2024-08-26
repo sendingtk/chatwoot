@@ -12,6 +12,7 @@ class Api::V1::Accounts::Integrations::HooksController < Api::V1::Accounts::Base
 
   def process_event
     response = @hook.process_event(params[:event])
+
     # for cases like an invalid event, or when conversation does not have enough messages
     # for a label suggestion, the response is nil
     if response.nil?
