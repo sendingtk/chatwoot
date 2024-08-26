@@ -27,10 +27,21 @@ export default {
       ignoreHistoryMessages: true,
       webhookSendNewMessages: true,
       sendAgentName: true,
+      ignoreBroadcastStatuses: true,
+      ignoreBroadcastMessages: true,
+      ignoreOwnMessages: true,
+      ignoreYourselfMessages: true,
+      sendConnectionStatus: true,
+      notifyFailedMessages: true,
+      composingMessage: true,
+      sendReactionAsReply: true,
+      sendProfilePicture: true,       
       connect: false,
       disconect: false,
       qrcode: '',
       notice: '',
+      rejectCalls: '',
+      messageCallsWebhook: '',      
     };
   },
   computed: {
@@ -44,6 +55,17 @@ export default {
     webhookSendNewMessages: { required },
     sendAgentName: { required },
     url: { required },
+    ignoreBroadcastStatuses: { required },
+    ignoreBroadcastMessages: { required },
+    ignoreOwnMessages: { required },
+    ignoreYourselfMessages: { required },
+    sendConnectionStatus: { required },
+    notifyFailedMessages: { required },
+    composingMessage: { required },
+    sendReactionAsReply: { required },
+    sendProfilePicture: { required },
+    rejectCalls: { required },
+    messageCallsWebhook: { required },
   },
   watch: {
     inbox() {
@@ -65,6 +87,17 @@ export default {
       this.webhookSendNewMessages =
         this.inbox.provider_config.webhook_send_new_messages;
       this.sendAgentName = this.inbox.provider_config.send_agent_name;
+      this.ignoreBroadcastStatuses = this.inbox.provider_config.ignore_broadcast_statuses;
+      this.ignoreBroadcastMessages = this.inbox.provider_config.ignore_broadcast_messages;
+      this.ignoreOwnMessages = this.inbox.provider_config.ignore_own_messages;
+      this.ignoreYourselfMessages = this.inbox.provider_config.ignore_yourself_messages;
+      this.sendConnectionStatus = this.inbox.provider_config.send_connection_status;
+      this.notifyFailedMessages = this.inbox.provider_config.notify_failed_messages;
+      this.composingMessage = this.inbox.provider_config.composing_message;
+      this.sendReactionAsReply = this.inbox.provider_config.send_reaction_as_reply;
+      this.sendProfilePicture = this.inbox.provider_config.send_profile_picture;
+      this.rejectCalls = this.inbox.provider_config.reject_calls;
+      this.messageCallsWebhook = this.inbox.provider_config.message_calls_webhook;
       this.connect = false;
       this.disconect = false;
     },
@@ -107,6 +140,21 @@ export default {
       //   }
       // );
     },
+    generateToken() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let token = '';
+      for (let i = 0; i < 64; i++) {
+        token += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+
+      if (this.apiKey) {
+        if (confirm('A token already exists. Do you want to replace it?')) {
+          this.apiKey = token;
+        }
+      } else {
+        this.apiKey = token;
+      }
+    },
     async updateInbox() {
       try {
         const payload = {
@@ -121,6 +169,17 @@ export default {
               send_agent_name: this.sendAgentName,
               webhook_send_new_messages: this.webhookSendNewMessages,
               url: this.url,
+              ignore_broadcast_statuses: this.ignoreBroadcastStatuses,
+              ignore_broadcast_messages: this.ignoreBroadcastMessages,
+              ignore_own_messages: this.ignoreOwnMessages,
+              ignore_yourself_messages: this.ignoreYourselfMessages,
+              send_connection_status: this.sendConnectionStatus,
+              notify_failed_messages: this.notifyFailedMessages,
+              composing_message: this.composingMessage,
+              send_reaction_as_reply: this.sendReactionAsReply,
+              send_profile_picture: this.sendProfilePicture,
+              reject_calls: this.rejectCalls,
+              message_calls_webhook: this.messageCallsWebhook,              
               connect: this.connect,
               disconect: this.disconect,
             },

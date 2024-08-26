@@ -113,6 +113,15 @@ export default {
       :width="imageWidth"
       :height="imageHeight"
       @click="onClick"
+      @error="onImgErrorDelay"
+    />
+    <img
+      v-else-if="isImageErrorDelay && !isImageError"
+      class="bg-woot-200 dark:bg-woot-900"
+      :src="`${dataUrl}?t=${Date.now()}`"
+      :width="imageWidth"
+      :height="imageHeight"
+      @click="onClick"
       @error="onImgError"
     />
     <video
