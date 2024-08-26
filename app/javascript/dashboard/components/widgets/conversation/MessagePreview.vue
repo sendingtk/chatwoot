@@ -2,9 +2,21 @@
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
+import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
+import InstagramStory from './bubble/InstagramStory.vue';
+import BubbleLocation from './bubble/Location.vue';
+import BubbleContact from './bubble/Contact.vue';
+import BubbleFile from './bubble/File.vue';
 
 export default {
   name: 'MessagePreview',
+  components: {
+    BubbleImageAudioVideo,
+    InstagramStory,
+    BubbleLocation,
+    BubbleContact,
+    BubbleFile,
+  },
   mixins: [messageFormatterMixin],
   props: {
     message: {
@@ -20,7 +32,21 @@ export default {
       default: '',
     },
   },
+  data: () => {
+    return {
+      previewMessage: null,
+    };
+  },
   computed: {
+    contentAttributes() {
+      return this.message.content_attributes || {};
+    },
+    isAnInstagramStory() {
+      return this.contentAttributes.image_type === 'story_mention';
+    },
+    attachments() {
+      return this.message?.attachments || [];
+    },
     messageByAgent() {
       const { message_type: messageType } = this.message;
       return messageType === MESSAGE_TYPE.OUTGOING;
@@ -49,11 +75,26 @@ export default {
     attachmentIcon() {
       return ATTACHMENT_ICONS[this.lastMessageFileType];
     },
-    attachmentMessageContent() {
-      return `CHAT_LIST.ATTACHMENTS.${this.lastMessageFileType}.CONTENT`;
-    },
     isMessageSticker() {
       return this.message && this.message.content_type === 'sticker';
+    },
+  },
+  watch: {
+    data() {
+      this.hasMediaLoadError = false;
+    },
+  },
+  mounted() {
+    this.hasMediaLoadError = false;
+  },
+  methods: {
+    isAttachmentImageVideoAudio(fileType) {
+      return ['image', 'audio', 'video', 'story_mention', 'ig_reel'].includes(
+        fileType
+      );
+    },
+    onMediaLoadError() {
+      this.hasMediaLoadError = true;
     },
   },
 };
@@ -93,16 +134,31 @@ export default {
       {{ parsedLastMessage }}
     </span>
     <span v-else-if="message.attachments">
-      <fluent-icon
-        v-if="attachmentIcon && showMessageType"
-        size="16"
-        class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
-        :icon="attachmentIcon"
-      />
-      {{ $t(`${attachmentMessageContent}`) }}
-    </span>
-    <span v-else>
-      {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
+      <div v-for="attachment in attachments" :key="attachment.id">
+        <InstagramStory
+          v-if="isAnInstagramStory"
+          :story-url="attachment.thumb_url"
+          @error="onMediaLoadError"
+        />
+        <BubbleImageAudioVideo
+          v-else-if="isAttachmentImageVideoAudio(attachment.file_type)"
+          :attachment="attachment"
+          url_type="thumb_url"
+          @error="onMediaLoadError"
+        />
+        <BubbleLocation
+          v-else-if="attachment.file_type === 'location'"
+          :latitude="attachment.coordinates_lat"
+          :longitude="attachment.coordinates_long"
+          :name="attachment.fallback_title"
+        />
+        <BubbleContact
+          v-else-if="attachment.file_type === 'contact'"
+          :name="message.content"
+          :phone-number="attachment.fallback_title"
+        />
+        <BubbleFile v-else :url="attachment.thumb_url" />
+      </div>
     </span>
   </div>
 </template>
