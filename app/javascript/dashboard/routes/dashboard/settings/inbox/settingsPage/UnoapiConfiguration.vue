@@ -478,4 +478,61 @@ export default {
     margin-bottom: 0;
   }
 }
+
+.switch {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.switch-label {
+  display: flex;
+  align-items: center;
+}
+
+.flex-shrink div .messagingServiceHelptext{
+ width:343px;
+ max-width:343px;
+ margin-bottom:8px;
+}
+
+.flex-shrink div .w-1\/4{
+ min-width:700px;
+ height:77px;
+}
+
+#app .flex .w-full{
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Config helptext */
+#app .flex-grow-0 .overflow-hidden .justify-between .flex-shrink div .text-base .flex-col .config-helptext{
+ width:100% !important;
+}
+
+.flex-shrink div .config-helptext{
+ min-height:2px;
+ height:30px;
+}
+
+.flex-shrink .messagingServiceHelptext label{
+ width:204%;
+ transform:translatex(0px) translatey(0px);
+ position:relative;
+ top:6px;
+}
+
+.flex-shrink .config-helptext div{
+ margin-top:10px;
+}
+
+.flex-shrink div img{
+ transform:translatex(407px) translatey(-347px);
+ width:300px;
+ height:300px;
+}
+
+.flex-shrink div .message{
+ margin-top:-20px;
+ font-size:11px;
+}
 </style>
