@@ -26,6 +26,7 @@ export default {
       supportEmail: '',
       features: {},
       autoResolveDuration: null,
+      autoResolveUnit: 'hours', // Nueva propiedad para la unidad de tiempo
       latestChatwootVersion: null,
     };
   },
@@ -133,12 +134,16 @@ export default {
         return;
       }
       try {
+        let duration = this.autoResolveDuration;
+        if (this.autoResolveUnit === 'days') {
+          duration *= 24; // Convertir días a horas
+        }
         await this.$store.dispatch('accounts/update', {
           locale: this.locale,
           name: this.name,
           domain: this.domain,
           support_email: this.supportEmail,
-          auto_resolve_duration: this.autoResolveDuration,
+          auto_resolve_duration: duration,
         });
         this.$root.$i18n.locale = this.locale;
         this.getAccount(this.id).locale = this.locale;

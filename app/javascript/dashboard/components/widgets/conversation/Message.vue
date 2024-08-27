@@ -1,5 +1,5 @@
 <script>
-import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
+import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 import BubbleActions from './bubble/Actions.vue';
 import BubbleContact from './bubble/Contact.vue';
 import BubbleFile from './bubble/File.vue';
@@ -39,7 +39,6 @@ export default {
     InstagramStoryReply,
     Spinner,
   },
-  mixins: [messageFormatterMixin],
   props: {
     data: {
       type: Object,
@@ -74,12 +73,19 @@ export default {
       default: () => ({}),
     },
   },
+  setup() {
+    const { formatMessage } = useMessageFormatter();
+    return {
+      formatMessage,
+    };
+  },
   data() {
     return {
       showContextMenu: false,
       hasMediaLoadError: false,
       contextMenuPosition: {},
       showBackgroundHighlight: false,
+      inReplyToMessage: {},
     };
   },
   computed: {
@@ -344,10 +350,11 @@ export default {
       this.hasMediaLoadError = false;
     },
   },
-  mounted() {
+  async mounted() {
     this.hasMediaLoadError = false;
     this.$emitter.on(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL, this.closeContextMenu);
     this.setupHighlightTimer();
+    this.inReplyToMessage = await this.inReplyTo;
   },
   beforeDestroy() {
     this.$emitter.off(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL, this.closeContextMenu);
@@ -446,7 +453,7 @@ export default {
   >
     <div :class="wrapClass">
       <div
-        v-if="isFailed && !hasOneDayPassed && !isAnEmailInbox"
+        v-if="isFailed && !data.source_id && !hasOneDayPassed && !isAnEmailInbox"
         class="message-failed--alert"
       >
         <woot-button
@@ -468,7 +475,8 @@ export default {
         <InstagramStoryReply v-if="storyUrl" :story-url="storyUrl" />
         <BubbleReplyTo
           v-if="inReplyToMessageId && inboxSupportsReplyTo.incoming"
-          :message="inReplyTo"
+          :message="inReplyToMessage"
+          :message-id="inReplyToMessageId"
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />

@@ -245,6 +245,66 @@
           "PLACEHOLDER": "Check to ignore groups messages.",
           "ERROR": "Check to ignore groups messages."
         },
+        "GENERATE_API_KEY": {
+          "LABEL": "Generate API Key",
+          "PLACEHOLDER": "Generate API Key",
+          "ERROR": "Generate API Key"
+        },
+        "REJECT_CALLS": {
+          "LABEL": "Reject call",
+          "PLACEHOLDER": "Reject call.",
+          "ERROR": "Reject call."
+        },
+        "MESSAGE_CALLS_WEBHOOK": {
+          "LABEL": "Message on reject call",
+          "PLACEHOLDER": "Message on reject call.",
+          "ERROR": "Message on reject call."
+        },
+        "IGNORE_BROADCAST_STATUSES": {
+          "LABEL": "Ignore broadcast statuses",
+          "PLACEHOLDER": "Select to ignore broadcast statuses.",
+          "ERROR": "Select to ignore broadcast statuses."
+        },
+        "IGNORE_BROADCAST_MESSAGES": {
+          "LABEL": "Ignore broadcast messages",
+          "PLACEHOLDER": "Select to ignore broadcast messages.",
+          "ERROR": "Select to ignore broadcast messages."
+        },
+        "IGNORE_OWN_MESSAGES": {
+          "LABEL": "Ignore own messages",
+          "PLACEHOLDER": "Select to ignore own messages.",
+          "ERROR": "Select to ignore own messages."
+        },
+        "IGNORE_YOURSELF_MESSAGES": {
+          "LABEL": "Ignore your messages",
+          "PLACEHOLDER": "Select to ignore your messages.",
+          "ERROR": "Select to ignore your messages."
+        },
+        "SEND_CONNECTION_STATUS": {
+          "LABEL": "Show connection status",
+          "PLACEHOLDER": "Select to show connection status.",
+          "ERROR": "Select to show connection status."
+        },
+        "NOTIFY_FAILED_MESSAGES": {
+          "LABEL": "Notify failed messages",
+          "PLACEHOLDER": "Select to notify failed messages.",
+          "ERROR": "Select to notify failed messages."
+        },
+        "COMPOSING_MESSAGE": {
+          "LABEL": "Compose message",
+          "PLACEHOLDER": "Select to compose message.",
+          "ERROR": "Select to compose message."
+        },
+        "SEND_REACTION_AS_REPLY": {
+          "LABEL": "Show reaction as reply",
+          "PLACEHOLDER": "Select to show reaction as reply.",
+          "ERROR": "Select to show reaction as reply."
+        },
+        "SEND_PROFILE_PICTURE": {
+          "LABEL": "Show profile picture",
+          "PLACEHOLDER": "Select to show profile picture.",
+          "ERROR": "Select to show profile picture."
+        },        
         "URL": {
           "LABEL": "Unoapi URL",
           "PLACEHOLDER": "Please enter an Unoapi URL",
@@ -465,6 +525,10 @@
         "ENABLED": "Enabled",
         "DISABLED": "Disabled"
       },
+      "CSAT_VISIBLE": {
+        "ENABLED": "Enabled",
+        "DISABLED": "Disabled"
+      },
       "SENDER_NAME_SECTION": {
         "TITLE": "Sender name",
         "SUB_TEXT": "Select the name shown to your customer when they receive emails from your agents.",
@@ -580,6 +644,8 @@
       "WHATSAPP_DISCONNECT": "Disconnect",
       "WHATSAPP_WEBHOOK_SUBHEADER": "This token is used to verify the authenticity of the webhook endpoint.",
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings",
+      "CSAT_VISIBLE": "CSAT Response Visibility",
+      "CSAT_VISIBLE_SUB_TEXT": "Allow Agents to see the CSAT survey responses",
       "AGENT_PERMISSIONS": "Agent Permissions",
       "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
       "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",

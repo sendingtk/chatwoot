@@ -175,6 +175,11 @@
   display_title: 'Dashboard Scripts'
   description: 'Scripts are loaded as the last item in the <body> tag'
   type: code
+- name: BLOCKED_EMAIL_DOMAINS
+  value:
+  display_title: 'Blocked Email Domains'
+  description: 'Add a domain per line to block them from signing up, accepts Regex'
+  type: code
 # ------- End of Chatwoot Internal Config for Cloud ----#
 
 # ------- Chatwoot Internal Config for Self Hosted ----#
@@ -226,7 +231,7 @@
 ## ------ End of Configs added for FCM v1 notifications ------ ##
 
 ## ------ Configs custom ------ ##
-- name: CONVESATION_STYLE_CSS
+- name: CONVERSATION_STYLE_CSS
   display_title: 'Conversation Style CSS'
   value:
   description: 'Customize conversation, put your valid css'

@@ -3,7 +3,7 @@ import WidgetHead from './WidgetHead.vue';
 import WidgetBody from './WidgetBody.vue';
 import WidgetFooter from './WidgetFooter.vue';
 import InputRadioGroup from 'dashboard/routes/dashboard/settings/inbox/components/InputRadioGroup.vue';
-import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -14,6 +14,7 @@ export default {
     WidgetFooter,
     InputRadioGroup,
   },
+  mixins: [globalConfigMixin],
   props: {
     welcomeHeading: {
       type: String,
@@ -55,12 +56,6 @@ export default {
       type: String,
       default: '',
     },
-  },
-  setup() {
-    const { useInstallationName } = useGlobalConfig();
-    return {
-      useInstallationName,
-    };
   },
   data() {
     return {

@@ -1,19 +1,14 @@
 <script>
 /* eslint no-console: 0 */
-import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 
 export default {
+  mixins: [globalConfigMixin],
   props: {
     items: {
       type: Array,
       default: () => [],
     },
-  },
-  setup() {
-    const { useInstallationName } = useGlobalConfig();
-    return {
-      useInstallationName,
-    };
   },
   computed: {
     classObject() {
