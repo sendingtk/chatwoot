@@ -1,5 +1,5 @@
 <script>
-import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
+import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 import BubbleActions from './bubble/Actions.vue';
 import BubbleContact from './bubble/Contact.vue';
 import BubbleFile from './bubble/File.vue';
@@ -39,7 +39,6 @@ export default {
     InstagramStoryReply,
     Spinner,
   },
-  mixins: [messageFormatterMixin],
   props: {
     data: {
       type: Object,
@@ -70,9 +69,15 @@ export default {
       default: () => ({}),
     },
     inReplyTo: {
-      type: Promise,
-      default: Promise.resolve({}),
+      type: Object,
+      default: () => ({}),
     },
+  },
+  setup() {
+    const { formatMessage } = useMessageFormatter();
+    return {
+      formatMessage,
+    };
   },
   data() {
     return {

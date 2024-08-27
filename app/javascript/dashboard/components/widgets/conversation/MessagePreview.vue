@@ -1,6 +1,6 @@
 <script>
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
-import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
+import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
 import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
 import InstagramStory from './bubble/InstagramStory.vue';
@@ -17,7 +17,6 @@ export default {
     BubbleContact,
     BubbleFile,
   },
-  mixins: [messageFormatterMixin],
   props: {
     message: {
       type: Object,
@@ -31,6 +30,12 @@ export default {
       type: String,
       default: '',
     },
+  },
+  setup() {
+    const { getPlainText } = useMessageFormatter();
+    return {
+      getPlainText,
+    };
   },
   data: () => {
     return {
