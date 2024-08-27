@@ -20,7 +20,6 @@ export default {
     MenuItem,
     ForwardModal,
   },
-  mixins: [messageFormatterMixin],
   props: {
     message: {
       type: Object,
