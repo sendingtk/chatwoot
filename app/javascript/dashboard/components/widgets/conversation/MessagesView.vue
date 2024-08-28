@@ -1,8 +1,10 @@
 <script>
 import { ref } from 'vue';
+import MessageApi from '../../../api/inbox/message';
 // composable
 import { useConfig } from 'dashboard/composables/useConfig';
 import { useKeyboardEvents } from 'dashboard/composables/useKeyboardEvents';
+import { useAI } from 'dashboard/composables/useAI';
 
 // components
 import ReplyBox from './ReplyBox.vue';
@@ -15,7 +17,6 @@ import { mapGetters } from 'vuex';
 
 // mixins
 import inboxMixin, { INBOX_FEATURES } from 'shared/mixins/inboxMixin';
-import aiMixin from 'dashboard/mixins/aiMixin';
 
 // utils
 import { getTypingUsersText } from '../../../helper/commons';
@@ -40,7 +41,7 @@ export default {
     Banner,
     ConversationLabelSuggestion,
   },
-  mixins: [inboxMixin, aiMixin],
+  mixins: [inboxMixin],
   props: {
     isContactPanelOpen: {
       type: Boolean,
@@ -52,7 +53,6 @@ export default {
     },
   },
   setup() {
-    const conversationFooterRef = ref(null);
     const isPopOutReplyBox = ref(false);
     const { isEnterprise } = useConfig();
 
@@ -70,14 +70,24 @@ export default {
       },
     };
 
-    useKeyboardEvents(keyboardEvents, conversationFooterRef);
+    useKeyboardEvents(keyboardEvents);
+
+    const {
+      isAIIntegrationEnabled,
+      isLabelSuggestionFeatureEnabled,
+      fetchIntegrationsIfRequired,
+      fetchLabelSuggestions,
+    } = useAI();
 
     return {
       isEnterprise,
-      conversationFooterRef,
       isPopOutReplyBox,
       closePopOutReplyBox,
       showPopOutReplyBox,
+      isAIIntegrationEnabled,
+      isLabelSuggestionFeatureEnabled,
+      fetchIntegrationsIfRequired,
+      fetchLabelSuggestions,
     };
   },
   data() {
@@ -97,6 +107,7 @@ export default {
       currentChat: 'getSelectedChat',
       listLoadingStatus: 'getAllMessagesLoaded',
       currentAccountId: 'getCurrentAccountId',
+      globalConfig: 'globalConfig/get',
     }),
     isOpen() {
       return this.currentChat?.status === wootConstants.STATUS_TYPE.OPEN;
@@ -432,17 +443,29 @@ export default {
       this.$store.dispatch('markMessagesRead', { id: this.currentChat.id });
     },
 
-    getInReplyToMessage(parentMessage) {
+    async getInReplyToMessage(parentMessage) {
       if (!parentMessage) return {};
       const inReplyToMessageId = parentMessage.content_attributes?.in_reply_to;
       if (!inReplyToMessageId) return {};
 
-      return this.currentChat?.messages.find(message => {
+      let replyToMessage = this.currentChat?.messages.find(message => {
         if (message.id === inReplyToMessageId) {
           return true;
         }
         return false;
       });
+      if (!replyToMessage) {
+        const params = {
+          conversationId: this.currentChat.id,
+          after: inReplyToMessageId - 1,
+          before: inReplyToMessageId + 1,
+        };
+        const {
+          data: { payload },
+        } = await MessageApi.getPreviousMessages(params);
+        replyToMessage = payload[0];
+      }
+      return replyToMessage;
     },
   },
 };
@@ -470,7 +493,7 @@ export default {
         @click="onToggleContactPanel"
       />
     </div>
-    <ul class="conversation-panel">
+    <ul class="conversation-panel" :style="globalConfig.conversationStyleCss">
       <transition name="slide-up">
         <li class="min-h-[4rem]">
           <span v-if="shouldShowSpinner" class="spinner message" />
@@ -523,7 +546,6 @@ export default {
       />
     </ul>
     <div
-      ref="conversationFooterRef"
       class="conversation-footer"
       :class="{ 'modal-mask': isPopOutReplyBox }"
     >

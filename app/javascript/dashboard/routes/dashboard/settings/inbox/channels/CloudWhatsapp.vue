@@ -17,6 +17,7 @@ export default {
       apiKey: '',
       phoneNumberId: '',
       businessAccountId: '',
+      advanced: false,
     };
   },
   computed: {
@@ -63,7 +64,9 @@ export default {
         });
       } catch (error) {
         useAlert(
-          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE')
+          error.message || this.$t('INBOX_MGMT.ADD.WHATSAPP.API.ERROR_MESSAGE') +
+            '\n detail:' +
+            error
         );
       }
     },

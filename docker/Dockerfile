@@ -68,6 +68,10 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
 # Generate .git_sha file with current commit hash
 RUN git rev-parse HEAD > /app/.git_sha
 
+# Remove build dependencies
+RUN apk del --no-cache build-base musl ruby-dev gcc musl-dev openssl-dev g++ linux-headers xz \
+  && rm -rf /var/cache/apk/*
+
 # Remove unnecessary files
 RUN rm -rf /gems/ruby/3.3.0/cache/*.gem \
   && find /gems/ruby/3.3.0/gems/ \( -name "*.c" -o -name "*.o" \) -delete \
