@@ -46,9 +46,12 @@ class ConversationFinder
     puts "Assignee Type: #{@assignee_type}" # Log para verificar el valor de @assignee_type
   
     filter_by_assignee_type
+
+    # Asegúrate de que todos los usuarios puedan ver las conversaciones no asignadas
+    @conversations = @conversations.or(Conversation.unassigned)
   
     {
-      conversations: conversations,
+      conversations: @conversations,
       count: {
         mine_count: mine_count,
         assigned_count: assigned_count,
@@ -98,7 +101,7 @@ class ConversationFinder
   def filter_by_assignee_type
     case @assignee_type
     when 'me'
-      @conversations = @conversations.assigned_to(current_user)
+      @conversations = @conversations.where(assignee_id: Current.user.id)
     when 'unassigned'
       @conversations = @conversations.unassigned
     when 'assigned'
