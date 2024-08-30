@@ -30,6 +30,10 @@ export default {
       type: String,
       default: '',
     },
+    short: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup() {
     const { getPlainText } = useMessageFormatter();
@@ -79,6 +83,9 @@ export default {
     },
     attachmentIcon() {
       return ATTACHMENT_ICONS[this.lastMessageFileType];
+    },
+    attachmentMessageContent() {
+      return `CHAT_LIST.ATTACHMENTS.${this.lastMessageFileType}.CONTENT`;
     },
     isMessageSticker() {
       return this.message && this.message.content_type === 'sticker';
@@ -139,31 +146,45 @@ export default {
       {{ parsedLastMessage }}
     </span>
     <span v-else-if="message.attachments">
-      <div v-for="attachment in attachments" :key="attachment.id">
-        <InstagramStory
-          v-if="isAnInstagramStory"
-          :story-url="attachment.thumb_url"
-          @error="onMediaLoadError"
+      <div v-if="short">
+        <fluent-icon
+          v-if="attachmentIcon && showMessageType"
+          size="16"
+          class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
+          :icon="attachmentIcon"
         />
-        <BubbleImageAudioVideo
-          v-else-if="isAttachmentImageVideoAudio(attachment.file_type)"
-          :attachment="attachment"
-          url_type="thumb_url"
-          @error="onMediaLoadError"
-        />
-        <BubbleLocation
-          v-else-if="attachment.file_type === 'location'"
-          :latitude="attachment.coordinates_lat"
-          :longitude="attachment.coordinates_long"
-          :name="attachment.fallback_title"
-        />
-        <BubbleContact
-          v-else-if="attachment.file_type === 'contact'"
-          :name="message.content"
-          :phone-number="attachment.fallback_title"
-        />
-        <BubbleFile v-else :url="attachment.thumb_url" />
+        {{ $t(`${attachmentMessageContent}`) }}
       </div>
+      <div v-else>
+        <div v-for="attachment in attachments" :key="attachment.id">
+          <InstagramStory
+            v-if="isAnInstagramStory"
+            :story-url="attachment.thumb_url"
+            @error="onMediaLoadError"
+          />
+          <BubbleImageAudioVideo
+            v-else-if="isAttachmentImageVideoAudio(attachment.file_type)"
+            :attachment="attachment"
+            url_type="thumb_url"
+            @error="onMediaLoadError"
+          />
+          <BubbleLocation
+            v-else-if="attachment.file_type === 'location'"
+            :latitude="attachment.coordinates_lat"
+            :longitude="attachment.coordinates_long"
+            :name="attachment.fallback_title"
+          />
+          <BubbleContact
+            v-else-if="attachment.file_type === 'contact'"
+            :name="message.content"
+            :phone-number="attachment.fallback_title"
+          />
+          <BubbleFile v-else :url="attachment.thumb_url" />
+        </div>
+      </div>
+    </span>
+    <span v-else>
+      {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
     </span>
   </div>
 </template>

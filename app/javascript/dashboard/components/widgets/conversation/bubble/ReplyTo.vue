@@ -61,6 +61,7 @@ export default {
       :message="message"
       :show-message-type="false"
       :default-empty-message="$t('CONVERSATION.REPLY_MESSAGE_NOT_FOUND')"
+      short="false"
     />
   </div>
 </template>
