@@ -33,7 +33,7 @@ class DashboardController < ActionController::Base
       'DISABLE_USER_PROFILE_UPDATE',
       'DEPLOYMENT_ENV',
       'CSML_EDITOR_HOST',
-      'CONVESATION_STYLE_CSS'
+      'CONVERSATION_STYLE_CSS'
     ).merge(app_config)
   end
 

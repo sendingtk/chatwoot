@@ -32,6 +32,14 @@ export default {
           },
         },
         {
+          path: 'webhook',
+          component: Webhook,
+          name: 'settings_integrations_webhook',
+          meta: {
+            permissions: ['administrator'],
+          },
+        },
+        {
           path: 'captain',
           component: Captain,
           name: 'settings_integrations_captain',
@@ -58,14 +66,6 @@ export default {
         };
       },
       children: [
-        {
-          path: 'webhook',
-          component: Webhook,
-          name: 'settings_integrations_webhook',
-          meta: {
-            permissions: ['administrator'],
-          },
-        },
         {
           path: 'slack',
           name: 'settings_integrations_slack',
