@@ -1,9 +1,10 @@
 <script>
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { getContrastingTextColor } from '@chatwoot/utils';
 
 export default {
   name: 'UserMessageBubble',
+  mixins: [messageFormatterMixin],
   props: {
     message: {
       type: String,
@@ -13,12 +14,6 @@ export default {
       type: String,
       default: '',
     },
-  },
-  setup() {
-    const { formatMessage } = useMessageFormatter();
-    return {
-      formatMessage,
-    };
   },
   computed: {
     textColor() {

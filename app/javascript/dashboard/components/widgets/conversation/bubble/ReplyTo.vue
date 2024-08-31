@@ -30,9 +30,7 @@ export default {
       this.$emitter.emit(BUS_EVENTS.SCROLL_TO_MESSAGE, {
         messageId: this.message.id,
       });
-      const targetMessage = document.getElementById(
-        `message${this.message.id}`
-      );
+      const targetMessage = document.getElementById(`message${this.message.id}`);
       if (targetMessage) {
         targetMessage.classList.add('has-bg');
         const HIGHLIGHT_TIMER = 2000;
@@ -47,12 +45,12 @@ export default {
 
 <template>
   <div
-    class="px-8 py-1.5 rounded-sm min-w-[10rem] mb-2"
+    class="px-2 py-1.5 rounded-sm min-w-[10rem] mb-2"
     :class="{
       'bg-slate-50 dark:bg-slate-600 dark:text-slate-50':
         messageType === MESSAGE_TYPE.INCOMING,
       'bg-woot-600 text-woot-50': messageType === MESSAGE_TYPE.OUTGOING,
-      'w-56': !parentHasAttachments,
+      '-mx-2': !parentHasAttachments,
     }"
     @click="scrollToMessage"
   >
@@ -61,7 +59,6 @@ export default {
       :message="message"
       :show-message-type="false"
       :default-empty-message="$t('CONVERSATION.REPLY_MESSAGE_NOT_FOUND')"
-      :short="false"
     />
   </div>
 </template>

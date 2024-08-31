@@ -1,12 +1,15 @@
 <script>
 import Thumbnail from 'dashboard/components/widgets/Thumbnail.vue';
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { dynamicTime } from 'shared/helpers/timeHelper';
 
 export default {
   components: {
     Thumbnail,
   },
+
+  mixins: [messageFormatterMixin],
+
   props: {
     id: {
       type: Number,
@@ -24,12 +27,6 @@ export default {
       type: Number,
       default: 0,
     },
-  },
-  setup() {
-    const { formatMessage } = useMessageFormatter();
-    return {
-      formatMessage,
-    };
   },
   data() {
     return {

@@ -24,17 +24,6 @@ class Whatsapp::UnoapiWebhookSetupService
     phone_number = whatsapp_channel.provider_config['business_account_id']
     Rails.logger.debug { "Connecting #{phone_number} from unoapi" }
     body = {
-      ignoreGroupMessages: whatsapp_channel.provider_config['ignore_group_messages'],
-      ignoreBroadcastStatuses: whatsapp_channel.provider_config['ignore_broadcast_statuses'],
-      ignoreBroadcastMessages: whatsapp_channel.provider_config['ignore_broadcast_messages'],
-      ignoreHistoryMessages: whatsapp_channel.provider_config['ignore_history_messages'],
-      ignoreOwnMessages: whatsapp_channel.provider_config['ignore_own_messages'],
-      ignoreYourselfMessages: whatsapp_channel.provider_config['ignore_yourself_messages'],
-      sendConnectionStatus: whatsapp_channel.provider_config['send_connection_status'],
-      notifyFailedMessages: whatsapp_channel.provider_config['notify_failed_messages'],
-      composingMessage: whatsapp_channel.provider_config['composing_message'],
-      rejectCalls: whatsapp_channel.provider_config['reject_calls'],
-      messageCallsWebhook: whatsapp_channel.provider_config['message_calls_webhook'],
       webhooks: [
         sendNewMessages: whatsapp_channel.provider_config['webhook_send_new_messages'],
         id: 'default',
@@ -42,8 +31,8 @@ class Whatsapp::UnoapiWebhookSetupService
         token: whatsapp_channel.provider_config['webhook_verify_token'],
         header: :Authorization
       ],
-      sendReactionAsReply: whatsapp_channel.provider_config['send_reaction_as_reply'],
-      sendProfilePicture: whatsapp_channel.provider_config['send_profile_picture'],      
+      ignoreGroupMessages: whatsapp_channel.provider_config['ignore_group_messages'],
+      ignoreHistoryMessages: whatsapp_channel.provider_config['ignore_history_messages'],
       authToken: whatsapp_channel.provider_config['api_key']
     }
     response = HTTParty.post("#{url(whatsapp_channel)}/register", headers: headers(whatsapp_channel), body: body.to_json)

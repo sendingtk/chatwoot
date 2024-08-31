@@ -2,6 +2,7 @@
 import { mapGetters } from 'vuex';
 import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 import Integration from './Integration.vue';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import SelectChannelWarning from './Slack/SelectChannelWarning.vue';
 import SlackIntegrationHelpText from './Slack/SlackIntegrationHelpText.vue';
 import Spinner from 'shared/components/Spinner.vue';
@@ -12,7 +13,7 @@ export default {
     SelectChannelWarning,
     SlackIntegrationHelpText,
   },
-  mixins: [globalConfigMixin],
+  mixins: [globalConfigMixin, messageFormatterMixin],
   props: {
     code: { type: String, default: '' },
   },

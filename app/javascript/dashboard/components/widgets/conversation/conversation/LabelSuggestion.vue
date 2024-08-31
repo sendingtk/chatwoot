@@ -172,7 +172,7 @@ export default {
               delay: { show: 600, hide: 0 },
               hideOnClick: true,
             }"
-            class="label-suggestion--option !px-0"
+            class="label-suggestion--option"
             @click="pushOrAddLabel(label.title)"
           >
             <woot-label

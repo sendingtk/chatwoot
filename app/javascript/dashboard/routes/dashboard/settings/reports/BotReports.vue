@@ -3,6 +3,7 @@ import { useAlert } from 'dashboard/composables';
 import BotMetrics from './components/BotMetrics.vue';
 import ReportFilterSelector from './components/FilterSelector.vue';
 import { GROUP_BY_FILTER } from './constants';
+import reportMixin from 'dashboard/mixins/reportMixin';
 import ReportContainer from './ReportContainer.vue';
 import { REPORTS_EVENTS } from '../../../../helper/AnalyticsHelper/events';
 
@@ -13,6 +14,7 @@ export default {
     ReportFilterSelector,
     ReportContainer,
   },
+  mixins: [reportMixin],
   data() {
     return {
       from: 0,

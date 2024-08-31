@@ -1,7 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
-import { useCampaign } from 'shared/composables/useCampaign';
+import campaignMixin from 'shared/mixins/campaignMixin';
 import CampaignsTable from './CampaignsTable.vue';
 import EditCampaign from './EditCampaign.vue';
 export default {
@@ -9,15 +9,12 @@ export default {
     CampaignsTable,
     EditCampaign,
   },
+  mixins: [campaignMixin],
   props: {
     type: {
       type: String,
       default: '',
     },
-  },
-  setup() {
-    const { campaignType } = useCampaign();
-    return { campaignType };
   },
   data() {
     return {

@@ -1,12 +1,13 @@
 <script>
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 import { useAI } from 'dashboard/composables/useAI';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import AILoader from './AILoader.vue';
 
 export default {
   components: {
     AILoader,
   },
+  mixins: [messageFormatterMixin],
   props: {
     aiOption: {
       type: String,
@@ -14,9 +15,12 @@ export default {
     },
   },
   setup() {
-    const { formatMessage } = useMessageFormatter();
     const { draftMessage, processEvent, recordAnalytics } = useAI();
-    return { draftMessage, processEvent, recordAnalytics, formatMessage };
+    return {
+      draftMessage,
+      processEvent,
+      recordAnalytics,
+    };
   },
   data() {
     return {

@@ -14,7 +14,6 @@ export default {
     const { updateUISettings } = useUISettings();
     const { enabledLanguages } = useConfig();
     const v$ = useVuelidate();
-
     return { updateUISettings, v$, enabledLanguages };
   },
   data() {
@@ -60,7 +59,6 @@ export default {
       if (!semver.valid(this.latestChatwootVersion)) {
         return false;
       }
-
       return semver.lt(
         this.globalConfig.appVersion,
         this.latestChatwootVersion
@@ -75,23 +73,19 @@ export default {
     isUpdating() {
       return this.uiFlags.isUpdating;
     },
-
     featureInboundEmailEnabled() {
       return !!this.features?.inbound_emails;
     },
-
     featureCustomReplyDomainEnabled() {
       return (
         this.featureInboundEmailEnabled && !!this.features.custom_reply_domain
       );
     },
-
     featureCustomReplyEmailEnabled() {
       return (
         this.featureInboundEmailEnabled && !!this.features.custom_reply_email
       );
     },
-
     getAccountId() {
       return this.id.toString();
     },
@@ -112,7 +106,6 @@ export default {
           auto_resolve_duration,
           latest_chatwoot_version: latestChatwootVersion,
         } = this.getAccount(this.accountId);
-
         this.$root.$i18n.locale = locale;
         this.name = name;
         this.locale = locale;
@@ -126,7 +119,6 @@ export default {
         // Ignore error
       }
     },
-
     async updateAccount() {
       this.v$.$touch();
       if (this.v$.$invalid) {
@@ -153,7 +145,6 @@ export default {
         useAlert(this.$t('GENERAL_SETTINGS.UPDATE.ERROR'));
       }
     },
-
     updateDirectionView(locale) {
       const isRTLSupported = getLanguageDirection(locale);
       this.updateUISettings({
@@ -251,7 +242,6 @@ export default {
           </label>
         </div>
       </div>
-
       <div
         class="flex flex-row p-4 border-slate-25 dark:border-slate-700 text-black-900 dark:text-slate-300"
       >
@@ -282,14 +272,12 @@ export default {
           <div>{{ `Build ${globalConfig.gitSha}` }}</div>
         </div>
       </div>
-
       <woot-submit-button
         class="button nice success button--fixed-top"
         :button-text="$t('GENERAL_SETTINGS.SUBMIT')"
         :loading="isUpdating"
       />
     </form>
-
     <woot-loading-state v-if="uiFlags.isFetchingItem" />
   </div>
 </template>
