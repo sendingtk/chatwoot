@@ -319,7 +319,7 @@
       "HEADERS": {
         "TITLE": "Título",
         "CATEGORY": "Categoria",
-        "READ_COUNT": "Contagem de leituras",
+        "READ_COUNT": "Visualizações",
         "STATUS": "SItuação",
         "LAST_EDITED": "Última edição"
       },
@@ -481,6 +481,7 @@
           "DESCRIPTION": "Use o portal como um CMS sem interface gráfica com frameworks front-end de terceiros usando nossas APIs."
         }
       }
-    }
+    },
+    "LOADING": "Loading..."
   }
 }

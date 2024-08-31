@@ -69,7 +69,7 @@
         "FRT": "FRT {status}",
         "NRT": "NRT {status}",
         "RT": "RT {status}",
-        "MISSED": "perdido",
+        "MISSED": "perdidos(as)",
         "DUE": "devido"
       }
     },
@@ -142,7 +142,8 @@
       "MSG_INPUT": "Shift + enter para nova linha. Digite '/' para atalhos.",
       "PRIVATE_MSG_INPUT": "A mensagem será visível apenas para agentes",
       "MESSAGE_SIGNATURE_NOT_CONFIGURED": "A assinatura da mensagem não está configurada. Por favor, configure-a nas configurações do perfil.",
-      "CLICK_HERE": "Clique aqui para atualizar"
+      "CLICK_HERE": "Clique aqui para atualizar",
+      "WHATSAPP_TEMPLATES": "Templates do Whatsapp"
     },
     "REPLYBOX": {
       "REPLY": "Responder",
@@ -280,7 +281,7 @@
   },
   "CONVERSATION_CUSTOM_ATTRIBUTES": {
     "ADD_BUTTON_TEXT": "Criar atributo",
-    "NO_RECORDS_FOUND": "No attributes found",
+    "NO_RECORDS_FOUND": "Nenhum atributo encontrado",
     "UPDATE": {
       "SUCCESS": "Atributo atualizado com sucesso",
       "ERROR": "Não foi possível atualizar o atributo. Por favor, tente mais tarde"
@@ -328,7 +329,7 @@
     "TITLE": "Ver conteúdo traduzido",
     "DESC": "Você pode visualizar o conteúdo traduzido em cada idioma.",
     "ORIGINAL_CONTENT": "Conteúdo original",
-    "TRANSLATED_CONTENT": "Conteúdo Traduzido",
+    "TRANSLATED_CONTENT": "Conteúdo traduzido",
     "NO_TRANSLATIONS_AVAILABLE": "Nenhuma tradução está disponível para este conteúdo"
   }
 }

@@ -220,35 +220,95 @@
           "360_DIALOG": "360Dialog",
           "UNOAPI": "Unoapi"
         },
-        "INBOX_NAME": {
-          "LABEL": "Inbox Name",
-          "PLACEHOLDER": "Please enter an inbox name",
-          "ERROR": "This field is required"
-        },
         "SEND_AGENT_NAME": {
-          "LABEL": "Send agent name",
-          "PLACEHOLDER": "Check to send agent name.",
-          "ERROR": "Check to send agent name."
+          "LABEL": "Enviar nome do agent",
+          "PLACEHOLDER": "Selecione para enviar o nome do agent.",
+          "ERROR": "Selecione para enviar o nome do agent."
         },
         "IGNORE_HISTORY": {
-          "LABEL": "Ignore history on connect",
-          "PLACEHOLDER": "Check to ignore history on connect.",
-          "ERROR": "Check to ignore history on connect."
+          "LABEL": "Ignorar histórico ao connectar",
+          "PLACEHOLDER": "Selecione para ignorar histórico ao conectar.",
+          "ERROR": "Selecione para ignorar histórico ao conectar."
         },
         "WEBWOOK_SEND_NEW_MESSAGES": {
-          "LABEL": "Webhook send new messages",
-          "PLACEHOLDER": "Check to ignore history on connect.",
-          "ERROR": "Check to webhook send new messages."
+          "LABEL": "Enviar mensagens para o webhook",
+          "PLACEHOLDER": "Selecione para enviar mensagens para o webhook.",
+          "ERROR": "Selecione para enviar mensagens para o webhook."
         },
         "IGNORE_GROUPS": {
-          "LABEL": "Ignore groups messages",
-          "PLACEHOLDER": "Check to ignore groups messages.",
-          "ERROR": "Check to ignore groups messages."
+          "LABEL": "Ignorar mensagens de grupos",
+          "PLACEHOLDER": "Selecione para ignorar mensagens de grupos.",
+          "ERROR": "Selecione para ignorar mensagens de grupos."
+        },
+        "INBOX_NAME": {
+          "LABEL": "Nome Caixa de Entrada",
+          "PLACEHOLDER": "Por favor, insira um nome para a caixa de entrada",
+          "ERROR": "Este campo é obrigatório"
+        },
+        "GENERATE_API_KEY": {
+          "LABEL": "Generate API Key",
+          "PLACEHOLDER": "Generate API Key",
+          "ERROR": "Generate API Key"
+        },
+        "REJECT_CALLS": {
+          "LABEL": "Rejeitar chamada",
+          "PLACEHOLDER": "Rejeitar chamada.",
+          "ERROR": "Rejeitar chamada."
+        },
+        "MESSAGE_CALLS_WEBHOOK": {
+          "LABEL": "Mensagem ao rejeitar chamada",
+          "PLACEHOLDER": "Mensagem ao rejeitar chamada.",
+          "ERROR": "Mensagem ao rejeitar chamada."
+        },
+        "IGNORE_BROADCAST_STATUSES": {
+          "LABEL": "Ignorar transmissão de status",
+          "PLACEHOLDER": "Selecione para ignorar transmissão de status.",
+          "ERROR": "Selecione para ignorar transmissão de status."
+        },
+        "IGNORE_BROADCAST_MESSAGES": {
+          "LABEL": "Ignorar mensagens de transmissão",
+          "PLACEHOLDER": "Selecione para ignorar mensagens de transmissão.",
+          "ERROR": "Selecione para ignorar mensagens de transmissão."
+        },
+        "IGNORE_OWN_MESSAGES": {
+          "LABEL": "Ignorar próprias mensagens",
+          "PLACEHOLDER": "Selecione para ignorar próprias mensagens.",
+          "ERROR": "Selecione para ignorar próprias mensagens."
+        },
+        "IGNORE_YOURSELF_MESSAGES": {
+          "LABEL": "Ignorar suas mensagens",
+          "PLACEHOLDER": "Selecione para ignorar suas mensagens.",
+          "ERROR": "Selecione para ignorar suas mensagens."
+        },
+        "SEND_CONNECTION_STATUS": {
+          "LABEL": "Exibir status de conexão",
+          "PLACEHOLDER": "Selecione para exibir status de conexão.",
+          "ERROR": "Selecione para exibir status de conexão."
+        },
+        "NOTIFY_FAILED_MESSAGES": {
+          "LABEL": "Notificar mensagens com falha",
+          "PLACEHOLDER": "Selecione para notificar mensagens com falha.",
+          "ERROR": "Selecione para notificar mensagens com falha."
+        },
+        "COMPOSING_MESSAGE": {
+          "LABEL": "Compor mensagem",
+          "PLACEHOLDER": "Selecione para compor mensagem.",
+          "ERROR": "Selecione para compor mensagem."
+        },
+        "SEND_REACTION_AS_REPLY": {
+          "LABEL": "Mostrar reação como resposta",
+          "PLACEHOLDER": "Selecione para mostrar reação como resposta.",
+          "ERROR": "Selecione para mostrar reação como resposta."
+        },
+        "SEND_PROFILE_PICTURE": {
+          "LABEL": "Exibir foto de perfil",
+          "PLACEHOLDER": "Selecione para exibir foto de perfil.",
+          "ERROR": "Selecione para exibir foto de perfil."
         },
         "URL": {
           "LABEL": "Unoapi URL",
-          "PLACEHOLDER": "Please enter an Unoapi URL",
-          "ERROR": "This field is required"
+          "PLACEHOLDER": "Insira um URL Unoapi",
+          "ERROR": "Este campo é obrigatório"
         },
         "PHONE_NUMBER": {
           "LABEL": "Número de telefone",
@@ -296,32 +356,9 @@
           "ERROR": "Este campo é obrigatório"
         },
         "WEBHOOK_URL": {
-          "LABEL": "Webhook URL",
-          "SUBTITLE": "Configure the URL where you want to receive callbacks on events.",
-          "PLACEHOLDER": "Webhook URL"
-        },
-        "SUBMIT_BUTTON": "Create API Channel",
-        "API": {
-          "ERROR_MESSAGE": "We were not able to save the api channel"
-        }
-      },
-      "NOTIFICA_ME_CHANNEL": {
-        "TITLE": "NotificaMe Channel",
-        "DESC": "Integrate with NotificaMe Hub.",
-        "CHANNEL_NAME": {
-          "LABEL": "Channel Name",
-          "PLACEHOLDER": "Please enter a channel name",
-          "ERROR": "This field is required"
-        },
-        "CHANNEL": {
-          "LABEL": "Channel",
-          "SUBTITLE": "Choose channel",
-          "PLACEHOLDER": "Choose a channel, if empty, put the channel token first"
-        },
-        "CHANNEL_TOKEN": {
-          "LABEL": "Channel Token",
-          "SUBTITLE": "Configure channel token",
-          "PLACEHOLDER": "Configure channel token"
+          "LABEL": "URL do Webhook",
+          "SUBTITLE": "Configurar a URL onde quer receber mensagens de retorno.",
+          "PLACEHOLDER": "URL do Webhook"
         },
         "SUBMIT_BUTTON": "Criar canal API",
         "API": {
@@ -413,29 +450,20 @@
       },
       "MICROSOFT": {
         "TITLE": "Microsoft Email",
-        "DESCRIPTION": "Click on the Sign in with Microsoft button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
-        "EMAIL_PLACEHOLDER": "Enter email address",
-        "SIGN_IN": "Sign in with Microsoft",
-        "HELP": "To add your Microsoft account as a channel, you need to authenticate your Microsoft account by clicking on 'Sign in with Microsoft' ",
-        "ERROR_MESSAGE": "There was an error connecting to Microsoft, please try again"
-      },
-      "GOOGLE": {
-        "TITLE": "Google Email",
-        "DESCRIPTION": "Click on the Sign in with Google button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
-        "SIGN_IN": "Sign in with Google",
-        "EMAIL_PLACEHOLDER": "Enter email address",
-        "HELP": "To add your Google account as a channel, you need to authenticate your Google account by clicking on 'Sign in with Google' ",
-        "ERROR_MESSAGE": "There was an error connecting to Google, please try again"
+        "DESCRIPTION": "Para começar, clique no botão Entrar com a Microsoft. Será redirecionado para o e-mail que entrar na página. Depois de aceitar as permissões solicitadas, será redirecionado novamente para a etapa de criação da caixa de entrada.",
+        "EMAIL_PLACEHOLDER": "Insira endereço de email",
+        "SIGN_IN": "Entrar via Microsoft",
+        "HELP": "Para adicionar a sua conta da Microsoft como um canal, é necessário autenticar a sua conta da Microsoft clicando em 'Entrar com Microsoft' ",
+        "ERROR_MESSAGE": "Ocorreu um erro ao ligar à Microsoft, por favor tente novamente"
       }
     },
     "DETAILS": {
-      "LOADING_FB": "Authenticating you with Facebook...",
-      "ERROR_FB_LOADING": "Error loading Facebook SDK. Please disable any ad-blockers and try again from a different browser.",
-      "ERROR_FB_AUTH": "Something went wrong, Please refresh page...",
-      "ERROR_FB_UNAUTHORIZED": "You're not authorized to perform this action. ",
-      "ERROR_FB_UNAUTHORIZED_HELP": "Please ensure you have access to the Facebook page with full control. You can read more about Facebook roles <a href=\" https://www.facebook.com/help/187316341316631\">here</a>.",
-      "CREATING_CHANNEL": "Creating your Inbox...",
-      "TITLE": "Configure Inbox Details",
+      "LOADING_FB": "Autenticando você com o Facebook...",
+      "ERROR_FB_AUTH": "Algo deu errado, por favor, atualize a página...",
+      "ERROR_FB_UNAUTHORIZED": "Não está autorizado a executar esta ação. ",
+      "ERROR_FB_UNAUTHORIZED_HELP": "Por favor, certifique-se que tem acesso, com controlo total, à página do Facebook. Pode ler mais sobre as permissões do Facebook <a href=\"https://www.facebook.com/help/187316341316631\">aqui</a>.",
+      "CREATING_CHANNEL": "Criando sua caixa de entrada...",
+      "TITLE": "Configurar Detalhes da Caixa de Entrada",
       "DESC": ""
     },
     "AGENTS": {
@@ -526,7 +554,7 @@
       "BUSINESS_HOURS": "Horário comercial",
       "WIDGET_BUILDER": "Construtor de Widgets",
       "BOT_CONFIGURATION": "Configuração do bot",
-      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
+      "UNOAPI_CONFIGURATION": "Configuração da Unoapi"
     },
     "SETTINGS": "Configurações",
     "FEATURES": {
@@ -537,53 +565,49 @@
       "USE_INBOX_AVATAR_FOR_BOT": "Use o nome da caixa de entrada e o avatar do bot"
     },
     "SETTINGS_POPUP": {
-      "MESSENGER_HEADING": "Messenger Script",
-      "MESSENGER_SUB_HEAD": "Place this button inside your body tag",
-      "INBOX_AGENTS": "Agents",
-      "INBOX_AGENTS_SUB_TEXT": "Add or remove agents from this inbox",
-      "AGENT_ASSIGNMENT": "Conversation Assignment",
-      "AGENT_ASSIGNMENT_SUB_TEXT": "Update conversation assignment settings",
-      "UPDATE": "Update",
-      "ENABLE_EMAIL_COLLECT_BOX": "Enable email collect box",
-      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Enable or disable email collect box on new conversation",
-      "AUTO_ASSIGNMENT": "Enable auto assignment",
-      "ENABLE_CSAT": "Enable CSAT",
-      "SENDER_NAME_SECTION": "Enable Agent Name in Email",
-      "ENABLE_CSAT_SUB_TEXT": "Enable/Disable CSAT(Customer satisfaction) survey after resolving a conversation",
-      "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
-      "ENABLE_CONTINUITY_VIA_EMAIL": "Enable conversation continuity via email",
-      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Conversations will continue over email if the contact email address is available.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Lock to single conversation",
-      "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Enable or disable multiple conversations for the same contact in this inbox",
-      "INBOX_UPDATE_TITLE": "Inbox Settings",
-      "INBOX_UPDATE_SUB_TEXT": "Update your inbox settings",
-      "AUTO_ASSIGNMENT_SUB_TEXT": "Enable or disable the automatic assignment of new conversations to the agents added to this inbox.",
-      "HMAC_VERIFICATION": "User Identity Validation",
-      "HMAC_DESCRIPTION": "With this key you can generate a secret token that can be used to verify the identity of your users.",
-      "HMAC_LINK_TO_DOCS": "You can read more here.",
-      "HMAC_MANDATORY_VERIFICATION": "Enforce User Identity Validation",
-      "HMAC_MANDATORY_DESCRIPTION": "If enabled, requests that cannot be verified will be rejected.",
-      "INBOX_IDENTIFIER": "Inbox Identifier",
-      "INBOX_IDENTIFIER_SUB_TEXT": "Use the `inbox_identifier` token shown here to authentication your API clients.",
-      "FORWARD_EMAIL_TITLE": "Forward to Email",
-      "FORWARD_EMAIL_SUB_TEXT": "Start forwarding your emails to the following email address.",
-      "ALLOW_MESSAGES_AFTER_RESOLVED": "Allow messages after conversation resolved",
-      "ALLOW_MESSAGES_AFTER_RESOLVED_SUB_TEXT": "Allow the end-users to send messages even after the conversation is resolved.",
-      "WHATSAPP_SECTION_SUBHEADER": "This API Key is used for the integration with the WhatsApp APIs.",
-      "WHATSAPP_SECTION_UPDATE_SUBHEADER": "Enter the new API key to be used for the integration with the WhatsApp APIs.",
-      "WHATSAPP_SECTION_TITLE": "API Key",
-      "WHATSAPP_SECTION_UPDATE_TITLE": "Update API Key",
-      "WHATSAPP_SECTION_UPDATE_PLACEHOLDER": "Enter the new API Key here",
-      "WHATSAPP_SECTION_UPDATE_BUTTON": "Update",
-      "WHATSAPP_WEBHOOK_TITLE": "Webhook Verification Token",
-      "WHATSAPP_CONNECT": "Connect",
-      "WHATSAPP_DISCONNECT": "Disconnect",
-      "WHATSAPP_WEBHOOK_SUBHEADER": "This token is used to verify the authenticity of the webhook endpoint.",
-      "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings",
-      "AGENT_PERMISSIONS": "Agent Permissions",
-      "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation."
+      "MESSENGER_HEADING": "Script do Messenger",
+      "MESSENGER_SUB_HEAD": "Coloque esse botão dentro da sua tag corporal",
+      "INBOX_AGENTS": "agentes",
+      "INBOX_AGENTS_SUB_TEXT": "Adicionar ou remover agentes dessa caixa de entrada",
+      "AGENT_ASSIGNMENT": "Atribuição da conversa",
+      "AGENT_ASSIGNMENT_SUB_TEXT": "Atualizar configurações de atribuição de conversa",
+      "UPDATE": "Atualização",
+      "ENABLE_EMAIL_COLLECT_BOX": "Ativar caixa de receção de email",
+      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Ativar ou desativar caixa de receção de emails para as novas conversas",
+      "AUTO_ASSIGNMENT": "Habilitar atribuição automática",
+      "ENABLE_CSAT": "Ativar CSAT",
+      "SENDER_NAME_SECTION": "Adicionar o Nome do Agente ao E-mail",
+      "ENABLE_CSAT_SUB_TEXT": "Ativar/Desativar avaliação CSAT (satisfação do cliente) depois de resolver uma conversa",
+      "SENDER_NAME_SECTION_TEXT": "Ativar/Desativar exibição do nome do agente no e-mail, se estiver desativado, exibirá o nome da empresa",
+      "ENABLE_CONTINUITY_VIA_EMAIL": "Habilitar continuidade das conversas por e-mail",
+      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Conversas irão continuar por email se o endereço de email do contacto estiver disponível.",
+      "LOCK_TO_SINGLE_CONVERSATION": "Bloquear a conversa única",
+      "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Ativar ou desativar múltiplas conversas para o mesmo contato nesta caixa de entrada",
+      "INBOX_UPDATE_TITLE": "Configurações da Caixa de Entrada",
+      "INBOX_UPDATE_SUB_TEXT": "Atualize suas configurações da caixa de entrada",
+      "AUTO_ASSIGNMENT_SUB_TEXT": "Ativar ou desativar a atribuição automática de novas conversas aos agentes adicionados a essa caixa de entrada.",
+      "HMAC_VERIFICATION": "Validação da identidade do utilizador",
+      "HMAC_DESCRIPTION": "In order to validate the user's identity, you can pass an `identifier_hash` for each user. You can generate a HMAC sha256 hash using the `identifier` with the key shown here.",
+      "HMAC_LINK_TO_DOCS": "Pode obter mais informação aqui.",
+      "HMAC_MANDATORY_VERIFICATION": "Forçar Validação de Identidade do Utilizador",
+      "HMAC_MANDATORY_DESCRIPTION": "If enabled, requests missing the `identifier_hash` will be rejected.",
+      "INBOX_IDENTIFIER": "Identificador da Caixa de Entrada",
+      "INBOX_IDENTIFIER_SUB_TEXT": "Use o token 'inbox_identifier' mostrado aqui para autenticar os seus clientes API.",
+      "FORWARD_EMAIL_TITLE": "Encaminhar para Email",
+      "FORWARD_EMAIL_SUB_TEXT": "Comece a encaminhar as suas mensagens de email para o seguinte endereço.",
+      "ALLOW_MESSAGES_AFTER_RESOLVED": "Permitir mensagens após a resolução da conversa",
+      "ALLOW_MESSAGES_AFTER_RESOLVED_SUB_TEXT": "Permite que os utilizadores finais enviem mensagens após a conversa estar resolvida.",
+      "WHATSAPP_SECTION_SUBHEADER": "Esta chave de API é usada para a integração com as APIs do WhatsApp.",
+      "WHATSAPP_SECTION_UPDATE_SUBHEADER": "Escreva a nova chave de integração com as APIs do WhatsApp.",
+      "WHATSAPP_SECTION_TITLE": "Chave da API",
+      "WHATSAPP_SECTION_UPDATE_TITLE": "Atualizar Chave de API",
+      "WHATSAPP_SECTION_UPDATE_PLACEHOLDER": "Digite a nova chave da API aqui",
+      "WHATSAPP_SECTION_UPDATE_BUTTON": "Atualização",
+      "WHATSAPP_WEBHOOK_TITLE": "Webhook de Verificação do Token",
+      "WHATSAPP_WEBHOOK_SUBHEADER": "Este token é usado para verificar a autenticidade do endpoint do webhook.",
+      "WHATSAPP_CONNECT": "Conected",
+      "WHATSAPP_DISCONNECT": "Disconect",
+      "UPDATE_PRE_CHAT_FORM_SETTINGS": "Atualizar configurações do Formulário Pre Chat"
     },
     "HELP_CENTER": {
       "LABEL": "Centro de Suporte",
@@ -801,8 +825,7 @@
     },
     "EMAIL_PROVIDERS": {
       "MICROSOFT": "Microsoft",
-      "GOOGLE": "Google",
-      "OTHER_PROVIDERS": "Other Providers"
+      "OTHER_PROVIDERS": "Outros Fornecedores"
     }
   }
 }

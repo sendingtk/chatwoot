@@ -7,6 +7,7 @@
     "GO_BACK_LABEL": "Volver",
     "ASSIGN_LABEL": "Asignar",
     "YES": "Si",
+    "SEARCH_INPUT_PLACEHOLDER": "Buscar",
     "ASSIGN_AGENT_TOOLTIP": "Asignar un agente",
     "ASSIGN_TEAM_TOOLTIP": "Asignar equipo",
     "ASSIGN_SUCCESFUL": "Conversaciones asignadas con éxito.",
@@ -17,7 +18,7 @@
     "AGENT_LIST_LOADING": "Cargando agentes",
     "UPDATE": {
       "CHANGE_STATUS": "Cambiar estado",
-      "SNOOZE_UNTIL": "Snooze",
+      "SNOOZE_UNTIL": "Posponer",
       "UPDATE_SUCCESFUL": "El estado de la conversación se actualizó con éxito.",
       "UPDATE_FAILED": "No se han podido actualizar las conversaciones. Inténtalo de nuevo."
     },

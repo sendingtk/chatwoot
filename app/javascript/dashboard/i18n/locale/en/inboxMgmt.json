@@ -1,8 +1,7 @@
 {
   "INBOX_MGMT": {
     "HEADER": "Inboxes",
-    "DESCRIPTION": "A channel is the mode of communication your customer chooses to interact with you. An inbox is where you manage interactions for a specific channel. It can include communications from various sources such as email, live chat, and social media.",
-    "LEARN_MORE": "Learn more about inboxes",
+    "SIDEBAR_TXT": "<p><b>Inbox</b></p> <p> When you connect a website or a facebook Page to Chatwoot, it is called an <b>Inbox</b>. You can have unlimited inboxes in your Chatwoot account. </p><p> Click on <b>Add Inbox</b> to connect a website or a Facebook Page. </p><p> In the Dashboard, you can see all the conversations from all your inboxes in a single place and respond to them under the `Conversations` tab. </p><p> You can also see conversations specific to an inbox by clicking on the inbox name on the left pane of the dashboard. </p>",
     "RECONNECTION_REQUIRED": "Your inbox is disconnected. You won't receive new messages until you reauthorize it.",
     "CLICK_TO_RECONNECT": "Click here to reconnect.",
     "LIST": {
@@ -25,7 +24,7 @@
         "body": "Add agents to the created inbox."
       },
       {
-        "title": "Voil‡!",
+        "title": "Voil√†!",
         "route": "settings_inbox_finish",
         "body": "You are all set to go!"
       }
@@ -308,7 +307,7 @@
         },        
         "URL": {
           "LABEL": "Unoapi URL",
-          "PLACEHOLDER": "Please enter an Unoapi URL",
+          "PLACEHOLDER": "Please enter an Unoapi URL or use default https://unoapi.cloud",
           "ERROR": "This field is required"
         },
         "PHONE_NUMBER": {
@@ -364,29 +363,6 @@
         "SUBMIT_BUTTON": "Create API Channel",
         "API": {
           "ERROR_MESSAGE": "We were not able to save the api channel"
-        }
-      },
-      "NOTIFICA_ME_CHANNEL": {
-        "TITLE": "NotificaMe Channel",
-        "DESC": "Integrate with NotificaMe Hub.",
-        "CHANNEL_NAME": {
-          "LABEL": "Channel Name",
-          "PLACEHOLDER": "Please enter a channel name",
-          "ERROR": "This field is required"
-        },
-        "CHANNEL": {
-          "LABEL": "Channel",
-          "SUBTITLE": "Choose channel",
-          "PLACEHOLDER": "Choose a channel, if empty, put the channel token first"
-        },
-        "CHANNEL_TOKEN": {
-          "LABEL": "Channel Token",
-          "SUBTITLE": "Configure channel token",
-          "PLACEHOLDER": "Configure channel token"
-        },
-        "SUBMIT_BUTTON": "Create NotificaMe Channel",
-        "API": {
-          "ERROR_MESSAGE": "We were not able to save the NotificaMe channel"
         }
       },
       "EMAIL_CHANNEL": {
@@ -477,7 +453,6 @@
         "DESCRIPTION": "Click on the Sign in with Microsoft button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
         "EMAIL_PLACEHOLDER": "Enter email address",
         "SIGN_IN": "Sign in with Microsoft",
-        "HELP": "To add your Microsoft account as a channel, you need to authenticate your Microsoft account by clicking on 'Sign in with Microsoft' ",
         "ERROR_MESSAGE": "There was an error connecting to Microsoft, please try again"
       },
       "GOOGLE": {
@@ -485,7 +460,6 @@
         "DESCRIPTION": "Click on the Sign in with Google button to get started. You will redirected to the email sign in page. Once you accept the requested permissions, you would be redirected back to the inbox creation step.",
         "SIGN_IN": "Sign in with Google",
         "EMAIL_PLACEHOLDER": "Enter email address",
-        "HELP": "To add your Google account as a channel, you need to authenticate your Google account by clicking on 'Sign in with Google' ",
         "ERROR_MESSAGE": "There was an error connecting to Google, please try again"
       }
     },
@@ -523,10 +497,6 @@
         "DISABLED": "Disabled"
       },
       "ENABLE_CSAT": {
-        "ENABLED": "Enabled",
-        "DISABLED": "Disabled"
-      },
-      "CSAT_VISIBLE": {
         "ENABLED": "Enabled",
         "DISABLED": "Disabled"
       },
@@ -591,7 +561,7 @@
       "BUSINESS_HOURS": "Business Hours",
       "WIDGET_BUILDER": "Widget Builder",
       "BOT_CONFIGURATION": "Bot Configuration",
-      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration"
     },
     "SETTINGS": "Settings",
     "FEATURES": {
@@ -644,13 +614,7 @@
       "WHATSAPP_CONNECT": "Connect",
       "WHATSAPP_DISCONNECT": "Disconnect",
       "WHATSAPP_WEBHOOK_SUBHEADER": "This token is used to verify the authenticity of the webhook endpoint.",
-      "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings",
-      "CSAT_VISIBLE": "CSAT Response Visibility",
-      "CSAT_VISIBLE_SUB_TEXT": "Allow Agents to see the CSAT survey responses",
-      "AGENT_PERMISSIONS": "Agent Permissions",
-      "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation."
+      "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
       "LABEL": "Help Center",
@@ -870,18 +834,6 @@
       "MICROSOFT": "Microsoft",
       "GOOGLE": "Google",
       "OTHER_PROVIDERS": "Other Providers"
-    },
-    "CHANNELS": {
-      "MESSENGER": "Messenger",
-      "WEB_WIDGET": "Website",
-      "TWITTER_PROFILE": "Twitter",
-      "TWILIO_SMS": "Twilio SMS",
-      "WHATSAPP": "WhatsApp",
-      "SMS": "SMS",
-      "EMAIL": "Email",
-      "TELEGRAM": "Telegram",
-      "LINE": "Line",
-      "API": "API Channel"
     }
   }
 }

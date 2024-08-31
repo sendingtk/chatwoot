@@ -88,16 +88,16 @@
       "assigned_conversation_new_message": "Nova Mensagem",
       "participating_conversation_new_message": "Nova Mensagem",
       "conversation_mention": "Menção",
-      "sla_missed_first_response": "SLA Perdido",
-      "sla_missed_next_response": "SLA Perdido",
-      "sla_missed_resolution": "SLA Perdido"
+      "sla_missed_first_response": "",
+      "sla_missed_next_response": "",
+      "sla_missed_resolution": ""
     }
   },
   "NETWORK": {
     "NOTIFICATION": {
-      "OFFLINE": "Offline",
-      "RECONNECTING": "Reconnecting...",
-      "RECONNECT_SUCCESS": "Reconnected"
+      "OFFLINE": "Desconectado",
+      "RECONNECTING": "Reconectando...",
+      "RECONNECT_SUCCESS": "Reconectado"
     },
     "BUTTON": {
       "REFRESH": "Atualizar"
@@ -109,7 +109,7 @@
       "GENERAL": "Geral",
       "REPORTS": "Relatórios",
       "CONVERSATION": "Conversas",
-      "BULK_ACTIONS": "Bulk Actions",
+      "BULK_ACTIONS": "Ações em massa",
       "CHANGE_ASSIGNEE": "Alterar Responsável",
       "CHANGE_PRIORITY": "Alterar Prioridade",
       "CHANGE_TEAM": "Alterar a Equipe",
@@ -156,7 +156,7 @@
       "UNTIL_TOMORROW": "Até amanhã",
       "UNTIL_NEXT_MONTH": "Até o próximo mês",
       "AN_HOUR_FROM_NOW": "Até daqui a uma hora",
-      "CUSTOM": "Personalizar...",
+      "UNTIL_CUSTOM_TIME": "Personalizar...",
       "CHANGE_APPEARANCE": "Alterar Tema",
       "LIGHT_MODE": "Claro",
       "DARK_MODE": "Escuro",

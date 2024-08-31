@@ -1,0 +1,87 @@
+{
+  "MACROS": {
+    "HEADER": "Makrolar",
+    "HEADER_BTN_TXT": "Yeni bir makro ekle",
+    "HEADER_BTN_TXT_SAVE": "Makroyu Kaydet",
+    "LOADING": "Makrolar alınıyor",
+    "SIDEBAR_TXT": "<p><b>Makrolar</b></p><p>Bir makro, müşteri hizmetleri temsilcilerinin görevleri kolayca tamamlamalarına yardımcı olan bir dizi kaydedilmiş eylemdir. Temsilciler, bir konuşmayı bir etiketle etiketleme, bir e-posta transkripti gönderme, özel bir öznitelik güncelleme vb. gibi bir dizi eylemi tanımlayabilir ve bu eylemleri tek bir tıklamada çalıştırabilirler. Temsilciler makroyu çalıştırdığında eylemler tanımlanan sırayla ardışık olarak gerçekleştirilir. Makrolar üretkenliği artırır ve eylemlerde tutarlılığı sağlar.</p><p>Bir makro 2 şekilde faydalı olabilir. </p><p><b>Bir temsilci yardımcısı olarak:</b> Eğer bir temsilci bir dizi eylemi birden çok kez gerçekleştiriyorsa, bunu bir makro olarak kaydedip tüm eylemleri tek bir tıklama ile gerçekleştirebilir.</p><p><b>Bir ekip üyesini onboard etmek için bir seçenek olarak:</b> Her temsilcinin her konuşma sırasında birçok farklı kontrol/eylem yapması gereklidir. Yeni bir destek ekibi üyesini onboard etmek, hesapta önceden tanımlanmış makrolar mevcut ise kolay olacaktır. Her adımı detaylı bir şekilde açıklamak yerine, yönetici/takım lideri farklı senaryolarda kullanılan makrolara işaret edebilir.</p>",
+    "ERROR": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin",
+    "ORDER_INFO": "Makrolar eklediğiniz sırayla çalışacaktır. Bunları sürükleyerek her düğmenin yanındaki tutamakla yeniden düzenleyebilirsiniz.",
+    "ADD": {
+      "FORM": {
+        "NAME": {
+          "LABEL": "Makro adı",
+          "PLACEHOLDER": "Makronuz için bir ad girin",
+          "ERROR": "Bir makro oluşturmak için isim gereklidir"
+        },
+        "ACTIONS": {
+          "LABEL": "Eylemler"
+        }
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "Makro başarıyla eklendi",
+        "ERROR_MESSAGE": "Makro oluşturulamadı, Lütfen daha sonra tekrar deneyin"
+      }
+    },
+    "LIST": {
+      "TABLE_HEADER": [
+        "İsim",
+        "Tarafından oluşturuldu",
+        "Son güncelleyen",
+        "Görünürlük"
+      ],
+      "404": "Hiç makro bulunamadı"
+    },
+    "DELETE": {
+      "TOOLTIP": "Makroyu Sil",
+      "CONFIRM": {
+        "MESSAGE": "Silmek istediğinizden emin misiniz?",
+        "YES": "Evet, Sil",
+        "NO": "Hayır"
+      },
+      "API": {
+        "SUCCESS_MESSAGE": "Makro başarıyla silindi",
+        "ERROR_MESSAGE": "Makro silinirken bir hata oluştu. Lütfen daha sonra tekrar deneyin"
+      }
+    },
+    "EDIT": {
+      "TOOLTIP": "Makroyu Düzenle",
+      "API": {
+        "SUCCESS_MESSAGE": "Makro başarıyla güncellendi",
+        "ERROR_MESSAGE": "Makro güncellenemedi, Lütfen daha sonra tekrar deneyin"
+      }
+    },
+    "EDITOR": {
+      "START_FLOW": "Akışı Başlat",
+      "END_FLOW": "Akışı Bitir",
+      "LOADING": "Makro alınıyor",
+      "ADD_BTN_TOOLTIP": "Yeni eylem ekle",
+      "DELETE_BTN_TOOLTIP": "Eylemi Sil",
+      "VISIBILITY": {
+        "LABEL": "Makro Görünürlüğü",
+        "GLOBAL": {
+          "LABEL": "Genel",
+          "DESCRIPTION": "Bu makro, bu hesaptaki tüm temsilciler için genel olarak kullanılabilir."
+        },
+        "PERSONAL": {
+          "LABEL": "Özel",
+          "DESCRIPTION": "Bu makro, size özel olacak ve başkaları tarafından kullanılamayacaktır."
+        }
+      }
+    },
+    "EXECUTE": {
+      "BUTTON_TOOLTIP": "Çalıştır",
+      "PREVIEW": "Makro Önizlemesi",
+      "EXECUTED_SUCCESSFULLY": "Makro başarıyla çalıştırıldı"
+    },
+    "ERRORS": {
+      "ATTRIBUTE_KEY_REQUIRED": "Attribute key is required",
+      "FILTER_OPERATOR_REQUIRED": "Filter operator is required",
+      "VALUE_REQUIRED": "Değer gereklidir",
+      "VALUE_MUST_BE_BETWEEN_1_AND_998": "Value must be between 1 and 998",
+      "ACTION_PARAMETERS_REQUIRED": "Action parameters are required",
+      "ATLEAST_ONE_CONDITION_REQUIRED": "At least one condition is required",
+      "ATLEAST_ONE_ACTION_REQUIRED": "At least one action is required"
+    }
+  }
+}

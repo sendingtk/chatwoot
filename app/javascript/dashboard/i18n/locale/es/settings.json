@@ -145,7 +145,11 @@
       },
       "AVAILABILITY": {
         "LABEL": "Disponibilidad",
-        "STATUSES_LIST": ["En línea", "Ocupado", "Fuera de línea"],
+        "STATUSES_LIST": [
+          "En línea",
+          "Ocupado",
+          "Fuera de línea"
+        ],
         "SET_AVAILABILITY_SUCCESS": "La disponibilidad se ha establecido con éxito",
         "SET_AVAILABILITY_ERROR": "No se pudo establecer la disponibilidad, inténtelo de nuevo"
       },
@@ -225,7 +229,7 @@
   "SIDEBAR": {
     "CURRENTLY_VIEWING_ACCOUNT": "Visualizando:",
     "SWITCH": "Cambiar",
-    "INBOX_VIEW": "Inbox View",
+    "INBOX_VIEW": "Vista del buzón",
     "CONVERSATIONS": "Conversaciones",
     "INBOX": "Bandeja de entrada",
     "ALL_CONVERSATIONS": "Todas las conversaciones",
@@ -235,6 +239,7 @@
     "REPORTS": "Informes",
     "SETTINGS": "Ajustes",
     "CONTACTS": "Contactos",
+    "CAPTAIN": "Capitán",
     "HOME": "Inicio",
     "AGENTS": "Agentes",
     "AGENT_BOTS": "Bots",
@@ -345,8 +350,8 @@
       "TOGGLE_SNOOZE_DROPDOWN": "Cambiar el menú desplegable"
     },
     "KEYS": {
-      "WINDOWS_KEY_AND_COMMAND_KEY": "Win / ⌘",
-      "ALT_OR_OPTION_KEY": "Alt / ⌥",
+      "WINDOWS_KEY_AND_COMMAND_KEY": "Windows / ⌘",
+      "ALT_OR_OPTION_KEY": "Alt \\ ⌥",
       "FORWARD_SLASH_KEY": "/"
     }
   }

@@ -1,9 +1,15 @@
 {
   "INTEGRATION_SETTINGS": {
-    "HEADER": "Integrations",
+    "HEADER": "Integrações",
     "DESCRIPTION": "Chatwoot integrates with multiple tools and services to improve your team's efficiency. Explore the list below to configure your favorite apps.",
     "LEARN_MORE": "Learn more about integrations",
     "LOADING": "Fetching integrations",
+    "CAPTAIN": {
+      "DISABLED": "Captain is not enabled on your account.",
+      "CLICK_HERE_TO_CONFIGURE": "Click here to configure",
+      "LOADING_CONSOLE": "Loading Captain Console...",
+      "FAILED_TO_LOAD_CONSOLE": "Failed to load Captain Console. Please refresh and try again."
+    },
     "WEBHOOK": {
       "SUBSCRIBED_EVENTS": "Eventos Inscritos",
       "FORM": {
@@ -12,15 +18,14 @@
         "SUBSCRIPTIONS": {
           "LABEL": "Eventos",
           "EVENTS": {
-            "CONVERSATION_CREATED": "Conversation Created",
-            "CONVERSATION_STATUS_CHANGED": "Conversation Status Changed",
-            "CONVERSATION_UPDATED": "Conversation Updated",
-            "CONVERSATION_RESOLVED": "Conversation Resolved",
-            "MESSAGE_CREATED": "Message created",
-            "MESSAGE_UPDATED": "Message updated",
-            "WEBWIDGET_TRIGGERED": "Live chat widget opened by the user",
-            "CONTACT_CREATED": "Contact created",
-            "CONTACT_UPDATED": "Contact updated"
+            "CONVERSATION_CREATED": "Conversa Criada",
+            "CONVERSATION_STATUS_CHANGED": "Status de conversa alterado",
+            "CONVERSATION_UPDATED": "Conversa Atualizada",
+            "MESSAGE_CREATED": "Mensagem criada",
+            "MESSAGE_UPDATED": "Mensagem atualizada",
+            "WEBWIDGET_TRIGGERED": "Widget de chat aberto pelo usuário",
+            "CONTACT_CREATED": "Contato criado",
+            "CONTACT_UPDATED": "Contato atualizado"
           }
         },
         "END_POINT": {
@@ -219,13 +224,13 @@
       "ADD_OR_LINK_BUTTON": "Create/Link Linear Issue",
       "LOADING": "Fetching linear issues...",
       "LOADING_ERROR": "There was an error fetching the linear issues, please try again",
-      "CREATE": "Create",
+      "CREATE": "Criar",
       "LINK": {
         "SEARCH": "Search issues",
         "SELECT": "Select issue",
         "TITLE": "Link",
         "EMPTY_LIST": "No linear issues found",
-        "LOADING": "Loading",
+        "LOADING": "Carregando",
         "ERROR": "There was an error fetching the linear issues, please try again",
         "LINK_SUCCESS": "Issue linked successfully",
         "LINK_ERROR": "There was an error linking the issue, please try again",
@@ -233,40 +238,40 @@
       },
       "ADD_OR_LINK": {
         "TITLE": "Create/link linear issue",
-        "DESCRIPTION": "Create Linear issues from conversations, or link existing ones for seamless tracking.",
+        "DESCRIPTION": "Crie issues no Linear a partir de conversas, ou vincule às existentes para um rastreamento integrado.",
         "FORM": {
           "TITLE": {
-            "LABEL": "Title",
-            "PLACEHOLDER": "Enter title",
-            "REQUIRED_ERROR": "Title is required"
+            "LABEL": "Título",
+            "PLACEHOLDER": "Insira o título",
+            "REQUIRED_ERROR": "Título é obrigatório"
           },
           "DESCRIPTION": {
-            "LABEL": "Description",
-            "PLACEHOLDER": "Enter description"
+            "LABEL": "Descrição",
+            "PLACEHOLDER": "Insira a descrição"
           },
           "TEAM": {
-            "LABEL": "Team",
-            "PLACEHOLDER": "Select team",
-            "SEARCH": "Search team",
-            "REQUIRED_ERROR": "Team is required"
+            "LABEL": "Times",
+            "PLACEHOLDER": "Selecionar time",
+            "SEARCH": "Pesquisar equipe",
+            "REQUIRED_ERROR": "A equipe é obrigatória"
           },
           "ASSIGNEE": {
-            "LABEL": "Assignee",
+            "LABEL": "Responsável",
             "PLACEHOLDER": "Select assignee",
             "SEARCH": "Search assignee"
           },
           "PRIORITY": {
-            "LABEL": "Priority",
-            "PLACEHOLDER": "Select priority",
+            "LABEL": "Prioridade",
+            "PLACEHOLDER": "Selecionar prioridade",
             "SEARCH": "Search priority"
           },
           "LABEL": {
-            "LABEL": "Label",
-            "PLACEHOLDER": "Select label",
+            "LABEL": "Nome do campo",
+            "PLACEHOLDER": "Selecione o marcador",
             "SEARCH": "Search label"
           },
           "STATUS": {
-            "LABEL": "Status",
+            "LABEL": "SItuação",
             "PLACEHOLDER": "Select status",
             "SEARCH": "Search status"
           },
@@ -276,24 +281,24 @@
             "SEARCH": "Search project"
           }
         },
-        "CREATE": "Create",
-        "CANCEL": "Cancel",
+        "CREATE": "Criar",
+        "CANCEL": "Cancelar",
         "CREATE_SUCCESS": "Issue created successfully",
         "CREATE_ERROR": "There was an error creating the issue, please try again",
         "LOADING_TEAM_ERROR": "There was an error fetching the teams, please try again",
         "LOADING_TEAM_ENTITIES_ERROR": "There was an error fetching the team entities, please try again"
       },
       "ISSUE": {
-        "STATUS": "Status",
-        "PRIORITY": "Priority",
-        "ASSIGNEE": "Assignee",
-        "LABELS": "Labels",
+        "STATUS": "SItuação",
+        "PRIORITY": "Prioridade",
+        "ASSIGNEE": "Responsável",
+        "LABELS": "Marcadores",
         "CREATED_AT": "Created at %{createdAt}"
       },
       "UNLINK": {
         "TITLE": "Unlink",
         "SUCCESS": "Issue unlinked successfully",
-        "ERROR": "There was an error unlinking the issue, please try again"
+        "ERROR": "Houve um erro ao desvincular o atributo, por favor, tente novamente"
       }
     }
   }
