@@ -1,27 +1,26 @@
-<script setup>
-// TODO: Make this component a standard across the app and use it in other places
-import { ref, onMounted } from 'vue';
-import { useMapGetter, useStore } from 'dashboard/composables/store';
+<script>
+import { mapGetters } from 'vuex';
 
-defineProps({
-  multiple: {
-    type: Boolean,
-    default: false,
+export default {
+  name: 'ReportsFiltersInboxes',
+  data() {
+    return {
+      selectedOption: null,
+    };
   },
-});
-
-const emit = defineEmits(['inboxFilterSelection']);
-const store = useStore();
-const options = useMapGetter('inboxes/getInboxes');
-
-const selectedOption = ref(null);
-
-onMounted(() => {
-  store.dispatch('inboxes/get');
-});
-
-const handleInput = () => {
-  emit('inboxFilterSelection', selectedOption.value);
+  computed: {
+    ...mapGetters({
+      options: 'inboxes/getInboxes',
+    }),
+  },
+  mounted() {
+    this.$store.dispatch('inboxes/get');
+  },
+  methods: {
+    handleInput() {
+      this.$emit('inboxFilterSelection', this.selectedOption);
+    },
+  },
 };
 </script>
 
@@ -33,7 +32,6 @@ const handleInput = () => {
       :placeholder="$t('INBOX_REPORTS.FILTER_DROPDOWN_LABEL')"
       label="name"
       track-by="id"
-      :multiple="multiple"
       :options="options"
       :option-height="24"
       :show-labels="false"

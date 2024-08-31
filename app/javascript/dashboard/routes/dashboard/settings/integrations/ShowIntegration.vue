@@ -1,5 +1,5 @@
 <script>
-import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+import globalConfigMixin from 'shared/mixins/globalConfigMixin';
 import Integration from './Integration.vue';
 import IntegrationHelpText from './IntegrationHelpText.vue';
 
@@ -8,17 +8,13 @@ export default {
     Integration,
     IntegrationHelpText,
   },
+  mixins: [globalConfigMixin],
+
   props: {
     integrationId: {
       type: [String, Number],
       required: true,
     },
-  },
-  setup() {
-    const { useInstallationName } = useGlobalConfig();
-    return {
-      useInstallationName,
-    };
   },
   data() {
     return {

@@ -22,6 +22,8 @@ export default {
       currentUser: 'getCurrentUser',
       globalConfig: 'globalConfig/get',
       accountId: 'getCurrentAccountId',
+      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
+      currentRole: 'getCurrentRole',
     }),
     showChangeAccountOption() {
       if (this.globalConfig.createNewAccountFromDashboard) {
@@ -30,6 +32,15 @@ export default {
 
       const { accounts = [] } = this.currentUser;
       return accounts.length > 1;
+    },
+    hideProfileForAgents() {     
+      return (
+        this.currentRole !== 'administrator' &&
+        this.isFeatureEnabledonAccount(
+          this.accountId,
+          'hide_profile_for_agent'
+        )
+      );
     },
   },
   methods: {
@@ -98,7 +109,7 @@ export default {
             {{ $t('SIDEBAR_ITEMS.KEYBOARD_SHORTCUTS') }}
           </woot-button>
         </WootDropdownItem>
-        <WootDropdownItem>
+        <WootDropdownItem v-if="!hideProfileForAgents">
           <router-link
             v-slot="{ href, isActive, navigate }"
             :to="`/app/accounts/${accountId}/profile/settings`"

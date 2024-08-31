@@ -1,7 +1,7 @@
 <script>
 import { useAlert } from 'dashboard/composables';
 import { mapGetters } from 'vuex';
-import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
+import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 import AddCannedModal from 'dashboard/routes/dashboard/settings/canned/AddCanned.vue';
 import { copyTextToClipboard } from 'shared/helpers/clipboard';
 import { conversationUrl, frontendURL } from '../../../helper/URLHelper';
@@ -20,7 +20,6 @@ export default {
     MenuItem,
     ForwardModal,
   },
-  mixins: [messageFormatterMixin],
   props: {
     message: {
       type: Object,
@@ -38,6 +37,12 @@ export default {
       type: Object,
       default: () => ({}),
     },
+  },
+  setup() {
+    const { getPlainText } = useMessageFormatter();
+    return {
+      getPlainText,
+    };
   },
   data() {
     return {
