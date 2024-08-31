@@ -1,7 +1,7 @@
 <script>
 import Spinner from 'shared/components/Spinner.vue';
 import EmptyState from 'dashboard/components/widgets/EmptyState.vue';
-import { useCampaign } from 'shared/composables/useCampaign';
+import campaignMixin from 'shared/mixins/campaignMixin';
 import CampaignCard from './CampaignCard.vue';
 
 export default {
@@ -10,6 +10,9 @@ export default {
     Spinner,
     CampaignCard,
   },
+
+  mixins: [campaignMixin],
+
   props: {
     campaigns: {
       type: Array,
@@ -24,10 +27,7 @@ export default {
       default: false,
     },
   },
-  setup() {
-    const { isOngoingType } = useCampaign();
-    return { isOngoingType };
-  },
+
   computed: {
     currentInboxId() {
       return this.$route.params.inboxId;

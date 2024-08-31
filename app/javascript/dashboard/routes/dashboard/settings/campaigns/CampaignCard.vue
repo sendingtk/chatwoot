@@ -1,7 +1,7 @@
 <script>
 import UserAvatarWithName from 'dashboard/components/widgets/UserAvatarWithName.vue';
 import InboxName from 'dashboard/components/widgets/InboxName.vue';
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { messageStamp } from 'shared/helpers/timeHelper';
 
 export default {
@@ -9,6 +9,7 @@ export default {
     UserAvatarWithName,
     InboxName,
   },
+  mixins: [messageFormatterMixin],
   props: {
     campaign: {
       type: Object,
@@ -19,12 +20,7 @@ export default {
       default: true,
     },
   },
-  setup() {
-    const { formatMessage } = useMessageFormatter();
-    return {
-      formatMessage,
-    };
-  },
+
   computed: {
     campaignStatus() {
       if (this.isOngoingType) {

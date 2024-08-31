@@ -7,7 +7,7 @@ import {
   CMD_MUTE_CONVERSATION,
   CMD_SEND_TRANSCRIPT,
   CMD_UNMUTE_CONVERSATION,
-} from 'dashboard/helper/commandbar/events';
+} from '../../../routes/dashboard/commands/commandBarBusEvents';
 
 export default {
   components: {

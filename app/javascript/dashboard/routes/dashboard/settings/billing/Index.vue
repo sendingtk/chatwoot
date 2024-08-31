@@ -1,5 +1,5 @@
 <script>
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 
 import { mapGetters } from 'vuex';
 import { useAccount } from 'dashboard/composables/useAccount';
@@ -7,12 +7,12 @@ import BillingItem from './components/BillingItem.vue';
 
 export default {
   components: { BillingItem },
+  mixins: [messageFormatterMixin],
   setup() {
     const { accountId } = useAccount();
-    const { formatMessage } = useMessageFormatter();
+
     return {
       accountId,
-      formatMessage,
     };
   },
   computed: {

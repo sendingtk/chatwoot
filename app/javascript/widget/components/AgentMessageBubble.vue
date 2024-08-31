@@ -1,5 +1,5 @@
 <script>
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import ChatCard from 'shared/components/ChatCard.vue';
 import ChatForm from 'shared/components/ChatForm.vue';
 import ChatOptions from 'shared/components/ChatOptions.vue';
@@ -20,7 +20,7 @@ export default {
     CustomerSatisfaction,
     IntegrationCard,
   },
-  mixins: [darkModeMixin],
+  mixins: [messageFormatterMixin, darkModeMixin],
   props: {
     message: { type: String, default: null },
     contentType: { type: String, default: null },
@@ -30,16 +30,6 @@ export default {
       type: Object,
       default: () => {},
     },
-  },
-  setup() {
-    const { formatMessage, getPlainText, truncateMessage, highlightContent } =
-      useMessageFormatter();
-    return {
-      formatMessage,
-      getPlainText,
-      truncateMessage,
-      highlightContent,
-    };
   },
   computed: {
     isTemplate() {

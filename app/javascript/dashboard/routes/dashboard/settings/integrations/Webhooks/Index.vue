@@ -3,17 +3,20 @@ import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import NewWebhook from './NewWebHook.vue';
 import EditWebhook from './EditWebHook.vue';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
 import WebhookRow from './WebhookRow.vue';
-import BaseSettingsHeader from '../../components/BaseSettingsHeader.vue';
-import SettingsLayout from '../../SettingsLayout.vue';
 
 export default {
   components: {
-    SettingsLayout,
-    BaseSettingsHeader,
     NewWebhook,
     EditWebhook,
     WebhookRow,
+  },
+  setup() {
+    const { useInstallationName } = useGlobalConfig();
+    return {
+      useInstallationName,
+    };
   },
   data() {
     return {
@@ -28,10 +31,8 @@ export default {
     ...mapGetters({
       records: 'webhooks/getWebhooks',
       uiFlags: 'webhooks/getUIFlags',
+      globalConfig: 'globalConfig/get',
     }),
-    integration() {
-      return this.$store.getters['integrations/getIntegration']('webhook');
-    },
   },
   mounted() {
     this.$store.dispatch('webhooks/get');
@@ -79,59 +80,69 @@ export default {
 </script>
 
 <template>
-  <SettingsLayout
-    :is-loading="uiFlags.fetchingList"
-    :loading-message="$t('INTEGRATION_SETTINGS.WEBHOOK.LOADING')"
-    :no-records-message="$t('INTEGRATION_SETTINGS.WEBHOOK.LIST.404')"
-    :no-records-found="!records.length"
-  >
-    <template #header>
-      <BaseSettingsHeader
-        v-if="integration.name"
-        :title="integration.name"
-        :description="integration.description"
-        :link-text="$t('INTEGRATION_SETTINGS.WEBHOOK.LEARN_MORE')"
-        feature-name="webhook"
-        :back-button-label="$t('INTEGRATION_SETTINGS.HEADER')"
-      >
-        <template #actions>
-          <woot-button
-            class="button nice rounded-md"
-            icon="add-circle"
-            @click="openAddPopup"
-          >
-            {{ $t('INTEGRATION_SETTINGS.WEBHOOK.HEADER_BTN_TXT') }}
-          </woot-button>
-        </template>
-      </BaseSettingsHeader>
-    </template>
-    <template #body>
-      <table class="min-w-full divide-y divide-slate-75 dark:divide-slate-700">
-        <thead>
-          <th
-            v-for="thHeader in $t(
-              'INTEGRATION_SETTINGS.WEBHOOK.LIST.TABLE_HEADER'
-            )"
-            :key="thHeader"
-            class="py-4 pr-4 text-left font-semibold text-slate-700 dark:text-slate-300 last:text-right last:pr-4"
-          >
-            {{ thHeader }}
-          </th>
-        </thead>
-        <tbody
-          class="divide-y divide-slate-25 dark:divide-slate-800 flex-1 text-slate-700 dark:text-slate-100"
+  <div class="flex-1 p-4 overflow-auto">
+    <woot-button
+      color-scheme="success"
+      class-names="button--fixed-top"
+      icon="add-circle"
+      @click="openAddPopup"
+    >
+      {{ $t('INTEGRATION_SETTINGS.WEBHOOK.HEADER_BTN_TXT') }}
+    </woot-button>
+
+    <div class="flex flex-row gap-4">
+      <div class="w-full lg:w-3/5">
+        <p
+          v-if="!uiFlags.fetchingList && !records.length"
+          class="flex flex-col items-center justify-center h-full"
         >
-          <WebhookRow
-            v-for="(webHookItem, index) in records"
-            :key="webHookItem.id"
-            :index="index"
-            :webhook="webHookItem"
-            @edit="openEditPopup"
-            @delete="openDeletePopup"
-          />
-        </tbody>
-      </table>
-    </template>
+          {{ $t('INTEGRATION_SETTINGS.WEBHOOK.LIST.404') }}
+        </p>
+        <woot-loading-state
+          v-if="uiFlags.fetchingList"
+          :message="$t('INTEGRATION_SETTINGS.WEBHOOK.LOADING')"
+        />
+
+        <table
+          v-if="!uiFlags.fetchingList && records.length"
+          class="woot-table"
+        >
+          <thead>
+            <th
+              v-for="thHeader in $t(
+                'INTEGRATION_SETTINGS.WEBHOOK.LIST.TABLE_HEADER'
+              )"
+              :key="thHeader"
+              class="last:text-right"
+            >
+              {{ thHeader }}
+            </th>
+          </thead>
+          <tbody>
+            <WebhookRow
+              v-for="(webHookItem, index) in records"
+              :key="webHookItem.id"
+              :index="index"
+              :webhook="webHookItem"
+              @edit="openEditPopup"
+              @delete="openDeletePopup"
+            />
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hidden w-1/3 lg:block">
+        <span
+          v-dompurify-html="
+            useInstallationName(
+              $t('INTEGRATION_SETTINGS.WEBHOOK.SIDEBAR_TXT'),
+              globalConfig.installationName
+            )
+          "
+        />
+      </div>
+    </div>
+
     <woot-modal :show.sync="showAddPopup" :on-close="hideAddPopup">
       <NewWebhook v-if="showAddPopup" :on-close="hideAddPopup" />
     </woot-modal>
@@ -157,5 +168,5 @@ export default {
       :confirm-text="$t('INTEGRATION_SETTINGS.WEBHOOK.DELETE.CONFIRM.YES')"
       :reject-text="$t('INTEGRATION_SETTINGS.WEBHOOK.DELETE.CONFIRM.NO')"
     />
-  </SettingsLayout>
+  </div>
 </template>

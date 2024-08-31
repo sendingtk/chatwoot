@@ -1,30 +1,25 @@
-<script setup>
-import { useReportMetrics } from 'dashboard/composables/useReportMetrics';
-
-const props = defineProps({
-  metric: {
-    type: Object,
-    default: () => ({}),
+<script>
+import reportMixin from 'dashboard/mixins/reportMixin';
+export default {
+  mixins: [reportMixin],
+  props: {
+    metric: {
+      type: Object,
+      default: () => ({}),
+    },
   },
-  accountSummaryKey: {
-    type: String,
-    default: 'getAccountSummary',
+  methods: {
+    trendColor(value, key) {
+      if (this.isAverageMetricType(key)) {
+        return value > 0
+          ? 'border-red-500 text-red-500'
+          : 'border-green-500 text-green-500';
+      }
+      return value < 0
+        ? 'border-red-500 text-red-500'
+        : 'border-green-500 text-green-500';
+    },
   },
-});
-
-const { calculateTrend, displayMetric, isAverageMetricType } = useReportMetrics(
-  props.accountSummaryKey
-);
-
-const trendColor = (value, key) => {
-  if (isAverageMetricType(key)) {
-    return value > 0
-      ? 'border-red-500 text-red-500'
-      : 'border-green-500 text-green-500';
-  }
-  return value < 0
-    ? 'border-red-500 text-red-500'
-    : 'border-green-500 text-green-500';
 };
 </script>
 
@@ -34,7 +29,7 @@ const trendColor = (value, key) => {
       {{ metric.NAME }}
     </span>
     <div class="flex items-end">
-      <div class="text-xl font-medium">
+      <div class="font-medium text-xl">
         {{ displayMetric(metric.KEY) }}
       </div>
       <div v-if="metric.trend" class="text-xs ml-4 flex items-center mb-0.5">

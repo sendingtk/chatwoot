@@ -1,7 +1,7 @@
 if ENV['SENTRY_DSN'].present?
   Sentry.init do |config|
     config.dsn = ENV['SENTRY_DSN']
-    config.enabled_environments = %w[staging production development]
+    config.enabled_environments = %w[staging production]
 
     # To activate performance monitoring, set one of these options.
     # We recommend adjusting the value in production:

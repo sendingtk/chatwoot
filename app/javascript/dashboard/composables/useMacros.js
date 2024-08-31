@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { useStoreGetters } from 'dashboard/composables/store';
-import { PRIORITY_CONDITION_VALUES } from 'dashboard/constants/automation';
+import { PRIORITY_CONDITION_VALUES } from 'dashboard/helper/automationHelper.js';
 
 /**
  * Composable for handling macro-related functionality

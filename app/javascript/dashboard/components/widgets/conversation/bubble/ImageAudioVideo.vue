@@ -20,11 +20,6 @@ export default {
       type: Object,
       required: true,
     },
-    urlType: {
-      type: String,
-      required: false,
-      default: 'data_url',
-    },
   },
   data() {
     return {
@@ -65,7 +60,7 @@ export default {
       return attachments;
     },
     dataUrl() {
-      return this.attachment[this.urlType];
+      return this.attachment.data_url;
     },
     imageWidth() {
       return this.attachment.width ? `${this.attachment.width}px` : 'auto';
@@ -110,15 +105,6 @@ export default {
       v-if="isImage && !isImageError"
       class="bg-woot-200 dark:bg-woot-900"
       :src="dataUrl"
-      :width="imageWidth"
-      :height="imageHeight"
-      @click="onClick"
-      @error="onImgErrorDelay"
-    />
-    <img
-      v-else-if="isImageErrorDelay && !isImageError"
-      class="bg-woot-200 dark:bg-woot-900"
-      :src="`${dataUrl}?t=${Date.now()}`"
       :width="imageWidth"
       :height="imageHeight"
       @click="onClick"

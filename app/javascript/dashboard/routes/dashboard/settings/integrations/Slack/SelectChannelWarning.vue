@@ -1,11 +1,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin';
-import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
+import { useGlobalConfig } from 'shared/composables/useGlobalConfig';
+import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 
 export default {
-  mixins: [globalConfigMixin],
+  mixins: [messageFormatterMixin],
   props: {
     hasConnectedAChannel: {
       type: Boolean,
@@ -13,9 +13,9 @@ export default {
     },
   },
   setup() {
-    const { formatMessage } = useMessageFormatter();
+    const { useInstallationName } = useGlobalConfig();
     return {
-      formatMessage,
+      useInstallationName,
     };
   },
   data() {

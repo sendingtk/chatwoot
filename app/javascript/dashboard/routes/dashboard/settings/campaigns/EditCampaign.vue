@@ -4,13 +4,14 @@ import { useVuelidate } from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { useAlert } from 'dashboard/composables';
 import WootMessageEditor from 'dashboard/components/widgets/WootWriter/Editor.vue';
-import { useCampaign } from 'shared/composables/useCampaign';
+import campaignMixin from 'shared/mixins/campaignMixin';
 import { URLPattern } from 'urlpattern-polyfill';
 
 export default {
   components: {
     WootMessageEditor,
   },
+  mixins: [campaignMixin],
   props: {
     selectedCampaign: {
       type: Object,
@@ -18,8 +19,7 @@ export default {
     },
   },
   setup() {
-    const { isOngoingType } = useCampaign();
-    return { v$: useVuelidate(), isOngoingType };
+    return { v$: useVuelidate() };
   },
   data() {
     return {
