@@ -79,6 +79,7 @@ export default {
         'Channel::Line': 'line',
         'Channel::Telegram': 'telegram',
         'Channel::WebWidget': '',
+        'Channel::NotificaMe': 'notifica_me',
       }[this.badge];
     },
     badgeStyle() {

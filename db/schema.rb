@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_20_191716) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_30_182452) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -226,6 +226,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_191716) do
     t.index ["scheduled_at"], name: "index_campaigns_on_scheduled_at"
   end
 
+  create_table "canned_attachments", id: :serial, force: :cascade do |t|
+    t.integer "file_type", default: 0
+    t.integer "canned_response_id", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["account_id"], name: "index_canned_attachments_on_account_id"
+    t.index ["canned_response_id"], name: "index_canned_attachments_on_canned_response_id"
+  end
+
   create_table "canned_responses", id: :serial, force: :cascade do |t|
     t.integer "account_id", null: false
     t.string "short_code"
@@ -315,6 +325,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_191716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["line_channel_id"], name: "index_channel_line_on_line_channel_id", unique: true
+  end
+
+  create_table "channel_notifica_me", force: :cascade do |t|
+    t.string "notifica_me_id", null: false
+    t.string "notifica_me_type", null: false
+    t.string "notifica_me_token", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifica_me_id", "notifica_me_type", "notifica_me_token"], name: "index_channel_notifica_me", unique: true
   end
 
   create_table "channel_sms", force: :cascade do |t|
@@ -623,8 +643,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_191716) do
     t.bigint "portal_id"
     t.integer "sender_name_type", default: 0, null: false
     t.string "business_name"
-    t.boolean "csat_response_visible", default: false, null: false
     t.boolean "allow_agent_to_delete_message", default: true, null: false
+    t.boolean "csat_response_visible", default: false, null: false
     t.index ["account_id"], name: "index_inboxes_on_account_id"
     t.index ["channel_id", "channel_type"], name: "index_inboxes_on_channel_id_and_channel_type"
     t.index ["portal_id"], name: "index_inboxes_on_portal_id"
