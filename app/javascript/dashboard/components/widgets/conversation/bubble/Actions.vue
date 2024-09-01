@@ -127,7 +127,8 @@ export default {
         this.isATwilioChannel ||
         this.isAFacebookInbox ||
         this.isASmsInbox ||
-        this.isATelegramChannel
+        this.isATelegramChannel ||
+        this.isANotificaMeChannel
       ) {
         return this.sourceId && this.isSent;
       }
@@ -202,10 +203,10 @@ export default {
       />
     </span>
     <span v-else-if="showProgressIndicator" class="read-indicator-wrap">
-      <fluent-icon 
-        icon="clock" 
-        class="action--icon read-tick" 
-        size="14" 
+      <fluent-icon
+        icon="clock"
+        class="action--icon read-tick"
+        size="14"
       />
     </span>
     <span v-if="showReadIndicator" class="read-indicator-wrap">

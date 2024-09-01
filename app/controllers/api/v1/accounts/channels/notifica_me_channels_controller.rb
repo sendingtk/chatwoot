@@ -1,4 +1,3 @@
-
 class Api::V1::Accounts::Channels::NotificaMeChannelsController < Api::V1::Accounts::BaseController
   before_action :authorize_request
 
