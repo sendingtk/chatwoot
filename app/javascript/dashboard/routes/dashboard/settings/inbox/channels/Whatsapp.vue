@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       provider: 'whatsapp_cloud', // Valor padrão
-      isEmbeddedSignupEnabled: process.env.VUE_APP_WABA_EMBEDDED_SIGNUP === 'true', // Verifica se a variável está ativa
+      isEmbeddedSignupEnabled: process.env.WABA_EMBEDDED_SIGNUP === 'true', // Verifica se a variável está ativa
     };
   },
 };
