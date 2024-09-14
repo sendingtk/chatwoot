@@ -1,9 +1,15 @@
 class Whatsapp::UnoapiWebhookSetupService
   def perform(whatsapp_channel)
-    return disconnect(whatsapp_channel) if whatsapp_channel.provider_config['disconnect']
-    return connect(whatsapp_channel) if whatsapp_channel.provider_config['connect']
-
-    true
+    if whatsapp_channel.provider_config['disconnect']
+      whatsapp_channel.provider_config.delete('connect')
+      whatsapp_channel.provider_config.delete('disconnect')
+      return disconnect(whatsapp_channel)
+    end
+    return unless whatsapp_channel.provider_config['connect']
+      
+      whatsapp_channel.provider_config.delete('connect')
+      whatsapp_channel.provider_config.delete('disconnect')
+      connect(whatsapp_channel)
   end
 
   private
@@ -42,8 +48,7 @@ class Whatsapp::UnoapiWebhookSetupService
         token: whatsapp_channel.provider_config['webhook_verify_token'],
         header: :Authorization
       ],
-      sendReactionAsReply: whatsapp_channel.provider_config['send_reaction_as_reply'],
-      sendProfilePicture: whatsapp_channel.provider_config['send_profile_picture'],      
+      sendReactionAsReply: whatsapp_channel.provider_config['send_reaction_as_reply'],     
       authToken: whatsapp_channel.provider_config['api_key']
     }
     response = HTTParty.post("#{url(whatsapp_channel)}/register", headers: headers(whatsapp_channel), body: body.to_json)
