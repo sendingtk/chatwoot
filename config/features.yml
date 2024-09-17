@@ -119,5 +119,3 @@
   enabled: false
 - name: channel_api
   enabled: true
-- name: sync_tags_with_contacts
-  enabled: false
