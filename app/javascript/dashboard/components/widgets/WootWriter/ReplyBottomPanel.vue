@@ -226,11 +226,7 @@ export default {
         : this.$t('CONVERSATION.FOOTER.ENABLE_SIGN_TOOLTIP');
     },
     enableInsertArticleInReply() {
-      const isFeatEnabled = this.isFeatureEnabledonAccount(
-        this.accountId,
-        FEATURE_FLAGS.INSERT_ARTICLE_IN_REPLY
-      );
-      return isFeatEnabled && this.portalSlug;
+      return this.portalSlug;
     },
     isFetchingAppIntegrations() {
       return this.uiFlags.isFetching;
@@ -410,6 +406,7 @@ export default {
   label {
     @apply cursor-pointer;
   }
+
   &:hover button {
     @apply dark:bg-slate-800 bg-slate-100;
   }

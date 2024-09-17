@@ -227,11 +227,12 @@ RSpec.describe 'Conversation Messages API', type: :request do
       end
 
       it 'returns bad request error' do
-        delete "/api/v1/accounts/#{account.id}/conversations/#{conversation.display_id}/messages/#{message.id}",
+        delete "/api/v1/accounts/#{account.id}/conversations/#{conversation.display_id}/messages/#{interactive_message.id}",
                headers: agent.create_new_auth_token,
                as: :json
 
-        expect(response).to have_http_status(:bad_request)
+        expect(response).to have_http_status(:success)
+        expect(interactive_message.reload.deleted).to be true
       end
     end
 
