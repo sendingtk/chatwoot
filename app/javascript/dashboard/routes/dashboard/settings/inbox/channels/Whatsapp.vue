@@ -3,6 +3,7 @@ import PageHeader from '../../SettingsSubPageHeader.vue';
 import Twilio from './Twilio.vue';
 import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
+import CloudEmbededSignupWhatsapp from './CloudEmbededSignupWhatsapp.vue';
 import Unoapi from './Unoapi.vue';
 
 export default {
@@ -11,11 +12,13 @@ export default {
     Twilio,
     ThreeSixtyDialogWhatsapp,
     CloudWhatsapp,
+    CloudEmbededSignupWhatsapp,
     Unoapi,
   },
   data() {
     return {
       provider: 'whatsapp_cloud',
+      isEmbeddedSignupEnabled: process.env.WABA_EMBEDDED_SIGNUP === 'true',
     };
   },
 };
@@ -36,6 +39,9 @@ export default {
           <option value="whatsapp_cloud">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.WHATSAPP_CLOUD') }}
           </option>
+          <option v-if="isEmbeddedSignupEnabled" value="embeded_signup">
+            Embedded Signup
+          </option>
           <option value="twilio">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.TWILIO') }}
           </option>
@@ -49,6 +55,7 @@ export default {
     <Twilio v-if="provider === 'twilio'" type="whatsapp" />
     <ThreeSixtyDialogWhatsapp v-else-if="provider === '360dialog'" />
     <CloudWhatsapp v-else-if="provider === 'whatsapp_cloud'" />
+    <CloudEmbededSignupWhatsapp v-else-if="provider === 'embeded_signup'" />
     <Unoapi v-else />
   </div>
 </template>
