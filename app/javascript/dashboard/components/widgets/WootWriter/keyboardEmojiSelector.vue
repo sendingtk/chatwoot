@@ -62,7 +62,7 @@ onMounted(() => {
             'font-normal': !selected,
           }"
         >
-        :{{ item.name }}
+          :{{ item.name }}
         </p>
       </span>
     </template>
