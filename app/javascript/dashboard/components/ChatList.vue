@@ -27,6 +27,11 @@ import {
 } from '../store/modules/conversations/helpers/actionHelpers';
 import { CONVERSATION_EVENTS } from '../helper/AnalyticsHelper/events';
 import IntersectionObserver from './IntersectionObserver.vue';
+import {
+  getUserPermissions,
+  filterItemsByPermission,
+} from 'dashboard/helper/permissionsHelper.js';
+import { ASSIGNEE_TYPE_TAB_PERMISSIONS } from 'dashboard/constants/permissions.js';
 
 export default {
   components: {
@@ -117,35 +122,41 @@ export default {
         lastConversationIndex,
       };
     };
-    const handlePreviousConversation = () => {
-      const { allConversations, activeConversationIndex } =
-        getKeyboardListenerParams();
-      if (activeConversationIndex === -1) {
-        allConversations[0].click();
-      }
-      if (activeConversationIndex >= 1) {
-        allConversations[activeConversationIndex - 1].click();
-      }
-    };
-    const handleNextConversation = () => {
+    const handleConversationNavigation = direction => {
       const {
         allConversations,
         activeConversationIndex,
         lastConversationIndex,
       } = getKeyboardListenerParams();
-      if (activeConversationIndex === -1) {
-        allConversations[lastConversationIndex].click();
-      } else if (activeConversationIndex < lastConversationIndex) {
-        allConversations[activeConversationIndex + 1].click();
+
+      // Determine the new index based on the direction
+      const newIndex =
+        direction === 'previous'
+          ? activeConversationIndex - 1
+          : activeConversationIndex + 1;
+
+      // Check if the new index is within the valid range
+      if (
+        allConversations.length > 0 &&
+        newIndex >= 0 &&
+        newIndex <= lastConversationIndex
+      ) {
+        // Click the conversation at the new index
+        allConversations[newIndex].click();
+      } else if (allConversations.length > 0) {
+        // If the new index is out of range, click the first or last conversation based on the direction
+        const fallbackIndex =
+          direction === 'previous' ? 0 : lastConversationIndex;
+        allConversations[fallbackIndex].click();
       }
     };
     const keyboardEvents = {
       'Alt+KeyJ': {
-        action: () => handlePreviousConversation(),
+        action: () => handleConversationNavigation('previous'),
         allowOnFocusedInput: true,
       },
       'Alt+KeyK': {
-        action: () => handleNextConversation(),
+        action: () => handleConversationNavigation('next'),
         allowOnFocusedInput: true,
       },
     };
@@ -198,6 +209,7 @@ export default {
   computed: {
     ...mapGetters({
       currentUser: 'getCurrentUser',
+      currentAccountId: 'getCurrentAccountId',
       chatLists: 'getAllConversations',
       mineChatsList: 'getMineChats',
       allChatList: 'getAllStatusChats',
@@ -264,29 +276,19 @@ export default {
         name,
       };
     },
+    userPermissions() {
+      return getUserPermissions(this.currentUser, this.currentAccountId);
+    },
     assigneeTabItems() {
-      const ASSIGNEE_TYPE_TAB_KEYS = {
-        me: 'mineCount',
-        // Ocultar la pestaña unassigned
-        //unassigned: 'unAssignedCount',
-        //all: 'allCount',
-      };
-      // Mostrar la pestaña unassigned si se cumple la condición
-      if (!this.hideUnassingnedForAgents) {
-        ASSIGNEE_TYPE_TAB_KEYS.unassigned = 'unAssignedCount';
-      }
-      if (!this.hideAllChatsForAgents) {
-        ASSIGNEE_TYPE_TAB_KEYS.all = 'allCount';
-      }
-
-      return Object.keys(ASSIGNEE_TYPE_TAB_KEYS).map(key => {
-        const count = this.conversationStats[ASSIGNEE_TYPE_TAB_KEYS[key]] || 0;
-        return {
-          key,
-          name: this.$t(`CHAT_LIST.ASSIGNEE_TYPE_TABS.${key}`),
-          count,
-        };
-      });
+      return filterItemsByPermission(
+        ASSIGNEE_TYPE_TAB_PERMISSIONS,
+        this.userPermissions,
+        item => item.permissions
+      ).map(({ key, count: countKey }) => ({
+        key,
+        name: this.$t(`CHAT_LIST.ASSIGNEE_TYPE_TABS.${key}`),
+        count: this.conversationStats[countKey] || 0,
+      }));
     },
     showAssigneeInConversationCard() {
       return (

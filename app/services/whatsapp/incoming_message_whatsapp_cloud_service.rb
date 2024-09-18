@@ -33,10 +33,15 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
   end
 
   def download_attachment_file(attachment_payload)
+    return if attachment_payload[:id].blank?
+  
     url_response = HTTParty.get(inbox.channel.media_url(attachment_payload[:id]), headers: inbox.channel.api_headers)
-    # This url response will be failure if the access token has expired.
     inbox.channel.authorization_error! if url_response.unauthorized?
-    Down.download(url_response.parsed_response['url'], headers: inbox.channel.api_headers) if url_response.success?
+    return unless url_response.success? && url_response.parsed_response['url'].present?
+  
+    Down.download(url_response.parsed_response['url'], headers: inbox.channel.api_headers)
+  rescue StandardError => e
+    Rails.logger.error "Error al descargar el archivo adjunto: #{e.message}"
   end
 
   def message_content(message)
@@ -45,8 +50,10 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
   end
 
   def group_message?
-    contact_params = @processed_params[:contacts]&.first
-    contact_params.present? && contact_params[:group_id].present?
+    @group_message ||= begin
+      contact_params = @processed_params[:contacts]&.first
+      contact_params.present? && contact_params[:group_id].present?
+    end
   end
 
   def set_message_type
