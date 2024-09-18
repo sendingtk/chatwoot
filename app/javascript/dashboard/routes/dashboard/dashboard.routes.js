@@ -23,7 +23,7 @@ export default {
           name: 'captain',
           component: Captain,
           meta: {
-            ermissions: ['administrator', 'agent', 'custom_role'],
+            permissions: ['administrator', 'agent', 'custom_role'],
           },
         },
         ...inboxRoutes,

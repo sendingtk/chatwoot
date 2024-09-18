@@ -137,7 +137,7 @@ const settings = accountId => ({
       label: 'MACROS',
       hasSubMenu: false,
       meta: {
-        ermissions: ['administrator', 'agent', 'custom_role'],
+        permissions: ['administrator', 'agent', 'custom_role'],
       },
       toState: frontendURL(`accounts/${accountId}/settings/macros`),
       toStateName: 'macros_wrapper',
@@ -148,7 +148,7 @@ const settings = accountId => ({
       label: 'CANNED_RESPONSES',
       hasSubMenu: false,
       meta: {
-        ermissions: ['administrator', 'agent', 'custom_role'],
+        permissions: ['administrator', 'agent', 'custom_role'],
       },
       toState: frontendURL(
         `accounts/${accountId}/settings/canned-response/list`
