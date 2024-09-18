@@ -1,4 +1,5 @@
 <script>
+import { ref, watchEffect, computed } from 'vue';
 import { useUISettings } from 'dashboard/composables/useUISettings';
 import { useKeyboardEvents } from 'dashboard/composables/useKeyboardEvents';
 import FileUpload from 'vue-upload-component';
@@ -116,13 +117,15 @@ export default {
     const { setSignatureFlagForInbox, fetchSignatureFlagFromUISettings } =
       useUISettings();
 
+    const uploadRef = ref(null);
+    // TODO: This is really hacky, we need to replace the file picker component with
+    // a custom one, where the logic and the component markup is isolated.
+    // Once we have the custom component, we can remove the hacky logic below.
+    const uploadRefElem = computed(() => uploadRef.value?.$el);
+
     const keyboardEvents = {
       'Alt+KeyA': {
         action: () => {
-          // TODO: This is really hacky, we need to replace the file picker component with
-          // a custom one, where the logic and the component markup is isolated.
-          // Once we have the custom component, we can remove the hacky logic below.
-
           const uploadTriggerButton = document.querySelector(
             '#conversationAttachment'
           );
@@ -132,11 +135,14 @@ export default {
       },
     };
 
-    useKeyboardEvents(keyboardEvents);
+    watchEffect(() => {
+      useKeyboardEvents(keyboardEvents, uploadRefElem);
+    });
 
     return {
       setSignatureFlagForInbox,
       fetchSignatureFlagFromUISettings,
+      uploadRef,
     };
   },
   computed: {
@@ -220,11 +226,7 @@ export default {
         : this.$t('CONVERSATION.FOOTER.ENABLE_SIGN_TOOLTIP');
     },
     enableInsertArticleInReply() {
-      const isFeatEnabled = this.isFeatureEnabledonAccount(
-        this.accountId,
-        FEATURE_FLAGS.INSERT_ARTICLE_IN_REPLY
-      );
-      return isFeatEnabled && this.portalSlug;
+      return this.portalSlug;
     },
     isFetchingAppIntegrations() {
       return this.uiFlags.isFetching;
@@ -261,6 +263,7 @@ export default {
         @click="toggleEmojiPicker"
       />
       <FileUpload
+        ref="uploadRef"
         v-tooltip.top-end="$t('CONVERSATION.REPLYBOX.TIP_ATTACH_ICON')"
         input-id="conversationAttachment"
         :size="4096 * 4096"
@@ -403,6 +406,7 @@ export default {
   label {
     @apply cursor-pointer;
   }
+
   &:hover button {
     @apply dark:bg-slate-800 bg-slate-100;
   }

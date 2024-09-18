@@ -23,7 +23,7 @@ export default {
           name: 'captain',
           component: Captain,
           meta: {
-            permissions: ['administrator'],
+            permissions: ['administrator', 'agent'],
           },
         },
         ...inboxRoutes,
@@ -38,7 +38,7 @@ export default {
       path: frontendURL('accounts/:accountId/suspended'),
       name: 'account_suspended',
       meta: {
-        permissions: ['administrator', 'agent'],
+        permissions: ['administrator', 'agent', 'custom_role'],
       },
       component: Suspended,
     },
