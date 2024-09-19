@@ -8,7 +8,7 @@ on:
 jobs:
   log_lines_check:
     #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
