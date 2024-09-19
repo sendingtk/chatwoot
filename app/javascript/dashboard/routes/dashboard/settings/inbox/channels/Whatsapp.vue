@@ -5,6 +5,7 @@ import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
 import CloudEmbededSignupWhatsapp from './CloudEmbededSignupWhatsapp.vue';
 import Unoapi from './Unoapi.vue';
+import GlobalConfigService from '../../services/GlobalConfigService'; // Asegúrate de que la ruta sea correcta
 
 export default {
   components: {
@@ -18,7 +19,7 @@ export default {
   data() {
     return {
       provider: 'whatsapp_cloud',
-      isEmbeddedSignupEnabled: process.env.WABA_EMBEDDED_SIGNUP === 'true',
+      isEmbeddedSignupEnabled: GlobalConfigService.load('WABA_EMBEDDED_SIGNUP', 'false'),
     };
   },
 };

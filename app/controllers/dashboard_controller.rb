@@ -68,6 +68,11 @@ class DashboardController < ActionController::Base
       UNOAPI_AUTH_TOKEN: GlobalConfigService.load('UNOAPI_AUTH_TOKEN', ''),
       CAPTAIN_APP_URL: GlobalConfigService.load('CAPTAIN_APP_URL', ''),
       CAPTAIN_API_URL: GlobalConfigService.load('CAPTAIN_API_URL', ''),
+      WHATSAPP_EMBEDDED_LICENSE_KEY: GlobalConfigService.load('WHATSAPP_EMBEDDED_LICENSE_KEY', ''),
+      WHATSAPP_EMBEDDED_FACEBOOK_APP_ID: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_APP_ID', ''),
+      WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID', ''),
+      WHATSAPP_EMBEDDED_FACEBOOK_TOKEN: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_TOKEN', ''),
+      WABA_EMBEDDED_SIGNUP: GlobalConfigService.load('WABA_EMBEDDED_SIGNUP', 'false'),
       GIT_SHA: GIT_HASH
     }
   end

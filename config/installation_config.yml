@@ -140,6 +140,33 @@
   description: 'The Auth Token for UNO API. Find more details on how to configure UNOAPI here: https://github.com/clairton/unoapi-cloud/tree/main'
 # End of UNOAPI Channel Config
 
+# MARK: WhatsApp Embedded
+- name: WHATSAPP_EMBEDDED_LICENSE_KEY
+  value:
+  display_title: 'License Key'
+  description: >
+    The license key for WhatsApp Embedded
+    This key is required to access WhatsApp's embedded functionality. Contact us via WhatsApp: https://bit.ly/3zfMVgT
+- name: WHATSAPP_EMBEDDED_FACEBOOK_APP_ID
+  value:
+  display_title: 'Facebook App ID'
+  description: 'The Facebook App ID for WhatsApp Embedded'
+- name: WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID
+  value:
+  display_title: 'Facebook Config ID'
+  description: 'The Facebook Config ID for WhatsApp Embedded'
+- name: WHATSAPP_EMBEDDED_FACEBOOK_TOKEN
+  value:
+  display_title: 'Facebook Token'
+  description: 'The Facebook Token for WhatsApp Embedded'
+- name: WABA_EMBEDDED_SIGNUP
+  value: false
+  display_title: 'WABA Embedded Signup'
+  description: 'Enable WABA Embedded Signup'
+  type: boolean
+
+# End of WhatsApp Embedded
+
 # ------- Chatwoot Internal Config for Cloud ----#
 - name: CHATWOOT_INBOX_TOKEN
   value:
@@ -238,11 +265,11 @@
 ## ------ End of Configs custom ------ ##
 ## ----- Captain Configs ----- ##
 - name: CAPTAIN_API_URL
-  value: 
+  value:
   display_title: 'Captain API URL'
   description: 'The API URL for Captain'
 - name: CAPTAIN_APP_URL
-  value: 
+  value:
   display_title: 'Captain App URL'
   description: 'The App URL for Captain'
 ## ----- End of Captain Configs ----- ##
