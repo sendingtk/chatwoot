@@ -26,11 +26,11 @@
         "UPDATE_SUCCESS": "Suas configurações foram atualizadas com sucesso",
         "CARD": {
           "ENTER_KEY": {
-            "HEADING": "Inserir (↵)",
+            "HEADING": "Enter (↵)",
             "CONTENT": "Enviar mensagens pressionando a tecla Enter em vez de clicar no botão de enviar."
           },
           "CMD_ENTER_KEY": {
-            "HEADING": "Cmd/Ctrl + Enter (⌘ + ↵)",
+            "HEADING": "Cmd/Ctrl + Enter (Crtl + ↵)",
             "CONTENT": "Pressione a tecla Cmd/Ctrl + Enter ao invés de clicar no botão enviar."
           }
         }
@@ -52,7 +52,7 @@
       },
       "PASSWORD_SECTION": {
         "TITLE": "Senha",
-        "NOTE": "A atualização da sua senha redefiniria o seu login em vários dispositivos.",
+        "NOTE": "Ao atualizar sua senha, sua conta será descontectada em outros aparelhos.",
         "BTN_TEXT": "Mudar Senha"
       },
       "ACCESS_TOKEN": {
