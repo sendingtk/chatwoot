@@ -39,6 +39,7 @@ const settings = accountId => ({
     'settings_teams_list',
     'settings_teams_new',
     'sla_list',
+    'custom_roles_list',
   ],
   menuItems: [
     {
@@ -136,7 +137,7 @@ const settings = accountId => ({
       label: 'MACROS',
       hasSubMenu: false,
       meta: {
-        permissions: ['administrator', 'agent'],
+        permissions: ['administrator', 'agent', 'custom_role'],
       },
       toState: frontendURL(`accounts/${accountId}/settings/macros`),
       toStateName: 'macros_wrapper',
@@ -147,7 +148,7 @@ const settings = accountId => ({
       label: 'CANNED_RESPONSES',
       hasSubMenu: false,
       meta: {
-        permissions: ['administrator', 'agent'],
+        permissions: ['administrator', 'agent', 'custom_role'],
       },
       toState: frontendURL(
         `accounts/${accountId}/settings/canned-response/list`
@@ -177,6 +178,18 @@ const settings = accountId => ({
       toStateName: 'auditlogs_list',
       isEnterpriseOnly: true,
       featureFlag: FEATURE_FLAGS.AUDIT_LOGS,
+    },
+    {
+      icon: 'scan-person',
+      label: 'CUSTOM_ROLES',
+      hasSubMenu: false,
+      meta: {
+        permissions: ['administrator'],
+      },
+      toState: frontendURL(`accounts/${accountId}/settings/custom-roles/list`),
+      toStateName: 'custom_roles_list',
+      isEnterpriseOnly: true,
+      beta: true,
     },
     {
       icon: 'document-list-clock',

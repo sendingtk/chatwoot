@@ -5,7 +5,9 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   def perform(params = {})
     channel = find_channel_from_whatsapp_business_payload(params)
     return if channel_is_inactive?(channel)
-
+  
+    Rails.logger.info "Processing params: #{params.inspect}"
+  
     case channel.provider
     when 'whatsapp_cloud'
       Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
