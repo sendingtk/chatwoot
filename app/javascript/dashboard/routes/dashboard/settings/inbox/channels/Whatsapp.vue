@@ -5,7 +5,7 @@ import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
 import CloudEmbededSignupWhatsapp from './CloudEmbededSignupWhatsapp.vue';
 import Unoapi from './Unoapi.vue';
-import GlobalConfigService from '../../services/GlobalConfigService'; // Asegúrate de que la ruta sea correcta
+import globalConfigMixin from 'shared/mixins/globalConfigMixin.vue'; // Asegúrate de que la ruta sea correcta
 
 export default {
   components: {
@@ -16,11 +16,22 @@ export default {
     CloudEmbededSignupWhatsapp,
     Unoapi,
   },
+  mixins: [globalConfigMixin],
   data() {
     return {
       provider: 'whatsapp_cloud',
-      isEmbeddedSignupEnabled: GlobalConfigService.load('WABA_EMBEDDED_SIGNUP', 'false'),
+      isEmbeddedSignupEnabled: false,
     };
+  },
+  computed: {
+    ...mapGetters({
+      globalConfig: 'globalConfig/get',
+    }),
+    wabaEmbeddedSignup() {
+      return {
+      isEmbeddedSignupEnabled: this.globalConfig.wabaEmbeddedSignup,
+      };
+    },
   },
 };
 </script>
