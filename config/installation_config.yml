@@ -160,11 +160,11 @@
   display_title: 'Facebook Token'
   description: 'The Facebook Token for WhatsApp Embedded'
 - name: WABA_EMBEDDED_SIGNUP
+  type: boolean
   value: false
   display_title: 'WABA Embedded Signup'
   description: 'Enable WABA Embedded Signup'
-  type: boolean
-
+  locked: false
 # End of WhatsApp Embedded
 
 # ------- Chatwoot Internal Config for Cloud ----#

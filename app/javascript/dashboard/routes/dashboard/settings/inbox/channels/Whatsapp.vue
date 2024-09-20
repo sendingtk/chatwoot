@@ -1,11 +1,12 @@
 <script>
+import { mapGetters } from 'vuex';
 import PageHeader from '../../SettingsSubPageHeader.vue';
 import Twilio from './Twilio.vue';
 import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
 import CloudEmbededSignupWhatsapp from './CloudEmbededSignupWhatsapp.vue';
 import Unoapi from './Unoapi.vue';
-import globalConfigMixin from 'shared/mixins/globalConfigMixin.vue'; // Asegúrate de que la ruta sea correcta
+import globalConfigMixin from 'shared/mixins/globalConfigMixin'; // Asegúrate de que la ruta sea correcta
 
 export default {
   components: {
@@ -17,12 +18,6 @@ export default {
     Unoapi,
   },
   mixins: [globalConfigMixin],
-  data() {
-    return {
-      provider: 'whatsapp_cloud',
-      isEmbeddedSignupEnabled: false,
-    };
-  },
   computed: {
     ...mapGetters({
       globalConfig: 'globalConfig/get',
@@ -32,6 +27,17 @@ export default {
       isEmbeddedSignupEnabled: this.globalConfig.wabaEmbeddedSignup,
       };
     },
+  },
+  data() {
+    return {
+      provider: 'whatsapp_cloud',
+      isEmbeddedSignupEnabled: false,
+    };
+  },
+  created() {
+    console.log(this.globalConfig); // Verifica si globalConfig está trayendo los datos correctos
+    console.log(this.globalConfig.wabaEmbeddedSignup); // Asegúrate de que esta propiedad existe
+    this.isEmbeddedSignupEnabled = this.globalConfig.wabaEmbeddedSignup || false;
   },
 };
 </script>

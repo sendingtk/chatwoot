@@ -51,7 +51,7 @@ const state = {
   termsURL,
   widgetBrandURL,
   conversationStyleCss: conversationStyleCss || '',
-  wabaEmbeddedSignup: wabaEmbeddedSignup === 'true',
+  wabaEmbeddedSignup: wabaEmbeddedSignup || '',
   whatsappEmbeddedLicenseKey: whatsappEmbeddedLicenseKey || '',
   whatsappEmbeddedFacebookAppId: whatsappEmbeddedFacebookAppId || '',
   whatsappEmbeddedFacebookConfigId: whatsappEmbeddedFacebookConfigId || '',
