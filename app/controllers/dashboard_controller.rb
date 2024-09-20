@@ -33,7 +33,12 @@ class DashboardController < ActionController::Base
       'DISABLE_USER_PROFILE_UPDATE',
       'DEPLOYMENT_ENV',
       'CSML_EDITOR_HOST',
-      'CONVERSATION_STYLE_CSS'
+      'CONVERSATION_STYLE_CSS',
+      'WABA_EMBEDDED_SIGNUP',
+      'WHATSAPP_EMBEDDED_FACEBOOK_APP_ID',
+      'WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID',
+      'WHATSAPP_EMBEDDED_FACEBOOK_TOKEN',
+      'WHATSAPP_EMBEDDED_LICENSE_KEY'
     ).merge(app_config)
   end
 
@@ -68,6 +73,11 @@ class DashboardController < ActionController::Base
       UNOAPI_AUTH_TOKEN: GlobalConfigService.load('UNOAPI_AUTH_TOKEN', ''),
       CAPTAIN_APP_URL: GlobalConfigService.load('CAPTAIN_APP_URL', ''),
       CAPTAIN_API_URL: GlobalConfigService.load('CAPTAIN_API_URL', ''),
+      # WHATSAPP_EMBEDDED_LICENSE_KEY: GlobalConfigService.load('WHATSAPP_EMBEDDED_LICENSE_KEY', ''),
+      # WHATSAPP_EMBEDDED_FACEBOOK_APP_ID: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_APP_ID', ''),
+      # WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_CONFIG_ID', ''),
+      # WHATSAPP_EMBEDDED_FACEBOOK_TOKEN: GlobalConfigService.load('WHATSAPP_EMBEDDED_FACEBOOK_TOKEN', ''),
+      # WABA_EMBEDDED_SIGNUP: GlobalConfigService.load('WABA_EMBEDDED_SIGNUP', 'false'),
       GIT_SHA: GIT_HASH
     }
   end
