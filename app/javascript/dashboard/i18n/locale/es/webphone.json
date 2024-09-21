@@ -1,0 +1,24 @@
+{
+  "WEBPHONE": {
+    "CALL": "Llamar",
+    "TERMINATE": "Finalizada",
+    "ACCEPT_ELSEWHERE": "Aceptada por otro usuario",
+    "REJECT_ELSEWHERE": "Rechazada por otro usuario",
+    "CONNECT_CALLING": "Conectando",
+    "CALLING": "Llamando",
+    "VOICE_CALL": "Llamada de voz",
+    "IN_PROGRESS": "En progreso",
+    "ACTIVE": "Activa",
+    "MUTE": "Silenciar micrófono",
+    "UNMUTE": "Activar micrófono",
+    "TURN_ON_VIDEO": "Activar video",
+    "TURN_OFF_VIDEO": "Desactivar video",
+    "NUMPAD": "Teclado",
+    "TRANSFER": "Transferir",
+    "UNKNOWN": "Desconocido",
+    "ALL_INSTANCE_BUSY": "Todas las líneas están ocupadas",
+    "CONTACT_INVALID": "El contacto no existe en WhatsApp",
+    "CALL_LIMIT": "Límite diario de llamadas alcanzado",
+    "ERROR_TO_MADE_CALL": "Ocurrió un error al intentar llamar"
+  }
+}

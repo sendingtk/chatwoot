@@ -83,6 +83,7 @@ export default {
       inboxesList: 'inboxes/getInboxes',
       activeInbox: 'getSelectedInbox',
       accountId: 'getCurrentAccountId',
+      callInfo: 'webphone/getCallInfo',
     }),
     bulkActionCheck() {
       return !this.hideThumbnail && !this.hovered && !this.selected;
@@ -285,6 +286,49 @@ export default {
       >
         {{ currentContact.name }}
       </h4>
+      <div
+        v-if="callInfo.id && callInfo.chat_id === chat.id"
+        class="flex items-center gap-x-1 mt-0.5 mx-2"
+      >
+        <fluent-icon
+          size="16"
+          class="align-middle inline-block text-green-500"
+          icon="call"
+        />
+        <p class="text-green-500 m-0">{{ $t('WEBPHONE.VOICE_CALL') }}</p>
+        <p class="text-green-500 m-0">-</p>
+        <p
+          v-if="callInfo.status === 'accept'"
+          class="text-slate-800 dark:text-slate-100 m-0 text-center"
+        >
+          {{ $t('WEBPHONE.ACTIVE') }}
+        </p>
+        <p
+          v-if="callInfo.status === 'terminate'"
+          class="text-slate-800 dark:text-slate-100 m-0 text-center"
+        >
+          {{ $t('WEBPHONE.TERMINATE') }}
+        </p>
+        <p
+          v-if="callInfo.status === 'reject'"
+          class="text-slate-800 dark:text-slate-100 m-0 text-center"
+        >
+          {{ $t('WEBPHONE.TERMINATE') }}
+        </p>
+        <p
+          v-if="callInfo.status === 'outcoming_calling'"
+          class="text-slate-800 dark:text-slate-100 m-0 text-center"
+        >
+          {{ $t('WEBPHONE.CONNECT_CALLING') }}
+        </p>
+        <p
+          v-if="callInfo.status === 'preaccept'"
+          class="text-slate-800 dark:text-slate-100 m-0 text-center"
+        >
+          {{ $t('WEBPHONE.CALLING') }}
+        </p>
+      </div>
+      <template v-else>
       <MessagePreview
         v-if="lastMessageInChat"
         :message="lastMessageInChat"
@@ -303,6 +347,8 @@ export default {
           {{ $t(`CHAT_LIST.NO_MESSAGES`) }}
         </span>
       </p>
+    </template>
+
       <div class="absolute flex flex-col conversation--meta right-4 top-4">
         <span class="ml-auto font-normal leading-4 text-black-600 text-xxs">
           <TimeAgo

@@ -20,7 +20,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ currentChat: 'getSelectedChat' }),
+    ...mapGetters({
+      currentChat: 'getSelectedChat',
+      callInfo: 'webphone/getCallInfo',
+    }),
+    currentContact() {
+      return this.$store.getters['contacts/getContact'](
+        this.currentChat.meta.sender.id
+      );
+    },
   },
   mounted() {
     this.$emitter.on(CMD_MUTE_CONVERSATION, this.mute);
@@ -33,6 +41,28 @@ export default {
     this.$emitter.off(CMD_SEND_TRANSCRIPT, this.toggleEmailActionsModal);
   },
   methods: {
+    async startCall() {
+      try {
+        await this.$store.dispatch('webphone/outcomingCall', {
+          contact_name: this.currentContact.name,
+          profile_picture: this.currentContact.thumbnail,
+          phone: this.currentContact.phone_number,
+          chat_id: this.currentChat.id,
+        });
+      } catch (error) {
+        if (error.message === 'Numero não existe') {
+          useAlert(this.$t('WEBPHONE.CONTACT_INVALID'));
+        } else if (
+          error.message === 'Linha ocupada, tente mais tarde ou faça um upgrade'
+        ) {
+          useAlert(this.$t('WEBPHONE.ALL_INSTANCE_BUSY'));
+        } else if (error.message === 'Limite de ligações atingido') {
+          useAlert(this.$t('WEBPHONE.CALL_LIMIT'));
+        } else {
+          useAlert(this.$t('WEBPHONE.ERROR_TO_MADE_CALL'));
+        }
+      }
+    },
     mute() {
       this.$store.dispatch('muteConversation', this.currentChat.id);
       useAlert(this.$t('CONTACT_PANEL.MUTED_SUCCESS'));
@@ -50,6 +80,14 @@ export default {
 
 <template>
   <div class="relative flex items-center gap-2 actions--container">
+    <woot-button
+      v-tooltip="$t('WEBPHONE.CALL')"
+      variant="clear"
+      color-scheme="secondary"
+      icon="call"
+      :disabled="callInfo.id"
+      @click="startCall"
+    />
     <woot-button
       v-if="!currentChat.muted"
       v-tooltip="$t('CONTACT_PANEL.MUTE_CONTACT')"
