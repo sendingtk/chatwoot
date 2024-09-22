@@ -42,6 +42,10 @@ export default {
   },
   methods: {
     async startCall() {
+      if (!this.currentContact) {
+        useAlert(this.$t('WEBPHONE.CONTACT_NOT_FOUND'));
+        return;
+      }
       try {
         await this.$store.dispatch('webphone/outcomingCall', {
           contact_name: this.currentContact.name,
@@ -50,13 +54,13 @@ export default {
           chat_id: this.currentChat.id,
         });
       } catch (error) {
-        if (error.message === 'Numero não existe') {
+        if (error.message === 'NÃºmero nÃ£o existe') {
           useAlert(this.$t('WEBPHONE.CONTACT_INVALID'));
         } else if (
-          error.message === 'Linha ocupada, tente mais tarde ou faça um upgrade'
+          error.message === 'Linha ocupada, tente mais tarde ou faÃ§a um upgrade'
         ) {
           useAlert(this.$t('WEBPHONE.ALL_INSTANCE_BUSY'));
-        } else if (error.message === 'Limite de ligações atingido') {
+        } else if (error.message === 'Limite de ligaÃ§Ãµes atingido') {
           useAlert(this.$t('WEBPHONE.CALL_LIMIT'));
         } else {
           useAlert(this.$t('WEBPHONE.ERROR_TO_MADE_CALL'));
@@ -85,7 +89,7 @@ export default {
       variant="clear"
       color-scheme="secondary"
       icon="call"
-      :disabled="callInfo.id"
+      :disabled="callInfo && callInfo.id"
       @click="startCall"
     />
     <woot-button

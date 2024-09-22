@@ -47,10 +47,17 @@ export const actions = {
       return;
     }
     const WAV = new Wavoip();
-    const whatsapp_instance = WAV.connect(token);
+    let whatsapp_instance;
+    try {
+      whatsapp_instance = WAV.connect(token);
+    } catch (error) {
+      console.error('Error connecting to Wavoip:', error);
+      useAlert(i18n.t('WEBPHONE.CONNECTION_FAILED'));
+      return;
+    }
     commit(types.default.ADD_WAVOIP, {
       token: token,
-      whatsapp_instance: whatsapp_instance,
+      whatsapp_instance: wavoipInstance,
       inboxName: inboxName,
     });
     whatsapp_instance.socket.on('connect', () => {});
@@ -59,6 +66,9 @@ export const actions = {
   outcomingCall: async ({ commit, state, dispatch }, callInfo) => {
     let { phone, contact_name, chat_id } = callInfo;
     let instances = callInfo.instances ?? Object.keys(state.wavoip);
+    if (!instances || instances.length === 0) {
+      throw new Error(i18n.t('WEBPHONE.NO_AVAILABLE_INSTANCES'));
+    }
     let token = callInfo.token ?? instances[0];
     let wavoip = state.wavoip[token].whatsapp_instance;
     let inbox_name = state.wavoip[token].inbox_name;
@@ -96,10 +106,10 @@ export const actions = {
     }
     if (offerResponse.error) {
       let remainingInstances = instances.filter(instance => instance !== token);
-      if (offerResponse.message === 'Numero não existe') {
+      if (offerResponse.message === i18n.t('WEBPHONE.NUMBER_NOT_FOUND')) {
         throw new Error(offerResponse.message);
       } else if (offerResponse.message === 'Limite de ligações atingido') {
-        useAlert('Limite de ligações diários atingido');
+        useAlert(i18n.t('WEBPHONE.DAILY_LIMIT_REACHED'));
       }
       if (remainingInstances.length > 0) {
         dispatch('outcomingCall', {
@@ -108,7 +118,7 @@ export const actions = {
           token: null,
         });
       } else {
-        throw new Error('Linha ocupada, tente mais tarde ou faça um upgrade');
+        throw new Error(i18n.t('WEBPHONE.LINE_BUSY_TRY_AGAIN'));
       }
       return;
     }
@@ -162,7 +172,7 @@ export const actions = {
     });
     if (status === 'accept') {
       commit(types.default.SET_WEBPHONE_CALL, {
-        active_start_date: new Date(),
+        active_start_date: Date.now()
       });
     }
   },

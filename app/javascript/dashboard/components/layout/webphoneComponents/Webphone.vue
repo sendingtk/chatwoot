@@ -111,7 +111,7 @@ export default {
     callInfo(newCallInfo) {
       let instances = this.$store.state.webphone.wavoip;
       Object.keys(instances).forEach(token => {
-        this.listernSockets(token, instances[token].whatsapp_instance);
+        this.listenSockets(token, instances[token].whatsapp_instance);
       });
 
       const status = newCallInfo.status;
@@ -161,6 +161,10 @@ export default {
         clearInterval(this.timer);
       }
       const startDate = this.$store.state.webphone.call.active_start_date;
+      if (!startDate) {
+        console.error('startDate is undefined');
+        return;
+      }
       this.timer = setInterval(() => {
         const now = new Date();
         this.elapsedTime = Math.floor((now - startDate) / 1000);
@@ -187,11 +191,17 @@ export default {
     },
     mute() {
       this.isMuted = true;
+      if (this.localStream && this.localStream.getAudioTracks().length > 0) {
+      this.localStream.getAudioTracks()[0].enabled = false;
+      }
     },
     unMute() {
       this.isMuted = false;
+      if (this.localStream && this.localStream.getAudioTracks().length > 0) {
+      this.localStream.getAudioTracks()[0].enabled = true;
+      }
     },
-    listernSockets(token, whatsapp_instance) {
+    listenSockets(token, whatsapp_instance) {
       whatsapp_instance.socket.off('signaling');
 
       whatsapp_instance.socket.on('signaling', (...args) => {
@@ -213,25 +223,11 @@ export default {
             contact_name: name,
             profile_picture: profile_picture,
           });
-        } else if (data?.tag === 'terminate') {
-          setTimeout(() => {
-            this.$store.dispatch('webphone/resetCall');
-          }, 3500);
-        } else if (data?.tag === 'reject') {
-          setTimeout(() => {
-            this.$store.dispatch('webphone/resetCall');
-          }, 3500);
-        } else if (data?.tag === 'accept_elsewhere') {
-          setTimeout(() => {
-            this.$store.dispatch('webphone/resetCall');
-          }, 3500);
-        } else if (data?.tag === 'reject_elsewhere') {
+        } else if (['terminate', 'reject', 'accept_elsewhere', 'reject_elsewhere'].includes(data?.tag)) {
           setTimeout(() => {
             this.$store.dispatch('webphone/resetCall');
           }, 3500);
         }
-
-        // setCallState(data?.tag)
       });
     },
     playCalling() {

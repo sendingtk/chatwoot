@@ -82,7 +82,6 @@ export default {
       currentChat: 'getSelectedChat',
       inboxesList: 'inboxes/getInboxes',
       activeInbox: 'getSelectedInbox',
-      currentUser: 'getCurrentUser',
       accountId: 'getCurrentAccountId',
       callInfo: 'webphone/getCallInfo',
     }),
@@ -142,6 +141,16 @@ export default {
     },
     hasSlaPolicyId() {
       return this.chat?.sla_policy_id;
+    },
+    callStatusMessage() {
+      const statusMessages = {
+        accept: this.$t('WEBPHONE.ACTIVE'),
+        terminate: this.$t('WEBPHONE.TERMINATE'),
+        reject: this.$t('WEBPHONE.REJECTED'),
+        outgoing_calling: this.$t('WEBPHONE.CONNECT_CALLING'),
+        preaccept: this.$t('WEBPHONE.CALLING'),
+      };
+      return statusMessages[this.callInfo.status] || '';
     },
   },
   methods: {
@@ -299,34 +308,10 @@ export default {
         <p class="text-green-500 m-0">{{ $t('WEBPHONE.VOICE_CALL') }}</p>
         <p class="text-green-500 m-0">-</p>
         <p
-          v-if="callInfo.status === 'accept'"
+          v-if="callStatusMessage"
           class="text-slate-800 dark:text-slate-100 m-0 text-center"
         >
-          {{ $t('WEBPHONE.ACTIVE') }}
-        </p>
-        <p
-          v-if="callInfo.status === 'terminate'"
-          class="text-slate-800 dark:text-slate-100 m-0 text-center"
-        >
-          {{ $t('WEBPHONE.TERMINATE') }}
-        </p>
-        <p
-          v-if="callInfo.status === 'reject'"
-          class="text-slate-800 dark:text-slate-100 m-0 text-center"
-        >
-          {{ $t('WEBPHONE.TERMINATE') }}
-        </p>
-        <p
-          v-if="callInfo.status === 'outcoming_calling'"
-          class="text-slate-800 dark:text-slate-100 m-0 text-center"
-        >
-          {{ $t('WEBPHONE.CONNECT_CALLING') }}
-        </p>
-        <p
-          v-if="callInfo.status === 'preaccept'"
-          class="text-slate-800 dark:text-slate-100 m-0 text-center"
-        >
-          {{ $t('WEBPHONE.CALLING') }}
+          {{ callStatusMessage }}
         </p>
       </div>
       <template v-else>
