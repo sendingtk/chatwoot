@@ -63,6 +63,7 @@ export default {
       selectedTabIndex: 0,
       selectedPortalSlug: '',
       showBusinessNameInput: false,
+      externalToken: '',
     };
   },
   computed: {
@@ -262,6 +263,7 @@ export default {
         this.avatarUrl = this.inbox.avatar_url;
         this.selectedInboxName = this.inbox.name;
         this.webhookUrl = this.inbox.webhook_url;
+        this.externalToken = this.inbox.external_token;
         this.greetingEnabled = this.inbox.greeting_enabled || false;
         this.greetingMessage = this.inbox.greeting_message || '';
         this.emailCollectEnabled = this.inbox.enable_email_collect;
@@ -302,6 +304,7 @@ export default {
           lock_to_single_conversation: this.locktoSingleConversation,
           sender_name_type: this.senderNameType,
           business_name: this.businessName || null,
+          external_token: this.externalToken || '',
           channel: {
             widget_color: this.inbox.widget_color,
             website_url: this.channelWebsiteUrl,
@@ -311,6 +314,7 @@ export default {
             selectedFeatureFlags: this.selectedFeatureFlags,
             reply_time: this.replyTime || 'in_a_few_minutes',
             continuity_via_email: this.continuityViaEmail,
+            external_token: this.externalToken || '',
           },
         };
         if (this.avatarFile) {
@@ -360,6 +364,7 @@ export default {
       shouldBeUrl,
     },
     selectedInboxName: {},
+    externalToken: {},
   },
 };
 </script>
@@ -434,6 +439,15 @@ export default {
               : ''
           "
           @blur="v$.webhookUrl.$touch"
+        />
+        <woot-input
+          v-if="isAPIInbox"
+          v-model.trim="externalToken"
+          class="w-3/4 pb-4"
+          :label="$t('INBOX_MGMT.SETTINGS_POPUP.EXTERNAL_TOKEN')"
+          :placeholder="
+            $t('INBOX_MGMT.SETTINGS_POPUP.EXTERNAL_TOKEN_PLACEHOLDER')
+          "
         />
         <woot-input
           v-if="isAWebWidgetInbox"

@@ -623,7 +623,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_20_191716) do
     t.bigint "portal_id"
     t.integer "sender_name_type", default: 0, null: false
     t.string "business_name"
-    t.string "external_token"
+    t.string "external_token", default: "", null: false
     t.boolean "csat_response_visible", default: false, null: false
     t.boolean "allow_agent_to_delete_message", default: true, null: false
     t.index ["account_id"], name: "index_inboxes_on_account_id"

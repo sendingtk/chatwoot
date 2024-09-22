@@ -583,7 +583,9 @@
       "AGENT_PERMISSIONS": "Agent Permissions",
       "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
       "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation."
+      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation.",
+      "EXTERNAL_TOKEN": "Token Wavoip",
+      "EXTERNAL_TOKEN_PLACEHOLDER": "Digite o token Wavoip"
     },
     "HELP_CENTER": {
       "LABEL": "Centro de Ajuda",

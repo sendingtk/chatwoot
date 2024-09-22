@@ -15,7 +15,7 @@
 #  email_address                 :string
 #  enable_auto_assignment        :boolean          default(TRUE)
 #  enable_email_collect          :boolean          default(TRUE)
-#  external_token                :string
+#  external_token                :string           default(""), not null
 #  greeting_enabled              :boolean          default(FALSE)
 #  greeting_message              :string
 #  lock_to_single_conversation   :boolean          default(FALSE), not null

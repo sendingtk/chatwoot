@@ -526,7 +526,7 @@
       "BUSINESS_HOURS": "Horário comercial",
       "WIDGET_BUILDER": "Construtor de Widgets",
       "BOT_CONFIGURATION": "Configuração do bot",
-      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration"
     },
     "SETTINGS": "Configurações",
     "FEATURES": {
@@ -583,7 +583,9 @@
       "AGENT_PERMISSIONS": "Agent Permissions",
       "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
       "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation."
+      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation.",
+      "EXTERNAL_TOKEN": "Token Wavoip",
+      "EXTERNAL_TOKEN_PLACEHOLDER": "Enter the token here"
     },
     "HELP_CENTER": {
       "LABEL": "Centro de Suporte",
