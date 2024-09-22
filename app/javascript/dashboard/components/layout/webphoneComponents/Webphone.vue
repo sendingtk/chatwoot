@@ -136,7 +136,7 @@ export default {
     },
     wavoip(newWavoip) {
       Object.keys(newWavoip).forEach(token => {
-        this.listernSockets(token, newWavoip[token].whatsapp_instance);
+        this.listenSockets(token, newWavoip[token].whatsapp_instance);
       });
     },
   },

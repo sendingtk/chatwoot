@@ -57,7 +57,7 @@ export const actions = {
     }
     commit(types.default.ADD_WAVOIP, {
       token: token,
-      whatsapp_instance: wavoipInstance,
+      whatsapp_instance: whatsapp_instance,
       inboxName: inboxName,
     });
     whatsapp_instance.socket.on('connect', () => {});

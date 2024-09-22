@@ -25,6 +25,7 @@
     "DAILY_LIMIT_REACHED": "Daily limit reached",
     "LINE_BUSY_TRY_AGAIN": "Line busy, try again",
     "NO_AVAILABLE_INSTANCES": "No available instances",
-    "CONNECTION_FAILED": "Connection failed"
+    "CONNECTION_FAILED": "Connection failed",
+    "REJECTED": "Rejected"
   }
 }

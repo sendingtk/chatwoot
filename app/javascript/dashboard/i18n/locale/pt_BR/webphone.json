@@ -25,6 +25,7 @@
     "DAILY_LIMIT_REACHED": "Limite diário atingido",
     "LINE_BUSY_TRY_AGAIN": "Linha ocupada, tente novamente",
     "NO_AVAILABLE_INSTANCES": "Não há instâncias disponíveis",
-    "CONNECTION_FAILED": "Falha na conexão"
+    "CONNECTION_FAILED": "Conexão falhou",
+    "REJECTED": "Rejeitado"
   }
 }
