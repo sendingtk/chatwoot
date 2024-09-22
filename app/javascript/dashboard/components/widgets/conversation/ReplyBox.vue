@@ -251,7 +251,8 @@ export default {
         this.isAnEmailChannel ||
         this.isASmsInbox ||
         this.isATelegramChannel ||
-        this.isALineChannel
+        this.isALineChannel ||
+        this.isANotificaMeChannel
       );
     },
     replyButtonLabel() {

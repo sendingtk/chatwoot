@@ -23,6 +23,15 @@ class Contacts::ContactableInboxesService
     when 'Channel::WebWidget'
       website_contactable_inbox(inbox)
     end
+    when 'Channel::NotificaMe'
+      notifica_me_contactable_inbox(inbox)
+  end
+
+  def notifica_me_contactable_inbox(inbox)
+    source_id = @contact.additional_attributes[inbox.channel.notifica_me_type] || @contact.phone_number
+    return unless source_id
+
+    { source_id: source_id, inbox: inbox }
   end
 
   def website_contactable_inbox(inbox)
