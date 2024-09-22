@@ -25,7 +25,7 @@
         "body": "Add agents to the created inbox."
       },
       {
-        "title": "Voilà!",
+        "title": "Voilï¿½!",
         "route": "settings_inbox_finish",
         "body": "You are all set to go!"
       }
@@ -305,7 +305,7 @@
           "LABEL": "Show profile picture",
           "PLACEHOLDER": "Select to show profile picture.",
           "ERROR": "Select to show profile picture."
-        },        
+        },
         "URL": {
           "LABEL": "Unoapi URL",
           "PLACEHOLDER": "Please enter an Unoapi URL",
@@ -591,7 +591,7 @@
       "BUSINESS_HOURS": "Business Hours",
       "WIDGET_BUILDER": "Widget Builder",
       "BOT_CONFIGURATION": "Bot Configuration",
-      "UNOAPI_CONFIGURATION": "Unoapi Configuration" 
+      "UNOAPI_CONFIGURATION": "Unoapi Configuration"
     },
     "SETTINGS": "Settings",
     "FEATURES": {
@@ -650,7 +650,9 @@
       "AGENT_PERMISSIONS": "Agent Permissions",
       "AGENT_PERMISSIONS_SUB_TEXT": "Update agent permissions for this inbox",
       "AGENT_ALLOW_TO_DELETE_MESSAGE": "Allow an agent to delete a message",
-      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation."
+      "AGENT_ALLOW_TO_DELETE_MESSAGE_SUB_TEXT": "Allow an agent to delete a message from a conversation.",
+      "EXTERNAL_TOKEN": "Token Wavoip",
+      "EXTERNAL_TOKEN_PLACEHOLDER": "Enter the token"
     },
     "HELP_CENTER": {
       "LABEL": "Help Center",

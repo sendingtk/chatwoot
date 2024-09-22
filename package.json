@@ -64,7 +64,7 @@
     "ionicons": "~2.0.1",
     "js-cookie": "^3.0.5",
     "lamejs": "1.2.0",
-    "libphonenumber-js": "^1.10.24",
+    "libphonenumber-js": "^1.11.5",
     "markdown-it": "^13.0.2",
     "markdown-it-link-attributes": "^4.0.1",
     "md5": "^2.3.0",
@@ -100,6 +100,7 @@
     "vuex": "~2.1.1",
     "vuex-router-sync": "~4.1.2",
     "wavesurfer.js": "^6.0.4",
+    "wavoip-api": "2.0.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

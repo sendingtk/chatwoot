@@ -29,6 +29,7 @@ import settings from './settings.json';
 import signup from './signup.json';
 import teamsSettings from './teamsSettings.json';
 import whatsappTemplates from './whatsappTemplates.json';
+import webphone from './webphone.json';
 import sla from './sla.json';
 import inbox from './inbox.json';
 import general from './general.json';
@@ -70,4 +71,5 @@ export default {
   ...inbox,
   ...general,
   ...datePicker,
+  ...webphone,
 };
