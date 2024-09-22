@@ -71,6 +71,7 @@ export default {
       isMuted: false,
       callingSound: null,
       ringSound: null,
+      localStream: null,
     };
   },
   computed: {
