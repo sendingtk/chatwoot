@@ -48,8 +48,6 @@ export const actions = {
     }
     const WAV = new Wavoip();
     const whatsapp_instance = WAV.connect(token);
-
-    //console.log('startWavoip', whatsapp_instance, token);
     commit(types.default.ADD_WAVOIP, {
       token: token,
       whatsapp_instance: whatsapp_instance,

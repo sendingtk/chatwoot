@@ -46,6 +46,7 @@ export default {
       getAccount: 'accounts/getAccount',
       isRTL: 'accounts/isRTL',
       currentUser: 'getCurrentUser',
+      globalConfig: 'globalConfig/get',
       authUIFlags: 'getAuthUIFlags',
       accountUIFlags: 'accounts/getUIFlags',
       currentAccountId: 'getCurrentAccountId',
@@ -125,7 +126,7 @@ export default {
     :class="{ 'app-rtl--wrapper': isRTL }"
     :dir="isRTL ? 'rtl' : 'ltr'"
   >
-  <webphone />
+    <webphone />
     <UpdateBanner :latest-chatwoot-version="latestChatwootVersion" />
     <template v-if="currentAccountId">
       <PendingEmailVerificationBanner v-if="hideOnOnboardingView" />

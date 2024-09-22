@@ -103,8 +103,6 @@ export default {
   watch: {
     inboxes(newInboxes) {
       newInboxes.forEach(inbox => {
-
-        //console.log('calling startd wavoip', inbox.external_token);
         if (inbox.external_token) {
           this.startWavoip(inbox.name, inbox.external_token);
         }
