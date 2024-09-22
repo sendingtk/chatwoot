@@ -221,6 +221,10 @@ export default {
     facebookUnauthorized() {
       return this.isAFacebookInbox && this.inbox.reauthorization_required;
     },
+
+    isWavoipFeatureEnabled() {
+      return this.isFeatureEnabledonAccount(this.accountId, FEATURE_FLAGS.WAVOIP);
+    },
   },
   watch: {
     $route(to) {
@@ -441,7 +445,7 @@ export default {
           @blur="v$.webhookUrl.$touch"
         />
         <woot-input
-          v-if="isAPIInbox"
+          v-if="isAPIInbox && isWavoipFeatureEnabled"
           v-model.trim="externalToken"
           class="w-3/4 pb-4"
           :label="$t('INBOX_MGMT.SETTINGS_POPUP.EXTERNAL_TOKEN')"

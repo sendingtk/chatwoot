@@ -3,6 +3,7 @@ import { mapGetters } from 'vuex';
 import { useAlert } from 'dashboard/composables';
 import EmailTranscriptModal from './EmailTranscriptModal.vue';
 import ResolveAction from '../../buttons/ResolveAction.vue';
+import { FEATURE_FLAGS } from 'dashboard/featureFlags';
 import {
   CMD_MUTE_CONVERSATION,
   CMD_SEND_TRANSCRIPT,
@@ -23,11 +24,16 @@ export default {
     ...mapGetters({
       currentChat: 'getSelectedChat',
       callInfo: 'webphone/getCallInfo',
+      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
+      accountId: 'getCurrentAccountId',
     }),
     currentContact() {
       return this.$store.getters['contacts/getContact'](
         this.currentChat.meta.sender.id
       );
+    },
+    isWavoipFeatureEnabled() {
+      return this.isFeatureEnabledonAccount(this.accountId, FEATURE_FLAGS.WAVOIP);
     },
   },
   mounted() {
@@ -85,6 +91,7 @@ export default {
 <template>
   <div class="relative flex items-center gap-2 actions--container">
     <woot-button
+    v-if="isWavoipFeatureEnabled"
       v-tooltip="$t('WEBPHONE.CALL')"
       variant="clear"
       color-scheme="secondary"
