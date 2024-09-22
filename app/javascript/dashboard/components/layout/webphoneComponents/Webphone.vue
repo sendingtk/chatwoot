@@ -203,6 +203,11 @@ export default {
       }
     },
     listenSockets(token, whatsapp_instance) {
+      if (!whatsapp_instance || !whatsapp_instance.socket) {
+        console.error('whatsapp_instance or whatsapp_instance.socket is undefined');
+        return;
+      }
+
       whatsapp_instance.socket.off('signaling');
 
       whatsapp_instance.socket.on('signaling', (...args) => {
