@@ -1,9 +1,9 @@
 {
   "WEBPHONE": {
-    "CALL": "Call",
-    "TERMINATE": "Terminated",
-    "ACCEPT_ELSEWHERE": "Accepted by another user",
-    "REJECT_ELSEWHERE": "Rejected by another user",
+    "CALL": "Chamada",
+    "TERMINATE": "Terminado",
+    "ACCEPT_ELSEWHERE": "Aceite por outro utilizador",
+    "REJECT_ELSEWHERE": "Rejeitado por outro utilizador",
     "CONNECT_CALLING": "Conectando",
     "CALLING": "Chamando",
     "VOICE_CALL": "Chamada de voz",
