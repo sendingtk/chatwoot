@@ -1,6 +1,6 @@
 {
   "WEBPHONE": {
-    "CALL": "Chamar",
+    "CALL": "Chamada",
     "TERMINATE": "Terminada",
     "ACCEPT_ELSEWHERE": "Aceite por outro utilizador",
     "REJECT_ELSEWHERE": "Rejeitado por outro utilizador",
@@ -10,7 +10,7 @@
     "IN_PROGRESS": "Em progresso",
     "ACTIVE": "Ativo",
     "MUTE": "Silenciar microfone",
-    "UNMUTE": "Ativar microfone",
+    "UNMUTE": "Reativar microfone",
     "TURN_ON_VIDEO": "Ligar vídeo",
     "TURN_OFF_VIDEO": "Desligar vídeo",
     "NUMPAD": "Teclado",
@@ -19,12 +19,12 @@
     "ALL_INSTANCE_BUSY": "Todas as linhas estão ocupadas",
     "CONTACT_INVALID": "O contacto não existe no WhatsApp",
     "CALL_LIMIT": "Limite diário de chamadas atingido",
-    "ERROR_TO_MADE_CALL": "Ocorreu um erro ao tentar fazer a chamada",
+    "ERROR_TO_MADE_CALL": "Ocorreu um erro ao tentar ligar",
     "CONTACT_NOT_FOUND": "Contacto não encontrado",
     "NUMBER_NOT_FOUND": "Número não encontrado",
     "DAILY_LIMIT_REACHED": "Limite diário atingido",
     "LINE_BUSY_TRY_AGAIN": "Linha ocupada, tente novamente",
-    "NO_AVAILABLE_INSTANCES": "Não há instâncias disponíveis",
+    "NO_AVAILABLE_INSTANCES": "Sem instâncias disponíveis",
     "CONNECTION_FAILED": "Falha na ligação",
     "REJECTED": "Rejeitado"
   }

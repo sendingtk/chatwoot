@@ -1,208 +1,212 @@
 {
   "PROFILE_SETTINGS": {
-    "LINK": "Ajustes del perfil",
-    "TITLE": "Ajustes del perfil",
-    "BTN_TEXT": "Actualizar perfil",
-    "DELETE_AVATAR": "Eliminar avatar",
-    "AVATAR_DELETE_SUCCESS": "El avatar se ha eliminado correctamente",
-    "AVATAR_DELETE_FAILED": "Se ha producido un error al eliminar el avatar, inténtelo de nuevo",
-    "UPDATE_SUCCESS": "Tu perfil se ha actualizado correctamente",
-    "PASSWORD_UPDATE_SUCCESS": "Su contraseña se ha cambiado correctamente",
-    "AFTER_EMAIL_CHANGED": "Su perfil ha sido actualizado con éxito, por favor inicie sesión de nuevo cuando sus credenciales de inicio de sesión se hayan cambiado",
+    "LINK": "Profile Settings",
+    "TITLE": "Configuración de Perfil",
+    "BTN_TEXT": "Actualizar Perfil",
+    "DELETE_AVATAR": "Eliminar Avatar",
+    "AVATAR_DELETE_SUCCESS": "El avatar ha sido eliminado con éxito",
+    "AVATAR_DELETE_FAILED": "Hubo un error al eliminar el avatar, por favor intente de nuevo",
+    "UPDATE_SUCCESS": "Tu perfil ha sido actualizado con éxito",
+    "PASSWORD_UPDATE_SUCCESS": "Tu contraseña ha sido cambiada con éxito",
+    "AFTER_EMAIL_CHANGED": "Tu perfil ha sido actualizado con éxito, por favor inicia sesión de nuevo ya que tus credenciales de inicio de sesión han cambiado",
     "FORM": {
-      "PICTURE": "Foto de perfil",
-      "AVATAR": "Imagen de perfil",
-      "ERROR": "Por favor, corrija los errores de formulario",
+      "PICTURE": "Foto de Perfil",
+      "AVATAR": "Imagen de Perfil",
+      "ERROR": "Por favor corrige los errores del formulario",
       "REMOVE_IMAGE": "Eliminar",
       "UPLOAD_IMAGE": "Subir imagen",
       "UPDATE_IMAGE": "Actualizar imagen",
       "PROFILE_SECTION": {
         "TITLE": "Perfil",
-        "NOTE": "Su dirección de correo electrónico es su identidad y se utiliza para iniciar sesión."
+        "NOTE": "Tu dirección de correo electrónico es tu identidad y se usa para iniciar sesión."
       },
       "SEND_MESSAGE": {
-        "TITLE": "Tecla rápida para enviar mensajes",
-        "NOTE": "Puede seleccionar una tecla de acceso rápido (Enter o Cmd/Ctrl+Enter) basándose en su preferencia de escritura.",
-        "UPDATE_SUCCESS": "Su configuración se ha actualizado correctamente",
+        "TITLE": "Tecla de acceso rápido para enviar mensajes",
+        "NOTE": "Puedes seleccionar una tecla de acceso rápido (ya sea Enter o Cmd/Ctrl+Enter) según tu preferencia de escritura.",
+        "UPDATE_SUCCESS": "Tu configuración ha sido actualizada con éxito",
         "CARD": {
           "ENTER_KEY": {
             "HEADING": "Enter (↵)",
-            "CONTENT": "Envía mensajes presionando la tecla Intro en lugar de hacer clic en el botón Enviar."
+            "CONTENT": "Enviar mensajes presionando la tecla Enter en lugar de hacer clic en el botón de enviar."
           },
           "CMD_ENTER_KEY": {
             "HEADING": "Cmd/Ctrl + Enter (⌘ + ↵)",
-            "CONTENT": "Envía mensajes pulsando Cmd/Ctrl + tecla Intro en lugar de hacer clic en el botón Enviar."
+            "CONTENT": "Enviar mensajes presionando Cmd/Ctrl + Enter en lugar de hacer clic en el botón de enviar."
           }
         }
       },
       "MESSAGE_SIGNATURE_SECTION": {
         "TITLE": "Firma de mensaje personal",
-        "NOTE": "Crea una firma de mensaje única para que aparezca al final de cada mensaje que envíes desde cualquier bandeja de entrada. También puede incluir una imagen en línea, que es soportada en las bandejas de entrada de live-chat, correo electrónico y API.",
+        "NOTE": "Crea una firma de mensaje única para que aparezca al final de cada mensaje que envíes desde cualquier bandeja de entrada. También puedes incluir una imagen en línea, que es compatible en chat en vivo, correo electrónico y bandejas de entrada de API.",
         "BTN_TEXT": "Guardar firma de mensaje",
-        "API_ERROR": "¡No se pudo guardar la firma! Inténtalo de nuevo",
-        "API_SUCCESS": "Firma guardada correctamente",
-        "IMAGE_UPLOAD_ERROR": "¡No se pudo subir la imagen! Intente nuevamente",
-        "IMAGE_UPLOAD_SUCCESS": "Imagen agregada satisfactoriamente. Por favor haga clic en salvar para guardar la firma",
-        "IMAGE_UPLOAD_SIZE_ERROR": "El tamaño de la imagen debe ser menor que {size}MB"
+        "API_ERROR": "¡No se pudo guardar la firma! Intenta de nuevo",
+        "API_SUCCESS": "Firma guardada con éxito",
+        "IMAGE_UPLOAD_ERROR": "¡No se pudo subir la imagen! Intenta de nuevo",
+        "IMAGE_UPLOAD_SUCCESS": "Imagen añadida con éxito. Por favor haz clic en guardar para guardar la firma",
+        "IMAGE_UPLOAD_SIZE_ERROR": "El tamaño de la imagen debe ser menor a {size}MB"
       },
       "MESSAGE_SIGNATURE": {
-        "LABEL": "Firma del mensaje",
-        "ERROR": "La firma del mensaje no puede estar vacía",
-        "PLACEHOLDER": "Introduzca aquí su firma de mensaje personal."
+        "LABEL": "Firma de Mensaje",
+        "ERROR": "La firma de mensaje no puede estar vacía",
+        "PLACEHOLDER": "Inserta tu firma de mensaje personal aquí."
       },
       "PASSWORD_SECTION": {
         "TITLE": "Contraseña",
-        "NOTE": "Actualizar tu contraseña restablecería tus entradas en varios dispositivos.",
+        "NOTE": "Actualizar tu contraseña restablecerá tus inicios de sesión en múltiples dispositivos.",
         "BTN_TEXT": "Cambiar contraseña"
       },
       "ACCESS_TOKEN": {
-        "TITLE": "Token de acceso",
+        "TITLE": "Token de Acceso",
         "NOTE": "Este token puede ser usado si estás construyendo una integración basada en API",
         "COPY": "Copiar"
       },
       "AUDIO_NOTIFICATIONS_SECTION": {
-        "TITLE": "Notificaciones con sonido",
-        "NOTE": "Active las notificaciones de sonido en el tablero para los mensajes nuevos y conversaciones.",
+        "TITLE": "Notificaciones de Audio",
+        "NOTE": "Habilita notificaciones de audio en el panel para nuevos mensajes y conversaciones.",
         "ALERT_TYPES": {
-          "NONE": "Ninguna",
+          "NONE": "Ninguno",
           "MINE": "Asignado",
           "ALL": "Todos"
         },
         "ALERT_TYPE": {
           "TITLE": "Eventos de alerta para conversaciones:",
-          "NONE": "Ninguna",
-          "ASSIGNED": "Conversaciones asignadas",
-          "ALL_CONVERSATIONS": "Todas las conversaciones"
+          "NONE": "Ninguno",
+          "ASSIGNED": "Conversaciones Asignadas",
+          "ALL_CONVERSATIONS": "Todas las Conversaciones"
         },
         "DEFAULT_TONE": {
           "TITLE": "Tono de alerta:"
         },
         "CONDITIONS": {
           "TITLE": "Condiciones de alerta:",
-          "CONDITION_ONE": "Enviar alertas de audio sólo si la ventana del navegador no está activa",
+          "CONDITION_ONE": "Enviar alertas de audio solo si la ventana del navegador no está activa",
           "CONDITION_TWO": "Enviar alertas cada 30s hasta que todas las conversaciones asignadas sean leídas"
         }
       },
       "EMAIL_NOTIFICATIONS_SECTION": {
-        "TITLE": "Notificaciones por email",
+        "TITLE": "Notificaciones por Correo Electrónico",
         "NOTE": "Actualiza tus preferencias de notificación por correo electrónico aquí",
-        "CONVERSATION_ASSIGNMENT": "Enviar notificaciones por correo electrónico cuando se me ha asignado una conversación",
-        "CONVERSATION_CREATION": "Enviar notificaciones por correo electrónico cuando se crea una nueva conversación",
-        "CONVERSATION_MENTION": "Enviar notificaciones por correo electrónico cuando sea mencionado en una conversación",
-        "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Envirar notificaciones por correo electrónico cuando un nuevo mensaje es creado en una conversación asignada",
-        "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones por correo electrónico cuando se crea un nuevo mensaje en una conversación participante",
-        "SLA_MISSED_FIRST_RESPONSE": "Send email notifications when a conversation misses first response SLA",
-        "SLA_MISSED_NEXT_RESPONSE": "Send email notifications when a conversation misses next response SLA",
-        "SLA_MISSED_RESOLUTION": "Send email notifications when a conversation misses resolution SLA"
+        "CONVERSATION_ASSIGNMENT": "Enviar notificaciones por correo electrónico cuando una conversación sea asignada a mí",
+        "CONVERSATION_CREATION": "Enviar notificaciones por correo electrónico cuando se cree una nueva conversación",
+        "CONVERSATION_MENTION": "Enviar notificaciones por correo electrónico cuando seas mencionado en una conversación",
+        "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones por correo electrónico cuando se cree un nuevo mensaje en una conversación asignada",
+        "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones por correo electrónico cuando se cree un nuevo mensaje en una conversación en la que participas",
+        "SLA_MISSED_FIRST_RESPONSE": "Enviar notificaciones por correo electrónico cuando una conversación no cumpla con el SLA de primera respuesta",
+        "SLA_MISSED_NEXT_RESPONSE": "Enviar notificaciones por correo electrónico cuando una conversación no cumpla con el SLA de siguiente respuesta",
+        "SLA_MISSED_RESOLUTION": "Enviar notificaciones por correo electrónico cuando una conversación no cumpla con el SLA de resolución"
       },
       "NOTIFICATIONS": {
         "TITLE": "Preferencias de notificación",
         "TYPE_TITLE": "Tipo de notificación",
-        "EMAIL": "E-mail",
-        "PUSH": "Notificación push",
+        "EMAIL": "Correo Electrónico",
+        "PUSH": "Notificación Push",
         "TYPES": {
           "CONVERSATION_CREATED": "Se ha creado una nueva conversación",
-          "CONVERSATION_ASSIGNED": "Se te ha asignado una conversación",
+          "CONVERSATION_ASSIGNED": "Una conversación ha sido asignada a ti",
           "CONVERSATION_MENTION": "Has sido mencionado en una conversación",
-          "ASSIGNED_CONVERSATION_NEW_MESSAGE": "A new message is created in an assigned conversation",
-          "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "A new message is created in a participating conversation",
-          "SLA_MISSED_FIRST_RESPONSE": "A conversation misses first response SLA",
-          "SLA_MISSED_NEXT_RESPONSE": "A conversation misses next response SLA",
-          "SLA_MISSED_RESOLUTION": "A conversation misses resolution SLA"
+          "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Se ha creado un nuevo mensaje en una conversación asignada",
+          "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Se ha creado un nuevo mensaje en una conversación en la que participas",
+          "SLA_MISSED_FIRST_RESPONSE": "Una conversación no cumple con el SLA de primera respuesta",
+          "SLA_MISSED_NEXT_RESPONSE": "Una conversación no cumple con el SLA de siguiente respuesta",
+          "SLA_MISSED_RESOLUTION": "Una conversación no cumple con el SLA de resolución"
         },
-        "BROWSER_PERMISSION": "Enable push notifications for your browser so you’re able to receive them"
+        "BROWSER_PERMISSION": "Habilita notificaciones push para tu navegador para que puedas recibirlas"
       },
       "API": {
-        "UPDATE_SUCCESS": "Sus preferencias de notificación se actualizaron correctamente",
-        "UPDATE_ERROR": "Se ha producido un error al actualizar las preferencias, inténtelo de nuevo"
+        "UPDATE_SUCCESS": "Tus preferencias de notificación han sido actualizadas con éxito",
+        "UPDATE_ERROR": "Hubo un error al actualizar las preferencias, por favor intenta de nuevo"
       },
       "PUSH_NOTIFICATIONS_SECTION": {
-        "TITLE": "Notificaciones push",
-        "NOTE": "Actualize sus preferencias de notificaciones push aquí",
-        "CONVERSATION_ASSIGNMENT": "Enviar notificaciones push cuando se me ha asignado una conversación",
-        "CONVERSATION_CREATION": "Enviar notificaciones push cuando se crea una nueva conversación",
-        "CONVERSATION_MENTION": "Enviar notificaciones push cuando sea mencionado en una conversación",
-        "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones push cuando un nuevo mensaja es creadao en una conversación asignada",
-        "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones push cuando se crea un nuevo mensaje en una conversación participante",
-        "HAS_ENABLED_PUSH": "Ha habilitado notificaciones push para este navegador.",
+        "TITLE": "Notificaciones Push",
+        "NOTE": "Actualiza tus preferencias de notificación push aquí",
+        "CONVERSATION_ASSIGNMENT": "Enviar notificaciones push cuando una conversación sea asignada a mí",
+        "CONVERSATION_CREATION": "Enviar notificaciones push cuando se cree una nueva conversación",
+        "CONVERSATION_MENTION": "Enviar notificaciones push cuando seas mencionado en una conversación",
+        "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones push cuando se cree un nuevo mensaje en una conversación asignada",
+        "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Enviar notificaciones push cuando se cree un nuevo mensaje en una conversación en la que participas",
+        "HAS_ENABLED_PUSH": "Has habilitado push para este navegador.",
         "REQUEST_PUSH": "Habilitar notificaciones push",
-        "SLA_MISSED_FIRST_RESPONSE": "Send push notifications when a conversation misses first response SLA",
-        "SLA_MISSED_NEXT_RESPONSE": "Send push notifications when a conversation misses next response SLA",
-        "SLA_MISSED_RESOLUTION": "Send push notifications when a conversation misses resolution SLA"
+        "SLA_MISSED_FIRST_RESPONSE": "Enviar notificaciones push cuando una conversación no cumpla con el SLA de primera respuesta",
+        "SLA_MISSED_NEXT_RESPONSE": "Enviar notificaciones push cuando una conversación no cumpla con el SLA de siguiente respuesta",
+        "SLA_MISSED_RESOLUTION": "Enviar notificaciones push cuando una conversación no cumpla con el SLA de resolución"
       },
       "PROFILE_IMAGE": {
-        "LABEL": "Imagen de perfil"
+        "LABEL": "Imagen de Perfil"
       },
       "NAME": {
-        "LABEL": "Su nombre completo",
-        "ERROR": "Introduce un nombre válido por favor",
-        "PLACEHOLDER": "Introduzca su nombre completo por favor"
+        "LABEL": "Tu nombre completo",
+        "ERROR": "Por favor ingresa un nombre completo válido",
+        "PLACEHOLDER": "Por favor ingresa tu nombre completo"
       },
       "DISPLAY_NAME": {
-        "LABEL": "Nombre a mostrar",
-        "ERROR": "Introduzca un nombre válido por favor",
-        "PLACEHOLDER": "Introduzca un nombre a mostrar por favor, esto se mostrará en las conversaciones"
+        "LABEL": "Nombre para mostrar",
+        "ERROR": "Por favor ingresa un nombre para mostrar válido",
+        "PLACEHOLDER": "Por favor ingresa un nombre para mostrar, este se mostrará en las conversaciones"
       },
       "AVAILABILITY": {
         "LABEL": "Disponibilidad",
-        "STATUSES_LIST": ["En línea", "Ocupado", "Fuera de línea"],
-        "SET_AVAILABILITY_SUCCESS": "La disponibilidad se ha establecido con éxito",
-        "SET_AVAILABILITY_ERROR": "No se pudo establecer la disponibilidad, inténtelo de nuevo"
+        "STATUSES_LIST": [
+          "En línea",
+          "Ocupado",
+          "Desconectado"
+        ],
+        "SET_AVAILABILITY_SUCCESS": "La disponibilidad ha sido establecida con éxito",
+        "SET_AVAILABILITY_ERROR": "No se pudo establecer la disponibilidad, por favor intenta de nuevo"
       },
       "EMAIL": {
-        "LABEL": "Tu dirección de correo",
-        "ERROR": "Por favor, introduzca una dirección de correo válida",
-        "PLACEHOLDER": "Por favor, introduzca su dirección de correo electrónico, esto se mostrará en las conversaciones"
+        "LABEL": "Tu dirección de correo electrónico",
+        "ERROR": "Por favor ingresa una dirección de correo electrónico válida",
+        "PLACEHOLDER": "Por favor ingresa tu dirección de correo electrónico, esta se mostrará en las conversaciones"
       },
       "CURRENT_PASSWORD": {
         "LABEL": "Contraseña actual",
-        "ERROR": "Por favor, introduzca su contraseña actual",
-        "PLACEHOLDER": "Por favor, introduzca su contraseña actual"
+        "ERROR": "Por favor ingresa la contraseña actual",
+        "PLACEHOLDER": "Por favor ingresa la contraseña actual"
       },
       "PASSWORD": {
         "LABEL": "Nueva contraseña",
-        "ERROR": "Por favor, introduzca una contraseña de longitud 6 o más",
-        "PLACEHOLDER": "Por favor, introduzca una nueva contraseña"
+        "ERROR": "Por favor ingresa una contraseña de 6 caracteres o más",
+        "PLACEHOLDER": "Por favor ingresa una nueva contraseña"
       },
       "PASSWORD_CONFIRMATION": {
         "LABEL": "Confirmar nueva contraseña",
-        "ERROR": "Confirmar contraseña debe coincidir con la contraseña",
-        "PLACEHOLDER": "Por favor, vuelva a introducir su nueva contraseña"
+        "ERROR": "La confirmación de la contraseña debe coincidir con la contraseña",
+        "PLACEHOLDER": "Por favor reingresa tu nueva contraseña"
       }
     }
   },
   "SIDEBAR_ITEMS": {
     "CHANGE_AVAILABILITY_STATUS": "Cambiar",
-    "CHANGE_ACCOUNTS": "Cambiar de cuenta",
-    "CONTACT_SUPPORT": "Contactar con Soporte",
-    "SELECTOR_SUBTITLE": "Seleccione una cuenta de la siguiente lista",
-    "PROFILE_SETTINGS": "Ajustes del perfil",
-    "KEYBOARD_SHORTCUTS": "Atajos de teclado",
-    "APPEARANCE": "Cambiar apariencia",
+    "CHANGE_ACCOUNTS": "Cambiar Cuenta",
+    "CONTACT_SUPPORT": "Contactar Soporte",
+    "SELECTOR_SUBTITLE": "Selecciona una cuenta de la siguiente lista",
+    "PROFILE_SETTINGS": "Configuración de Perfil",
+    "KEYBOARD_SHORTCUTS": "Atajos de Teclado",
+    "APPEARANCE": "Cambiar Apariencia",
     "SUPER_ADMIN_CONSOLE": "Consola de Super Admin",
-    "LOGOUT": "Cerrar sesión"
+    "LOGOUT": "Cerrar Sesión"
   },
   "APP_GLOBAL": {
     "TRIAL_MESSAGE": "días de prueba restantes.",
-    "TRAIL_BUTTON": "Comprar ahora",
-    "DELETED_USER": "Usuario eliminado",
-    "EMAIL_VERIFICATION_PENDING": "Parece que aún no has verificado tu dirección de correo electrónico. Por favor, revisa tu bandeja de entrada para ver el correo electrónico de verificación.",
+    "TRAIL_BUTTON": "Comprar Ahora",
+    "DELETED_USER": "Usuario Eliminado",
+    "EMAIL_VERIFICATION_PENDING": "Parece que aún no has verificado tu dirección de correo electrónico. Por favor revisa tu bandeja de entrada para el correo de verificación.",
     "RESEND_VERIFICATION_MAIL": "Reenviar correo de verificación",
-    "EMAIL_VERIFICATION_SENT": "El correo electrónico de verificación ha sido enviado. Por favor, comprueba tu bandeja de entrada.",
+    "EMAIL_VERIFICATION_SENT": "El correo de verificación ha sido enviado. Por favor revisa tu bandeja de entrada.",
     "ACCOUNT_SUSPENDED": {
-      "TITLE": "Cuenta suspendida",
-      "MESSAGE": "Tu cuenta está suspendida. Comuníquese con el equipo de soporte para obtener más información."
+      "TITLE": "Cuenta Suspendida",
+      "MESSAGE": "Tu cuenta está suspendida. Por favor contacta al equipo de soporte para más información."
     }
   },
   "COMPONENTS": {
     "CODE": {
       "BUTTON_TEXT": "Copiar",
-      "CODEPEN": "Abrir en Code Pen",
-      "COPY_SUCCESSFUL": "Código copiado al portapapeles con éxito"
+      "CODEPEN": "Abrir en CodePen",
+      "COPY_SUCCESSFUL": "Copiado al portapapeles"
     },
     "SHOW_MORE_BLOCK": {
-      "SHOW_MORE": "Mostrar más",
-      "SHOW_LESS": "Mostrar menos"
+      "SHOW_MORE": "Mostrar Más",
+      "SHOW_LESS": "Mostrar Menos"
     },
     "FILE_BUBBLE": {
       "DOWNLOAD": "Descargar",
@@ -219,130 +223,132 @@
   "CONFIRM_EMAIL": "Verificando...",
   "SETTINGS": {
     "INBOXES": {
-      "NEW_INBOX": "Añadir bandeja de entrada"
+      "NEW_INBOX": "Añadir Bandeja de Entrada"
     }
   },
   "SIDEBAR": {
-    "CURRENTLY_VIEWING_ACCOUNT": "Visualizando:",
+    "CURRENTLY_VIEWING_ACCOUNT": "Viendo actualmente:",
     "SWITCH": "Cambiar",
-    "INBOX_VIEW": "Inbox View",
+    "INBOX_VIEW": "Vista de Bandeja de Entrada",
     "CONVERSATIONS": "Conversaciones",
-    "INBOX": "Bandeja de entrada",
-    "ALL_CONVERSATIONS": "Todas las conversaciones",
+    "INBOX": "Bandeja de Entrada",
+    "ALL_CONVERSATIONS": "Todas las Conversaciones",
     "MENTIONED_CONVERSATIONS": "Menciones",
-    "PARTICIPATING_CONVERSATIONS": "Participar",
-    "UNATTENDED_CONVERSATIONS": "Desatendido",
+    "PARTICIPATING_CONVERSATIONS": "Participando",
+    "UNATTENDED_CONVERSATIONS": "No Atendidas",
     "REPORTS": "Informes",
-    "SETTINGS": "Ajustes",
+    "SETTINGS": "Configuración",
     "CONTACTS": "Contactos",
+    "CAPTAIN": "Capitán",
     "HOME": "Inicio",
     "AGENTS": "Agentes",
     "AGENT_BOTS": "Bots",
-    "AUDIT_LOGS": "Auditoría de registros",
-    "INBOXES": "Entradas",
+    "AUDIT_LOGS": "Registros de Auditoría",
+    "INBOXES": "Bandejas de Entrada",
     "NOTIFICATIONS": "Notificaciones",
-    "CANNED_RESPONSES": "Respuestas predefinidas",
+    "CANNED_RESPONSES": "Respuestas Predefinidas",
     "INTEGRATIONS": "Integraciones",
-    "PROFILE_SETTINGS": "Ajustes del perfil",
-    "ACCOUNT_SETTINGS": "Configuración de la cuenta",
+    "PROFILE_SETTINGS": "Configuración de Perfil",
+    "ACCOUNT_SETTINGS": "Configuración de Cuenta",
     "APPLICATIONS": "Aplicaciones",
     "LABELS": "Etiquetas",
-    "CUSTOM_ATTRIBUTES": "Atributos personalizados",
+    "CUSTOM_ATTRIBUTES": "Atributos Personalizados",
     "AUTOMATION": "Automatización",
     "MACROS": "Macros",
     "TEAMS": "Equipos",
     "BILLING": "Facturación",
     "CUSTOM_VIEWS_FOLDER": "Carpetas",
     "CUSTOM_VIEWS_SEGMENTS": "Segmentos",
-    "ALL_CONTACTS": "Todos los contactos",
+    "ALL_CONTACTS": "Todos los Contactos",
     "TAGGED_WITH": "Etiquetado con",
     "NEW_LABEL": "Nueva etiqueta",
     "NEW_TEAM": "Nuevo equipo",
-    "NEW_INBOX": "Nuevo buzón",
+    "NEW_INBOX": "Nueva bandeja de entrada",
     "REPORTS_CONVERSATION": "Conversaciones",
-    "CSAT": "Encuestas de Satisfacción",
+    "CSAT": "CSAT",
     "CAMPAIGNS": "Campañas",
-    "ONGOING": "En Curso",
-    "ONE_OFF": "One Off",
+    "ONGOING": "En curso",
+    "ONE_OFF": "Única vez",
     "REPORTS_SLA": "SLA",
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Agentes",
     "REPORTS_LABEL": "Etiquetas",
-    "REPORTS_INBOX": "Bandeja de entrada",
+    "REPORTS_INBOX": "Bandeja de Entrada",
     "REPORTS_TEAM": "Equipo",
-    "SET_AVAILABILITY_TITLE": "Ponte como",
+    "SET_AVAILABILITY_TITLE": "Establecer como",
     "SLA": "SLA",
+    "CUSTOM_ROLES": "Roles Personalizados",
     "BETA": "Beta",
     "REPORTS_OVERVIEW": "Resumen",
-    "REAUTHORIZE": "Your inbox connection has expired, please reconnect\n to continue receiving and sending messages",
+    "REAUTHORIZE": "La conexión de tu bandeja de entrada ha expirado, por favor reconéctate para continuar recibiendo y enviando mensajes",
     "HELP_CENTER": {
-      "TITLE": "Centro de ayuda",
-      "ALL_ARTICLES": "Todos los artículos",
-      "MY_ARTICLES": "Todos los artículos",
+      "TITLE": "Centro de Ayuda",
+      "ALL_ARTICLES": "Todos los Artículos",
+      "MY_ARTICLES": "Mis Artículos",
       "DRAFT": "Borrador",
       "ARCHIVED": "Archivado",
       "CATEGORY": "Categoría",
-      "SETTINGS": "Ajustes",
+      "SETTINGS": "Configuración",
       "CATEGORY_EMPTY_MESSAGE": "No se encontraron categorías"
     },
     "SET_AUTO_OFFLINE": {
       "TEXT": "Marcar como desconectado automáticamente",
-      "INFO_TEXT": "Permite que el sistema te marque automáticamente sin conexión cuando no estás usando la aplicación o el tablero."
+      "INFO_TEXT": "Permite que el sistema te marque como desconectado automáticamente cuando no estés usando la aplicación o el panel."
     },
     "DOCS": "Leer documentos"
   },
   "BILLING_SETTINGS": {
     "TITLE": "Facturación",
     "CURRENT_PLAN": {
-      "TITLE": "Plan actual",
-      "PLAN_NOTE": "Actualmente está suscrito al plan **%{plan}** con **%{quantity}** licencias"
+      "TITLE": "Plan Actual",
+      "PLAN_NOTE": "Actualmente estás suscrito al plan **%{plan}** con **%{quantity}** licencias"
     },
     "MANAGE_SUBSCRIPTION": {
-      "TITLE": "Administre su suscripción",
-      "DESCRIPTION": "Vea sus facturas anteriores, edite sus datos de facturación o cancele su suscripción.",
+      "TITLE": "Gestiona tu suscripción",
+      "DESCRIPTION": "Ve tus facturas anteriores, edita tus detalles de facturación o cancela tu suscripción.",
       "BUTTON_TXT": "Ir al portal de facturación"
     },
     "CHAT_WITH_US": {
       "TITLE": "¿Necesitas ayuda?",
-      "DESCRIPTION": "¿Tienes a algún problema en la facturación? Estamos aquí para ayudarte.",
+      "DESCRIPTION": "¿Tienes problemas con la facturación? Estamos aquí para ayudar.",
       "BUTTON_TXT": "Chatea con nosotros"
     },
-    "NO_BILLING_USER": "Tu cuenta de facturación está siendo configurada. Por favor, actualiza la página e inténtalo de nuevo."
+    "NO_BILLING_USER": "Tu cuenta de facturación está siendo configurada. Por favor refresca la página e intenta de nuevo."
   },
   "CREATE_ACCOUNT": {
-    "NO_ACCOUNT_WARNING": "¡Oh oh! No hemos podido encontrar ninguna cuenta de \"Chatwoot\". Por favor, crea una nueva cuenta para continuar.",
-    "NEW_ACCOUNT": "Nueva cuenta",
-    "SELECTOR_SUBTITLE": "Crear nueva cuenta",
+    "NO_ACCOUNT_WARNING": "¡Oh no! No pudimos encontrar ninguna cuenta de Chatwoot. Por favor crea una nueva cuenta para continuar.",
+    "NEW_ACCOUNT": "Nueva Cuenta",
+    "SELECTOR_SUBTITLE": "Crear una nueva cuenta",
     "API": {
       "SUCCESS_MESSAGE": "Cuenta creada con éxito",
       "EXIST_MESSAGE": "La cuenta ya existe",
-      "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtelo de nuevo más tarde"
+      "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intenta de nuevo más tarde"
     },
     "FORM": {
       "NAME": {
-        "LABEL": "Empresa",
-        "PLACEHOLDER": "Empresas de Wayne"
+        "LABEL": "Nombre de la Empresa",
+        "PLACEHOLDER": "Wayne Enterprises"
       },
       "SUBMIT": "Enviar"
     }
   },
   "KEYBOARD_SHORTCUTS": {
-    "TOGGLE_MODAL": "Ver todos los accesos rápidos",
+    "TOGGLE_MODAL": "Ver todos los atajos",
     "TITLE": {
       "OPEN_CONVERSATION": "Abrir conversación",
-      "RESOLVE_AND_NEXT": "Resolver y pasar al siguiente",
-      "NAVIGATE_DROPDOWN": "Navegar elementos desplegables",
-      "RESOLVE_CONVERSATION": "Resolver conversación",
-      "GO_TO_CONVERSATION_DASHBOARD": "Ir al panel de conversaciones",
-      "ADD_ATTACHMENT": "Añadir archivo adjunto",
-      "GO_TO_CONTACTS_DASHBOARD": "Ir al panel de contactos",
-      "TOGGLE_SIDEBAR": "Cambiar barra lateral",
-      "GO_TO_REPORTS_SIDEBAR": "Ir a la barra lateral de informes",
-      "MOVE_TO_NEXT_TAB": "Mover a la siguiente pestaña en la lista de conversaciones",
-      "GO_TO_SETTINGS": "Ir a Ajustes",
-      "SWITCH_TO_PRIVATE_NOTE": "Cambiar a nota privada",
-      "SWITCH_TO_REPLY": "Cambiar a respuesta",
-      "TOGGLE_SNOOZE_DROPDOWN": "Cambiar el menú desplegable"
+      "RESOLVE_AND_NEXT": "Resolver y pasar a la siguiente",
+      "NAVIGATE_DROPDOWN": "Navegar por los elementos del menú desplegable",
+      "RESOLVE_CONVERSATION": "Resolver Conversación",
+      "GO_TO_CONVERSATION_DASHBOARD": "Ir al Panel de Conversaciones",
+      "ADD_ATTACHMENT": "Añadir Adjunto",
+      "GO_TO_CONTACTS_DASHBOARD": "Ir al Panel de Contactos",
+      "TOGGLE_SIDEBAR": "Alternar Barra Lateral",
+      "GO_TO_REPORTS_SIDEBAR": "Ir a la barra lateral de Informes",
+      "MOVE_TO_NEXT_TAB": "Moverse a la siguiente pestaña en la lista de conversaciones",
+      "GO_TO_SETTINGS": "Ir a Configuración",
+      "SWITCH_TO_PRIVATE_NOTE": "Cambiar a Nota Privada",
+      "SWITCH_TO_REPLY": "Cambiar a Responder",
+      "TOGGLE_SNOOZE_DROPDOWN": "Alternar menú desplegable de posponer"
     },
     "KEYS": {
       "WINDOWS_KEY_AND_COMMAND_KEY": "Win / ⌘",

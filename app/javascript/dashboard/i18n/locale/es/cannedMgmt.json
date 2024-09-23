@@ -1,14 +1,15 @@
 {
   "CANNED_MGMT": {
-    "HEADER": "Respuestas predefinidas",
-    "HEADER_BTN_TXT": "Añadir respuesta predefinida",
-    "LOADING": "Obteniendo respuestas predefinidas...",
+    "HEADER": "Respuestas Predefinidas",
+    "LEARN_MORE": "Aprende más sobre las respuestas predefinidas",
+    "DESCRIPTION": "Las Respuestas Predefinidas son plantillas de respuesta preescritas que te ayudan a responder rápidamente a una conversación. Los agentes pueden escribir el carácter '/' seguido del código corto para insertar una respuesta predefinida durante una conversación.",
+    "HEADER_BTN_TXT": "Agregar respuesta predefinida",
+    "LOADING": "Cargando respuestas predefinidas...",
     "SEARCH_404": "No hay elementos que coincidan con esta consulta.",
-    "SIDEBAR_TXT": "<p><b>Respuestas predefinidas</b> </p><p> Las respuestas preparadas son plantillas de respuesta escritas previamente que le ayudan a responder rápidamente a una conversación. Para insertar una respuesta predeterminada durante un chat, los agentes pueden escribir un código corto precedido por un carácter '/'. </p><p>Puedes administrar tus respuestas predeterminadas desde esta página o crear otras nuevas usando el botón \"Agregar respuesta predeterminada\"",
     "LIST": {
-      "404": "No hay respuestas enlatadas disponibles en esta cuenta.",
-      "TITLE": "Administrar respuestas predefinidas",
-      "DESC": "Las respuestas predefinidas son plantillas de respuesta predefinidas que pueden ser utilizadas para enviar rápidamente respuestas a conversaciones.",
+      "404": "No hay respuestas predefinidas disponibles en esta cuenta.",
+      "TITLE": "Gestionar respuestas predefinidas",
+      "DESC": "Las Respuestas Predefinidas son plantillas de respuesta predefinidas que se pueden usar para enviar rápidamente respuestas a las conversaciones.",
       "TABLE_HEADER": [
         "Código corto",
         "Contenido",
@@ -16,25 +17,25 @@
       ]
     },
     "ADD": {
-      "TITLE": "Añadir respuesta predefinida",
-      "DESC": "Las respuestas predefinidas son plantillas de respuesta predefinidas que pueden ser utilizadas para enviar rápidamente respuestas a conversaciones.",
+      "TITLE": "Agregar respuesta predefinida",
+      "DESC": "Las Respuestas Predefinidas son plantillas de respuesta predefinidas que se pueden usar para enviar rápidamente respuestas a las conversaciones.",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "SHORT_CODE": {
           "LABEL": "Código corto",
-          "PLACEHOLDER": "Por favor, introduzca un código corto.",
-          "ERROR": "El código corto es requerido."
+          "PLACEHOLDER": "Por favor, introduce un código corto.",
+          "ERROR": "El Código Corto es obligatorio."
         },
         "CONTENT": {
           "LABEL": "Mensaje",
-          "PLACEHOLDER": "Por favor, escriba el mensaje que desea guardar como una plantilla para usarlo más tarde.",
-          "ERROR": "El mensaje es obligatorio."
+          "PLACEHOLDER": "Por favor, escribe el mensaje que quieres guardar como plantilla para usar más tarde.",
+          "ERROR": "El Mensaje es obligatorio."
         },
         "SUBMIT": "Enviar"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Respuesta predefinida añadida correctamente.",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Respuesta predefinida agregada con éxito.",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot. Por favor, inténtalo de nuevo."
       }
     },
     "EDIT": {
@@ -43,33 +44,33 @@
       "FORM": {
         "SHORT_CODE": {
           "LABEL": "Código corto",
-          "PLACEHOLDER": "Por favor, introduzca un código corto.",
-          "ERROR": "El código corto es requerido."
+          "PLACEHOLDER": "Por favor, introduce un código corto.",
+          "ERROR": "El Código Corto es obligatorio."
         },
         "CONTENT": {
           "LABEL": "Mensaje",
-          "PLACEHOLDER": "Por favor, escriba el mensaje que desea guardar como una plantilla para usarlo más tarde.",
-          "ERROR": "El mensaje es obligatorio."
+          "PLACEHOLDER": "Por favor, escribe el mensaje que quieres guardar como plantilla para usar más tarde.",
+          "ERROR": "El Mensaje es obligatorio."
         },
         "SUBMIT": "Enviar"
       },
       "BUTTON_TEXT": "Editar",
       "API": {
-        "SUCCESS_MESSAGE": "Respuesta predefinida actualizada correctamente.",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Respuesta predefinida actualizada con éxito.",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot. Por favor, inténtalo de nuevo."
       }
     },
     "DELETE": {
       "BUTTON_TEXT": "Eliminar",
       "API": {
-        "SUCCESS_MESSAGE": "Respuesta predefinida eliminada correctamente.",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Respuesta predefinida eliminada con éxito.",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot. Por favor, inténtalo de nuevo."
       },
       "CONFIRM": {
-        "TITLE": "Confirme eliminación",
-        "MESSAGE": "¿Está seguro de eliminar ",
+        "TITLE": "Confirmar eliminación",
+        "MESSAGE": "¿Estás seguro de eliminar ",
         "YES": "Sí, eliminar ",
-        "NO": "No, mantenerlo "
+        "NO": "No, mantener "
       }
     }
   }

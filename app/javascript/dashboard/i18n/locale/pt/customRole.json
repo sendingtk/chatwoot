@@ -1,0 +1,86 @@
+{
+  "CUSTOM_ROLE": {
+    "HEADER": "Funções Personalizadas",
+    "LEARN_MORE": "Saiba mais sobre funções personalizadas",
+    "DESCRIPTION": "As funções personalizadas são funções criadas pelo proprietário da conta ou administrador. Estas funções podem ser atribuídas a agentes para definir o seu acesso e permissões dentro da conta. As funções personalizadas podem ser criadas com permissões e níveis de acesso específicos para atender aos requisitos da organização.",
+    "HEADER_BTN_TXT": "Adicionar função personalizada",
+    "LOADING": "A buscar funções personalizadas...",
+    "SEARCH_404": "Não há itens que correspondam a esta consulta.",
+    "PAYWALL": {
+      "TITLE": "Atualize para criar funções personalizadas",
+      "AVAILABLE_ON": "O recurso de função personalizada está disponível apenas nos planos Business e Enterprise.",
+      "UPGRADE_PROMPT": "Atualize o seu plano para obter acesso a recursos avançados como gestão de equipe, automações, atributos personalizados e muito mais.",
+      "UPGRADE_NOW": "Atualize agora",
+      "CANCEL_ANYTIME": "Pode alterar ou cancelar o seu plano a qualquer momento"
+    },
+    "ENTERPRISE_PAYWALL": {
+      "AVAILABLE_ON": "O recurso de função personalizada está disponível apenas nos planos pagos.",
+      "UPGRADE_PROMPT": "Atualize para um plano pago para acessar recursos avançados como logs de auditoria, capacidade de agentes e muito mais.",
+      "ASK_ADMIN": "Por favor, entre em contato com o seu administrador para a atualização."
+    },
+    "LIST": {
+      "404": "Não há funções personalizadas disponíveis nesta conta.",
+      "TITLE": "Gerir funções personalizadas",
+      "DESC": "As funções personalizadas são funções criadas pelo proprietário da conta ou administrador. Estas funções podem ser atribuídas a agentes para definir o seu acesso e permissões dentro da conta. As funções personalizadas podem ser criadas com permissões e níveis de acesso específicos para atender aos requisitos da organização.",
+      "TABLE_HEADER": ["Nome", "Descrição", "Permissões", "Ações"]
+    },
+    "PERMISSIONS": {
+      "CONVERSATION_MANAGE": "Gerir todas as conversas",
+      "CONVERSATION_UNASSIGNED_MANAGE": "Gerir conversas não atribuídas e aquelas atribuídas a eles",
+      "CONVERSATION_PARTICIPATING_MANAGE": "Gerir conversas participativas e aquelas atribuídas a eles",
+      "CONTACT_MANAGE": "Gerir contactos",
+      "REPORT_MANAGE": "Gerir relatórios",
+      "KNOWLEDGE_BASE_MANAGE": "Gerir base de conhecimento"
+    },
+    "FORM": {
+      "NAME": {
+        "LABEL": "Nome",
+        "PLACEHOLDER": "Por favor, insira um nome.",
+        "ERROR": "Nome é obrigatório."
+      },
+      "DESCRIPTION": {
+        "LABEL": "Descrição",
+        "PLACEHOLDER": "Por favor, insira uma descrição.",
+        "ERROR": "Descrição é obrigatória."
+      },
+      "PERMISSIONS": {
+        "LABEL": "Permissões",
+        "ERROR": "Permissões são obrigatórias."
+      },
+      "CANCEL_BUTTON_TEXT": "Cancelar",
+      "API": {
+        "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot. Por favor, tente novamente."
+      }
+    },
+    "ADD": {
+      "TITLE": "Adicionar função personalizada",
+      "DESC": " As funções personalizadas permitem criar funções com permissões e níveis de acesso específicos para atender aos requisitos da organização.",
+      "SUBMIT": "Enviar",
+      "API": {
+        "SUCCESS_MESSAGE": "Função personalizada adicionada com sucesso."
+      }
+    },
+    "EDIT": {
+      "BUTTON_TEXT": "Editar",
+      "TITLE": "Editar função personalizada",
+      "DESC": " As funções personalizadas permitem criar funções com permissões e níveis de acesso específicos para atender aos requisitos da organização.",
+      "SUBMIT": "Atualizar",
+      "API": {
+        "SUCCESS_MESSAGE": "Função personalizada atualizada com sucesso."
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Eliminar",
+      "API": {
+        "SUCCESS_MESSAGE": "Função personalizada eliminada com sucesso.",
+        "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot. Por favor, tente novamente."
+      },
+      "CONFIRM": {
+        "TITLE": "Confirmar eliminação",
+        "MESSAGE": "Tem a certeza de que deseja eliminar ",
+        "YES": "Sim, eliminar ",
+        "NO": "Não, manter "
+      }
+    }
+  }
+}

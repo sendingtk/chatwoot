@@ -1,104 +1,106 @@
 {
   "AGENT_MGMT": {
     "HEADER": "Agentes",
-    "HEADER_BTN_TXT": "Añadir agente",
-    "LOADING": "Se están listando los agentes",
-    "SIDEBAR_TXT": "<p><b>Agentes</b></p> <p> Un <b>Agente</b> es miembro de su equipo de Atención al Cliente. </p><p> Los agentes podrán ver y responder a los mensajes de sus usuarios. La lista muestra todos los agentes actualmente en su cuenta. </p><p> Haga clic en <b>Añadir agente</b> para añadir un nuevo agente. El agente que añada recibirá un correo electrónico con un enlace de confirmación para activar la cuenta, después de lo cual podrá acceder a Chatwoot y responder los mensajes. </p><p> El acceso a las características de Chatwoot se basa en los siguientes roles. </p><p> <b>Agente</b> - Los agentes con este rol solamente pueden acceder a bandejas, informes y conversaciones. Pueden asignar conversaciones a otros agentes o a sí mismos y resolver conversaciones.</p><p> <b>Administrador</b> - El administrador tendrá acceso a todas las características de Chatwoot habilitadas para su cuenta, incluyendo configuración y facturación, junto con todos los privilegios de los agentes normales.</p>",
+    "HEADER_BTN_TXT": "Agregar Agente",
+    "LOADING": "Obteniendo Lista de Agentes",
+    "DESCRIPTION": "Un agente es un miembro de su equipo de soporte al cliente que puede ver y responder a los mensajes de los usuarios. La lista a continuación muestra todos los agentes en su cuenta.",
+    "LEARN_MORE": "Aprender sobre roles de usuario",
     "AGENT_TYPES": {
       "ADMINISTRATOR": "Administrador",
       "AGENT": "Agente"
     },
     "LIST": {
       "404": "No hay agentes asociados a esta cuenta",
-      "TITLE": "Administrar agentes en tu equipo",
-      "DESC": "Puedes añadir/eliminar agentes a/en tu equipo.",
+      "TITLE": "Gestionar agentes en su equipo",
+      "DESC": "Puede agregar/eliminar agentes en su equipo.",
       "NAME": "Nombre",
-      "EMAIL": "Correo electrónico",
+      "EMAIL": "Correo Electrónico",
       "STATUS": "Estado",
       "ACTIONS": "Acciones",
       "VERIFIED": "Verificado",
-      "VERIFICATION_PENDING": "Verificación pendiente"
+      "VERIFICATION_PENDING": "Verificación Pendiente",
+      "AVAILABLE_CUSTOM_ROLE": "Permisos de rol personalizado disponibles"
     },
     "ADD": {
-      "TITLE": "Añadir agente a tu equipo",
-      "DESC": "Puedes añadir personas que podrán manejar el soporte para tus bandejas de entrada.",
+      "TITLE": "Agregar agente a su equipo",
+      "DESC": "Puede agregar personas que podrán manejar el soporte para sus bandejas de entrada.",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "NAME": {
-          "LABEL": "Nombre del agente",
-          "PLACEHOLDER": "Introduce el nombre del agente"
+          "LABEL": "Nombre del Agente",
+          "PLACEHOLDER": "Por favor ingrese el nombre del agente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de agente",
-          "PLACEHOLDER": "Seleccione un tipo",
-          "ERROR": "El tipo de agente es obligatorio"
+          "LABEL": "Rol",
+          "PLACEHOLDER": "Por favor seleccione un rol",
+          "ERROR": "El rol es obligatorio"
         },
         "EMAIL": {
-          "LABEL": "Dirección de correo",
-          "PLACEHOLDER": "Por favor, introduzca una dirección de correo electrónico del agente"
+          "LABEL": "Dirección de Correo Electrónico",
+          "PLACEHOLDER": "Por favor ingrese una dirección de correo electrónico del agente"
         },
-        "SUBMIT": "Añadir agente"
+        "SUBMIT": "Agregar Agente"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Agente añadido correctamente",
-        "EXIST_MESSAGE": "El correo electrónico del agente ya está en uso, por favor intente otra dirección de correo electrónico",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Agente agregado exitosamente",
+        "EXIST_MESSAGE": "El correo electrónico del agente ya está en uso, por favor intente con otra dirección de correo electrónico",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente más tarde"
       }
     },
     "DELETE": {
       "BUTTON_TEXT": "Eliminar",
       "API": {
-        "SUCCESS_MESSAGE": "Agente eliminado correctamente",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Agente eliminado exitosamente",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente más tarde"
       },
       "CONFIRM": {
-        "TITLE": "Confirmar eliminación",
+        "TITLE": "Confirmar Eliminación",
         "MESSAGE": "¿Está seguro de eliminar ",
-        "YES": "Sí, eliminar ",
-        "NO": "No, mantenerlo "
+        "YES": "Sí, Eliminar ",
+        "NO": "No, Conservar "
       }
     },
     "EDIT": {
       "TITLE": "Editar agente",
       "FORM": {
         "NAME": {
-          "LABEL": "Nombre del agente",
-          "PLACEHOLDER": "Por favor, introduzca un nombre del agente"
+          "LABEL": "Nombre del Agente",
+          "PLACEHOLDER": "Por favor ingrese el nombre del agente"
         },
         "AGENT_TYPE": {
-          "LABEL": "Tipo de agente",
-          "PLACEHOLDER": "Por favor, seleccione un rol",
-          "ERROR": "El tipo de agente es obligatorio"
+          "LABEL": "Rol",
+          "PLACEHOLDER": "Por favor seleccione un rol",
+          "ERROR": "El rol es obligatorio"
         },
         "EMAIL": {
-          "LABEL": "Dirección de email",
-          "PLACEHOLDER": "Por favor, introduzca una dirección de correo electrónico del agente"
+          "LABEL": "Dirección de Correo Electrónico",
+          "PLACEHOLDER": "Por favor ingrese una dirección de correo electrónico del agente"
         },
         "AGENT_AVAILABILITY": {
           "LABEL": "Disponibilidad",
-          "PLACEHOLDER": "Por favor, seleccione un estado de disponibilidad",
-          "ERROR": "La disponibilidad es necesaria"
+          "PLACEHOLDER": "Por favor seleccione un estado de disponibilidad",
+          "ERROR": "La disponibilidad es obligatoria"
         },
-        "SUBMIT": "Editar agente"
+        "SUBMIT": "Editar Agente"
       },
       "BUTTON_TEXT": "Editar",
       "CANCEL_BUTTON_TEXT": "Cancelar",
       "API": {
-        "SUCCESS_MESSAGE": "Agente actualizado correctamente",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Agente actualizado exitosamente",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente más tarde"
       },
       "PASSWORD_RESET": {
-        "ADMIN_RESET_BUTTON": "Restablecer contraseña",
+        "ADMIN_RESET_BUTTON": "Restablecer Contraseña",
         "ADMIN_SUCCESS_MESSAGE": "Se ha enviado un correo electrónico con instrucciones para restablecer la contraseña al agente",
-        "SUCCESS_MESSAGE": "Contraseña del agente restablecida con éxito",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Contraseña del agente restablecida exitosamente",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente más tarde"
       }
     },
     "SEARCH": {
       "NO_RESULTS": "No se encontraron resultados."
     },
     "MULTI_SELECTOR": {
-      "PLACEHOLDER": "Ninguna",
+      "PLACEHOLDER": "Ninguno",
       "TITLE": {
         "AGENT": "Seleccionar agente",
         "TEAM": "Seleccionar equipo"
@@ -111,7 +113,7 @@
         "PLACEHOLDER": {
           "AGENT": "Buscar agentes",
           "TEAM": "Buscar equipos",
-          "INPUT": "Búsqueda por agentes"
+          "INPUT": "Buscar agentes"
         }
       }
     }

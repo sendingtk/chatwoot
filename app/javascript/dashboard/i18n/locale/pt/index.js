@@ -34,6 +34,7 @@ import sla from './sla.json';
 import inbox from './inbox.json';
 import general from './general.json';
 import datePicker from './datePicker.json';
+import customRole from './customRole.json';
 
 export default {
   ...advancedFilters,
@@ -71,5 +72,6 @@ export default {
   ...inbox,
   ...general,
   ...datePicker,
+  ...customRole,
   ...webphone,
 };

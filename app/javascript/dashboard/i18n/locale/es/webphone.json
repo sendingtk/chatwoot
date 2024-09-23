@@ -18,14 +18,14 @@
     "UNKNOWN": "Desconocido",
     "ALL_INSTANCE_BUSY": "Todas las líneas están ocupadas",
     "CONTACT_INVALID": "El contacto no existe en WhatsApp",
-    "CALL_LIMIT": "Se ha alcanzado el límite diario de llamadas",
+    "CALL_LIMIT": "Límite diario de llamadas alcanzado",
     "ERROR_TO_MADE_CALL": "Ocurrió un error al intentar llamar",
     "CONTACT_NOT_FOUND": "Contacto no encontrado",
     "NUMBER_NOT_FOUND": "Número no encontrado",
     "DAILY_LIMIT_REACHED": "Límite diario alcanzado",
-    "LINE_BUSY_TRY_AGAIN": "Línea ocupada, inténtalo de nuevo",
+    "LINE_BUSY_TRY_AGAIN": "Línea ocupada, intente de nuevo",
     "NO_AVAILABLE_INSTANCES": "No hay instancias disponibles",
-    "CONNECTION_FAILED": "Connection failed",
+    "CONNECTION_FAILED": "Conexión fallida",
     "REJECTED": "Rechazado"
   }
 }

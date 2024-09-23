@@ -1,19 +1,19 @@
 {
   "DATE_PICKER": {
-    "APPLY_BUTTON": "Confirmar",
-    "CLEAR_BUTTON": "Limpar",
+    "APPLY_BUTTON": "Apply",
+    "CLEAR_BUTTON": "Clear",
     "DATE_RANGE_INPUT": {
-      "START": "Data Inicial",
-      "END": "Data Final"
+      "START": "Data de Início",
+      "END": "Data de Fim"
     },
     "DATE_RANGE_OPTIONS": {
-      "TITLE": "Intervalo de datas",
-      "LAST_7_DAYS": "Últimos 7 Dias",
-      "LAST_30_DAYS": "Últimos 30 Dias",
+      "TITLE": "INTERVALO DE DATAS",
+      "LAST_7_DAYS": "Últimos 7 dias",
+      "LAST_30_DAYS": "Últimos 30 dias",
       "LAST_3_MONTHS": "Últimos 3 meses",
       "LAST_6_MONTHS": "Últimos 6 meses",
       "LAST_YEAR": "Último ano",
-      "CUSTOM_RANGE": "Intervalo de tempo personalizado"
+      "CUSTOM_RANGE": "Intervalo de datas personalizado"
     }
   }
 }
