@@ -2,17 +2,17 @@
   "REPORT": {
     "HEADER": "Conversas",
     "LOADING_CHART": "Carregando dados do gráfico...",
-    "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
+    "NO_ENOUGH_DATA": "Não recebemos dados suficientes para gerar o relatório, por favor tente novamente mais tarde.",
     "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de agentes",
-    "DATA_FETCHING_FAILED": "Falha ao buscar dados, tente novamente mais tarde.",
-    "SUMMARY_FETCHING_FAILED": "Não foi possível obter o resumo. Tente novamente mais tarde.",
+    "DATA_FETCHING_FAILED": "Falha ao buscar dados, por favor tente novamente mais tarde.",
+    "SUMMARY_FETCHING_FAILED": "Falha ao buscar resumo, por favor tente novamente mais tarde.",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
-        "NAME": "Mensagens Recebidas",
+        "NAME": "Mensagens recebidas",
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
@@ -20,32 +20,32 @@
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
-        "NAME": "Tempo da Primeira Resposta",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo da primeira resposta é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Primeira Resposta",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Primeira Resposta é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Tempo de resolução",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo de resolução é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Resolução",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Resolução é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       },
       "BOT_RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       },
       "BOT_HANDOFF_COUNT": {
-        "NAME": "Contagem de Transferência",
+        "NAME": "Contagem de Transferências",
         "DESC": "( Total )"
       },
       "REPLY_TIME": {
         "NAME": "Tempo de espera do cliente",
-        "TOOLTIP_TEXT": "O tempo de resposta é de %{metricValue} (baseado em %{conversationCount} conversas)"
+        "TOOLTIP_TEXT": "O tempo de espera é %{metricValue} (baseado em %{conversationCount} respostas)"
       }
     },
     "DATE_RANGE_OPTIONS": {
@@ -53,7 +53,7 @@
       "LAST_30_DAYS": "Últimos 30 dias",
       "LAST_3_MONTHS": "Últimos 3 meses",
       "LAST_6_MONTHS": "Últimos 6 meses",
-      "LAST_YEAR": "Ano passado",
+      "LAST_YEAR": "Último ano",
       "CUSTOM_DATE_RANGE": "Intervalo de datas personalizado"
     },
     "DATE_RANGE": [
@@ -75,7 +75,7 @@
       },
       {
         "id": 4,
-        "name": "Ano passado"
+        "name": "Último ano"
       },
       {
         "id": 5,
@@ -84,7 +84,7 @@
     ],
     "CUSTOM_DATE_RANGE": {
       "CONFIRM": "Aplicar",
-      "PLACEHOLDER": "Selecionar intervalo de datas"
+      "PLACEHOLDER": "Selecione o intervalo de datas"
     },
     "GROUP_BY_FILTER_DROPDOWN_LABEL": "Agrupar por",
     "DURATION_FILTER_LABEL": "Duração",
@@ -138,18 +138,18 @@
         "groupBy": "Ano"
       }
     ],
-    "BUSINESS_HOURS": "Horários de funcionamento",
+    "BUSINESS_HOURS": "Horário Comercial",
     "FILTER_ACTIONS": {
-      "CLEAR_FILTER": "Limpar Filtros",
+      "CLEAR_FILTER": "Limpar filtro",
       "EMPTY_LIST": "Nenhum resultado encontrado"
     }
   },
   "AGENT_REPORTS": {
-    "HEADER": "Visão Geral de Agentes",
+    "HEADER": "Visão Geral dos Agentes",
     "LOADING_CHART": "Carregando dados do gráfico...",
-    "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
+    "NO_ENOUGH_DATA": "Não recebemos dados suficientes para gerar o relatório, por favor tente novamente mais tarde.",
     "DOWNLOAD_AGENT_REPORTS": "Baixar relatórios de agentes",
-    "FILTER_DROPDOWN_LABEL": "Selecione Agente",
+    "FILTER_DROPDOWN_LABEL": "Selecionar Agente",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -160,23 +160,23 @@
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Mensagens enviadas",
+        "NAME": "Mensagens Enviadas",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
-        "NAME": "Tempo da Primeira Resposta",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo da primeira resposta é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Primeira Resposta",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Primeira Resposta é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Tempo de resolução",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo de resolução é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Resolução",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Resolução é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       }
     },
@@ -199,7 +199,7 @@
       },
       {
         "id": 4,
-        "name": "Ano passado"
+        "name": "Último ano"
       },
       {
         "id": 5,
@@ -208,15 +208,15 @@
     ],
     "CUSTOM_DATE_RANGE": {
       "CONFIRM": "Aplicar",
-      "PLACEHOLDER": "Selecionar intervalo de datas"
+      "PLACEHOLDER": "Selecione o intervalo de datas"
     }
   },
   "LABEL_REPORTS": {
-    "HEADER": "Visão Geral dos Marcadores",
+    "HEADER": "Visão Geral das Etiquetas",
     "LOADING_CHART": "Carregando dados do gráfico...",
-    "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
-    "DOWNLOAD_LABEL_REPORTS": "Baixar relatórios de marcadores",
-    "FILTER_DROPDOWN_LABEL": "Selecionar etiqueta",
+    "NO_ENOUGH_DATA": "Não recebemos dados suficientes para gerar o relatório, por favor tente novamente mais tarde.",
+    "DOWNLOAD_LABEL_REPORTS": "Baixar relatórios de etiquetas",
+    "FILTER_DROPDOWN_LABEL": "Selecionar Etiqueta",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -227,23 +227,23 @@
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Mensagens enviadas",
+        "NAME": "Mensagens Enviadas",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
-        "NAME": "Tempo da Primeira Resposta",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo da primeira resposta é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Primeira Resposta",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Primeira Resposta é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Tempo de resolução",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo de resolução é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Resolução",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Resolução é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       }
     },
@@ -266,7 +266,7 @@
       },
       {
         "id": 4,
-        "name": "Ano passado"
+        "name": "Último ano"
       },
       {
         "id": 5,
@@ -275,15 +275,15 @@
     ],
     "CUSTOM_DATE_RANGE": {
       "CONFIRM": "Aplicar",
-      "PLACEHOLDER": "Selecionar intervalo de datas"
+      "PLACEHOLDER": "Selecione o intervalo de datas"
     }
   },
   "INBOX_REPORTS": {
-    "HEADER": "Visualizar Caixa de Entrada",
+    "HEADER": "Visão Geral da Caixa de Entrada",
     "LOADING_CHART": "Carregando dados do gráfico...",
-    "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
-    "DOWNLOAD_INBOX_REPORTS": "Baixar relatórios de entrada",
-    "FILTER_DROPDOWN_LABEL": "Selecionar caixa de entrada",
+    "NO_ENOUGH_DATA": "Não recebemos dados suficientes para gerar o relatório, por favor tente novamente mais tarde.",
+    "DOWNLOAD_INBOX_REPORTS": "Baixar relatórios da caixa de entrada",
+    "FILTER_DROPDOWN_LABEL": "Selecionar Caixa de Entrada",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -294,23 +294,23 @@
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Mensagens enviadas",
+        "NAME": "Mensagens Enviadas",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
-        "NAME": "Tempo da Primeira Resposta",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo da primeira resposta é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Primeira Resposta",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Primeira Resposta é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Tempo de resolução",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo de resolução é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Resolução",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Resolução é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       }
     },
@@ -333,7 +333,7 @@
       },
       {
         "id": 4,
-        "name": "Ano passado"
+        "name": "Último ano"
       },
       {
         "id": 5,
@@ -342,15 +342,15 @@
     ],
     "CUSTOM_DATE_RANGE": {
       "CONFIRM": "Aplicar",
-      "PLACEHOLDER": "Selecionar intervalo de datas"
+      "PLACEHOLDER": "Selecione o intervalo de datas"
     }
   },
   "TEAM_REPORTS": {
-    "HEADER": "Resumo da Equipe",
+    "HEADER": "Visão Geral da Equipe",
     "LOADING_CHART": "Carregando dados do gráfico...",
-    "NO_ENOUGH_DATA": "Não existem dados suficientes para gerar o relatório. Tente novamente mais tarde.",
+    "NO_ENOUGH_DATA": "Não recebemos dados suficientes para gerar o relatório, por favor tente novamente mais tarde.",
     "DOWNLOAD_TEAM_REPORTS": "Baixar relatórios da equipe",
-    "FILTER_DROPDOWN_LABEL": "Selecionar time",
+    "FILTER_DROPDOWN_LABEL": "Selecionar Equipe",
     "METRICS": {
       "CONVERSATIONS": {
         "NAME": "Conversas",
@@ -361,23 +361,23 @@
         "DESC": "( Total )"
       },
       "OUTGOING_MESSAGES": {
-        "NAME": "Mensagens enviadas",
+        "NAME": "Mensagens Enviadas",
         "DESC": "( Total )"
       },
       "FIRST_RESPONSE_TIME": {
-        "NAME": "Tempo da Primeira Resposta",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo da primeira resposta é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Primeira Resposta",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Primeira Resposta é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_TIME": {
-        "NAME": "Tempo de resolução",
-        "DESC": "(Média)",
-        "INFO_TEXT": "Número total de conversas utilizadas para computação:",
-        "TOOLTIP_TEXT": "O tempo de resolução é de %{metricValue} (com base em %{conversationCount} conversas)"
+        "NAME": "Tempo de Resolução",
+        "DESC": "( Média )",
+        "INFO_TEXT": "Número total de conversas usadas para computação:",
+        "TOOLTIP_TEXT": "O Tempo de Resolução é %{metricValue} (baseado em %{conversationCount} conversas)"
       },
       "RESOLUTION_COUNT": {
-        "NAME": "Contagem de Resolução",
+        "NAME": "Contagem de Resoluções",
         "DESC": "( Total )"
       }
     },
@@ -400,7 +400,7 @@
       },
       {
         "id": 4,
-        "name": "Ano passado"
+        "name": "Último ano"
       },
       {
         "id": 5,
@@ -409,25 +409,25 @@
     ],
     "CUSTOM_DATE_RANGE": {
       "CONFIRM": "Aplicar",
-      "PLACEHOLDER": "Selecionar intervalo de datas"
+      "PLACEHOLDER": "Selecione o intervalo de datas"
     }
   },
   "CSAT_REPORTS": {
-    "HEADER": "Relatórios CSAT",
-    "NO_RECORDS": "Não há respostas de pesquisa em CSAT disponíveis.",
-    "DOWNLOAD": "Baixar relatórios de CSAT",
-    "DOWNLOAD_FAILED": "Falha ao baixar Relatórios CSAT",
+    "HEADER": "Relatórios de CSAT",
+    "NO_RECORDS": "Não há respostas de pesquisa de CSAT disponíveis.",
+    "DOWNLOAD": "Baixar Relatórios de CSAT",
+    "DOWNLOAD_FAILED": "Falha ao baixar Relatórios de CSAT",
     "FILTERS": {
       "AGENTS": {
-        "PLACEHOLDER": "Escolher agentes"
+        "PLACEHOLDER": "Escolher Agentes"
       }
     },
     "TABLE": {
       "HEADER": {
         "CONTACT_NAME": "Contato",
         "AGENT_NAME": "Agente atribuído",
-        "RATING": "Classificação",
-        "FEEDBACK_TEXT": "Comentário do feedback"
+        "RATING": "Avaliação",
+        "FEEDBACK_TEXT": "Comentário de feedback"
       }
     },
     "METRIC": {
@@ -441,12 +441,12 @@
       },
       "RESPONSE_RATE": {
         "LABEL": "Taxa de resposta",
-        "TOOLTIP": "Número total de respostas / Número total de mensagens CSAT de pesquisa enviadas * 100"
+        "TOOLTIP": "Número total de respostas / Número total de mensagens de pesquisa de CSAT enviadas * 100"
       }
     }
   },
   "BOT_REPORTS": {
-    "HEADER": "Relatórios de Bots",
+    "HEADER": "Relatórios de Bot",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
         "LABEL": "Número de Conversas",
@@ -467,43 +467,44 @@
     }
   },
   "OVERVIEW_REPORTS": {
-    "HEADER": "Visão geral",
-    "LIVE": "Disponível",
+    "HEADER": "Visão Geral",
+    "LIVE": "Ao Vivo",
     "ACCOUNT_CONVERSATIONS": {
       "HEADER": "Conversas Abertas",
-      "LOADING_MESSAGE": "Carregando métricas de conversa...",
-      "OPEN": "Abertas",
-      "UNATTENDED": "Não atendidas",
-      "UNASSIGNED": "Não atribuída",
+      "LOADING_MESSAGE": "Carregando métricas de conversas...",
+      "OPEN": "Aberto",
+      "UNATTENDED": "Não atendido",
+      "UNASSIGNED": "Não atribuído",
       "PENDING": "Pendente"
     },
     "CONVERSATION_HEATMAP": {
-      "HEADER": "Tráfego de conversa",
-      "NO_CONVERSATIONS": "Não há conversas",
+      "HEADER": "Tráfego de Conversas",
+      "NO_CONVERSATIONS": "Sem conversas",
       "CONVERSATION": "%{count} conversa",
-      "CONVERSATIONS": "%{count} conversas"
+      "CONVERSATIONS": "%{count} conversas",
+      "DOWNLOAD_REPORT": "Baixar relatório"
     },
     "AGENT_CONVERSATIONS": {
       "HEADER": "Conversas por agentes",
-      "LOADING_MESSAGE": "Carregando métricas de agente...",
+      "LOADING_MESSAGE": "Carregando métricas de agentes...",
       "NO_AGENTS": "Não há conversas por agentes",
       "TABLE_HEADER": {
         "AGENT": "Agente",
-        "OPEN": "Aberto",
-        "UNATTENDED": "Não atendidas",
-        "STATUS": "Situação"
+        "OPEN": "ABERTO",
+        "UNATTENDED": "Não atendido",
+        "STATUS": "Status"
       }
     },
     "AGENT_STATUS": {
       "HEADER": "Status do agente",
-      "ONLINE": "Disponível",
+      "ONLINE": "Online",
       "BUSY": "Ocupado",
-      "OFFLINE": "Desconectado"
+      "OFFLINE": "Offline"
     }
   },
   "DAYS_OF_WEEK": {
     "SUNDAY": "Domingo",
-    "MONDAY": "Segunda-Feira",
+    "MONDAY": "Segunda-feira",
     "TUESDAY": "Terça-feira",
     "WEDNESDAY": "Quarta-feira",
     "THURSDAY": "Quinta-feira",
@@ -512,41 +513,42 @@
   },
   "SLA_REPORTS": {
     "HEADER": "Relatórios de SLA",
-    "NO_RECORDS": "Conversas com SLA aplicado não estão disponíveis.",
-    "LOADING": "Carregando dados de SLA...",
-    "DOWNLOAD_SLA_REPORTS": "Download relatórios de SLA",
-    "DOWNLOAD_FAILED": "Erro ao baixar os relatórios de SLA",
+    "NO_RECORDS": "Conversas aplicadas ao SLA não estão disponíveis.",
+    "LOADING": "Carregando dados do SLA...",
+    "DOWNLOAD_SLA_REPORTS": "Baixar relatórios de SLA",
+    "DOWNLOAD_FAILED": "Falha ao baixar relatórios de SLA",
     "DROPDOWN": {
       "ADD_FIlTER": "Adicionar filtro",
       "CLEAR_ALL": "Limpar tudo",
       "CLEAR_FILTER": "Limpar filtro",
       "EMPTY_LIST": "Nenhum resultado encontrado",
-      "NO_FILTER": "Não há filtros disponíveis",
+      "NO_FILTER": "Nenhum filtro disponível",
       "SEARCH": "Buscar filtro",
       "INPUT_PLACEHOLDER": {
         "SLA": "Nome do SLA",
         "AGENTS": "Nome do agente",
         "INBOXES": "Nome da caixa de entrada",
-        "LABELS": "Nome do Marcador",
-        "TEAMS": "Nome do Time"
+        "LABELS": "Nome do rótulo",
+        "TEAMS": "Nome da equipe"
       },
       "SLA": "Política de SLA",
       "INBOXES": "Caixa de entrada",
       "AGENTS": "Agente",
-      "LABELS": "Marcador",
-      "TEAMS": "Time"
+      "LABELS": "Rótulo",
+      "TEAMS": "Equipe"
     },
+    "WITH": "com",
     "METRICS": {
       "HIT_RATE": {
-        "LABEL": "Taxa de Acertos",
+        "LABEL": "Taxa de acerto",
         "TOOLTIP": "Porcentagem de SLAs criados que foram concluídos com sucesso"
       },
       "NO_OF_MISSES": {
-        "LABEL": "Número de Falhas",
+        "LABEL": "Número de falhas",
         "TOOLTIP": "Total de falhas de SLA em um determinado período"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Número de Conversas",
+        "LABEL": "Número de conversas",
         "TOOLTIP": "Número total de conversas com SLA"
       }
     },
@@ -556,7 +558,7 @@
         "CONVERSATION": "Conversa",
         "AGENT": "Agente"
       },
-      "VIEW_DETAILS": "Ver Detalhes"
+      "VIEW_DETAILS": "Ver detalhes"
     }
   }
 }

@@ -1,36 +1,36 @@
 {
   "SLA": {
-    "HEADER": "SLA",
-    "ADD_ACTION": "Añadir SLA",
-    "ADD_ACTION_LONG": "Create a new SLA Policy",
-    "DESCRIPTION": "Los Acuerdos de Nivel de Servicio (SLA) son contratos que definen expectativas claras entre su equipo y sus clientes. Establecen normas para los tiempos de respuesta y resolución, creando un marco para la responsabilidad y garantiza una experiencia coherente y de alta calidad.",
-    "LEARN_MORE": "Más información sobre SLA",
+    "HEADER": "Acuerdos de Nivel de Servicio",
+    "ADD_ACTION": "Agregar SLA",
+    "ADD_ACTION_LONG": "Crear una nueva Política de SLA",
+    "DESCRIPTION": "Los Acuerdos de Nivel de Servicio (SLAs) son contratos que definen expectativas claras entre su equipo y los clientes. Establecen estándares para los tiempos de respuesta y resolución, creando un marco de responsabilidad y asegurando una experiencia consistente y de alta calidad.",
+    "LEARN_MORE": "Aprender más sobre SLA",
     "LOADING": "Obteniendo SLAs",
     "PAYWALL": {
-      "TITLE": "Upgrade to create SLAs",
-      "AVAILABLE_ON": "The SLA feature is only available in the Business and Enterprise plans.",
-      "UPGRADE_PROMPT": "Upgrade your plan to get access to advanced features like team management, automations, custom attributes, and more.",
-      "UPGRADE_NOW": "Upgrade now",
-      "CANCEL_ANYTIME": "You can change or cancel your plan anytime"
+      "TITLE": "Actualice para crear SLAs",
+      "AVAILABLE_ON": "La función de SLA solo está disponible en los planes Business y Enterprise.",
+      "UPGRADE_PROMPT": "Actualice su plan para obtener acceso a funciones avanzadas como gestión de equipos, automatizaciones, atributos personalizados y más.",
+      "UPGRADE_NOW": "Actualizar ahora",
+      "CANCEL_ANYTIME": "Puede cambiar o cancelar su plan en cualquier momento"
     },
     "ENTERPRISE_PAYWALL": {
-      "AVAILABLE_ON": "The SLA feature is only available in the paid plans.",
-      "UPGRADE_PROMPT": "Upgrade to a paid plan to access advanced features like audit logs, agent capacity, and more.",
-      "ASK_ADMIN": "Please reach out to your administrator for the upgrade."
+      "AVAILABLE_ON": "La función de SLA solo está disponible en los planes de pago.",
+      "UPGRADE_PROMPT": "Actualice a un plan de pago para acceder a funciones avanzadas como registros de auditoría, capacidad de agentes y más.",
+      "ASK_ADMIN": "Por favor, contacte a su administrador para la actualización."
     },
     "LIST": {
       "404": "No hay SLAs disponibles en esta cuenta.",
       "EMPTY": {
         "TITLE_1": "Enterprise P0",
-        "DESC_1": "Issues raised by enterprise customers, that require immediate attention.",
+        "DESC_1": "Problemas planteados por clientes empresariales, que requieren atención inmediata.",
         "TITLE_2": "Enterprise P1",
-        "DESC_2": "Issues raised by enterprise customers, that needs to be acknowledged quickly."
+        "DESC_2": "Problemas planteados por clientes empresariales, que necesitan ser reconocidos rápidamente."
       },
-      "BUSINESS_HOURS_ON": "Horas laborables",
-      "BUSINESS_HOURS_OFF": "Horas de descanso",
+      "BUSINESS_HOURS_ON": "Horas de negocio activas",
+      "BUSINESS_HOURS_OFF": "Horas de negocio inactivas",
       "RESPONSE_TYPES": {
         "FRT": "Umbral de tiempo de primera respuesta",
-        "NRT": "Umbral de tiempo de siguiente respuesta",
+        "NRT": "Umbral de tiempo de próxima respuesta",
         "RT": "Umbral de tiempo de resolución",
         "SHORT_HAND": {
           "FRT": "FRT",
@@ -41,31 +41,31 @@
     },
     "FORM": {
       "NAME": {
-        "LABEL": "Nombre de SLA",
-        "PLACEHOLDER": "Nombre de SLA",
-        "REQUIRED_ERROR": "El nombre de SLA es requerido",
-        "MINIMUM_LENGTH_ERROR": "La longitud mínima es de 2 caracteres",
-        "VALID_ERROR": "Sólo letras, números, guión y guión bajo son permitidos"
+        "LABEL": "Nombre del SLA",
+        "PLACEHOLDER": "Nombre del SLA",
+        "REQUIRED_ERROR": "El nombre del SLA es obligatorio",
+        "MINIMUM_LENGTH_ERROR": "Se requiere una longitud mínima de 2",
+        "VALID_ERROR": "Solo se permiten letras, números, guiones y guiones bajos"
       },
       "DESCRIPTION": {
         "LABEL": "Descripción",
         "PLACEHOLDER": "SLA para clientes premium"
       },
       "FIRST_RESPONSE_TIME": {
-        "LABEL": "Tiempo de primera respuesta",
+        "LABEL": "Tiempo de Primera Respuesta",
         "PLACEHOLDER": "5"
       },
       "NEXT_RESPONSE_TIME": {
-        "LABEL": "Próximo tiempo de respuesta",
+        "LABEL": "Tiempo de Próxima Respuesta",
         "PLACEHOLDER": "5"
       },
       "RESOLUTION_TIME": {
-        "LABEL": "Tiempo de resolución",
+        "LABEL": "Tiempo de Resolución",
         "PLACEHOLDER": "60"
       },
       "BUSINESS_HOURS": {
-        "LABEL": "Horarios",
-        "PLACEHOLDER": "Sólo durante las horas de trabajo"
+        "LABEL": "Horas de Negocio",
+        "PLACEHOLDER": "Solo durante horas de negocio"
       },
       "THRESHOLD_TIME": {
         "INVALID_FORMAT_ERROR": "El umbral debe ser un número y mayor que cero"
@@ -76,33 +76,33 @@
       "CANCEL": "Cancelar"
     },
     "ADD": {
-      "TITLE": "Añadir SLA",
-      "DESC": "Friendly promises for great service!",
+      "TITLE": "Agregar SLA",
+      "DESC": "¡Promesas amigables para un gran servicio!",
       "API": {
-        "SUCCESS_MESSAGE": "SLA añadido correctamente",
-        "ERROR_MESSAGE": "Hubo un error, por favor inténtelo de nuevo"
+        "SUCCESS_MESSAGE": "SLA agregado exitosamente",
+        "ERROR_MESSAGE": "Hubo un error, por favor intente nuevamente"
       }
     },
     "DELETE": {
       "TITLE": "Eliminar SLA",
       "API": {
-        "SUCCESS_MESSAGE": "SLA eliminado correctamente",
-        "ERROR_MESSAGE": "Hubo un error, por favor inténtelo de nuevo"
+        "SUCCESS_MESSAGE": "SLA eliminado exitosamente",
+        "ERROR_MESSAGE": "Hubo un error, por favor intente nuevamente"
       },
       "CONFIRM": {
-        "TITLE": "Confirmar eliminación",
-        "MESSAGE": "¿Está seguro que desea eliminar? ",
-        "YES": "Sí, eliminar ",
-        "NO": "No, mantenerlo "
+        "TITLE": "Confirmar Eliminación",
+        "MESSAGE": "¿Está seguro de que desea eliminar ",
+        "YES": "Sí, Eliminar ",
+        "NO": "No, Conservar "
       }
     },
     "EVENTS": {
-      "TITLE": "SLA Misses",
-      "FRT": "Primera respuesta",
-      "NRT": "Next response time",
-      "RT": "Resolution time",
-      "SHOW_MORE": "{count} more",
-      "HIDE": "Hide {count} rows"
+      "TITLE": "Incumplimientos de SLA",
+      "FRT": "Tiempo de primera respuesta",
+      "NRT": "Tiempo de próxima respuesta",
+      "RT": "Tiempo de resolución",
+      "SHOW_MORE": "{count} más",
+      "HIDE": "Ocultar {count} filas"
     }
   }
 }

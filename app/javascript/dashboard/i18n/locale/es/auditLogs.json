@@ -1,23 +1,21 @@
 {
   "AUDIT_LOGS": {
-    "HEADER": "Auditoría de registros",
-    "HEADER_BTN_TXT": "Añadir registros de auditoría",
-    "LOADING": "Obteniendo registros de auditoría",
+    "HEADER": "Registros de Auditoría",
+    "HEADER_BTN_TXT": "Agregar Registros de Auditoría",
+    "LOADING": "Obteniendo Registros de Auditoría",
+    "DESCRIPTION": "Los Registros de Auditoría mantienen un registro de actividades en su cuenta, permitiéndole rastrear y auditar su cuenta, equipo o servicios.",
+    "LEARN_MORE": "Aprenda más sobre los registros de auditoría",
     "SEARCH_404": "No hay elementos que coincidan con esta consulta",
-    "SIDEBAR_TXT": "<p><b>Registros de auditoría</b> </p><p> Registros de auditoría son pistas para eventos y acciones en un Sistema de Chatwoot </p>",
+    "SIDEBAR_TXT": "<p><b>Registros de Auditoría</b> </p><p> Los Registros de Auditoría son rastros de eventos y acciones en un Sistema Chatwoot. </p>",
     "LIST": {
-      "404": "No hay registros de auditoría disponibles en esta cuenta.",
-      "TITLE": "Administrar registros de auditoría",
-      "DESC": "Los registros de auditoría son pistas para eventos y acciones en un sistema de Chatwoot.",
-      "TABLE_HEADER": [
-        "User",
-        "Action",
-        "Dirección IP"
-      ]
+      "404": "No hay Registros de Auditoría disponibles en esta cuenta.",
+      "TITLE": "Gestionar Registros de Auditoría",
+      "DESC": "Los Registros de Auditoría son rastros de eventos y acciones en un Sistema Chatwoot.",
+      "TABLE_HEADER": ["Actividad", "Hora", "Dirección IP"]
     },
     "API": {
-      "SUCCESS_MESSAGE": "Registros de auditoria cargados satisfactoriamente",
-      "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+      "SUCCESS_MESSAGE": "Registros de Auditoría obtenidos con éxito",
+      "ERROR_MESSAGE": "No se pudo conectar al Servidor Woot, por favor intente nuevamente más tarde"
     },
     "DEFAULT_USER": "Sistema",
     "AUTOMATION_RULE": {
@@ -28,8 +26,9 @@
     "ACCOUNT_USER": {
       "ADD": "%{agentName} invitó a %{invitee} a la cuenta como %{role}",
       "EDIT": {
-        "SELF": "%{agentName} cambió su %{attributes} por %{values}",
-        "OTHER": "%{agentName} cambió %{attributes} de %{user} a %{values}"
+        "SELF": "%{agentName} cambió sus %{attributes} a %{values}",
+        "OTHER": "%{agentName} cambió %{attributes} de %{user} a %{values}",
+        "DELETED": "%{agentName} cambió %{attributes} de un usuario eliminado a %{values}"
       }
     },
     "INBOX": {
@@ -44,7 +43,7 @@
     },
     "USER_ACTION": {
       "SIGN_IN": "%{agentName} inició sesión",
-      "SIGN_OUT": "%{agentName} cerró su sesión"
+      "SIGN_OUT": "%{agentName} cerró sesión"
     },
     "TEAM": {
       "ADD": "%{agentName} creó un nuevo equipo (#%{id})",
@@ -57,15 +56,15 @@
       "DELETE": "%{agentName} eliminó una macro (#%{id})"
     },
     "INBOX_MEMBER": {
-      "ADD": "%{agentName} agregó %{user} a la bandeja de entrada (#%{inbox_id})",
-      "REMOVE": "%{agentName} eliminó %{user} de la bandeja de entrada(#%{inbox_id})"
+      "ADD": "%{agentName} agregó a %{user} a la bandeja de entrada (#%{inbox_id})",
+      "REMOVE": "%{agentName} eliminó a %{user} de la bandeja de entrada (#%{inbox_id})"
     },
     "TEAM_MEMBER": {
-      "ADD": "%{agentName} agregó %{user} al equipo (#%{team_id})",
-      "REMOVE": "%{agentName} eliminó %{user} del equipo (#%{team_id})"
+      "ADD": "%{agentName} agregó a %{user} al equipo (#%{team_id})",
+      "REMOVE": "%{agentName} eliminó a %{user} del equipo (#%{team_id})"
     },
     "ACCOUNT": {
-      "EDIT": "%{agentName} Actualizó la configuración de la cuenta (#%{id})"
+      "EDIT": "%{agentName} actualizó la configuración de la cuenta (#%{id})"
     }
   }
 }

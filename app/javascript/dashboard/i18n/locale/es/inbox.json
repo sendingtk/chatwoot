@@ -3,18 +3,18 @@
     "LIST": {
       "TITLE": "Bandeja de entrada",
       "DISPLAY_DROPDOWN": "Mostrar",
-      "LOADING": "Cargando notificaciones",
+      "LOADING": "Obteniendo notificaciones",
       "404": "No hay notificaciones activas en este grupo.",
       "NO_NOTIFICATIONS": "Sin notificaciones",
-      "NOTE": "Notificaciones de todas las entradas suscritas",
+      "NOTE": "Notificaciones de todas las bandejas de entrada suscritas",
       "NO_MESSAGES_AVAILABLE": "¡Ups! No se pueden obtener mensajes",
-      "SNOOZED_UNTIL": "Posponer hasta",
+      "SNOOZED_UNTIL": "Pospuesto hasta",
       "SNOOZED_UNTIL_TOMORROW": "Pospuesto hasta mañana",
       "SNOOZED_UNTIL_NEXT_WEEK": "Pospuesto hasta la próxima semana"
     },
     "ACTION_HEADER": {
       "SNOOZE": "Posponer notificación",
-      "DELETE": "Borrar notificación",
+      "DELETE": "Eliminar notificación",
       "BACK": "Atrás"
     },
     "TYPES": {
@@ -22,10 +22,10 @@
       "CONVERSATION_CREATION": "Nueva conversación creada",
       "CONVERSATION_ASSIGNMENT": "Se te ha asignado una conversación",
       "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Nuevo mensaje en una conversación asignada",
-      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Nuevo mensaje en una conversación en la que estás participando",
-      "SLA_MISSED_FIRST_RESPONSE": "Falta la siguiente respuesta del SLA para la conversación",
-      "SLA_MISSED_NEXT_RESPONSE": "Falta la siguiente respuesta del SLA para la conversación",
-      "SLA_MISSED_RESOLUTION": "Falta la siguiente respuesta del SLA para la conversación"
+      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Nuevo mensaje en una conversación en la que participas",
+      "SLA_MISSED_FIRST_RESPONSE": "Objetivo de primer respuesta de SLA no cumplido para la conversación",
+      "SLA_MISSED_NEXT_RESPONSE": "Objetivo de siguiente respuesta de SLA no cumplido para la conversación",
+      "SLA_MISSED_RESOLUTION": "Objetivo de resolución de SLA no cumplido para la conversación"
     },
     "MENU_ITEM": {
       "MARK_AS_READ": "Marcar como leído",
@@ -34,18 +34,18 @@
       "DELETE": "Eliminar",
       "MARK_ALL_READ": "Marcar todo como leído",
       "DELETE_ALL": "Eliminar todo",
-      "DELETE_ALL_READ": "Borrar todos los leídos"
+      "DELETE_ALL_READ": "Eliminar todo lo leído"
     },
     "DISPLAY_MENU": {
       "SORT": "Ordenar",
-      "DISPLAY": "Mostrar:",
+      "DISPLAY": "Mostrar :",
       "SORT_OPTIONS": {
         "NEWEST": "Más reciente",
         "OLDEST": "Más antiguo",
         "PRIORITY": "Prioridad"
       },
       "DISPLAY_OPTIONS": {
-        "SNOOZED": "Postpuestas",
+        "SNOOZED": "Pospuesto",
         "READ": "Leído",
         "LABELS": "Etiquetas",
         "CONVERSATION_ID": "ID de conversación"

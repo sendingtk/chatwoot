@@ -1,0 +1,86 @@
+{
+  "CUSTOM_ROLE": {
+    "HEADER": "Roles personalizados",
+    "LEARN_MORE": "Aprende más sobre roles personalizados",
+    "DESCRIPTION": "Los roles personalizados son roles que son creados por el propietario de la cuenta o el administrador. Estos roles pueden ser asignados a agentes para definir su acceso y permisos dentro de la cuenta. Los roles personalizados pueden ser creados con permisos y niveles de acceso específicos para satisfacer los requisitos de la organización.",
+    "HEADER_BTN_TXT": "Agregar rol personalizado",
+    "LOADING": "Obteniendo roles personalizados...",
+    "SEARCH_404": "No hay elementos que coincidan con esta consulta.",
+    "PAYWALL": {
+      "TITLE": "Actualiza para crear roles personalizados",
+      "AVAILABLE_ON": "La función de rol personalizado solo está disponible en los planes Business y Enterprise.",
+      "UPGRADE_PROMPT": "Actualiza tu plan para obtener acceso a funciones avanzadas como gestión de equipos, automatizaciones, atributos personalizados y más.",
+      "UPGRADE_NOW": "Actualizar ahora",
+      "CANCEL_ANYTIME": "Puedes cambiar o cancelar tu plan en cualquier momento"
+    },
+    "ENTERPRISE_PAYWALL": {
+      "AVAILABLE_ON": "La función de rol personalizado solo está disponible en los planes de pago.",
+      "UPGRADE_PROMPT": "Actualiza a un plan de pago para acceder a funciones avanzadas como registros de auditoría, capacidad de agentes y más.",
+      "ASK_ADMIN": "Por favor, contacta a tu administrador para la actualización."
+    },
+    "LIST": {
+      "404": "No hay roles personalizados disponibles en esta cuenta.",
+      "TITLE": "Gestionar roles personalizados",
+      "DESC": "Los roles personalizados son roles que son creados por el propietario de la cuenta o el administrador. Estos roles pueden ser asignados a agentes para definir su acceso y permisos dentro de la cuenta. Los roles personalizados pueden ser creados con permisos y niveles de acceso específicos para satisfacer los requisitos de la organización.",
+      "TABLE_HEADER": ["Nombre", "Descripción", "Permisos", "Acciones"]
+    },
+    "PERMISSIONS": {
+      "CONVERSATION_MANAGE": "Gestionar todas las conversaciones",
+      "CONVERSATION_UNASSIGNED_MANAGE": "Gestionar conversaciones no asignadas y aquellas asignadas a ellos",
+      "CONVERSATION_PARTICIPATING_MANAGE": "Gestionar conversaciones en las que participan y aquellas asignadas a ellos",
+      "CONTACT_MANAGE": "Gestionar contactos",
+      "REPORT_MANAGE": "Gestionar informes",
+      "KNOWLEDGE_BASE_MANAGE": "Gestionar base de conocimientos"
+    },
+    "FORM": {
+      "NAME": {
+        "LABEL": "Nombre",
+        "PLACEHOLDER": "Por favor, introduce un nombre.",
+        "ERROR": "El nombre es obligatorio."
+      },
+      "DESCRIPTION": {
+        "LABEL": "Descripción",
+        "PLACEHOLDER": "Por favor, introduce una descripción.",
+        "ERROR": "La descripción es obligatoria."
+      },
+      "PERMISSIONS": {
+        "LABEL": "Permisos",
+        "ERROR": "Los permisos son obligatorios."
+      },
+      "CANCEL_BUTTON_TEXT": "Cancelar",
+      "API": {
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot. Por favor, inténtalo de nuevo."
+      }
+    },
+    "ADD": {
+      "TITLE": "Agregar rol personalizado",
+      "DESC": "Los roles personalizados te permiten crear roles con permisos y niveles de acceso específicos para satisfacer los requisitos de la organización.",
+      "SUBMIT": "Enviar",
+      "API": {
+        "SUCCESS_MESSAGE": "Rol personalizado agregado con éxito."
+      }
+    },
+    "EDIT": {
+      "BUTTON_TEXT": "Editar",
+      "TITLE": "Editar rol personalizado",
+      "DESC": "Los roles personalizados te permiten crear roles con permisos y niveles de acceso específicos para satisfacer los requisitos de la organización.",
+      "SUBMIT": "Actualizar",
+      "API": {
+        "SUCCESS_MESSAGE": "Rol personalizado actualizado con éxito."
+      }
+    },
+    "DELETE": {
+      "BUTTON_TEXT": "Eliminar",
+      "API": {
+        "SUCCESS_MESSAGE": "Rol personalizado eliminado con éxito.",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot. Por favor, inténtalo de nuevo."
+      },
+      "CONFIRM": {
+        "TITLE": "Confirmar eliminación",
+        "MESSAGE": "¿Estás seguro de eliminar ",
+        "YES": "Sí, eliminar ",
+        "NO": "No, mantener "
+      }
+    }
+  }
+}

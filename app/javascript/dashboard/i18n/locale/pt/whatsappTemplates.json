@@ -1,25 +1,25 @@
 {
     "WHATSAPP_TEMPLATES": {
         "MODAL": {
-            "TITLE": "Template do Whatsapp",
-            "SUBTITLE": "Selecione o template do whatsapp que você deseja enviar",
-            "TEMPLATE_SELECTED_SUBTITLE": "Processo %{templateName}"
+            "TITLE": "Whatsapp Templates",
+            "SUBTITLE": "Selecione o modelo de whatsapp que deseja enviar",
+            "TEMPLATE_SELECTED_SUBTITLE": "Processar %{templateName}"
         },
         "PICKER": {
-            "SEARCH_PLACEHOLDER": "Buscar templates",
-            "NO_TEMPLATES_FOUND": "Nenhum template encontrado para",
+            "SEARCH_PLACEHOLDER": "Pesquisar Modelos",
+            "NO_TEMPLATES_FOUND": "Nenhum modelo encontrado para",
             "LABELS": {
                 "LANGUAGE": "Idioma",
-                "TEMPLATE_BODY": "Corpo do Template",
+                "TEMPLATE_BODY": "Corpo do Modelo",
                 "CATEGORY": "Categoria"
             }
         },
         "PARSER": {
             "VARIABLES_LABEL": "Variáveis",
-            "VARIABLE_PLACEHOLDER": "Digite o valor %{variable}",
+            "VARIABLE_PLACEHOLDER": "Insira o valor de %{variable}",
             "GO_BACK_LABEL": "Voltar",
-            "SEND_MESSAGE_LABEL": "Enviar mensagem",
-            "FORM_ERROR_MESSAGE": "Preencha todas as variáveis antes de enviar"
+            "SEND_MESSAGE_LABEL": "Enviar Mensagem",
+            "FORM_ERROR_MESSAGE": "Por favor, preencha todas as variáveis antes de enviar"
         }
     }
 }

@@ -1,52 +1,52 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "Caixa de Entrada",
-      "DISPLAY_DROPDOWN": "Mostrar",
-      "LOADING": "A obter notificações",
+      "TITLE": "Inbox",
+      "DISPLAY_DROPDOWN": "Display",
+      "LOADING": "A buscar notificações",
       "404": "Não há notificações ativas neste grupo.",
-      "NO_NOTIFICATIONS": "Sem Notificações",
-      "NOTE": "Notificações de todas as caixas subscritas",
-      "NO_MESSAGES_AVAILABLE": "Oops! Não foi possível importar mensagens",
-      "SNOOZED_UNTIL": "Suspender até",
+      "NO_NOTIFICATIONS": "Sem notificações",
+      "NOTE": "Notificações de todas as caixas de entrada subscritas",
+      "NO_MESSAGES_AVAILABLE": "Oops! Não foi possível buscar mensagens",
+      "SNOOZED_UNTIL": "Adiado até",
       "SNOOZED_UNTIL_TOMORROW": "Adiado até amanhã",
-      "SNOOZED_UNTIL_NEXT_WEEK": "Adiada até a próxima semana"
+      "SNOOZED_UNTIL_NEXT_WEEK": "Adiado até a próxima semana"
     },
     "ACTION_HEADER": {
-      "SNOOZE": "Suspender notificação",
-      "DELETE": "Apagar notificação",
+      "SNOOZE": "Adiar notificação",
+      "DELETE": "Eliminar notificação",
       "BACK": "Voltar"
     },
     "TYPES": {
-      "CONVERSATION_MENTION": "Foi mencionado numa conversa",
+      "CONVERSATION_MENTION": "Você foi mencionado numa conversa",
       "CONVERSATION_CREATION": "Nova conversa criada",
-      "CONVERSATION_ASSIGNMENT": "Foi-lhe atribuída uma conversa",
-      "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Nova mensagem nesta conversa atribuída",
-      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Nova mensagem em uma conversa em que você está participando",
-      "SLA_MISSED_FIRST_RESPONSE": "SLA da primeira resposta não atingido na conversa",
-      "SLA_MISSED_NEXT_RESPONSE": "SLA da próxima resposta não atingido na conversa",
-      "SLA_MISSED_RESOLUTION": "SLA de resolução não atingido na conversa"
+      "CONVERSATION_ASSIGNMENT": "Uma conversa foi atribuída a você",
+      "ASSIGNED_CONVERSATION_NEW_MESSAGE": "Nova mensagem numa conversa atribuída",
+      "PARTICIPATING_CONVERSATION_NEW_MESSAGE": "Nova mensagem numa conversa em que você está a participar",
+      "SLA_MISSED_FIRST_RESPONSE": "Meta de SLA para a primeira resposta não cumprida para a conversa",
+      "SLA_MISSED_NEXT_RESPONSE": "Meta de SLA para a próxima resposta não cumprida para a conversa",
+      "SLA_MISSED_RESOLUTION": "Meta de SLA para a resolução não cumprida para a conversa"
     },
     "MENU_ITEM": {
-      "MARK_AS_READ": "Marcar como lido",
+      "MARK_AS_READ": "Marcar como lida",
       "MARK_AS_UNREAD": "Marcar como não lida",
       "SNOOZE": "Adiar",
-      "DELETE": "excluir",
-      "MARK_ALL_READ": "Marcar todos como lidos",
-      "DELETE_ALL": "Excluir tudo",
-      "DELETE_ALL_READ": "Excluir todas lidas"
+      "DELETE": "Eliminar",
+      "MARK_ALL_READ": "Marcar todas como lidas",
+      "DELETE_ALL": "Eliminar todas",
+      "DELETE_ALL_READ": "Eliminar todas as lidas"
     },
     "DISPLAY_MENU": {
       "SORT": "Ordenar",
-      "DISPLAY": "Mostrar :",
+      "DISPLAY": "Display :",
       "SORT_OPTIONS": {
-        "NEWEST": "Recentes",
-        "OLDEST": "Antigas",
+        "NEWEST": "Mais recentes",
+        "OLDEST": "Mais antigas",
         "PRIORITY": "Prioridade"
       },
       "DISPLAY_OPTIONS": {
         "SNOOZED": "Adiado",
-        "READ": "Lida",
+        "READ": "Lido",
         "LABELS": "Etiquetas",
         "CONVERSATION_ID": "ID da conversa"
       }
@@ -55,10 +55,10 @@
       "MARK_AS_READ": "Notificação marcada como lida",
       "MARK_AS_UNREAD": "Notificação marcada como não lida",
       "SNOOZE": "Notificação adiada",
-      "DELETE": "Notificação excluída",
+      "DELETE": "Notificação eliminada",
       "MARK_ALL_READ": "Todas as notificações marcadas como lidas",
-      "DELETE_ALL": "Todas as notificações foram excluídas",
-      "DELETE_ALL_READ": "Todas as notificações lidas foram excluídas"
+      "DELETE_ALL": "Todas as notificações eliminadas",
+      "DELETE_ALL_READ": "Todas as notificações lidas eliminadas"
     }
   }
 }
