@@ -306,7 +306,7 @@ export default {
           icon="call"
         />
         <p class="text-green-500 m-0">{{ $t('WEBPHONE.VOICE_CALL') }}</p>
-        <p class="text-green-500 m-0">-</p>
+        <p class="text-green-500 m-0">-</p>{{ $t('WEBPHONE.CALLING') }}
         <p
           v-if="callStatusMessage"
           class="text-slate-800 dark:text-slate-100 m-0 text-center"
