@@ -97,7 +97,8 @@ class Whatsapp::IncomingMessageBaseService
     contact_params = @processed_params[:contacts]&.first
     return if contact_params.blank?
 
-    waid = processed_waid(contact_params[:wa_id])
+    waid = brazil_phone_number?(contact_params[:wa_id]) ? normalised_brazil_mobile_number(contact_params[:wa_id]) : contact_params[:wa_id]
+    waid = processed_waid(waid)
 
     contact_inbox = ::ContactInboxWithContactBuilder.new(
       source_id: waid,

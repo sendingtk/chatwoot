@@ -59,3 +59,4 @@ pt_BR:
       not_saved:
         one: "1 erro impediu este %{resource} de ser salvo:"
         other: "%{count} erros impediram este %{resource} de ser salvo:"
+      record_invalid: "Registro inválido"

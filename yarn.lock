@@ -9126,6 +9126,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countries-and-timezones@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/countries-and-timezones/-/countries-and-timezones-3.6.0.tgz#80716f05ebef270842fd72010f9b33e2848e24c7"
+  integrity sha512-8/nHBCs1eKeQ1jnsZVGdqrLYxS8nPcfJn8PnmxdJXWRLZdXsGFR8gnVhRjatGDBjqmPm7H+FtYpBYTPWd0Eiqg==
+
 cp-file@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/cp-file/-/cp-file-7.0.0.tgz#b9454cfd07fe3b974ab9ea0e5f29655791a9b8cd"
@@ -13742,10 +13747,10 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-libphonenumber-js@^1.11.5:
-  version "1.11.8"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.8.tgz#697fdd36500a97bc672d7927d867edf34b4bd2a7"
-  integrity sha512-0fv/YKpJBAgXKy0kaS3fnqoUVN8901vUYAKIGD/MWZaDfhJt1nZjPL3ZzdZBt/G8G8Hw2J1xOIrXWdNHFHPAvg==
+libphonenumber-js@^1.10.24:
+  version "1.10.44"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.44.tgz#6709722461173e744190494aaaec9c1c690d8ca8"
+  integrity sha512-svlRdNBI5WgBjRC20GrCfbFiclbF0Cx+sCcQob/C1r57nsoq0xg8r65QbTyVyweQIlB33P+Uahyho6EMYgcOyQ==
 
 lilconfig@2.1.0, lilconfig@^2.0.5, lilconfig@^2.1.0:
   version "2.1.0"
@@ -18621,9 +18626,9 @@ socket.io-client@^4.7.5:
     engine.io-client "~6.5.2"
     socket.io-parser "~4.2.4"
 
-"socket.io-p2p-parser@git+https://github.com/tomcartwrightuk/socket.io-p2p-parser":
+socket.io-p2p-parser@tomcartwrightuk/socket.io-p2p-parser:
   version "2.2.3"
-  resolved "git+https://github.com/tomcartwrightuk/socket.io-p2p-parser#1091624359c870e451b1a3a7b2108969380173cd"
+  resolved "https://codeload.github.com/tomcartwrightuk/socket.io-p2p-parser/tar.gz/1091624359c870e451b1a3a7b2108969380173cd"
   dependencies:
     benchmark "1.0.0"
     component-emitter "1.1.2"
@@ -19543,6 +19548,11 @@ timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
+
+timezone-phone-codes@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/timezone-phone-codes/-/timezone-phone-codes-0.0.2.tgz#f56ad22453d891db4ce91676b4fc263ed3dd8d6f"
+  integrity sha512-KRPfuCfb7nSxBJqFrUAgRzWlEG0/4bu5D/3Hvw1hvl7BLhWIxQ5F8G/qKeT04DQSIenq/jQ1cZu0xOsHjAC3Jg==
 
 timsort@^0.3.0:
   version "0.3.0"

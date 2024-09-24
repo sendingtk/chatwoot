@@ -1,8 +1,8 @@
 {
   "LABEL_MGMT": {
-    "HEADER": "Labels",
-    "HEADER_BTN_TXT": "Add label",
-    "LOADING": "Fetching labels",
+    "HEADER": "Marcadores",
+    "HEADER_BTN_TXT": "Adicionar marcador",
+    "LOADING": "Buscando marcadores",
     "DESCRIPTION": "Os rótulos ajudam você a categorizar e priorizar conversas e leads. Você pode atribuir um rótulo a uma conversa ou contato usando o painel lateral.",
     "LEARN_MORE": "Learn more about labels",
     "SEARCH_404": "Não há itens correspondentes a esta consulta",
