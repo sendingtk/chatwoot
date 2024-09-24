@@ -122,3 +122,5 @@
   enabled: false
 - name: channel_api
   enabled: true
+- name: wavoip
+  enabled: false

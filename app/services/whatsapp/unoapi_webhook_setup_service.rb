@@ -5,11 +5,11 @@ class Whatsapp::UnoapiWebhookSetupService
       whatsapp_channel.provider_config.delete('disconnect')
       return disconnect(whatsapp_channel)
     end
-    return unless whatsapp_channel.provider_config['connect']
-      
-      whatsapp_channel.provider_config.delete('connect')
-      whatsapp_channel.provider_config.delete('disconnect')
-      connect(whatsapp_channel)
+    return true unless whatsapp_channel.provider_config['connect']
+
+    whatsapp_channel.provider_config.delete('connect')
+    whatsapp_channel.provider_config.delete('disconnect')
+    connect(whatsapp_channel)
   end
 
   private
@@ -28,30 +28,10 @@ class Whatsapp::UnoapiWebhookSetupService
 
   def connect(whatsapp_channel)
     phone_number = whatsapp_channel.provider_config['business_account_id']
-    Rails.logger.debug { "Connecting #{phone_number} from unoapi" }
-    body = {
-      ignoreGroupMessages: whatsapp_channel.provider_config['ignore_group_messages'],
-      ignoreBroadcastStatuses: whatsapp_channel.provider_config['ignore_broadcast_statuses'],
-      ignoreBroadcastMessages: whatsapp_channel.provider_config['ignore_broadcast_messages'],
-      ignoreHistoryMessages: whatsapp_channel.provider_config['ignore_history_messages'],
-      ignoreOwnMessages: whatsapp_channel.provider_config['ignore_own_messages'],
-      ignoreYourselfMessages: whatsapp_channel.provider_config['ignore_yourself_messages'],
-      sendConnectionStatus: whatsapp_channel.provider_config['send_connection_status'],
-      notifyFailedMessages: whatsapp_channel.provider_config['notify_failed_messages'],
-      composingMessage: whatsapp_channel.provider_config['composing_message'],
-      rejectCalls: whatsapp_channel.provider_config['reject_calls'],
-      messageCallsWebhook: whatsapp_channel.provider_config['message_calls_webhook'],
-      webhooks: [
-        sendNewMessages: whatsapp_channel.provider_config['webhook_send_new_messages'],
-        id: 'default',
-        urlAbsolute: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp/#{phone_number}",
-        token: whatsapp_channel.provider_config['webhook_verify_token'],
-        header: :Authorization
-      ],
-      sendReactionAsReply: whatsapp_channel.provider_config['send_reaction_as_reply'],     
-      authToken: whatsapp_channel.provider_config['api_key']
-    }
-    response = HTTParty.post("#{url(whatsapp_channel)}/register", headers: headers(whatsapp_channel), body: body.to_json)
+    url = url(whatsapp_channel)
+    Rails.logger.debug { "Connecting #{phone_number} from unoapi with url #{url}" }
+    body = params(whatsapp_channel.provider_config, phone_number)
+    response = HTTParty.post("#{url}/register", headers: headers(whatsapp_channel), body: body.to_json)
     Rails.logger.debug { "Response #{response}" }
     return send_message(whatsapp_channel) if response.success?
 
@@ -85,8 +65,36 @@ class Whatsapp::UnoapiWebhookSetupService
 
   def headers(whatsapp_channel)
     {
-      Authorization: GlobalConfigService.load('UNOAPI_AUTH_TOKEN', whatsapp_channel.provider_config['api_key']),
+      Authorization: ENV.fetch('UNOAPI_AUTH_TOKEN', whatsapp_channel.provider_config['api_key']),
       'Content-Type': 'application/json'
     }
   end
+
+  # rubocop:disable Metrics/MethodLength
+  def params(provider_config, phone_number)
+    {
+      ignoreGroupMessages: provider_config['ignore_group_messages'],
+      ignoreBroadcastStatuses: provider_config['ignore_broadcast_statuses'],
+      ignoreBroadcastMessages: provider_config['ignore_broadcast_messages'],
+      ignoreHistoryMessages: provider_config['ignore_history_messages'],
+      ignoreOwnMessages: provider_config['ignore_own_messages'],
+      ignoreYourselfMessages: provider_config['ignore_yourself_messages'],
+      sendConnectionStatus: provider_config['send_connection_status'],
+      notifyFailedMessages: provider_config['notify_failed_messages'],
+      composingMessage: provider_config['composing_message'],
+      rejectCalls: provider_config['reject_calls'],
+      messageCallsWebhook: provider_config['message_calls_webhook'],
+      webhooks: [
+        sendNewMessages: provider_config['webhook_send_new_messages'],
+        id: 'default',
+        urlAbsolute: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp/#{phone_number}",
+        token: provider_config['webhook_verify_token'],
+        header: :Authorization
+      ],
+      sendReactionAsReply: provider_config['send_reaction_as_reply'],
+      sendProfilePicture: provider_config['send_profile_picture'],
+      authToken: provider_config['api_key']
+    }
+  end
+  # rubocop:enable Metrics/MethodLength
 end

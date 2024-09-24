@@ -46,6 +46,12 @@ whatsapp:
   description: 'Manage your WhatsApp business interactions from Chatwoot.'
   enabled: true
   icon: 'icon-whatsapp-line'
+whatsapp_embedded:
+  name: 'WhatsApp Embedded'
+  description: 'Embedded registration for WhatsApp'
+  enabled: true
+  icon: 'icon-whatsapp-line'
+  config_key: 'whatsapp_embedded'
 telegram:
   name: 'Telegram'
   description: 'Manage your Telegram customer interactions from Chatwoot.'

@@ -226,9 +226,9 @@ class Contact < ApplicationRecord
   end
 
   def create_label_also
-    prev_labels = Label.where(name: self.label_list)
+    prev_labels = Label.where(name: label_list)
 
-    new_labels = self.label_list - prev_labels
+    new_labels = label_list - prev_labels
 
     new_labels.each do |label|
       Label.create!(name: label)

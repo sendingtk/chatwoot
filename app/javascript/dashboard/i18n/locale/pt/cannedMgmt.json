@@ -1,24 +1,25 @@
 {
   "CANNED_MGMT": {
-    "HEADER": "Respostas Prontas",
-    "HEADER_BTN_TXT": "Adicionar resposta pronta",
-    "LOADING": "A obter respostas prontas...",
-    "SEARCH_404": "Não existem itens correspondentes a esta consulta.",
-    "SIDEBAR_TXT": "<p><b>Respostas Prontas</b> </p><p> Respostas Prontas são modelos de resposta pré-escritos que o ajudam a responder rapidamente a uma conversa. Para inserir uma resposta pronta durante um chat, os agentes podem digitar um pequeno código precedido por um caractere '/'. </p><p> Pode gerir as suas respostas prontas a partir desta página ou criar novas usando o botão \"Adicionar resposta pronta\".</p><p>Abre o <a target=\"_blank\" href=\"https://www.chatwoot.com/hc/chatwoot-user-guide-cloud-version/articles/1677501325-how-to-create-saved-reply-templates-with-canned-responses\">Manual de Respostas Prontas</a> em outra janela para obter ajuda.</p><p>Além disso, confira a nova <a href=\"https://www.chatwoot.com/tools/canned-responses-library\" target=\"_blank\">Biblioteca de Respostas Prontas</a>.</p>",
+    "HEADER": "Respostas Pré-definidas",
+    "LEARN_MORE": "Saiba mais sobre respostas pré-definidas",
+    "DESCRIPTION": "Respostas Pré-definidas são modelos de resposta pré-escritos que ajudam a responder rapidamente a uma conversa. Os agentes podem digitar o caractere '/' seguido do código curto para inserir uma resposta pré-definida durante uma conversa.",
+    "HEADER_BTN_TXT": "Adicionar resposta pré-definida",
+    "LOADING": "A buscar respostas pré-definidas...",
+    "SEARCH_404": "Não há itens que correspondam a esta consulta.",
     "LIST": {
-      "404": "Não há respostas prontas disponíveis nesta conta.",
-      "TITLE": "Gerenciar respostas prontas",
-      "DESC": "Respostas prontas são modelos de resposta pré-definidos, que podem ser usados para enviar respostas rapidamente para conversas.",
+      "404": "Não há respostas pré-definidas disponíveis nesta conta.",
+      "TITLE": "Gerir respostas pré-definidas",
+      "DESC": "Respostas Pré-definidas são modelos de resposta predefinidos que podem ser usados para enviar respostas rapidamente em conversas.",
       "TABLE_HEADER": [
         "Código curto",
         "Conteúdo",
-        "Ações."
+        "Ações"
       ]
     },
     "ADD": {
-      "TITLE": "Adicionar resposta pronta",
-      "DESC": "Respostas prontas são modelos de resposta pré-definidos, que podem ser usados para enviar respostas rapidamente para conversas.",
-      "CANCEL_BUTTON_TEXT": "cancelar",
+      "TITLE": "Adicionar resposta pré-definida",
+      "DESC": "Respostas Pré-definidas são modelos de resposta predefinidos que podem ser usados para enviar respostas rapidamente em conversas.",
+      "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "SHORT_CODE": {
           "LABEL": "Código curto",
@@ -26,49 +27,49 @@
           "ERROR": "O código curto é obrigatório."
         },
         "CONTENT": {
-          "LABEL": "Messagem",
-          "PLACEHOLDER": "Por favor escreva a mensagem que deseja salvar como um modelo para usar mais tarde.",
-          "ERROR": "Mensagem é um campo obrigatório."
+          "LABEL": "Mensagem",
+          "PLACEHOLDER": "Por favor, escreva a mensagem que deseja guardar como modelo para usar mais tarde.",
+          "ERROR": "A mensagem é obrigatória."
         },
-        "SUBMIT": "submeter"
+        "SUBMIT": "Enviar"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Resposta pronta adicionada com sucesso.",
+        "SUCCESS_MESSAGE": "Resposta pré-definida adicionada com sucesso.",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot. Por favor, tente novamente."
       }
     },
     "EDIT": {
-      "TITLE": "Editar resposta pronta",
-      "CANCEL_BUTTON_TEXT": "cancelar",
+      "TITLE": "Editar resposta pré-definida",
+      "CANCEL_BUTTON_TEXT": "Cancelar",
       "FORM": {
         "SHORT_CODE": {
           "LABEL": "Código curto",
           "PLACEHOLDER": "Por favor, insira um código curto.",
-          "ERROR": "Código curto é obrigatório."
+          "ERROR": "O código curto é obrigatório."
         },
         "CONTENT": {
-          "LABEL": "Messagem",
-          "PLACEHOLDER": "Por favor escreva a mensagem que deseja salvar como um modelo para usar mais tarde.",
+          "LABEL": "Mensagem",
+          "PLACEHOLDER": "Por favor, escreva a mensagem que deseja guardar como modelo para usar mais tarde.",
           "ERROR": "A mensagem é obrigatória."
         },
-        "SUBMIT": "submeter"
+        "SUBMIT": "Enviar"
       },
-      "BUTTON_TEXT": "Alterar",
+      "BUTTON_TEXT": "Editar",
       "API": {
-        "SUCCESS_MESSAGE": "Resposta pronta atualizada com sucesso.",
+        "SUCCESS_MESSAGE": "Resposta pré-definida atualizada com sucesso.",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot. Por favor, tente novamente."
       }
     },
     "DELETE": {
-      "BUTTON_TEXT": "excluir",
+      "BUTTON_TEXT": "Eliminar",
       "API": {
-        "SUCCESS_MESSAGE": "Resposta pronta apagada com sucesso.",
+        "SUCCESS_MESSAGE": "Resposta pré-definida eliminada com sucesso.",
         "ERROR_MESSAGE": "Não foi possível conectar ao servidor Woot. Por favor, tente novamente."
       },
       "CONFIRM": {
-        "TITLE": "Confirmar a eliminação",
-        "MESSAGE": "Tem certeza que deseja excluir ",
-        "YES": "Sim, apagar ",
+        "TITLE": "Confirmar eliminação",
+        "MESSAGE": "Tem a certeza de que deseja eliminar ",
+        "YES": "Sim, eliminar ",
         "NO": "Não, manter "
       }
     }

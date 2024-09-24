@@ -7,13 +7,13 @@
       "END": "Data de Término"
     },
     "DATE_RANGE_OPTIONS": {
-      "TITLE": "PERÍODO",
+      "TITLE": "INTERVALO DE DATAS",
       "LAST_7_DAYS": "Últimos 7 dias",
       "LAST_30_DAYS": "Últimos 30 dias",
-      "LAST_3_MONTHS": "Úlrimos 3 meses",
+      "LAST_3_MONTHS": "Últimos 3 meses",
       "LAST_6_MONTHS": "Últimos 6 meses",
       "LAST_YEAR": "Último ano",
-      "CUSTOM_RANGE": "Período personalizado"
+      "CUSTOM_RANGE": "Intervalo de datas personalizado"
     }
   }
 }

@@ -1,9 +1,12 @@
 <script>
+import { mapGetters } from 'vuex';
 import PageHeader from '../../SettingsSubPageHeader.vue';
 import Twilio from './Twilio.vue';
 import ThreeSixtyDialogWhatsapp from './360DialogWhatsapp.vue';
 import CloudWhatsapp from './CloudWhatsapp.vue';
+import CloudEmbededSignupWhatsapp from './CloudEmbededSignupWhatsapp.vue';
 import Unoapi from './Unoapi.vue';
+import globalConfigMixin from 'shared/mixins/globalConfigMixin'; // Asegúrate de que la ruta sea correcta
 
 export default {
   components: {
@@ -11,12 +14,30 @@ export default {
     Twilio,
     ThreeSixtyDialogWhatsapp,
     CloudWhatsapp,
+    CloudEmbededSignupWhatsapp,
     Unoapi,
+  },
+  mixins: [globalConfigMixin],
+  computed: {
+    ...mapGetters({
+      globalConfig: 'globalConfig/get',
+    }),
+    wabaEmbeddedSignup() {
+      return {
+      isEmbeddedSignupEnabled: this.globalConfig.wabaEmbeddedSignup,
+      };
+    },
   },
   data() {
     return {
       provider: 'whatsapp_cloud',
+      isEmbeddedSignupEnabled: false,
     };
+  },
+  created() {
+    console.log(this.globalConfig); // Verifica si globalConfig está trayendo los datos correctos
+    console.log(this.globalConfig.wabaEmbeddedSignup); // Asegúrate de que esta propiedad existe
+    this.isEmbeddedSignupEnabled = this.globalConfig.wabaEmbeddedSignup || false;
   },
 };
 </script>
@@ -36,6 +57,9 @@ export default {
           <option value="whatsapp_cloud">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.WHATSAPP_CLOUD') }}
           </option>
+          <option v-if="isEmbeddedSignupEnabled" value="embeded_signup">
+            Embedded Signup
+          </option>
           <option value="twilio">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.TWILIO') }}
           </option>
@@ -49,6 +73,7 @@ export default {
     <Twilio v-if="provider === 'twilio'" type="whatsapp" />
     <ThreeSixtyDialogWhatsapp v-else-if="provider === '360dialog'" />
     <CloudWhatsapp v-else-if="provider === 'whatsapp_cloud'" />
+    <CloudEmbededSignupWhatsapp v-else-if="provider === 'embeded_signup'" />
     <Unoapi v-else />
   </div>
 </template>

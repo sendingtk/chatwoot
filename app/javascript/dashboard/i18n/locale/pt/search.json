@@ -1,25 +1,26 @@
 {
   "SEARCH": {
     "TABS": {
-      "ALL": "TODOS",
-      "CONTACTS": "Contactos",
-      "CONVERSATIONS": "Conversas",
-      "MESSAGES": "Mensagens"
+      "ALL": "All",
+      "CONTACTS": "Contacts",
+      "CONVERSATIONS": "Conversations",
+      "MESSAGES": "Messages"
     },
     "SECTION": {
-      "CONTACTS": "Contactos",
-      "CONVERSATIONS": "Conversas",
-      "MESSAGES": "Mensagens"
+      "CONTACTS": "Contacts",
+      "CONVERSATIONS": "Conversations",
+      "MESSAGES": "Messages"
     },
-    "EMPTY_STATE": "Não foi encontrado %{item} para a consulta '%{query}'",
+    "SEARCHING_DATA": "A procurar",
+    "EMPTY_STATE": "Nenhum %{item} encontrado para a consulta '%{query}'",
     "EMPTY_STATE_FULL": "Nenhum resultado encontrado para a consulta '%{query}'",
     "PLACEHOLDER_KEYBINDING": "/ para focar",
     "INPUT_PLACEHOLDER": "Digite 3 ou mais caracteres para pesquisar",
-    "EMPTY_STATE_DEFAULT": "Procurar por ID da conversa, email, número de telefone, mensagens para obter melhores resultados. ",
+    "EMPTY_STATE_DEFAULT": "Pesquise por id de conversa, email, número de telefone, mensagens para melhores resultados de pesquisa.",
     "BOT_LABEL": "Bot",
     "READ_MORE": "Ler mais",
     "WROTE": "escreveu:",
     "FROM": "de",
-    "EMAIL": "e-mail"
+    "EMAIL": "email"
   }
 }

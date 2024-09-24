@@ -1,62 +1,62 @@
 {
   "INTEGRATION_APPS": {
-    "FETCHING": "Obteniendo integraciones",
-    "NO_HOOK_CONFIGURED": "No hay integraciones de %{integrationId} configuradas en ésta cuenta.",
+    "FETCHING": "Fetching Integrations",
+    "NO_HOOK_CONFIGURED": "No hay %{integrationId} integraciones configuradas en esta cuenta.",
     "HEADER": "Aplicaciones",
     "STATUS": {
-      "ENABLED": "Activado",
-      "DISABLED": "Deshabilitado"
+      "ENABLED": "Enabled",
+      "DISABLED": "Disabled"
     },
-    "CONFIGURE": "Configurar",
-    "ADD_BUTTON": "Añadir un nuevo hook",
+    "CONFIGURE": "Configure",
+    "ADD_BUTTON": "Add a new hook",
     "DELETE": {
       "TITLE": {
-        "INBOX": "Confirme eliminación",
+        "INBOX": "Confirmar eliminación",
         "ACCOUNT": "Desconectar"
       },
       "MESSAGE": {
-        "INBOX": "¿Está seguro de eliminar?",
-        "ACCOUNT": "¿Está seguro en desconectar?"
+        "INBOX": "¿Estás seguro de eliminar?",
+        "ACCOUNT": "¿Estás seguro de desconectar?"
       },
       "CONFIRM_BUTTON_TEXT": {
-        "INBOX": "Sí, eliminar",
-        "ACCOUNT": "Si, desconectar"
+        "INBOX": "Sí, Eliminar",
+        "ACCOUNT": "Sí, Desconectar"
       },
-      "CANCEL_BUTTON_TEXT": "Cancelar",
+      "CANCEL_BUTTON_TEXT": "Cancel",
       "API": {
-        "SUCCESS_MESSAGE": "Hook borrado correctamente",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Hook eliminado con éxito",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente nuevamente más tarde"
       }
     },
     "LIST": {
-      "FETCHING": "Obteniendo hooks de integración",
-      "INBOX": "Bandeja de entrada",
+      "FETCHING": "Fetching integration hooks",
+      "INBOX": "Inbox",
       "DELETE": {
-        "BUTTON_TEXT": "Eliminar"
+        "BUTTON_TEXT": "Delete"
       }
     },
     "ADD": {
       "FORM": {
         "INBOX": {
-          "LABEL": "Seleccione una bandeja de entrada",
-          "PLACEHOLDER": "Seleccione una bandeja de entrada"
+          "LABEL": "Seleccionar Inbox",
+          "PLACEHOLDER": "Seleccionar Inbox"
         },
         "SUBMIT": "Crear",
-        "CANCEL": "Cancelar"
+        "CANCEL": "Cancel"
       },
       "API": {
-        "SUCCESS_MESSAGE": "Hook de integración añadida correctamente",
-        "ERROR_MESSAGE": "No se pudo conectar al servidor Woot, por favor inténtalo de nuevo más tarde"
+        "SUCCESS_MESSAGE": "Hook de integración añadido con éxito",
+        "ERROR_MESSAGE": "No se pudo conectar al servidor de Woot, por favor intente nuevamente más tarde"
       }
     },
     "CONNECT": {
-      "BUTTON_TEXT": "Conectar"
+      "BUTTON_TEXT": "Connect"
     },
     "DISCONNECT": {
-      "BUTTON_TEXT": "Desconectar"
+      "BUTTON_TEXT": "Disconnect"
     },
     "SIDEBAR_DESCRIPTION": {
-      "DIALOGFLOW": "Dialogflow es una plataforma de comprensión del lenguaje natural que facilita el diseño e integración de una interfaz de usuario conversacional en su aplicación móvil, aplicación web, dispositivo, bot, sistema interactivo de respuesta de voz, etc. <br /> <br /> La integración de Dialogflow con %{installationName} le permite configurar un bot de Dialogflow con sus bandejas de entrada que permite al bot manejar las consultas inicialmente y entregarlas a un agente cuando sea necesario. El dialogflow se puede utilizar para calificar a los clientes potenciales, reducir la carga de trabajo de los agentes proporcionando preguntas frecuentes, etc. <br /> <br /> Para añadir Dialogflow, necesita crear una cuenta de servicio en la consola del proyecto de Google y compartir las credenciales. Consulte la documentación de Dialogflow para obtener más información."
+      "DIALOGFLOW": "Dialogflow es una plataforma de comprensión del lenguaje natural que facilita el diseño e integración de una interfaz de usuario conversacional en tu aplicación móvil, aplicación web, dispositivo, bot, sistema de respuesta de voz interactiva, y más. <br /> <br /> La integración de Dialogflow con %{installationName} te permite configurar un bot de Dialogflow con tus bandejas de entrada, lo que permite que el bot maneje las consultas inicialmente y las transfiera a un agente cuando sea necesario. Dialogflow se puede usar para calificar los leads, reducir la carga de trabajo de los agentes proporcionando respuestas a preguntas frecuentes, etc. <br /> <br /> Para añadir Dialogflow, necesitas crear una Cuenta de Servicio en tu consola de proyecto de Google y compartir las credenciales. Por favor, consulta la documentación de Dialogflow para más información."
     }
   }
 }

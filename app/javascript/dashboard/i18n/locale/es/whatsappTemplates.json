@@ -2,24 +2,24 @@
     "WHATSAPP_TEMPLATES": {
         "MODAL": {
             "TITLE": "Plantillas de Whatsapp",
-            "SUBTITLE": "Seleccione la plantilla de Whatsapp que desea enviar",
+            "SUBTITLE": "Seleccione la plantilla de whatsapp que desea enviar",
             "TEMPLATE_SELECTED_SUBTITLE": "Procesar %{templateName}"
         },
         "PICKER": {
-            "SEARCH_PLACEHOLDER": "Buscar plantillas",
+            "SEARCH_PLACEHOLDER": "Buscar Plantillas",
             "NO_TEMPLATES_FOUND": "No se encontraron plantillas para",
             "LABELS": {
                 "LANGUAGE": "Idioma",
-                "TEMPLATE_BODY": "Cuerpo de plantilla",
+                "TEMPLATE_BODY": "Cuerpo de la Plantilla",
                 "CATEGORY": "Categoría"
             }
         },
         "PARSER": {
             "VARIABLES_LABEL": "Variables",
-            "VARIABLE_PLACEHOLDER": "Introduzca el valor de %{variable}",
-            "GO_BACK_LABEL": "Volver",
-            "SEND_MESSAGE_LABEL": "Enviar mensaje",
-            "FORM_ERROR_MESSAGE": "Por favor, rellene todas las variables antes de enviar"
+            "VARIABLE_PLACEHOLDER": "Ingrese el valor de %{variable}",
+            "GO_BACK_LABEL": "Regresar",
+            "SEND_MESSAGE_LABEL": "Enviar Mensaje",
+            "FORM_ERROR_MESSAGE": "Por favor complete todas las variables antes de enviar"
         }
     }
 }

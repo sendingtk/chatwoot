@@ -1,85 +1,85 @@
 {
   "GENERAL_SETTINGS": {
     "TITLE": "Configuración de la cuenta",
-    "SUBMIT": "Actualizar ajustes",
+    "SUBMIT": "Actualizar configuración",
     "BACK": "Atrás",
     "DISMISS": "Descartar",
     "UPDATE": {
       "ERROR": "No se pudo actualizar la configuración, ¡inténtalo de nuevo!",
-      "SUCCESS": "Configuración de cuenta actualizada correctamente"
+      "SUCCESS": "Configuración de la cuenta actualizada con éxito"
     },
     "FORM": {
-      "ERROR": "Por favor, corrija los errores de formulario",
+      "ERROR": "Por favor, corrige los errores del formulario",
       "GENERAL_SECTION": {
-        "TITLE": "Ajustes generales",
+        "TITLE": "Configuración general",
         "NOTE": ""
       },
       "ACCOUNT_ID": {
-        "TITLE": "ID de Cuenta",
+        "TITLE": "ID de la cuenta",
         "NOTE": "Este ID es necesario si estás construyendo una integración basada en API"
       },
       "NAME": {
-        "LABEL": "Nombre de cuenta",
-        "PLACEHOLDER": "Tu nombre de cuenta",
-        "ERROR": "Por favor, introduzca un nombre de cuenta válido"
+        "LABEL": "Nombre de la cuenta",
+        "PLACEHOLDER": "El nombre de tu cuenta",
+        "ERROR": "Por favor, introduce un nombre de cuenta válido"
       },
       "LANGUAGE": {
         "LABEL": "Idioma del sitio",
-        "PLACEHOLDER": "Tu nombre de cuenta",
+        "PLACEHOLDER": "El nombre de tu cuenta",
         "ERROR": ""
       },
       "DOMAIN": {
-        "LABEL": "Dominio",
-        "PLACEHOLDER": "El dominio donde recibirá los emails",
+        "LABEL": "Dominio de correo electrónico entrante",
+        "PLACEHOLDER": "El dominio donde recibirás los correos electrónicos",
         "ERROR": ""
       },
       "SUPPORT_EMAIL": {
-        "LABEL": "Email de soporte",
-        "PLACEHOLDER": "Email de soporte de su empresa",
+        "LABEL": "Correo electrónico de soporte",
+        "PLACEHOLDER": "El correo electrónico de soporte de tu empresa",
         "ERROR": ""
       },
       "AUTO_RESOLVE_DURATION": {
-        "LABEL": "Número de días después de que un ticket se resuelva automáticamente si no hay actividad",
+        "LABEL": "Número de días después de los cuales un ticket debe resolverse automáticamente si no hay actividad",
         "PLACEHOLDER": "30",
-        "ERROR": "Por favor introduzca una duración válida de resolución automática (mínimo 1 día y máximo 999 días)"
+        "ERROR": "Por favor, introduce una duración válida para la resolución automática (mínimo 1 día y máximo 999 días)"
       },
       "FEATURES": {
-        "INBOUND_EMAIL_ENABLED": "Continuidad de la conversación con emails está habilitada para su cuenta.",
-        "CUSTOM_EMAIL_DOMAIN_ENABLED": "Ahora puede recibir emails en su dominio personalizado."
+        "INBOUND_EMAIL_ENABLED": "La continuidad de la conversación con correos electrónicos está habilitada para tu cuenta.",
+        "CUSTOM_EMAIL_DOMAIN_ENABLED": "Ahora puedes recibir correos electrónicos en tu dominio personalizado."
       }
     },
-    "UPDATE_CHATWOOT": "Hay una actualización %{latestChatwootVersion} para Chatwoot disponible. Por favor, actualiza tu instancia.",
-    "LEARN_MORE": "Más información",
-    "PAYMENT_PENDING": "Tu pago está pendiente. Por favor actualiza tu información de pago para seguir usando Chatwoot",
-    "LIMITS_UPGRADE": "Su cuenta ha excedido los límites de uso, por favor actualice su plan para seguir usando Chatwoot",
+    "UPDATE_CHATWOOT": "Una actualización %{latestChatwootVersion} para Chatwoot está disponible. Por favor, actualiza tu instancia.",
+    "LEARN_MORE": "Aprende más",
+    "PAYMENT_PENDING": "Tu pago está pendiente. Por favor, actualiza tu información de pago para continuar usando Chatwoot",
+    "LIMITS_UPGRADE": "Tu cuenta ha excedido los límites de uso, por favor, actualiza tu plan para continuar usando Chatwoot",
     "OPEN_BILLING": "Abrir facturación"
   },
   "FORMS": {
     "MULTISELECT": {
-      "ENTER_TO_SELECT": "Pulse Enter para seleccionar",
-      "ENTER_TO_REMOVE": "Presione Enter para eliminar",
-      "SELECT_ONE": "Seleccione uno",
+      "ENTER_TO_SELECT": "Presiona enter para seleccionar",
+      "ENTER_TO_REMOVE": "Presiona enter para eliminar",
+      "SELECT_ONE": "Selecciona uno",
       "SELECT": "Seleccionar"
     }
   },
   "NOTIFICATIONS_PAGE": {
     "HEADER": "Notificaciones",
-    "MARK_ALL_DONE": "Marcar Todo Hecho",
-    "DELETE_TITLE": "Eliminado",
+    "MARK_ALL_DONE": "Marcar todo como hecho",
+    "DELETE_TITLE": "eliminado",
     "UNREAD_NOTIFICATION": {
-      "TITLE": "Notificaciones sin leer",
+      "TITLE": "Notificaciones no leídas",
       "ALL_NOTIFICATIONS": "Ver todas las notificaciones",
       "LOADING_UNREAD_MESSAGE": "Cargando notificaciones no leídas...",
-      "EMPTY_MESSAGE": "No tiene notificaciones sin leer"
+      "EMPTY_MESSAGE": "No tienes notificaciones no leídas"
     },
     "LIST": {
       "LOADING_MESSAGE": "Cargando notificaciones...",
-      "404": "Aún no hay notificaciones",
+      "404": "No hay notificaciones",
       "TABLE_HEADER": [
         "Nombre",
-        "Número telefónico",
+        "Número de teléfono",
         "Conversaciones",
-        "Último Contactado"
+        "Último contacto"
       ]
     },
     "TYPE_LABEL": {
@@ -88,14 +88,14 @@
       "assigned_conversation_new_message": "Nuevo mensaje",
       "participating_conversation_new_message": "Nuevo mensaje",
       "conversation_mention": "Mención",
-      "sla_missed_first_response": "SLA perdido",
-      "sla_missed_next_response": "SLA perdido",
-      "sla_missed_resolution": "SLA perdido"
+      "sla_missed_first_response": "SLA no cumplido",
+      "sla_missed_next_response": "SLA no cumplido",
+      "sla_missed_resolution": "SLA no cumplido"
     }
   },
   "NETWORK": {
     "NOTIFICATION": {
-      "OFFLINE": "Fuera de línea",
+      "OFFLINE": "Desconectado",
       "RECONNECTING": "Reconectando...",
       "RECONNECT_SUCCESS": "Reconectado"
     },
@@ -110,53 +110,53 @@
       "REPORTS": "Informes",
       "CONVERSATION": "Conversación",
       "BULK_ACTIONS": "Acciones masivas",
-      "CHANGE_ASSIGNEE": "Cambiar Asignado",
+      "CHANGE_ASSIGNEE": "Cambiar asignado",
       "CHANGE_PRIORITY": "Cambiar prioridad",
       "CHANGE_TEAM": "Cambiar equipo",
       "SNOOZE_CONVERSATION": "Posponer conversación",
-      "ADD_LABEL": "Añadir etiqueta a la conversación",
+      "ADD_LABEL": "Agregar etiqueta a la conversación",
       "REMOVE_LABEL": "Eliminar etiqueta de la conversación",
-      "SETTINGS": "Ajustes",
+      "SETTINGS": "Configuración",
       "AI_ASSIST": "Asistencia AI",
       "APPEARANCE": "Apariencia",
       "SNOOZE_NOTIFICATION": "Posponer notificación"
     },
     "COMMANDS": {
-      "GO_TO_CONVERSATION_DASHBOARD": "Ir al panel de conversaciones",
+      "GO_TO_CONVERSATION_DASHBOARD": "Ir al panel de conversación",
       "GO_TO_CONTACTS_DASHBOARD": "Ir al panel de contactos",
-      "GO_TO_REPORTS_OVERVIEW": "Ir al Resumen de Reportes",
-      "GO_TO_CONVERSATION_REPORTS": "Ir a Reportes de Conversación",
-      "GO_TO_AGENT_REPORTS": "Ir a Reportes de Agente",
-      "GO_TO_LABEL_REPORTS": "Ir a Reportes de Etiquetas",
-      "GO_TO_INBOX_REPORTS": "Ir a Reportes de Entrada",
-      "GO_TO_TEAM_REPORTS": "Ir a Reportes de Equipo",
-      "GO_TO_SETTINGS_AGENTS": "Ir a la configuración del agente",
-      "GO_TO_SETTINGS_TEAMS": "Ir a Configuración de Equipo",
-      "GO_TO_SETTINGS_INBOXES": "Ir a Ajustes de la Bandeja de Entrada",
-      "GO_TO_SETTINGS_LABELS": "Ir a Configuración de Etiqueta",
-      "GO_TO_SETTINGS_CANNED_RESPONSES": "Ir a Configuración de Respuesta Predefinida",
-      "GO_TO_SETTINGS_APPLICATIONS": "Ir a la configuración de la aplicación",
-      "GO_TO_SETTINGS_ACCOUNT": "Ir a Configuración de Cuenta",
-      "GO_TO_SETTINGS_PROFILE": "Ir a Configuración del Perfil",
-      "GO_TO_NOTIFICATIONS": "Ir a Notificaciones",
-      "ADD_LABELS_TO_CONVERSATION": "Añadir etiqueta a la conversación",
+      "GO_TO_REPORTS_OVERVIEW": "Ir a la vista general de informes",
+      "GO_TO_CONVERSATION_REPORTS": "Ir a los informes de conversación",
+      "GO_TO_AGENT_REPORTS": "Ir a los informes de agentes",
+      "GO_TO_LABEL_REPORTS": "Ir a los informes de etiquetas",
+      "GO_TO_INBOX_REPORTS": "Ir a los informes de bandeja de entrada",
+      "GO_TO_TEAM_REPORTS": "Ir a los informes de equipo",
+      "GO_TO_SETTINGS_AGENTS": "Ir a la configuración de agentes",
+      "GO_TO_SETTINGS_TEAMS": "Ir a la configuración de equipos",
+      "GO_TO_SETTINGS_INBOXES": "Ir a la configuración de bandejas de entrada",
+      "GO_TO_SETTINGS_LABELS": "Ir a la configuración de etiquetas",
+      "GO_TO_SETTINGS_CANNED_RESPONSES": "Ir a la configuración de respuestas predefinidas",
+      "GO_TO_SETTINGS_APPLICATIONS": "Ir a la configuración de aplicaciones",
+      "GO_TO_SETTINGS_ACCOUNT": "Ir a la configuración de la cuenta",
+      "GO_TO_SETTINGS_PROFILE": "Ir a la configuración del perfil",
+      "GO_TO_NOTIFICATIONS": "Ir a notificaciones",
+      "ADD_LABELS_TO_CONVERSATION": "Agregar etiqueta a la conversación",
       "ASSIGN_AN_AGENT": "Asignar un agente",
-      "AI_ASSIST": "Asistencia IA",
+      "AI_ASSIST": "Asistencia AI",
       "ASSIGN_PRIORITY": "Asignar prioridad",
       "ASSIGN_A_TEAM": "Asignar un equipo",
       "MUTE_CONVERSATION": "Silenciar conversación",
-      "UNMUTE_CONVERSATION": "Quitar silencio de conversación",
+      "UNMUTE_CONVERSATION": "Activar sonido de la conversación",
       "REMOVE_LABEL_FROM_CONVERSATION": "Eliminar etiqueta de la conversación",
-      "REOPEN_CONVERSATION": "Resolver conversación",
+      "REOPEN_CONVERSATION": "Reabrir conversación",
       "RESOLVE_CONVERSATION": "Resolver conversación",
-      "SEND_TRANSCRIPT": "Enviar una transcripción por email",
+      "SEND_TRANSCRIPT": "Enviar una transcripción por correo electrónico",
       "SNOOZE_CONVERSATION": "Posponer conversación",
-      "UNTIL_NEXT_REPLY": "Hasta la siguiente respuesta",
+      "UNTIL_NEXT_REPLY": "Hasta la próxima respuesta",
       "UNTIL_NEXT_WEEK": "Hasta la próxima semana",
       "UNTIL_TOMORROW": "Hasta mañana",
-      "UNTIL_NEXT_MONTH": "Hasta el mes próximo",
-      "AN_HOUR_FROM_NOW": "Hasta una hora a partir de ahora",
-      "UNTIL_CUSTOM_TIME": "Personalizar...",
+      "UNTIL_NEXT_MONTH": "Hasta el próximo mes",
+      "AN_HOUR_FROM_NOW": "Hasta dentro de una hora",
+      "UNTIL_CUSTOM_TIME": "Personalizado...",
       "CHANGE_APPEARANCE": "Cambiar apariencia",
       "LIGHT_MODE": "Claro",
       "DARK_MODE": "Oscuro",
@@ -165,7 +165,7 @@
     }
   },
   "DASHBOARD_APPS": {
-    "LOADING_MESSAGE": "Cargando aplicación del tablero..."
+    "LOADING_MESSAGE": "Cargando aplicación del panel..."
   },
   "COMMON": {
     "OR": "O",

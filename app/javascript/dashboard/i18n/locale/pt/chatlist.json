@@ -1,6 +1,6 @@
 {
   "CHAT_LIST": {
-    "LOADING": "Buscando conversas",
+    "LOADING": "A buscar conversas",
     "LOAD_MORE_CONVERSATIONS": "Carregar mais conversas",
     "EOF": "Todas as conversas carregadas 🎉",
     "LIST": {
@@ -8,19 +8,19 @@
     },
     "TAB_HEADING": "Conversas",
     "MENTION_HEADING": "Menções",
-    "UNATTENDED_HEADING": "Por responder",
+    "UNATTENDED_HEADING": "Não atendidas",
     "SEARCH": {
-      "INPUT": "Pesquisar pessoas, conversas, respostas salvas .."
+      "INPUT": "Procurar por Pessoas, Chats, Respostas Guardadas .."
     },
-    "FILTER_ALL": "Todas",
+    "FILTER_ALL": "Todos",
     "ASSIGNEE_TYPE_TABS": {
       "me": "Minhas",
       "unassigned": "Não atribuídas",
-      "all": "Todas"
+      "all": "Todos"
     },
     "CHAT_STATUS_FILTER_ITEMS": {
       "open": {
-        "TEXT": "Abertas"
+        "TEXT": "Aberto"
       },
       "resolved": {
         "TEXT": "Resolvido"
@@ -32,19 +32,19 @@
         "TEXT": "Adiado"
       },
       "all": {
-        "TEXT": "Todas"
+        "TEXT": "Todos"
       }
     },
-    "VIEW_FILTER": "Visualizar",
+    "VIEW_FILTER": "Ver",
     "SORT_TOOLTIP_LABEL": "Ordenar conversas",
     "CHAT_SORT": {
-      "STATUS": "SItuação",
+      "STATUS": "Estado",
       "ORDER_BY": "Ordenar por"
     },
     "CHAT_TIME_STAMP": {
       "CREATED": {
         "LATEST": "Criado",
-        "OLDEST": "Criada em:"
+        "OLDEST": "Criado em:"
       },
       "LAST_ACTIVITY": {
         "NOT_ACTIVE": "Última atividade:",
@@ -53,33 +53,33 @@
     },
     "SORT_ORDER_ITEMS": {
       "last_activity_at_asc": {
-        "TEXT": "Última Atividade: Mais antigos primeiro"
+        "TEXT": "Última atividade: Mais antigas primeiro"
       },
       "last_activity_at_desc": {
-        "TEXT": "Última Atividade: Mais recentes primeiro"
+        "TEXT": "Última atividade: Mais recentes primeiro"
       },
       "created_at_desc": {
         "TEXT": "Criado em: Mais recentes primeiro"
       },
       "created_at_asc": {
-        "TEXT": "Criado em: Mais antigos primeiro"
+        "TEXT": "Criado em: Mais antigas primeiro"
       },
       "priority_desc": {
-        "TEXT": "Prioridade: Mais alto primeiro"
+        "TEXT": "Prioridade: Mais alta primeiro"
       },
       "priority_asc": {
-        "TEXT": "Prioridade: Mais baixo primeiro"
+        "TEXT": "Prioridade: Mais baixa primeiro"
       },
       "waiting_since_asc": {
-        "TEXT": "Resposta pendente: Mais longo primeiro"
+        "TEXT": "Resposta Pendente: Mais longa primeiro"
       },
       "waiting_since_desc": {
-        "TEXT": "Resposta pendente: Mais curto primeiro"
+        "TEXT": "Resposta Pendente: Mais curta primeiro"
       }
     },
     "ATTACHMENTS": {
       "image": {
-        "CONTENT": "Mensagem de imagem"
+        "CONTENT": "Mensagem com imagem"
       },
       "audio": {
         "CONTENT": "Mensagem de áudio"
@@ -88,13 +88,13 @@
         "CONTENT": "Mensagem de vídeo"
       },
       "file": {
-        "CONTENT": "Arquivo anexo"
+        "CONTENT": "Anexo de ficheiro"
       },
       "location": {
-        "CONTENT": "Local:"
+        "CONTENT": "Localização"
       },
       "fallback": {
-        "CONTENT": "compartilhou uma url"
+        "CONTENT": "partilhou um URL"
       }
     },
     "CHAT_SORT_BY_FILTER": {
@@ -106,26 +106,26 @@
           "LABEL": "Última atividade"
         },
         "CREATED_AT": {
-          "NAME": "Criada em",
-          "LABEL": "Criada em"
+          "NAME": "Criado em",
+          "LABEL": "Criado em"
         },
         "LAST_USER_MESSAGE_AT": {
-          "NAME": "Última resposta do utilizador em",
+          "NAME": "Última mensagem do utilizador em",
           "LABEL": "Última mensagem"
         }
       }
     },
-    "RECEIVED_VIA_EMAIL": "Recebido por e-mail",
-    "VIEW_TWEET_IN_TWITTER": "Ver mensagem no Twitter",
-    "REPLY_TO_TWEET": "Responder à mensagem",
-    "LINK_TO_STORY": "Ir para story do instagram",
+    "RECEIVED_VIA_EMAIL": "Recebido por email",
+    "VIEW_TWEET_IN_TWITTER": "Ver tweet no Twitter",
+    "REPLY_TO_TWEET": "Responder a este tweet",
+    "LINK_TO_STORY": "Ir para a história do Instagram",
     "SENT": "Enviado com sucesso",
     "READ": "Lido com sucesso",
     "DELIVERED": "Entregue com sucesso",
-    "NO_MESSAGES": "Nenhuma mensagem",
+    "NO_MESSAGES": "Sem mensagens",
     "NO_CONTENT": "Sem conteúdo disponível",
-    "HIDE_QUOTED_TEXT": "Ocultar Texto Citado",
-    "SHOW_QUOTED_TEXT": "Mostrar Texto Citado",
-    "MESSAGE_READ": "Lida"
+    "HIDE_QUOTED_TEXT": "Esconder texto citado",
+    "SHOW_QUOTED_TEXT": "Mostrar texto citado",
+    "MESSAGE_READ": "Lido"
   }
 }
