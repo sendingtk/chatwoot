@@ -83,10 +83,17 @@
     "ERROR_MESSAGE": "Houve um erro, por favor tente novamente",
     "CONFIRM": {
       "TITLE": "Exportar contatos",
+<<<<<<< HEAD
+      "MESSAGE": "Tem certeza de que deseja exportar todos os contatos?",
+      "FILTERED_MESSAGE": "Tem certeza de que deseja exportar todos os contatos filtrados?",
+      "YES": "Sim, Exportar",
+      "NO": "Não, Cancelar"
+=======
       "MESSAGE": "Tem certeza de que deseja exportar todos os contatos?",
       "FILTERED_MESSAGE": "Tem certeza de que deseja exportar todos os contatos filtrados?",
       "YES": "Sim, exportar",
       "NO": "Não, cancelar"
+>>>>>>> 84b353ea213520560285845b8168a8b54c372ea1
     }
   },
   "DELETE_NOTE": {
@@ -142,7 +149,11 @@
         "DUPLICATE": "Este número de telefone já está em uso para outro contato."
       },
       "LOCATION": {
+<<<<<<< HEAD
+        "PLACEHOLDER": "Insira a localização do contato",
+=======
         "PLACEHOLDER": "Digite a localização do contato",
+>>>>>>> 84b353ea213520560285845b8168a8b54c372ea1
         "LABEL": "Localização"
       },
       "COMPANY_NAME": {
