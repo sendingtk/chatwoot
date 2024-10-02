@@ -232,6 +232,7 @@ export default {
         (this.isAGoogleInbox || isLegacyInbox) &&
         this.inbox.reauthorization_required
       );
+    },
     isWavoipFeatureEnabled() {
       return this.isFeatureEnabledonAccount(this.accountId, FEATURE_FLAGS.WAVOIP);
     },
